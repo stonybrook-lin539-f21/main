@@ -1,50 +1,47 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+set -u
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 SRCFILE"
+    exit 1
+fi
 
 projectroot="$(dirname $(realpath $0))"
-echo $projectroot
+sedscript="${projectroot}/html2latex.sed"
 mycommands="${projectroot}/templates/mycommands.mdown"
 mypackages="${projectroot}/templates/environments.sty"
 yaml="${projectroot}/templates/format.yaml"
-source="$1"
+
+sourcefile="$1"
+sourcedir=$(dirname "$sourcefile")
+tempdir="$(mktemp -dt lin539-mdown2pdf-XXXXX)"
+
+builddir="$projectroot/build/pdf/${sourcedir##source/}"
+mkdir -p "$builddir"
+
+# exit
 
 # preprocess mycommands
-tmpcommands="$(mktemp tmpcommandsXXXXXXXX.tmp.sty)"
 # delete line-initial and line-final $
-sed 's/\(^\$\|\$$\)//g' "$mycommands" > "$tmpcommands"
+modcommands="$tempdir/$(basename "$mycommands")"
+sed 's/\(^\$\|\$$\)//g' "$mycommands" > "$modcommands"
 
 # regex substitutions in source file
-tmpsource="$(mktemp "${source}XXXXXX.tmp.md")"
-cp "$source" "$tmpsource"
-# remove underscore from \input_{small,mid,large};
-# this is needed to avoid Latex complaints
-sed -i 's/\\input_[^{]*{\([^}]*\)}/\\begin{center}\\input{\1}\\end{center}/g' "$tmpsource"
-# replace <i>
-sed -i 's/<\/i>/\x00/g' "$tmpsource"  # replace by NUL for single character match of end
-sed -i 's/<i>\([^\x00]*\)\x00/\\emph{\1}/g' "$tmpsource"  # replace <i>X</i> by \emph{X}
-# replace <b>
-sed -i 's/<\/b>/\x00/g' "$tmpsource"  # replace by NUL for single character match of end
-sed -i 's/<b>\([^\x00]*\)\x00/\\textbf{\1}/g' "$tmpsource" # replace <b>X</b> by \textbf{X}
-# replace HTML lists by Latex
-sed -i 's/<ul>/\\begin{itemize}/g' "$tmpsource"
-sed -i 's/<\/ul>/\\end{itemize}/g' "$tmpsource"
-sed -i 's/<ol>/\\begin{enumerate}/g' "$tmpsource"
-sed -i 's/<\/ol>/\\end{enumerate}/g' "$tmpsource"
-sed -i 's/<\/li>/\x00/g' "$tmpsource"  # replace by NUL for single character match of end
-sed -i 's/<li>\([^\x00]*\)\x00/\\item \1/g' "$tmpsource"
-# delete all <br> and <br />
-sed -i 's/<br\s*\/\?>//g' "$tmpsource"
-# IPA replacements
-sed -i 's/ʃ/\\textipa{S}/g' "$tmpsource"
+modsource="$tempdir/$(basename "$sourcefile")"
+sed -f "$sedscript" "$sourcefile" > "$modsource"
 
 # convert with pandoc
-# cp "$tmpsource" tmpfile
-tex="$(basename "$source" .mdown).tex"
-pdf="$(basename "$source" .mdown).pdf"
-pandoc "$tmpsource" -t latex --standalone --metadata-file="$yaml" -H "$mypackages" -H "$tmpcommands" -o "$tex"
-latexmk -pdf "$tex"
-latexmk -c
+tex="$builddir/$(basename "$sourcefile" .mdown).tex"
+pdf="$builddir/$(basename "$modsource" .mdown).pdf"
+pandoc "$modsource" -t latex --standalone --metadata-file="$yaml" -H "$mypackages" -H "$modcommands" -o "$tex"
+# cd "$builddir"
+# latexmk -pdf "$tex"
+latexmk -auxdir="$builddir" -outdir="$builddir" -pdf "$tex"
+latexmk -c "$tex"
+# popd
 
 # remove temporary files
-rm "$tex" 2> /dev/null
-rm "$tmpcommands" 2> /dev/null
-rm "$tmpsource" 2> /dev/null
+# rm "$tex" 2> /dev/null
+# rm "$modcommands" 2> /dev/null
+# rm "$modsource" 2> /dev/null
+rm -rf "$tempdir" 2> /dev/null

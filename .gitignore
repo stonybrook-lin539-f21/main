@@ -11,6 +11,7 @@
 !*.latexmain
 !*.mdown
 !*.py
+!*.sed
 !*.svg
 !*.sty
 !*.tex

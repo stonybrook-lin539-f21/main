@@ -1,5 +1,6 @@
 *
 !.gitignore
+!makefile
 !*.bib
 !*.bst
 !*.css
@@ -29,3 +30,4 @@
 !build/
 !build/**/
 **/.ipynb_checkpoints/
+

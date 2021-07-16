@@ -1,3 +1,7 @@
+# replace source markup with form suitable for LaTeX
+
+# remove underscore from \input_{small,mid,large};
+# this is needed to avoid Latex complaints
 s/\\input_[^{]*{\([^}]*\)}/\\begin{center}\\input{\1}\\end{center}/g
 # replace <i>
 s/<\/i>/\x00/g  # replace by NUL for single character match of end

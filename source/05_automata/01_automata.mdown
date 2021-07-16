@@ -34,7 +34,7 @@ As for prefix trees, we can look at the strings that are associated with paths f
 \begin{example}
 Consider the FSA below, where initial states are marked by an edge labeled <i>start</i> and final nodes are doubly circled.
 
-\input_med{./abaa.tikz}
+\input_med{abaa.tikz}
 
 The shortest path from an initial to a final state goes from $0$ to $1$, or simply $\tuple{0,1}$. 
 This path contains only an $a$ along the way.
@@ -49,7 +49,7 @@ In sum, all the associated strings start with an $\String{a}$, followed by 0 or 
 \begin{example}
 In the minor variant below, the initial state is also a final state.
 
-\input_med{./aba.tikz}
+\input_med{aba.tikz}
 
 As a result, the empty path is a valid path from an initial state to a final state.
 The empty path is associated with the empty string $\emptystring$.
@@ -60,7 +60,7 @@ This also allows for the following strings: $\String{a}$, $\String{aba}$, $\Stri
 \begin{example}
 The automaton below produces strings over $\setof{a}$ of length $l$ such that $l \mod 4 = 2$.
 
-\input_med{./modulo4.tikz}
+\input_med{modulo4.tikz}
 \end{example}
 
 FSAs are incredibly useful for modeling natural language.
@@ -82,7 +82,7 @@ We can convert this to an FSA that will move us into a non-final vertex whenever
 Since we only consider paths that end in a final vertex, it is impossible for a word to end in a voiced consonant.
 For the sake of succinctness, we denote all voiced consonants by $Z$ and all other sounds by $\neg Z$.
 
-\input_med{./voicing.tikz}
+\input_med{voicing.tikz}
 \end{example}
 
 \begin{example}
@@ -94,7 +94,7 @@ An SP-grammar can captured this by forbidding the subsequence HLH.
 Equivalently, one can construct an FSA where seeing an L after an H moves us into a special part of the graph where all edges are labeled L.
 This way it becomes impossible to continue a string like LHLLL with an H.
 
-\input_med{./utp.tikz}
+\input_med{utp.tikz}
 \end{example}
 
 The last example illustrates how vertices in an FSA serve as a limited kind of memory.
@@ -164,7 +164,7 @@ A string is recognized by the automaton iff there is at least one accepting run.
 \begin{example}
 Consider once more the automaton for unbounded tone plateauing.
 
-\input_med{./utp.tikz}
+\input_med{utp.tikz}
 
 In this automaton, the string LLLHH has only one run, which is $000011$.
 Note how the run is one symbol longer than the string.
@@ -185,13 +185,13 @@ In more detail:
 \begin{example}
 In the automaton below, the string $\String{aaaaaaa}$ receives the run $01230123$.
 
-\input_med{./modulo4.tikz}
+\input_med{modulo4.tikz}
 \end{example}
 
 \begin{example}
 Now consider the automaton below.
 
-\input_med{./nondet.tikz}
+\input_med{nondet.tikz}
 
 The string $\String{aba}$ has two distinct runs.
 One is $0123$, the other one is $0223$.
@@ -208,7 +208,7 @@ Draw an FSA that recognizes the language $\String{a^+ b^+ a^*}$.
 \begin{exercise}
 Consider once more the following automaton:
 
-\input_med{./nondet.tikz}
+\input_med{nondet.tikz}
 
 For each one of the following strings, list all accepting runs with respect to this automaton.
 If there is no such run, say so.

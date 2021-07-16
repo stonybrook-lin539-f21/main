@@ -201,7 +201,7 @@ Once again we get a unique solution for join and meet that is guaranteed to exis
 \begin{example}
 The poset $\mathbf{2}$ of truth values is also a lattice.
 
-\input_mid{./lattice_2.tikz}
+\input_mid{lattice_2.tikz}
 
 In this case, the lattice is small enough to verify by hand that meet and join exist in all relevant cases, which are $T \wedge T$, $T \wedge F$, and $F \wedge F$ (and similarly for $\vee$).
 \end{example}

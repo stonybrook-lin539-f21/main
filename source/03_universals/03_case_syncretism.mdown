@@ -182,7 +182,7 @@ In contrast to the $^*$ABA generalization, monotonicity is also a meaningful con
 In a partial order, some elements may be unordered with respect to each other.
 This allows us to make a small but important modification to Blake's hierarchy.
 
-\input_mid{./blake_partialorder.tikz}
+\input_mid{blake_partialorder.tikz}
 
 This graph encodes the following orderings of cases:
 

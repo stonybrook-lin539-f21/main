@@ -8,7 +8,7 @@ Go back to the previous notebook and contrast all the linguistic hierarchies aga
 The latter relates each element to itself, and nothing else.
 This relation is very disjointed, as you can see in the figure below for the set $\setof{1,2,3,4}$.
 
-\input_mid{./1234.tikz}
+\input_mid{1234.tikz}
 
 Contrast this against all the figures from the previous notebook.
 Imagine you were to build those out of wires and styrofoam balls.
@@ -54,7 +54,7 @@ That is substantive restriction and rules out a lot of very unnatural hierarchie
 Using ideas from graph-theory, we can narrow down the class of possible hierarchies even more.
 Remember that we originally had the class of semilattices as a feasible candidate, until noun stem allomorphy ruled that out with its odd hierarchy:
 
-\input_mid{./stem_allomorphy.tikz}
+\input_mid{stem_allomorphy.tikz}
 
 Graph-theory provides a way around this by revealing hidden lattice structure in this figure.
 The strongly connected components of a graph are those parts where the vertices are so tightly connected by the edge relation that they are mutually reachable.
@@ -62,14 +62,14 @@ Within a strongly connected component, one can move from any vertex to any other
 
 For example, the graph below consists of three strongly connected components, which are indicated by dashed rectangles.
 
-\input_mid{./connected_components.tikz}
+\input_mid{connected_components.tikz}
 
 The stem allomorphy hierarchy consists of two strongly connected components.
 We can construct a new graph where each strongly connected component is replaced by a single node.
 This is called a **condensation**.
 In the case at hand, the condensation forms a smaller hierarchy that is, in fact, a lattice.
 
-\input_mid{./stem_allomorphy_lattice.tikz}
+\input_mid{stem_allomorphy_lattice.tikz}
 
 All the other linguistic hierarchies lack strongly connected components, so their condensation would look exactly the same.
 But if we look at condensations instead of the actual hierarchies, then we are exclusively dealing with semilattices.

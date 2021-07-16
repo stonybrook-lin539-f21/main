@@ -25,7 +25,7 @@ This allows the transducer to gradually produce an output string as it moves thr
 \begin{example}
 The transducer below keeps all $a$s as $b$s while keeping $b$ and $c$ the same.
 
-\input_small{./fst_a2b.tikz}
+\input_small{fst_a2b.tikz}
 
 It gradually transforms $acbbaa$ one symbol after the other:
 
@@ -46,7 +46,7 @@ Gradually rewrite $aaaaba$ in the fashion above.
 \begin{example}
 This transducer rewrites $a$ as $b$ if it immediately follows $b$ in the input.
 
-\input_small{./fst_aafterb.tikz}
+\input_small{fst_aafterb.tikz}
 \end{example}
 
 In a transducer, both the input and the output component of an arc label may be the empty string.
@@ -54,7 +54,7 @@ In a transducer, both the input and the output component of an arc label may be 
 \begin{example}
 The transducer below can follow the $\emptystring$-arc to start rewriting $a$ as $b$.
 
-\input_med{./fst_emptyarcs.tikz}
+\input_med{fst_emptyarcs.tikz}
 
 For example, $aaaa$ can be rewritten as $aabb$, but not $abba$.
 \end{example}
@@ -78,29 +78,29 @@ One every outgoing arc from $q_2$ has a counterpart leaving $q_1$, the $\emptyst
 This is exemplified below.
 The first automaton contains two $\emptystring$-arcs.
 
-\input_med{./fsa_emptyarcs_step1.tikz}
+\input_med{fsa_emptyarcs_step1.tikz}
 
 We first remove the second $\emptystring$-arc.
 Since we can go from $3$ to $6$ with an $\emptystring$-arc from $3$ to $5$ and a $d$-arc from $5$ to $6$, we add a $d$-arc from $3$ to $6$.
 We can also go from $3$ to $5$ with an $\emptystring$-arc and then loop there with an $e$-arc, so we add an $e$-arc from $3$ to $5$.
 This takes care of all outgoing arcs that can be taken via the $\emptystring$-arc from $3$, so we remove the latter.
 
-\input_med{./fsa_emptyarcs_step2.tikz}
+\input_med{fsa_emptyarcs_step2.tikz}
 
 We now proceed in the same way for the first $\emptystring$-arc, connecting $1$ directly to any state that can be reached by first taking the $\emptystring$-arc from $1$ to $3$.
 
-\input_med{./fsa_emptyarcs_step3.tikz}
+\input_med{fsa_emptyarcs_step3.tikz}
 
 At this point, state $3$ becomes redundant because it cannot be reached.
 So we remove it, giving us the final, $\emptystring$-free FSA.
 
-\input_med{./fsa_emptyarcs_step4.tikz}
+\input_med{fsa_emptyarcs_step4.tikz}
 \end{example}
 
 \begin{example}
 The following FST uses an empty input label to randomly insert arbitrarily many $b$s in a string of $a$s.
 
-\input_small{./fst_randominsert.tikz}
+\input_small{fst_randominsert.tikz}
 \end{example}
 
 \begin{exercise}
@@ -111,7 +111,7 @@ Explain why!
 \begin{example}
 The FST below uses an empty output label to delete all $a$s in the input.
 
-\input_small{./fst_delete.tikz}
+\input_small{fst_delete.tikz}
 
 Deletion is impossible without $\emptystring$ as the output label.
 \end{example}
@@ -140,15 +140,15 @@ One can easily construct a transducer for the composition of two FSTs by modifyi
 Consider the two FSTs below.
 The first one rewrites each $a$ as $b$, whereas the second one rewrites ever other $b$ as $c$.
 
-\input_small{./fst_a2b.tikz}
+\input_small{fst_a2b.tikz}
 
-\input_med{./fst_otherb2c.tikz}
+\input_med{fst_otherb2c.tikz}
 
 Suppose our input string is $bacab$.
 Then the first transducer rewrites it to $bbcbb$, which is then rewritten as $bccbc$ by the second one.
 This is also the result obtained by the transducer below.
 
-\input_med{./fst_intersection.tikz}
+\input_med{fst_intersection.tikz}
 \end{example}
 
 \begin{exercise}
@@ -175,17 +175,17 @@ One more important difference: whereas a state in the intersection automaton is 
 \begin{example}
 Consider the composition automaton from the previous example, now with simplified state names.
 
-\input_med{./fst_intersection_simplestates.tikz}
+\input_med{fst_intersection_simplestates.tikz}
 
 Suppose we compose this transducer with an FST that optionally rewrites the first $a$ it encounters as $b$ and adds an arbitrary number of $d$s at the end of the output.
 It also rejects all inputs that do not end in $cc$.
 For such inputs, no output is produced.
 
-\input_med{./fst_firsta_twocs.tikz}
+\input_med{fst_firsta_twocs.tikz}
 
 The composition construction yields the following transducer:
 
-\input_med{./fst_composition_large.tikz}
+\input_med{fst_composition_large.tikz}
 \end{example}
 
 \begin{exercise}

@@ -18,7 +18,7 @@ $$
 But when we want to allow all possible combinations, there is an easier option.
 Consider the colored object depicted below:
 
-\input_mid{./shapes.tikz}
+\input_mid{shapes.tikz}
 
 We can represent each object as a pair $\tuple{s,c}$ where $s$ and $c$ are drawn from a set $S \is \setof{\text{square}, \text{circle}}$ of shapes and a set $C \is \setof{\text{blue}, \text{red}}$ of colors, respectively.
 The figure above contains every possible combination of those shapes and colors.

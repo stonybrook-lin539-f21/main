@@ -82,22 +82,22 @@ This follows by iterated invocation of transitivity.
 Suppose that $a \mathrel{R} b$, $b \mathrel{R} c$, and $c \mathrel{R} d$.
 This is shown pictorially below.
 
-\input_mid{./transitivity1.tikz}
+\input_mid{transitivity1.tikz}
 
 Then by transitivity, we also have $a \mathrel{R} c$.
 
-\input_mid{./transitivity2.tikz}
+\input_mid{transitivity2.tikz}
 
 But then, again by transitivity, we must also have $a \mathrel{R} d$ because of $a \mathrel{R} c$ and $c \mathrel{R} d$.
 
-\input_mid{./transitivity3.tikz}
+\input_mid{transitivity3.tikz}
 
 Since we can apply the same argument over and over again, anything that can be reached with a finite number of steps can also be reached in a single step.
 
 It is also important to keep in mind that some relations can be trivially transitive, such as the relation below.
 Here there are no $a$, $b$, and $c$ such that we have both $a \mathrel{R} b$ and $b \mathrel{R} c$, so transitivity holds because we cannot produce any counterexample to the claim that the relation is transitive.
 
-\input_large{./transitivity_trivial.tikz}
+\input_large{transitivity_trivial.tikz}
 
 Nor does transitivity imply that we can reach every element from every other element with a single step.
 Nodes may still be unreachable from certain positions.
@@ -123,7 +123,7 @@ But $\leq$ is not irreflexive because $x \leq x$ for every number $x$.
 Note that pictures can sometimes be misleading when it comes to irreflexivity.
 Consider the figure below.
 
-\input_large{./irreflexivity_violated.tikz}
+\input_large{irreflexivity_violated.tikz}
 
 It looks like this relation is irreflexive because no node has a loop back to itself.
 But it is common style for such figures to omit all connections that can be inferred via transitivity.
@@ -155,7 +155,7 @@ Asymmetry is violated.
 
 As with irreflexivity, some transitive relations may not be asymmetric even though they look like it.
 
-\input_large{./asymmetry_violated.tikz}
+\input_large{asymmetry_violated.tikz}
 
 It looks like the figure above contains no two $x$ and $y$ such that $x \mathrel{R} y$ and $y \mathrel{R} x$ both hold.
 But once again the figure might just omit the parts of the relation that can be inferred from transitivity.
@@ -175,19 +175,19 @@ A binary relation $R$ over set $D$ is <b>semiconnex</b> iff $x \mathrel{R} y$ or
 This unit contains several relations that are semiconnex.
 The are repeated below (excluding connections that can be inferred via transitivity).
 
-\input_mid{./transitivity1.tikz}
-\input_large{./irreflexivity_violated.tikz}
-\input_large{./asymmetry_violated.tikz}
+\input_mid{transitivity1.tikz}
+\input_large{irreflexivity_violated.tikz}
+\input_large{asymmetry_violated.tikz}
 
 However, one of the displayed relations is not semiconnex.
 
-\input_large{./transitivity_trivial.tikz}
+\input_large{transitivity_trivial.tikz}
 
 That's because $a_1$ and $b_1$ are distinct, yet neither $a_1 \mathrel{R} b_1$ nor $b_1 \mathrel{R} a_1$ hold.
 
 The previous unit also showed a relation that's not semiconnex.
 
-\input_mid{./natnum_digitsum.tikz}
+\input_mid{natnum_digitsum.tikz}
 
 Here none of the elements in the same "column" are related to each other, violating semiconnexity.
 \end{example}

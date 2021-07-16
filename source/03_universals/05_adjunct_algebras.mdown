@@ -245,7 +245,7 @@ It contains
 
 When we order these sentences by $\leq_A$, we get the structure depicted below.
 
-\input_mid{./adjunctextension.tikz}
+\input_mid{adjunctextension.tikz}
 
 We could've also drawn it upside-down with <i>John snored</i> at the top, this does not make a difference.
 \end{example}
@@ -279,13 +279,13 @@ But there are posets that do not meet this condition.
 Consider the structure below.
 Even though it is a poset, it is not a meet semilattice because $a$ and $b$ have no meet.
 
-\input_mid{./poset_nomeet.tikz}
+\input_mid{poset_nomeet.tikz}
 \end{example}
 
 \begin{example}
 The structure below is also a poset that fails to be a meet semilattice.
 
-\input_mid{./poset_nouniquemeet.tikz}
+\input_mid{poset_nouniquemeet.tikz}
 
 In this case, the problem is that there is no unique meet for $a$ and $b$. 
 Both $c$ and $d$ are viable choices, which violates the requirement that the meet must be unique.
@@ -302,7 +302,7 @@ Finally, the structure below isn't a meet semilattice either.
 Even though it consists of two parts, each one of which forms a semilattice, there's many pairs of elements that do not have meet, e.g. $c$ and $x$.
 As one missing meet is enough to prevent a poset from being a semilattice, this shows that the structure isn't as semilattice.
 
-\input_mid{./poset_union.tikz}
+\input_mid{poset_union.tikz}
 \end{example}
 
 The structure in the last example is exactly what we find with the poset $L$ ordered by $\leq_A$.
@@ -311,7 +311,7 @@ But $L$, even though it is a collection of such meet semilattices, is not itself
 Their semilattices are like little islands with no land connection between them.
 The poset $L$ ordered by $\leq_A$ is the archipelago that consists of all these islands.
 
-\input_large{./aic_semilattices.tikz}
+\input_large{aic_semilattices.tikz}
 
 
 ## Optionality and well-formedness entailments

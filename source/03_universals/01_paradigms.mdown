@@ -67,27 +67,27 @@ If this hierarchy is indeed a substantive universal of natural languages, then a
 But let's start with the basic intuition before we bring in any mathematical machinery.
 Suppose that we line up 1, 2, 3, for person as below, with A, B, C underneath it.
 
-\input_mid{./123_lineup.tikz}
+\input_mid{123_lineup.tikz}
 
 Using this visual format, we can represent an ABC pattern by connecting each person to the form below it.
 
-\input_mid{./123_ABC.tikz}
+\input_mid{123_ABC.tikz}
 
 By contrast, the AAA pattern is the result of linking each person to A.
 
-\input_mid{./123_AAA.tikz}
+\input_mid{123_AAA.tikz}
 
 \begin{exercise}
 What patterns do the two pictures below represent?
 \end{exercise}
 
-\input_mid{./123_AAB.tikz}
+\input_mid{123_AAB.tikz}
 
-\input_mid{./123_ABB.tikz}
+\input_mid{123_ABB.tikz}
 
 Now contrast the figures above against the one below, which displays an ABA pattern:
 
-\input_mid{./123_ABA.tikz}
+\input_mid{123_ABA.tikz}
 
 The ABA pattern is different from the others because the lines cross at some point.
 Linguists have noticed over the years that language, quite generally, does not like crossing lines.

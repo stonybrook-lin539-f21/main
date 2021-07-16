@@ -77,8 +77,8 @@ The sibilant tier of <i>hasxintilawas</i> is <i>ss</i>, which is allowed by the 
 The illicit <i>hasxintilawaʃ</i>, on the other hand, has the sibilant tier <i>sʃ</i>, which is not allowed.
 \end{example}
 
-\input_mid{./tier_good.tikz}
-\input_mid{./tier_bad.tikz}
+\input_mid{tier_good.tikz}
+\input_mid{tier_bad.tikz}
 
 \begin{exercise}
 Carry out the same calculations for

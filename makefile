@@ -43,7 +43,7 @@ $(PDF): $(PDFDIR)/%.pdf: $(PDFDIR)/%.tex $(SRCDIR)/%.mdown
 	mkdir -p $(shell dirname $@)
 	TEXINPUTS=".:$(srcsubdir):" latexmk -pdf \
 		-auxdir="$(buildsubdir)" -outdir="$(buildsubdir)" \
-		-interaction=nonstopmode "$<"
+		-interaction=nonstopmode -halt-on-error "$<"
 
 .PHONY: cleanaux
 cleanaux:

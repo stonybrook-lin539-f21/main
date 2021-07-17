@@ -4,7 +4,7 @@ The fact that De Morgan's law holds for sets as well as propositional logic is n
 The two are close siblings from an algebraic perspective.
 
 Let $S$ be some fixed set.
-We may order $\w(S)$ by the subset relation to obtain the familiar powerset lattice, with join corresponding to union and meet to intersection.
+We may order $\wp(S)$ by the subset relation to obtain the familiar powerset lattice, with join corresponding to union and meet to intersection.
 In fact, this lattice satisfies two additional properties that make it a **Boolean lattice** (or **Boolean algebra**).
 
 \begin{definition}
@@ -26,7 +26,7 @@ More specifically:
 <li>Show that distributivity holds: $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ and $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$</li>
 <li>What are the least and greatest elements of $\wp(S)$?</li>
 <li>For any arbitrary $A \in \wp(S)$, what is its complement $\neg A$?</li>
-</oL>
+</ol>
 \end{exercise}
 
 As you might already expect, propositional logic also has the structure of a Boolean lattice.

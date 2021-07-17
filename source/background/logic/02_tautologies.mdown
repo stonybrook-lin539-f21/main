@@ -41,7 +41,7 @@ A direct analogue of that holds in propositional logic.
 Both of the following are tautologies:
 
 - $\phi \wedge \psi \leftrightarrow \neg (\neg \phi \vee \neg \psi)$
-- $\phi \vee \psi \lefrightarrow \neg (\neg \phi \wedge \neg \psi)$
+- $\phi \vee \psi \leftrightarrow \neg (\neg \phi \wedge \neg \psi)$
 
 This means that every instance of $\phi \wedge \psi$ can be replaced by $\neg (\neg \phi \wedge \neg \psi)$, and similarly for negation.
 

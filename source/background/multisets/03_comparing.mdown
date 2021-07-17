@@ -102,7 +102,6 @@ So the formula above expands to $( S_M(s_1) + 1 ) \mult ( S_M(s_2) + 1 ) \mult \
 We have already seen that $B_M \is \setof{a:1, b:1, c:2, d:1}$ has 24 subsets, so its powerset has cardinality 24.
 Our formula yields exactly the same value.
 
-$$
 \begin{align*}
     \card{\wp(B_M)} &= \prod_{s \in B_M} \left ( B_M(s) + 1 \right )\\
                     &= ( B_M(a) + 1 ) \mult ( B_M(b) + 1 ) \mult ( B_M(c) + 1 ) \mult (B_M (d) + 1 )\\
@@ -110,5 +109,4 @@ $$
                     &= 2 \mult 2 \mult 3 \mult 2\\
                     &= 24\\
 \end{align*}
-$$
 \end{example}

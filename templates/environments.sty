@@ -1,5 +1,6 @@
 \usepackage[subpreambles=true]{standalone}
-%\usepackage[charter]{mathdesign}
+% \usepackage[charter]{mathdesign} % font problems at the moment
+\usepackage[notext]{stix2} % provides \sqsubsetneq
 \usepackage{mathtools}	% revised version of amsmath
 \usepackage{tipa}
 \usepackage[amsmath,hyperref,thmmarks]{ntheorem}
@@ -141,8 +142,8 @@
 \theoremheaderfont{\normalfont\itshape}
 \theoremprework{}
 \theorempostwork{}
-\newcommand{\QED}{\ensuremath{\blacksquare}}
-\qedsymbol{\QED}
+\newcommand{\myQED}{\ensuremath{\blacksquare}} % avoid clash with stix
+\qedsymbol{\myQED}
 \theoremsymbol{\ensuremath{\Box}}
 \newtheorem{proof}{Proof}
 

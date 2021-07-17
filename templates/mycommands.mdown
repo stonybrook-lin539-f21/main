@@ -31,6 +31,6 @@ $\newcommand{\pdom}{\ensuremath{\domsymbol^+}}$
 $\newcommand{\rdom}{\ensuremath{\domsymbol^*}}$
 $\newcommand{\indegree}[1]{\ensuremath{\mathrm{in}(#1)}}$
 $\newcommand{\outdegree}[1]{\ensuremath{\mathrm{out}(#1)}}$
-$\newcommand{\cupdot}{\cup\mkern-11.5mu\cdot\mkern5mu}$
+% $\newcommand{\cupdot}{\cup\mkern-11.5mu\cdot\mkern5mu}$
 $\newcommand{\mymatrix}[1]{\ensuremath{\left ( \matrix{#1}} \right )}$
 $\newcommand{\id}{\ensuremath{\mathrm{id}}}$

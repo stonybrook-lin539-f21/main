@@ -13,6 +13,7 @@
 !*.mdown
 !*.py
 !*.sed
+!*.sh
 !*.svg
 !*.sty
 !*.tex
@@ -23,6 +24,7 @@
 !notebooks/**/
 !pdf/
 !pdf/**/
+!scripts/
 !source/
 !source/**/
 !templates/

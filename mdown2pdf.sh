@@ -36,7 +36,7 @@ pdf="$builddir/$(basename "$modsource" .mdown).pdf"
 pandoc "$modsource" -t latex --standalone --metadata-file="$yaml" -H "$mypackages" -H "$modcommands" -o "$tex"
 # cd "$builddir"
 # latexmk -pdf "$tex"
-latexmk -pdf -auxdir="$builddir" -outdir="$builddir" -interaction=nonstopmode  "$tex"
+latexmk -pdf -outdir="$builddir" -interaction=nonstopmode  "$tex"
 latexmk -c "$tex"
 # popd
 

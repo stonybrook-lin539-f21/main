@@ -4,10 +4,10 @@ Here is some math.
 
 $y = mx + b$
 
-Now for a macro.
-
-\newcommand{\tuple}[1]{\langle #1 \rangle}
+Now for a math using custom macros.
 
 $\tuple{a, b, c}$
+
+$\setof{a, b, c}$
 
 The end.

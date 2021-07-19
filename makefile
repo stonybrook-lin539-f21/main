@@ -16,7 +16,8 @@ PDFDIR = $(BUILDDIR)/pdf
 HTMLDIR = $(BUILDDIR)/html
 
 SRC = $(shell find ${SRCDIR} -name *.mdown)
-MODCOMMANDS = $(BUILDDIR)/$(shell basename $(MYCOMMANDS))
+MODCMDS_TEX = $(TEXDIR)/$(shell basename $(MYCOMMANDS))
+MODCMDS_HTML = $(HTMLDIR)/$(shell basename $(MYCOMMANDS))
 MODSRC = $(patsubst $(SRCDIR)/%.mdown, $(MODSRCDIR)/%.mdown, $(SRC))
 TEX = $(patsubst $(SRCDIR)/%.mdown, $(TEXDIR)/%.tex, $(SRC))
 PDF = $(patsubst $(SRCDIR)/%.mdown, $(PDFDIR)/%.pdf, $(SRC))
@@ -26,24 +27,28 @@ PDFSUBDIRS = $(shell find $(PDFDIR) -type d)
 
 .DELETE_ON_ERROR:
 
-all: $(filter $(HTMLDIR)/test/%.html, $(HTML))
+all: $(filter $(PDFDIR)/test/%.pdf, $(PDF)) $(filter $(HTMLDIR)/test/%.html, $(HTML))
 
-$(BUILDDIR):
-	mkdir -p "$(BUILDDIR)"
+$(BUILDDIR) $(TEXDIR) $(PDFDIR) $(HTMLDIR):
+	mkdir -p $@
 
-$(MODCOMMANDS): $(MYCOMMANDS) $(BUILDDIR)
-	sed 's/\(^\$\|\$$\)//g' "$(MYCOMMANDS)" > "$(MODCOMMANDS)"
+$(MODCMDS_TEX): $(MYCOMMANDS) $(TEXDIR)
+	sed 's/\(^\$$\|\$$$$\)//g' "$(MYCOMMANDS)" > "$(MODCMDS_TEX)"
+
+$(MODCMDS_HTML): $(MYCOMMANDS) $(HTMLDIR)
+	echo '$$'
+	sed -e 's/^\$$/\\(/g' -e 's/\$$$$/\\)/g' "$(MYCOMMANDS)" > "$(MODCMDS_HTML)"
 
 $(MODSRC): $(MODSRCDIR)/%.mdown: $(SRCDIR)/%.mdown $(HTML2LATEX)
 	mkdir -p $(shell dirname "$@")
 	sed -f "$(HTML2LATEX)" "$<" > "$@"
 
-$(TEX): $(TEXDIR)/%.tex: $(MODSRCDIR)/%.mdown
+$(TEX): $(TEXDIR)/%.tex: $(MODSRCDIR)/%.mdown $(MODCMDS_TEX)
 	mkdir -p $(shell dirname $@)
 	pandoc -f markdown -t latex --standalone \
 		--metadata-file="$(YAML)" \
 		-H "$(MYPACKAGES)" \
-		-H "$(MODCOMMANDS)" "$<" -o "$@"
+		-H "$(MODCMDS_TEX)" "$<" -o "$@"
 	sed -i 's/\\input.*\.tikz}/REMOVED/g' $@
 
 $(PDF): $(PDFDIR)/%.pdf: $(TEXDIR)/%.tex
@@ -56,12 +61,13 @@ $(PDF): $(PDFDIR)/%.pdf: $(TEXDIR)/%.tex
 		-outdir="$(pdfsubdir)" \
 		"$<"
 
-$(HTML): $(HTMLDIR)/%.html: $(SRCDIR)/%.mdown $(MYCOMMANDS) $(WEBCSS)
+$(HTML): $(HTMLDIR)/%.html: $(SRCDIR)/%.mdown $(MODCMDS_HTML) $(WEBCSS)
 	$(eval htmlsubdir=$(shell dirname $@))
 	mkdir -p $(htmlsubdir)
-	cp $(WEBCSS) $(htmlsubdir)/$(shell basename $(WEBCSS))
-	pandoc --verbose -s -f markdown -t html \
-		-c $(shell basename $(WEBCSS)) \
+	pandoc --verbose -s -f markdown -t html --mathjax \
+		--template templates/default.html5 \
+		-H $(MODCMDS_HTML) \
+		-c $(abspath $(WEBCSS)) \
 		$< -o $@
 
 .PHONY: clean

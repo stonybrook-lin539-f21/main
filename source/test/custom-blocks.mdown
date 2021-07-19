@@ -1,0 +1,9 @@
+# Custom blocks
+
+Here is a custom block.
+
+::: theorem
+This is a theorem.
+:::
+
+The end.

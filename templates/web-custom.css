@@ -1,0 +1,361 @@
+
+img[alt=small] { width: 200px; }
+img[alt=med]   { width: 400px; }
+img[alt=big]   { width: 800px; }
+
+body {
+
+    counter-reset: theorem;
+
+    counter-reset: lemma;
+
+    counter-reset: definition;
+
+    counter-reset: example;
+
+    counter-reset: section;
+}
+
+div#notebook {
+
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+    font-size: 12pt;
+
+}
+
+h1 {
+
+
+}
+
+h2 {
+
+    counter-reset: subsection;
+
+    counter-increment: section;
+
+}
+
+h2:before {
+
+    content: counter(section)". ";
+
+}
+
+h3 {
+
+    counter-increment: subsection;
+
+}
+
+h3:before {
+
+    content: counter(section)"."counter(subsection)". ";
+
+}
+
+h1, h2, h3 {
+
+    color: #336699;
+
+}
+
+.theorem {
+
+    display: block;
+
+    margin: 12px 0;
+
+    font-size: 12pt;
+
+    font-style: normal;
+
+    background: #ffebe6;
+
+    border-color: #ffc2b3;
+
+    border-style: solid;
+
+    border-width: thin;
+
+    padding: .5%;
+
+    counter-increment: theorem;
+}
+
+.theorem:before {
+
+    content: "Theorem "counter(theorem)".";
+
+    font-weight: bold;
+
+    font-style: normal;
+
+}
+
+.lemma {
+
+    display: block;
+
+    margin: 12px 0;
+
+    font-size: 12pt;
+
+    font-style: normal;
+
+    background: #ecf2f9;
+
+    border-color: #c5d7ed;
+
+    border-style: solid;
+
+    border-width: thin;
+
+    padding: .5%;
+
+    counter-increment: lemma;
+}
+
+.lemma:before {
+
+    content: "Lemma "counter(lemma)".";
+
+    font-weight: bold;
+
+    font-style: normal;
+
+}
+
+.proof {
+
+    display: block;
+
+    margin: 12px 0;
+
+    font-size: 12pt;
+
+    font-style: normal;
+
+    /* background: #f0f0f5; */
+
+    /* border-color: #d1d1e0; */
+
+    /* border-style: solid; */
+
+    /* border-width: thin; */
+
+    padding: .5%;
+
+}
+
+.proof:before {
+
+    content: "Proof.";
+
+    font-style: italic;
+
+}
+
+.proof:after {
+
+    content: "\25FC";
+
+    float:right;
+
+}
+
+.definition {
+
+    display: block;
+
+    margin: 12px 0;
+
+    font-size: 12pt;
+
+    font-style: normal;
+
+    background: #fff1e6;
+    
+    border-color: #ffc999;
+
+    border-style: solid;
+
+    border-width: thin;
+
+    padding: .5%;
+
+    counter-increment: definition;
+}
+
+.definition:before {
+
+    content: "Definition "counter(definition)".";
+
+    font-weight: bold;
+
+    font-style: normal;
+
+}
+
+.example {
+
+    display: block;
+
+    margin: 12px 0;
+
+    font-size: 12pt;
+
+    font-style: normal;
+
+    background: #ecf9ec;
+
+    border-color: #c5edc5;
+
+    border-style: solid;
+
+    border-width: thin;
+
+    padding: .5%;
+
+    counter-increment: example;
+}
+
+.example:before {
+
+    content: "Example "counter(example)".";
+
+    font-weight: bold;
+
+    font-style: normal;
+
+}
+
+.exercise {
+
+    display: block;
+
+    margin: 12px 0;
+
+    font-size: 12pt;
+
+    font-style: normal;
+
+    background: #eeebca;
+
+    border-color: #c8c375;
+
+    border-style: solid;
+
+    border-width: thin;
+
+    padding: .5%;
+
+    counter-increment: exercise;
+}
+
+.exercise:before {
+
+    content: "Exercise "counter(exercise)".";
+
+    font-weight: bold;
+
+    font-style: normal;
+
+}
+
+.advice {
+
+    display: block;
+
+    margin: 12px 0;
+
+    font-size: 12pt;
+
+    font-style: normal;
+
+    background: #ffe6f9;
+    
+    border-color: #ffb3ec;
+
+    border-style: solid;
+
+    border-width: thin;
+
+    padding: .5%;
+
+    counter-increment: definition;
+}
+
+.advice:before {
+
+    content: "Advice.";
+
+    font-weight: bold;
+
+    font-style: normal;
+
+}
+
+.remark {
+
+    display: block;
+
+    margin: 12px 0;
+
+    font-size: 12pt;
+
+    font-style: normal;
+
+    background: #ffe6f9;
+    
+    border-color: #ffb3ec;
+
+    border-style: solid;
+
+    border-width: thin;
+
+    padding: .5%;
+
+    counter-increment: definition;
+}
+
+.remark:before {
+
+    content: "Remark.";
+
+    font-weight: bold;
+
+    font-style: normal;
+
+}
+
+.MathJax_Display,
+.MathJax nobr>span.math>span {
+    border: 0 !important;
+    font-size: 105% !important;
+    text-align: center !important;
+    margin: 0em !important;
+}
+/* Prevents MathJax from jittering */
+/* cell position when cell is selected */
+.MathJax:focus, body :focus .MathJax {
+    display: inline-block !important;
+}
+
+<script>
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/SVG"],
+        "HTML-CSS": {
+            preferredFont: "TeX",
+            availableFonts: ["TeX", "STIX"],
+            styles: {
+                scale: 100,
+                ".MathJax_Display": {
+                    "font-size": "100%",
+                }
+            }
+        },
+        SVG: { linebreaks: { automatic: true } }
+    });
+</script>

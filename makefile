@@ -1,6 +1,6 @@
 # Makefile to convert full course notes
 
-HTML2LATEX = html2latex.sed
+HTML2LATEX = scripts/html2latex.sed
 MYCOMMANDS = templates/mycommands.mdown
 MYPACKAGES = templates/environments.sty
 YAML = templates/format.yaml

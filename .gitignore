@@ -8,6 +8,7 @@
 !*.cls
 !*.dot
 !*.forest
+!*.html
 !*.ipynb
 !*.latexmain
 !*.mdown

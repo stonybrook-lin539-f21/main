@@ -27,7 +27,9 @@ PDFSUBDIRS = $(shell find $(PDFDIR) -type d)
 
 .DELETE_ON_ERROR:
 
-all: $(filter $(PDFDIR)/test/%.pdf, $(PDF)) $(filter $(HTMLDIR)/test/%.html, $(HTML))
+all: html
+pdf: $(filter $(PDFDIR)/test/%.pdf, $(PDF))
+html: $(filter $(HTMLDIR)/test/%.html, $(HTML))
 
 $(BUILDDIR) $(TEXDIR) $(PDFDIR) $(HTMLDIR):
 	mkdir -p $@
@@ -37,7 +39,9 @@ $(MODCMDS_TEX): $(MYCOMMANDS) $(TEXDIR)
 
 $(MODCMDS_HTML): $(MYCOMMANDS) $(HTMLDIR)
 	echo '$$'
-	sed -e 's/^\$$/\\(/g' -e 's/\$$$$/\\)/g' "$(MYCOMMANDS)" > "$(MODCMDS_HTML)"
+	sed -e 's/^\$$/\\(/g' -e 's/\$$$$/\\)/g' \
+		-e '/^%/d' \
+		"$(MYCOMMANDS)" > "$(MODCMDS_HTML)"
 
 $(MODSRC): $(MODSRCDIR)/%.mdown: $(SRCDIR)/%.mdown $(HTML2LATEX)
 	mkdir -p $(shell dirname "$@")
@@ -64,8 +68,9 @@ $(PDF): $(PDFDIR)/%.pdf: $(TEXDIR)/%.tex
 $(HTML): $(HTMLDIR)/%.html: $(SRCDIR)/%.mdown $(MODCMDS_HTML) $(WEBCSS)
 	$(eval htmlsubdir=$(shell dirname $@))
 	mkdir -p $(htmlsubdir)
-	pandoc --verbose -s -f markdown -t html --mathjax \
-		--template templates/default.html5 \
+	pandoc --verbose -s -f markdown -t html \
+		--mathjax -Vmath="" -H "templates/include-mathjax.html" \
+		--template "templates/default.html5" \
 		-H $(MODCMDS_HTML) \
 		-c $(abspath $(WEBCSS)) \
 		$< -o $@

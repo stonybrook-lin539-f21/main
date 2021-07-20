@@ -7,6 +7,7 @@ MYCOMMANDS = templates/mycommands.mdown
 MYPACKAGES = templates/environments.sty
 YAML = templates/format.yaml
 WEBCSS = templates/web-custom.css
+MATHJAXCALL = templates/include-mathjax.html
 
 SRCDIR = source
 BUILDDIR = build
@@ -34,11 +35,12 @@ html: $(filter $(HTMLDIR)/test/%.html, $(HTML))
 $(BUILDDIR) $(TEXDIR) $(PDFDIR) $(HTMLDIR):
 	mkdir -p $@
 
-$(MODCMDS_TEX): $(MYCOMMANDS) $(TEXDIR)
+$(MODCMDS_TEX): $(MYCOMMANDS)
+	mkdir -p $(shell dirname "$@")
 	sed 's/\(^\$$\|\$$$$\)//g' "$(MYCOMMANDS)" > "$(MODCMDS_TEX)"
 
-$(MODCMDS_HTML): $(MYCOMMANDS) $(HTMLDIR)
-	echo '$$'
+$(MODCMDS_HTML): $(MYCOMMANDS)
+	mkdir -p $(shell dirname "$@")
 	sed -e 's/^\$$/\\(/g' -e 's/\$$$$/\\)/g' \
 		-e '/^%/d' \
 		"$(MYCOMMANDS)" > "$(MODCMDS_HTML)"
@@ -69,8 +71,7 @@ $(HTML): $(HTMLDIR)/%.html: $(SRCDIR)/%.mdown $(MODCMDS_HTML) $(WEBCSS)
 	$(eval htmlsubdir=$(shell dirname $@))
 	mkdir -p $(htmlsubdir)
 	pandoc --verbose -s -f markdown -t html \
-		--mathjax -Vmath="" -H "templates/include-mathjax.html" \
-		--template "templates/default.html5" \
+		--mathjax -Vmath="" -H $(MATHJAXCALL) \
 		-H $(MODCMDS_HTML) \
 		-c $(abspath $(WEBCSS)) \
 		$< -o $@

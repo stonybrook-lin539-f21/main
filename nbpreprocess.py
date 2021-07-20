@@ -12,7 +12,7 @@ source = Path("source")
 build = Path("build")
 notebooks = Path("notebooks")
 pdf = Path("pdf")
-templates = Path("templates")
+includes = Path("includes")
 
 # generator for all standalone tikz files
 tikz_exts = (".tikz", ".forest")
@@ -24,7 +24,7 @@ mdown = (f for f in source.glob('**/*') if f.suffix in mdown_exts)
 
 # list of all styling files (list because generator can only be processed once)
 style_exts = (".css")
-styles = [f for f in templates.glob('**/*') if f.suffix in style_exts]
+styles = [f for f in includes.glob('**/*') if f.suffix in style_exts]
 
 
 def change_subfolder(path: Path, subfolder: Path,
@@ -78,7 +78,7 @@ def create_mycommands(f: Path, build_dir: Path) -> None:
 
 
 def process_tikzfile(f: Path, mycommands: Path = Path(
-                        "./templates/mycommands.mdown")) -> None:
+                        "./includes/mycommands.mdown")) -> None:
     """
     Convert tikz file to svg image.
 
@@ -105,7 +105,7 @@ def process_tikzfile(f: Path, mycommands: Path = Path(
              stdout=sp.DEVNULL)
 
 
-def load_template(file_list: List[str], folder: Path = templates) -> str:
+def load_template(file_list: List[str], folder: Path = includes) -> str:
     """Read in boilerplate text from mdown file."""
     text = "\n"
     for f in file_list:
@@ -181,9 +181,9 @@ def mdown2ipynb(f: Path,
     f: Path
         path to file
     header:
-        list of header templates to prepend
+        list of header snippets to prepend
     footer:
-        list of footer templates to append
+        list of footer snippets to append
     copy_css:
         whether css files should be copied into each notebook folder
     """
@@ -236,7 +236,7 @@ def mdown2pdf(f: Path,
               yaml: Path,
               header: Path,
               footer: List[str] = [],
-              mycommands: Path = Path("./templates/mycommands.mdown")) -> None:
+              mycommands: Path = Path("./includes/mycommands.mdown")) -> None:
     """
     Convert markdown file to pdf.
 
@@ -259,7 +259,7 @@ def mdown2pdf(f: Path,
     header: Path
         Latex header to be prepended by pandoc
     footer: List[str]
-        list of footer templates to append
+        list of footer snippets to append
     """
     with f.open("r") as text:
         for folder in [build, pdf]:
@@ -306,8 +306,8 @@ for f in tikz:
 for f in mdown:
     mdown2ipynb(f, header=['mycommands'])
 #     mdown2pdf(f,
-#               yaml= templates / Path("format.yaml"),
-#               header= templates / Path("header.tex"))
+#               yaml= includes / Path("format.yaml"),
+#               header= includes / Path("header.tex"))
 
 # todo:
     # [ ] separate build directories for latex and notedown

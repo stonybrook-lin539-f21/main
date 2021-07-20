@@ -3,11 +3,11 @@
 HTML2LATEX = scripts/html2latex.sed
 CLEANAUX = scripts/cleanaux.sh
 
-MYCOMMANDS = templates/mycommands.mdown
-MYPACKAGES = templates/environments.sty
-YAML = templates/format.yaml
-WEBCSS = templates/web-custom.css
-MATHJAXCALL = templates/include-mathjax.html
+MYCOMMANDS = includes/mycommands.mdown
+MYPACKAGES = includes/environments.sty
+YAML = includes/format.yaml
+WEBCSS = includes/web-custom.css
+MATHJAXCALL = includes/include-mathjax.html
 
 SRCDIR = source
 BUILDDIR = build

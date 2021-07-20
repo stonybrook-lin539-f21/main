@@ -8,9 +8,9 @@ fi
 
 projectroot="$(dirname $(realpath $0))"
 sedscript="${projectroot}/html2latex.sed"
-mycommands="${projectroot}/templates/mycommands.mdown"
-mypackages="${projectroot}/templates/environments.sty"
-yaml="${projectroot}/templates/format.yaml"
+mycommands="${projectroot}/includes/mycommands.mdown"
+mypackages="${projectroot}/includes/environments.sty"
+yaml="${projectroot}/includes/format.yaml"
 
 sourcefile="$1"
 sourcedir=$(dirname "$sourcefile")

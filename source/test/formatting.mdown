@@ -14,7 +14,7 @@ Here is a quote block.
 
 Here is a custom block.
 
-::: theorem
+::: theorem {.fancy}
 This is a theorem.
 :::
 

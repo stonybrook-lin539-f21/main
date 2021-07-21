@@ -9,8 +9,8 @@ Here is a custom Latex environment.
 This is a custom Latex environment.
 \end{custom}
 
-Here is an \\include call.
+Here is an \\input call.
 
-\include{mydiagram.tikz}
+\input{mydiagram.tikz}
 
 The end.

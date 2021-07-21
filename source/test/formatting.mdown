@@ -1,4 +1,16 @@
-# Custom blocks
+# Formatting
+
+## Basic formatting
+
+This text is *emphasized* and this text is **strongly emphasized**.
+
+## Block formatting
+
+Here is a quote block.
+
+> This is a quote block.
+
+## Custom div blocks
 
 Here is a custom block.
 
@@ -6,4 +18,18 @@ Here is a custom block.
 This is a theorem.
 :::
 
-The end.
+Here is a theorem with extra attributes.
+
+::: {.theorem .fancy}
+This is a theorem with extra attributes.
+:::
+
+Here is a multi-level custom block.
+
+::: theorem
+This is a theorem.
+
+:::: theorem
+This is a theorem inside a theorem.
+::::
+:::

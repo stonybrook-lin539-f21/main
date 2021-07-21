@@ -1,0 +1,16 @@
+
+# Latex commands
+
+Latex commands will be parsed as a "RawBlock" if the extension "raw_tex" is enabled.
+
+Here is a custom Latex environment. 
+
+\begin{custom}
+This is a custom Latex environment.
+\end{custom}
+
+Here is an \\include call.
+
+\include{mydiagram.tikz}
+
+The end.

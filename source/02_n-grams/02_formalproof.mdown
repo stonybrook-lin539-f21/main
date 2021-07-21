@@ -47,9 +47,9 @@ A negative $n$-gram grammar that is not mixed is called **strict**.
 
 ## Normal form theorem
 
-\begin{theorem}
+::: definition
 For every mixed negative $n$-gram grammar $G$, there is a strict negative $n$-gram grammar $G'$ such that $L(G) = L(G')$.
-\end{theorem}
+:::
 
 \begin{proof}
 Let $G' \is \setof{ u \stringcat g \stringcat v \mid g \in G, u,v \in \Sigma^*, \text{ and the length of } u \stringcat g \stringcat v \text{ is } n}$.

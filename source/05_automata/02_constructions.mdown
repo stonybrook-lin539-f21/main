@@ -72,9 +72,9 @@ The **intersection automaton** $A \cap B$ is the FSA $\tuple{\Sigma, Q_A \times 
 
 \end{definition}
 
-\begin{theorem}
+::: definition
 For all FSAs $A$ and $B$ there exists an FSA $C$ such that $L(A) \cap L(B) = L(C)$.
-\end{theorem}
+:::
 
 \begin{exercise}
 In an earlier exercise you had to construct FSAs for $\String{a^* b^+}$ and $\String{a^+ b^+ a^*}$.

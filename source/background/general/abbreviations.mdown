@@ -6,9 +6,9 @@ This abbreviation is often used in proofs.
 It means that we assume a specific property or condition that does not affect the validity of the proof.
 Here is an example:
 
-\begin{theorem}
+::: definition
 If somebody is holding three marbles in their hands, then at least one hand is holding at least two marbles.
-\end{theorem}
+:::
 
 \begin{proof}
 Assume w.l.o.g. that the right hand is holding strictly less than two marbles.

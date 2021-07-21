@@ -103,9 +103,9 @@ Which state corresponds to which equivalence class?
 The connection between congruence classes and states of an FSA isn't just a nice mathematical curiosity.
 It is the foundation of the famous Myhill-Nerode theorem.
 
-\begin{theorem}
+::: definition
 A string language $L$ is regular iff $\equiv_L$ has finite index.
-\end{theorem}
+:::
 
 For an equivalence relation to have **finite index** means that it induces only finitely many equivalence classes.
 So the Myhill-Nerode theorem states that a string language is regular iff its quotient structure under $\equiv_L$ has only finitely many equivalence classes.

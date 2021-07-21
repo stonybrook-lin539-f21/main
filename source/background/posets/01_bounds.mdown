@@ -11,8 +11,8 @@ The definition for lower and upper bounds of a single element in a poset is stra
 
 \begin{definition}
 Let $\tuple{S, \leq}$ be an arbitrary poset and $x$ an arbitrary member of $S$.
-Then $y \in S$ is a <b>lower bound</b> for $x$ iff $y \leq x$. 
-We call $y$ an <b>upper bound</b> iff $x \leq y$.
+Then $y \in S$ is a **lower bound** for $x$ iff $y \leq x$. 
+We call $y$ an **upper bound** iff $x \leq y$.
 \end{definition}
 
 \begin{example}
@@ -35,10 +35,10 @@ We underline $\setof{1}$ to indicate that this is the element for which we are c
 \begin{exercise}
 Draw corresponding diagrams for the upper and lower bounds of
 
-<ol>
-<li>$\setof{1,3}$</li>
-<li>$\emptyset$</li>
-</ol>
+
+- $\setof{1,3}$
+- $\emptyset$
+
 \end{exercise}
 
 \begin{exercise}
@@ -55,9 +55,9 @@ We say that $y$ is an upper (or lower) bound for subset $T$ iff $y$ is an upper 
 
 \begin{definition}
 Let $\tuple{S, \leq}$ be a poset and $T$ and arbitrary subset of $S$.
-Then the set of <b>upper bounds</b> of $T$ is
+Then the set of **upper bounds** of $T$ is
 $$\mathrm{ub}(T) \is \setof{ y \in S \mid x \leq y \text{ for all } x \in T}.$$
-Similarly, the set of <b>lower bounds</b> of $T$ is
+Similarly, the set of **lower bounds** of $T$ is
 $$\mathrm{lb}(T) \is \setof{ y \in S \mid y \leq x \text{ for all } x \in T}.$$
 \end{definition}
 
@@ -125,27 +125,27 @@ Once again we can also depict this in the graphical format:
 \begin{exercise}
 Given the poset in the previous example, compute all of the following:
 
-<ol>
-<li>$\mathrm{ub}(\setof{\setof{1,2}, \setof{2,3}})$</li>
-<li>$\mathrm{lb}(\setof{\setof{1,2}, \setof{2,3}})$</li>
-<li>$\mathrm{ub}(\setof{\emptyset})$</li>
-<li>$\mathrm{ub}(\emptyset)$</li>
-<li>$\mathrm{lb}(\setof{\emptyset, \setof{1,2,3}})$</li>
-<li>$\mathrm{lb}(\setof{\setof{1}, \setof{2,3}, \setof{1,2,3}})$</li>
-<li>$\mathrm{ub}(\setof{\setof{1}, \setof{2}, \setof{3}})$</li>
-</ol>
+
+- $\mathrm{ub}(\setof{\setof{1,2}, \setof{2,3}})$
+- $\mathrm{lb}(\setof{\setof{1,2}, \setof{2,3}})$
+- $\mathrm{ub}(\setof{\emptyset})$
+- $\mathrm{ub}(\emptyset)$
+- $\mathrm{lb}(\setof{\emptyset, \setof{1,2,3}})$
+- $\mathrm{lb}(\setof{\setof{1}, \setof{2,3}, \setof{1,2,3}})$
+- $\mathrm{ub}(\setof{\setof{1}, \setof{2}, \setof{3}})$
+
 \end{exercise}
 
 \begin{exercise}
 Consider $\tuple{\setof{0,1,2,3,4}, \leq}$, the set of the first five natural numbers ordered in the usual fashion via $\leq$.
 Using the pictorial format described above, indicate the lower and upper bounds for the following subsets:
 
-<ol>
-<li>$\setof{2}$</li>
-<li>$\setof{1,4}$</li>
-<li>$\setof{2,3}$</li>
-<li>$\setof{0,3}$</li>
-</ol>
+
+- $\setof{2}$
+- $\setof{1,4}$
+- $\setof{2,3}$
+- $\setof{0,3}$
+
 \end{exercise}
 
 \begin{exercise}
@@ -158,10 +158,10 @@ By comparison, what is $\mathrm{ub}(\mathrm{lb}(\setof{0,3}))$?
 Now consider $\tuple{\mathbb{N}, \leq}$ instead, the set of all natural numbers ordered via $\leq$.
 For each one of the following statements, say whether it is true or false and justify your answer.
 
-<ol>
-<li>Any two natural numbers $x$ and $y$ have infinitely many upper bounds.</li>
-<li>Any two natural numbers $x$ and $y$ have infinitely many lower bounds.</li>
-</ol>
+
+- Any two natural numbers $x$ and $y$ have infinitely many upper bounds.
+- Any two natural numbers $x$ and $y$ have infinitely many lower bounds.
+
 \end{exercise}
 
 

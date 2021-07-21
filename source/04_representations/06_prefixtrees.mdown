@@ -193,19 +193,19 @@ But they are nonetheless a highly efficient data structure for computers and a p
 \begin{exercise}
 Represent the following list of words as a prefix tree (assuming characters as the basic alphabet).
 
-<ul>
-<li>nation</li>
-<li>nature</li>
-<li>national</li>
-<li>natural</li>
-<li>nationalize</li>
-<li>naturalize</li>
-</ul>
+
+- nation
+- nature
+- national
+- natural
+- nationalize
+- naturalize
+
 \end{exercise}
 
 \begin{exercise}
 Represent the same list of words as a prefix tree but taking morphemes as the basic unit.
-For example, <i>natural</i> would only consist of the symbols <i>nature</i> and <i>-al</i>.
+For example, *natural* would only consist of the symbols *nature* and *-al*.
 \end{exercise}
 
 ## Prefix trees as graphs/gorn domains
@@ -229,18 +229,18 @@ That node colors are just node labels becomes even clearer when we view prefix t
 In that case, we have two distinct labeling functions, one for nodes and one for labels.
 
 \begin{definition}
-An <b>edge-labeling</b> for a graph $\tuple{V,E}$ is a total function $\ell: E \rightarrow \Sigma$.
-For every path $p \is \tuple{v_0, v_1, \ldots, v_{n-1}, v_n}$ ($n \geq 1$), we call $s \is \ell(\tuple{v_0, v_1}) \cdots \ell(\tuple{v_{n-1}, v_n})$ the <b>string associated with $p$</b>.
+An **edge-labeling** for a graph $\tuple{V,E}$ is a total function $\ell: E \rightarrow \Sigma$.
+For every path $p \is \tuple{v_0, v_1, \ldots, v_{n-1}, v_n}$ ($n \geq 1$), we call $s \is \ell(\tuple{v_0, v_1}) \cdots \ell(\tuple{v_{n-1}, v_n})$ the **string associated with $p$**.
 \end{definition}
 
 \begin{definition}
-A <b>prefix tree</b> is a 4-tuple $\tuple{V,E,c,\ell}$ such that
+A **prefix tree** is a 4-tuple $\tuple{V,E,c,\ell}$ such that
 
-<ol>
-<li>$\tuple{V,E}$ is a tree, and</li>
-<li>$c: V \rightarrow \setof{0,1}$ is a node labeling function, and </li>
-<li>$\ell: E \rightarrow \Sigma$ is an edge labeling function.</li>
-</ol>
+
+- $\tuple{V,E}$ is a tree, and
+- $c: V \rightarrow \setof{0,1}$ is a node labeling function, and 
+- $\ell: E \rightarrow \Sigma$ is an edge labeling function.
+
 \end{definition}
 
 The string language (i.e. lexicon) encoded by a prefix tree is the set of all strings associated with a path from the root to a node with label $1$.

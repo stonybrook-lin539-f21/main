@@ -10,12 +10,12 @@ Relaxing prefix trees in this way is tantamount to removing the condition that e
 Doing so generalizes prefix trees to prefix DAGs, where DAG is short for *directed acyclic graph*.
 
 \begin{definition}
-A graph $G \is \tuple{V,E}$ is a <b>directed acyclic graph</b> (DAG) iff
+A graph $G \is \tuple{V,E}$ is a **directed acyclic graph** (DAG) iff
 
-<ol>
-<li>$G$ is weakly connected, and</li>
-<li>$G$ is acyclic.</li>
-</ol>
+
+- $G$ is weakly connected, and
+- $G$ is acyclic.
+
 \end{definition}
 
 For prefix trees, DAGs are actually not the best match.

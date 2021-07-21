@@ -29,14 +29,14 @@ The transducer below keeps all $a$s as $b$s while keeping $b$ and $c$ the same.
 
 It gradually transforms $acbbaa$ one symbol after the other:
 
-<ol>
-<li>$\mathbf{b}cbbaa$</li>
-<li>$b\mathbf{c}bbaa$</li>
-<li>$bc\mathbf{b}baa$</li>
-<li>$bcb\mathbf{b}aa$</li>
-<li>$bcbb\mathbf{b}a$</li>
-<li>$bcbba\mathbf{b}$</li>
-</ol>
+
+- $\mathbf{b}cbbaa$
+- $b\mathbf{c}bbaa$
+- $bc\mathbf{b}baa$
+- $bcb\mathbf{b}aa$
+- $bcbb\mathbf{b}a$
+- $bcbba\mathbf{b}$
+
 \end{example}
 
 \begin{exercise}
@@ -74,7 +74,7 @@ Assume furthermore that $q_2$ only has an $a$-arc to $q_3$.
 Then one can also add an $a$-arc between $q_1$ and $q_3$.
 One every outgoing arc from $q_2$ has a counterpart leaving $q_1$, the $\emptystring$-arc between $q_1$ and $q_2$ becomes redundant and can be removed.
 
-<br>
+
 This is exemplified below.
 The first automaton contains two $\emptystring$-arcs.
 
@@ -119,11 +119,11 @@ Deletion is impossible without $\emptystring$ as the output label.
 \begin{exercise}
 Design an FST that
 
-<ol>
-<li>takes as its input members of $\setof{a,b}^*$, and</li>
-<li>can insert an unbounded number of $a$s after each $b$ in the input, and</li>
-<li>deletes the first $b$ that occurs immediately after $a$ in the input.</li>
-</ol>
+
+- takes as its input members of $\setof{a,b}^*$, and
+- can insert an unbounded number of $a$s after each $b$ in the input, and
+- deletes the first $b$ that occurs immediately after $a$ in the input.
+
 \end{exercise}
 
 As you can see, FSTs look very similar to FSAs, but that does not mean that every result that holds for FSAs also holds for FSTs.
@@ -189,28 +189,28 @@ The composition construction yields the following transducer:
 \end{example}
 
 \begin{exercise}
-<ol>
-<li>What output $o$ does the first transducer produce for $ccaaabc$?</li>
-<li>Does the second transducer accept $o$ as an input? If so, what output does it produce?</li>
-<li>Verify that the composition transducer computes the same output for $ccaaabca$.</li>
-</ol>
+
+- What output $o$ does the first transducer produce for $ccaaabc$?
+- Does the second transducer accept $o$ as an input? If so, what output does it produce?
+- Verify that the composition transducer computes the same output for $ccaaabca$.
+
 \end{exercise}
 
 \begin{exercise}
-<ol>
-<li>Construct a transducer $\tau$ that takes members of $\setof{a,b}^*$ and replaces every other $a$ by $b$.</li>
-<li>Construct a transducer $\rho$ that takes members of $\setof{a,b}^*$ and replaces every other $b$ by $a$.</li>
-<li>Construct a transducer that computes $\Rcomp{\tau}{\rho}$.</li>
-<li>Construct a transducer that computes $\Rcomp{\rho}{\tau}$.</li>
-</ol>
+
+- Construct a transducer $\tau$ that takes members of $\setof{a,b}^*$ and replaces every other $a$ by $b$.
+- Construct a transducer $\rho$ that takes members of $\setof{a,b}^*$ and replaces every other $b$ by $a$.
+- Construct a transducer that computes $\Rcomp{\tau}{\rho}$.
+- Construct a transducer that computes $\Rcomp{\rho}{\tau}$.
+
 \end{exercise}
 
 \begin{exercise}
-<ol>
-<li>Construct a transducer that takes members of $\setof{a,b}^n$, $n \geq 2$, as input and non-deterministically rewrites the first two symbols by members of $a^+$.</li>
-<li>Construct a transducer that takes members of $\setof{a,b}^*$ as input and rewrites the last symbol as $b$, if it exists.</li>
-<li>Construct the corresponding composition transducer.</li>
-</ol>
+
+- Construct a transducer that takes members of $\setof{a,b}^n$, $n \geq 2$, as input and non-deterministically rewrites the first two symbols by members of $a^+$.
+- Construct a transducer that takes members of $\setof{a,b}^*$ as input and rewrites the last symbol as $b$, if it exists.
+- Construct the corresponding composition transducer.
+
 \end{exercise}
 
 Composition is a very important property of FSTs.

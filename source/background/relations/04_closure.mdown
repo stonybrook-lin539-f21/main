@@ -30,11 +30,11 @@ The resulting $R'' \is \setof{1,2,3} \times \setof{1,2,3}$ is transitive and sym
 \begin{exercise}
 Calculate all of the following:
 
-<ol>
-<li>the reflexive closure of $\setof{\tuple{a,b}, \tuple{b,a}}$</li>
-<li>the transitive closure of $\setof{\tuple{a,b}, \tuple{b,a}}$</li>
-<li>the transitive closure of $\setof{\tuple{a,b}, \tuple{b,c}, \tuple{c,d}, \tuple{d,a}}$</li>
-</li>the reflexive, symmetric, transitive closure of $\setof{\tuple{a,b}, \tuple{a,c}, \tuple{d,c}}$</li>
-</li>the reflexive, symmetric, transitive closure of $\emptyset$</li>
-</ol>
+
+- the reflexive closure of $\setof{\tuple{a,b}, \tuple{b,a}}$
+- the transitive closure of $\setof{\tuple{a,b}, \tuple{b,a}}$
+- the transitive closure of $\setof{\tuple{a,b}, \tuple{b,c}, \tuple{c,d}, \tuple{d,a}}$
+the reflexive, symmetric, transitive closure of $\setof{\tuple{a,b}, \tuple{a,c}, \tuple{d,c}}$
+the reflexive, symmetric, transitive closure of $\emptyset$
+
 \end{exercise}

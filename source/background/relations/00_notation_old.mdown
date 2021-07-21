@@ -8,16 +8,16 @@ Relations are similar to functions in that they establish connections between ob
 But whereas a function associates only one output with every input, a relation is more flexible and allows connections to arbitrarily many elements.
 
 \begin{example}
-The question <i>Is $x$ a biological child of $y$</i> is a function because it maps any two $x$ and $y$ to either true or false, but never both.
-But if we slightly change the question to just <i>Name a biological child of $y$</i>, we are no longer dealing with a function because multiple answers are possible if $y$ has more than one child.
-Instead, we can talk about the <i>biological child</i> relation $R$ such that $x$ is related to $y$ via $R$ iff $x$ is a biological child of $y$.
+The question *Is $x$ a biological child of $y$* is a function because it maps any two $x$ and $y$ to either true or false, but never both.
+But if we slightly change the question to just *Name a biological child of $y$*, we are no longer dealing with a function because multiple answers are possible if $y$ has more than one child.
+Instead, we can talk about the *biological child* relation $R$ such that $x$ is related to $y$ via $R$ iff $x$ is a biological child of $y$.
 \end{example}
 
 ## Intuition
 
 \begin{example}
-Suppose <i>John</i> has exactly two siblings, <i>Mary</i> and <i>Sue</i>.
-Then the sibling relation establishes two connections for John: <i>John</i>-<i>Mary</i>, and <i>John</i>-<i>Sue</i>.
+Suppose *John* has exactly two siblings, *Mary* and *Sue*.
+Then the sibling relation establishes two connections for John: *John*-*Mary*, and *John*-*Sue*.
 This is commonly encoded as tuples: $\tuple{\text{John}, \text{Mary}}$ and $\tuple{\text{John}, \text{Sue}}$.
 For this particular family, the whole sibling relation can be represented as a set of pairs $\tuple{x,y}$ such that $x$ is the sibling of $y$:
 $$
@@ -26,7 +26,7 @@ $$
 \end{example}
 
 \begin{example}
-The <b>substring relation</b> $\sqsubseteq$ holds between two strings $u$ and $v$ iff $u$ is a substring of $v$.
+The **substring relation** $\sqsubseteq$ holds between two strings $u$ and $v$ iff $u$ is a substring of $v$.
 That is to say, there are $w, w' \in \Sigma^*$ such that $w \stringcat u \stringcat w' = v$.
 Note that for any given string $u$, there are infinitely many $v$ that $u$ is a substring of.
 Even if the alphabet contains only $a$, the string $aa$ is a substring of $aaa$, $aaaa$, $aaaaa$, and so on, ad infinitum.
@@ -42,10 +42,10 @@ So $\tuple{\text{John}, \text{Mary}, \text{Sue}}$ encodes that John and Mary are
 ## Definition and notation
 
 \begin{definition}
-A <b>relation</b> is a (possibly empty, possibly infinite) set of $n$-tuples.
+A **relation** is a (possibly empty, possibly infinite) set of $n$-tuples.
 \end{definition}
 
-We will mostly be dealing with the special case of <b>binary relations</b>, where $n = 2$.
+We will mostly be dealing with the special case of **binary relations**, where $n = 2$.
 Given a binary relation $R$, $a \mathrel{R}$ and $\mathrel{R} b$ are sets of objects related to $a$ and $b$, respectively:
 $$
 a \mathrel{R} \is \setof{ b \mid \tuple{a,b} \in R}
@@ -66,11 +66,11 @@ Then $\text{John} \mathrel{P} = \setof{\text{Sue}}$ and $\mathrel{P} \text{Sue} 
 Let $R$ be the relation that connects words to their parts of speech (N for nouns, V for verbs, A for adjectives, P for prepositions, D for determiners, and so on).
 List the following for English:
 
-<ol>
-<li>export $R$</li>
-<li>apple $R$</li>
-<li>$R$ P</li>
-</ol>
+
+- export $R$
+- apple $R$
+- $R$ P
+
 \end{exercise}
 
 ## Relations versus functions
@@ -88,19 +88,19 @@ That is to say, it holds for every $a$ that $a \mathrel{R}$ is either empty or c
 \begin{exercise}
 For each one of the following, say whether it is a function or just a relation.
 
-<ol>
-<li>the parent-of relation</li>
-<li>the parent-of relation in a world where the one-child policy is enforced globally</li>
-<li>the relation between a car's license plate and its owners</li>
-<li>the prefix relation, where $u$ is a prefix of $v$ iff there is some $w \in \Sigma^*$ such that $v = u \stringcat w$</li>
-</ol>
+
+- the parent-of relation
+- the parent-of relation in a world where the one-child policy is enforced globally
+- the relation between a car's license plate and its owners
+- the prefix relation, where $u$ is a prefix of $v$ iff there is some $w \in \Sigma^*$ such that $v = u \stringcat w$
+
 \end{exercise}
 
 \begin{exercise}
 Is the following statement true or false?
 Justify your answer.
 
-<br>
+
 Every relation $R$ can be regarded as a function that maps $x$ to $x \mathrel{R}$.
 \end{exercise}
 

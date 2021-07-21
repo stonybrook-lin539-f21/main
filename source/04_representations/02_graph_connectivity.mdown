@@ -30,12 +30,12 @@ The person hierarchy $1 < 2 < 3$ corresponds to a graph with
 $V \is \setof{1, 2, 3}$.
 The choice of edges is less fixed.
 
-<ol>
-<li>At the very least, $E$ must include $\tuple{1,2}$ and $\tuple{2,3}$ to express that $1 < 2$ and $2 < 3$.</li>
-<li>To explicitly encode transitivity, we may also add $1 < 3$ to $E$.</li>
-<li>For reflexivity, we add the loops $\tuple{1, 1}$, $\tuple{2, 2}$ and $\tuple{3, 3}$.</li>
-<li>Adding both $1 < 3$ and all the loops gives us a graph whose edge relation is both reflexive and transitive.</li>
-</ol>
+
+- At the very least, $E$ must include $\tuple{1,2}$ and $\tuple{2,3}$ to express that $1 < 2$ and $2 < 3$.
+- To explicitly encode transitivity, we may also add $1 < 3$ to $E$.
+- For reflexivity, we add the loops $\tuple{1, 1}$, $\tuple{2, 2}$ and $\tuple{3, 3}$.
+- Adding both $1 < 3$ and all the loops gives us a graph whose edge relation is both reflexive and transitive.
+
 
 Note that each one of the four choices for $E$ results in a different graph, but they can be constructed automatically from the first one.
 The second graph uses the transitive closure of the original edge relation, the third one the reflexive closure, and the fourth one the reflexive transitive closure.

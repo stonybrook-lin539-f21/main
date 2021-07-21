@@ -21,11 +21,11 @@ You will see it quite a bit in definitions, but also in the construction of abst
 
 \begin{exercise}
 For each one of the statements below, say whether it is true or false.
-<ol>
-<li>$\emptyset = \setof{}$</li>
-<li>$\emptyset \in \setof{a}$</li>
-<li>$\setof{a,b} \neq \emptyset$</li>
-</ol>
+
+- $\emptyset = \setof{}$
+- $\emptyset \in \setof{a}$
+- $\setof{a,b} \neq \emptyset$
+
 \end{exercise}
 
 ## Set-builder notation
@@ -105,19 +105,19 @@ The table below shows all the values for the variables and the resulting element
 
 \begin{exercise}
 For each one of the following, put $=$ or $\neq$ in the gap as appropriate:
-<ol>
-<li>$\setof{0,1,2,3,4,5} \_ \setof{ 10 - x \mid x \in \setof{5,6,7,8,9,10} }$</li>
-<li>$\emptyset \_ \setof{ x \mid x \text{ is both a square and circle}}$</li>
-<li>$\setof{2,3,5,7} \_ \setof{n + 1 \mid n \text{ is a prime number between 0 and 10}}$</li>
-</ol>
+
+- $\setof{0,1,2,3,4,5} \_ \setof{ 10 - x \mid x \in \setof{5,6,7,8,9,10} }$
+- $\emptyset \_ \setof{ x \mid x \text{ is both a square and circle}}$
+- $\setof{2,3,5,7} \_ \setof{n + 1 \mid n \text{ is a prime number between 0 and 10}}$
+
 \end{exercise}
 
 \begin{exercise}
 Express the following in terms of set-builder notation:
-<ol>
-<li>$\setof{\text{George Washington}, \text{John Adams}, \text{Thomas Jefferson}}$</li>
-<li>$\setof{\text{a}, \text{e}, \text{i}, \text{o}, \text{u}}$</li>
-</ol>
+
+- $\setof{\text{George Washington}, \text{John Adams}, \text{Thomas Jefferson}}$
+- $\setof{\text{a}, \text{e}, \text{i}, \text{o}, \text{u}}$
+
 \end{exercise}
 
 ## Summary

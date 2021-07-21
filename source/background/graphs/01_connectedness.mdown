@@ -16,12 +16,12 @@ A **strongly connected** graph, finally, is such that every node is reachable fr
 
 \begin{definition}
 A directed graph is
-<ul>
-<li>*weakly connected* iff the reflexive, symmetric, transitive closure of its edge relation is total,</li>
-<li>*connected* iff the reflexive, transitive closure of its edge relation is total,</li>
-<li>*strongly connected* iff the reflexive, transitive closure of its edge relation is identical to $V \times V$,</li>
-<li>*disconnected* iff it is not weakly connected.</li>
-</ul>
+
+- *weakly connected* iff the reflexive, symmetric, transitive closure of its edge relation is total,
+- *connected* iff the reflexive, transitive closure of its edge relation is total,
+- *strongly connected* iff the reflexive, transitive closure of its edge relation is identical to $V \times V$,
+- *disconnected* iff it is not weakly connected.
+
 \end{definition}
 
 \begin{example}

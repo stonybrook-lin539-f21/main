@@ -12,19 +12,19 @@ The definition of weak orders replaces the irreflexivity property of strict orde
 Since reflexive relations cannot be asymmetric, asymmetry is weakened to **antisymmetry**.
 
 \begin{definition}
-A <b>weak partial order</b> is a binary relation $R$ that is
+A **weak partial order** is a binary relation $R$ that is
 
-<ol>
-<li><b>transitive</b>: for all $x, y, z$, $x \mathrel{R} y$ and $y \mathrel{R} z$ jointly imply $x \mathrel{R} z$, and</li>
-<li><b>reflexive</b>: it holds for every $x$ that $x \mathrel{R} x$, and</li>
-<li><b>antisymmetry</b>: for all $x$ and $y$, if $x \mathrel{R} y$ and $y \mathrel{R} x$, then $x = y$.</li>
-</ol>
+
+- **transitive**: for all $x, y, z$, $x \mathrel{R} y$ and $y \mathrel{R} z$ jointly imply $x \mathrel{R} z$, and
+- **reflexive**: it holds for every $x$ that $x \mathrel{R} x$, and
+- **antisymmetry**: for all $x$ and $y$, if $x \mathrel{R} y$ and $y \mathrel{R} x$, then $x = y$.
+
 \end{definition}
 
 Just like strict total orders are strict partial orders that are semi-connex, weak total orders are weak partial orders that are **connex**.
 
 \begin{definition}
-A <b>weak total order</b> is a weak partial order that is <b>connex</b>: for all $x$ and $y$, it holds that $x \mathrel{R} y$ or $y \mathrel{R} x$.
+A **weak total order** is a weak partial order that is **connex**: for all $x$ and $y$, it holds that $x \mathrel{R} y$ or $y \mathrel{R} x$.
 \end{definition}
 
 ## Reflexivity
@@ -33,7 +33,7 @@ Reflexivity is a very simple property: a relation is reflexive iff every element
 
 \begin{definition}
 Let $R$ be a binary relation over $D$.
-Then $R$ is <b>reflexive</b> iff it holds for all $x \in D$ that $x \mathrel{R} x$.
+Then $R$ is **reflexive** iff it holds for all $x \in D$ that $x \mathrel{R} x$.
 \end{definition}
 
 If there is at least one element that is not related to itself, the relation is not reflexive.
@@ -58,7 +58,7 @@ Hence it is non-reflexive.
 
 \begin{example}
 Here's a surprising one: there is a relation that is both reflexive and irreflexive.
-It's the <b>empty relation</b> $R$, whose domain is the empty set $\emptyset$.
+It's the **empty relation** $R$, whose domain is the empty set $\emptyset$.
 In this case, there is no $x \in D$ such that $x \mathrel{R} x$, which means that $R$ is irreflexive.
 But there's also no $x \in D$ such that $x \not\mathrel{R} x$, which is the same as saying that $x \mathrel{R} x$ holds for every $x \in D$ (there simply happen to be no $x$ in $D$).
 Consequently, $R$ is also reflexive.
@@ -74,14 +74,14 @@ For each one of the following relations, say whether it is reflexive, irreflexiv
 Justify your answers!
 If you have to make additional assumptions, explain what they are. 
 
-<ol>
-<li>the "younger than" relation</li>
-<li>the "sums to 10" relation ($x \mathrel{R} y$ iff $x + y = 10$)</li>
-<li>the "at least as rich as" relation</li>
-<li>the "voted for the same candidate" relation</li>
-<li>the "parent-of" relation over humans in a world with time travelling</li>
-<li>the "reverse" relation over words ($x \mathrel{R} y$ iff $x$ is $y$ read backwards; e.g. <i>deer</i> and <i>reed</i>)
-</ol>
+
+- the "younger than" relation
+- the "sums to 10" relation ($x \mathrel{R} y$ iff $x + y = 10$)
+- the "at least as rich as" relation
+- the "voted for the same candidate" relation
+- the "parent-of" relation over humans in a world with time travelling
+- the "reverse" relation over words ($x \mathrel{R} y$ iff $x$ is $y$ read backwards; e.g. *deer* and *reed*)
+
 \end{exercise}
 
 \begin{exercise}
@@ -101,7 +101,7 @@ A relation is antisymmetric if it ensures as much asymmetry as possible without 
 
 \begin{definition}
 Let $R$ be a relation over $D$.
-Then $R$ is <b>antisymmetric</b> iff $x \mathrel{R} y$ and $y \mathrel{R} x$ jointly imply $x = y$ for all $x, y \in D$.
+Then $R$ is **antisymmetric** iff $x \mathrel{R} y$ and $y \mathrel{R} x$ jointly imply $x = y$ for all $x, y \in D$.
 \end{definition}
 
 \begin{example}
@@ -132,7 +132,7 @@ That would be **symmetry**.
 
 \begin{definition}
 Let $R$ be a binary relation over $D$.
-Then $R$ is <b>symmetric</b> iff it holds for all $x$ and $y$ in $D$ that $x \mathrel{R} y$ implies $y \mathrel{R} x$.
+Then $R$ is **symmetric** iff it holds for all $x$ and $y$ in $D$ that $x \mathrel{R} y$ implies $y \mathrel{R} x$.
 \end{definition}
 
 \begin{example}
@@ -142,7 +142,7 @@ It is always the case that $|x - y| = |y - x|$, for instance $|15 - 5| = |5 - 15
 So if $|x - y| = 10$, then $|y - x| = 10$.
 Hence $x \mathrel{R} y$ implies $y \mathrel{R} x$, exactly as required by symmetry.
 
-<br>
+
 You might object that there are many choices for $x$ and $y$ whose difference isn't $10$, for example $|5 - 2| = 3$.
 But that's immaterial for symmetry.
 Symmetry has nothing to say about relations between arbitrary elements, it only tells us that if $x$ is related to $y$, then $y$ is related to $x$.
@@ -178,15 +178,15 @@ For each one of the following relations, say whether it is symmetric, asymmetric
 Be as specific as possible: don't say antisymmetric if the relation is also asymmetric.
 Take care to justify your answers, and if you have to make additional assumptions, explain what they are. 
 
-<ol>
-<li>the "younger than" relation</li>
-<li>the "sums to 10" relation ($x \mathrel{R} y$ iff $x + y = 10$)</li>
-<li>the "at least as rich as" relation</li>
-<li>the "voted for the same candidate" relation</li>
-<li>the "parent-of" relation over humans in a world with time travelling</li>
-<li>the "reverse" relation over words ($x \mathrel{R} y$ iff $x$ is $y$ read backwards; e.g. <i>deer</i> and <i>reed</i>)
-<li>the lexicographic order of words in a dictionary</li>
-</ol>
+
+- the "younger than" relation
+- the "sums to 10" relation ($x \mathrel{R} y$ iff $x + y = 10$)
+- the "at least as rich as" relation
+- the "voted for the same candidate" relation
+- the "parent-of" relation over humans in a world with time travelling
+- the "reverse" relation over words ($x \mathrel{R} y$ iff $x$ is $y$ read backwards; e.g. *deer* and *reed*)
+- the lexicographic order of words in a dictionary
+
 \end{exercise}
 
 
@@ -198,7 +198,7 @@ But if a relation is reflexive, then $x \mathrel{R} y$ is necessarily the case w
 So we can just drop the requirement that $x$ and $y$ are distinct and stipulate that $x \mathrel{R} y$ or $y \mathrel{R} x$ holds no matter whether $x = y$ or $x \neq y$.
 
 \begin{definition}
-A relation $R$ over set $D$ is <b>connex</b> iff $x \mathrel{R} y$ or $y \mathrel{R} x$ holds for all $x, y \in D$.
+A relation $R$ over set $D$ is **connex** iff $x \mathrel{R} y$ or $y \mathrel{R} x$ holds for all $x, y \in D$.
 \end{definition}
 
 \begin{exercise}
@@ -279,12 +279,12 @@ Semi-connexity determines if the order is partial or total.
 \begin{definition}
 A binary relation $R$ over domain $D$ is
 
-<ol>
-<li>a <b>weak partial order</b> iff it is transitive, antisymmetric, and reflexive</li>
-<li>a <b>strict partial order</b> iff it is transitive, antisymmetric, and irreflexive</li>
-<li>a <b>weak total order</b> iff it is transitive, antisymmetric, semi-connex, and reflexive</li>
-<li>a <b>strict total order</b> iff it is transitive, antisymmetric, semi-connex, and irreflexive</li>
-</ol>
+
+- a **weak partial order** iff it is transitive, antisymmetric, and reflexive
+- a **strict partial order** iff it is transitive, antisymmetric, and irreflexive
+- a **weak total order** iff it is transitive, antisymmetric, semi-connex, and reflexive
+- a **strict total order** iff it is transitive, antisymmetric, semi-connex, and irreflexive
+
 \end{definition}
 
 \begin{exercise}

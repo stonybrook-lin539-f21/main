@@ -22,13 +22,13 @@ So whereas $S$ denotes a set, $_MS$ denotes a multiset.
 
 \begin{example}
 The set-of-words model converts the mini-text
-<i>Only John could like John</i>
+*Only John could like John*
 (modulo capitalization) to the set $\setof{\text{only}, \text{john}, \text{could}, \text{like}}$.
 The sentence
-<i>If police police police police police, then police police police police police</i>
+*If police police police police police, then police police police police police*
 is converted to $\setof{\text{if}, \text{police}, \text{then}}$.
 
-<br>
+
 The bag-of-words model gives different results.
 The first sentence is mapped to the multiset $\setof{\text{only}: 1, \text{john}: 2, \text{could}: 1, \text{like}: 1}$.
 The second one yields $\setof{\text{if}: 1, \text{police}: 10, \text{then}: 1}$.
@@ -37,10 +37,10 @@ The second one yields $\setof{\text{if}: 1, \text{police}: 10, \text{then}: 1}$.
 \begin{exercise}
 Consider the two sentences below.
 
-<ol>
-<li>John shaved.</li>
-<li>John shaved John.</li>
-</ol>
+
+- John shaved.
+- John shaved John.
+
 
 Are their sets identical?
 Are their multisets identical?
@@ -49,14 +49,14 @@ Are their multisets identical?
 \begin{exercise}
 This exercise is just for fun.
 Can you figure out all the possible interpretations of the sentence
-<i>If police police police police police, then police police police police police</i>?
+*If police police police police police, then police police police police police*?
 
 A few hints:
 
-<ol>
-<li>In English, <i>police</i> can be a noun or a verb (<i>to police something or somebody</i>).</li>
-<li>English allows for reduced relative clauses, e.g. <i>the man that Mary saw</i> can be reduced to <i>the man Mary saw</i>.</li>
-</ol>
+
+- In English, *police* can be a noun or a verb (*to police something or somebody*).
+- English allows for reduced relative clauses, e.g. *the man that Mary saw* can be reduced to *the man Mary saw*.
+
 \end{exercise}
 
 Just like sets, multisets aren't limited to unigrams.
@@ -86,7 +86,7 @@ print("Multiset for\n{} is\n{}".format(" ".join(sentence2), ngram_multiset(sente
 ```
 
 \begin{example}
-Given the sentence <i>if police police police police police then police police police police police</i>,
+Given the sentence *if police police police police police then police police police police police*,
 its bigram multiset is
 $$
 \setof{\text{if police}: 1, \text{police police}: 8, \text{police then}: 1, \text{then police}: 1}.
@@ -95,7 +95,7 @@ $$
 
 \begin{exercise}
 Construct the trigram multiset for
-<i>if police police police police police then police police police police police</i>.
+*if police police police police police then police police police police police*.
 \end{exercise}
 
 Since multisets aren't limited to invididual words in language-related applications, one often encounters the term **type** instead for the members of the multiset.
@@ -107,12 +107,12 @@ $$
 \setof{\text{if police}: 1, \text{police police}: 8, \text{police then}: 1, \text{then police}: 1}.
 $$
 contains four distinct types, which are
-<i>if police</i>,
-<i>police police</i>,
-<i>police then</i>,
+*if police*,
+*police police*,
+*police then*,
 and
-<i>then police</i>.
-The overall number of tokens is 11 as the type <i>police police</i> has 8 tokens and the other 3 types have 1 token each.
+*then police*.
+The overall number of tokens is 11 as the type *police police* has 8 tokens and the other 3 types have 1 token each.
 \end{example}
 
 ## Counts for frequencies
@@ -172,12 +172,12 @@ for ngrams in [unigrams, bigrams, trigrams]:
 \begin{exercise}
 Construct a bag of words from the following text of four sentences, then compute the relative frequency of each word:
 
-<ul>
-<li>John misses Mary</li>
-<li>Mary misses Misses Chives</li>
-<li>I hate chives with a passion</li>
-<li>I love passion fruit</li>
-</ul>
+
+- John misses Mary
+- Mary misses Misses Chives
+- I hate chives with a passion
+- I love passion fruit
+
 
 It is up to you to decide what should be treated as different words.
 You do not have to ignore capitalization in every case if you think that keeping capitalization gives a better result.
@@ -190,18 +190,18 @@ One can measure the relevance of a text for a given search query based on how mu
 
 \begin{example}
 The sentence
-<i>Only John thinks John thinks John likes John</i>
+*Only John thinks John thinks John likes John*
 corresponds to the multiset
 $$_MS \is \setof{\text{only}: 1, \text{john}: 4, \text{thinks}: 2, \text{likes}: 1}.$$
 With frequencies instead of counts this is
 $$_MS \is \setof{\text{only}: 0.125, \text{john}: 0.5, \text{thinks}: 0.25, \text{likes}: 0.5}.$$
-So the relevance score to the query <i>john</i> would be $0.5$.
+So the relevance score to the query *john* would be $0.5$.
 \end{example}
 
 \begin{exercise}
 Suppose the sentence were
-<i>Only John thinks he thinks he thinks he likes himself</i>.
-What would be the score of <i>john</i> in this case?
+*Only John thinks he thinks he thinks he likes himself*.
+What would be the score of *john* in this case?
 Is that a problem?
 \end{exercise}
 
@@ -242,7 +242,7 @@ $$
 \end{array}
 $$
 
-From this we construct an <i>Aristotle</i> multiset $_MA$ and a <i>metaphysics</i> multiset $_MP$ (naming it $_MM$ would be too confusing).
+From this we construct an *Aristotle* multiset $_MA$ and a *metaphysics* multiset $_MP$ (naming it $_MM$ would be too confusing).
 
 $$
 \begin{array}{rl}
@@ -257,7 +257,7 @@ $$_MA \is \setof{w_i: w_i(\text{Aristotle}) \mid w_i \text{ is in the search eng
 \end{example}
 
 \begin{exercise}
-Construct similar multisets for <i>ethics</i> and <i>Plato</i>.
+Construct similar multisets for *ethics* and *Plato*.
 \end{exercise}
 
 At this point we have two multisets over websites that tell us how well each website fits the individual terms *Aristotle* and *metaphysics*.
@@ -284,7 +284,7 @@ The best match according to this measure is the website $w_2$, closely followed 
 \end{example}
 
 \begin{exercise}
-Calculate the multiset sum of the two multisets you constructed for <i>ethics</i> and <i>Plato</i> in the previous exercise.
+Calculate the multiset sum of the two multisets you constructed for *ethics* and *Plato* in the previous exercise.
 \end{exercise}
 
 While multiset sum offers an easy way to convert the multisets produced according to the query into a single score for each website, it is also a bit too simplistic.
@@ -324,7 +324,7 @@ Considering that $w_1$ does not contain any mention of metaphysics, we actually 
 \end{example}
 
 \begin{exercise}
-Suppose the user entered <i>ethics Plato Aristotle</i>.
+Suppose the user entered *ethics Plato Aristotle*.
 Use scalar multiplication to assign appropriate weights to each word (it is up to you to decide what is appropriate).
 Then compute the multiset sum and determine which website is the best fit for the query.
 \end{exercise}

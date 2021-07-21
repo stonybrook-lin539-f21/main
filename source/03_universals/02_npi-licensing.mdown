@@ -49,7 +49,7 @@ Hence it is impossible for *no student slept* to be true but *no sophomore slept
 The sentences stand in an **entailment relation** such that the truth of the first implies the truth of the other.
 
 \begin{exercise}
-Consider the sentence <i>every student slept</i>.
+Consider the sentence *every student slept*.
 Does it allow for similar inferences via entailment?
 \end{exercise}
 
@@ -65,14 +65,14 @@ A sentence with *no* is **downward entailing**: if the sentence is true for a se
 
 \begin{example}
 Let $A$ be the set of all students.
-The sentence <i>No student slept</i> asserts for each student $s \in A$ that $s$ did not sleep.
+The sentence *No student slept* asserts for each student $s \in A$ that $s$ did not sleep.
 Suppose this is true.
-Then <i>No X slept</i> is necessarily true if X denotes some set $B \subseteq A$ because we already know for each $s \in B$ that $s$ did not sleep.
-Since there is no subset of $A$ for which this entailment fails, <i>no</i> is indeed downward entailing.
+Then *No X slept* is necessarily true if X denotes some set $B \subseteq A$ because we already know for each $s \in B$ that $s$ did not sleep.
+Since there is no subset of $A$ for which this entailment fails, *no* is indeed downward entailing.
 \end{example}
 
 \begin{exercise}
-Construct a similar argument to show that <i>every</i> is downward entailing.
+Construct a similar argument to show that *every* is downward entailing.
 \end{exercise}
 
 All this talk about downward entailment is nice and dandy, but it doesn't really help us with our problem.
@@ -85,8 +85,8 @@ But it actually is, we just haven't been looking in the right (or left) place.
 We can think of *no* and *every* as functions that take two arguments and return either true or false.
 
 \begin{example}
-The sentence <i>no student slept</i> can instead be written as <i>no(student, slept)</i>.
-On the other hand, <i>no(old man that I know, snores louder than 125db)</i> corresponds to the sentence <i>no old man that I know snores louder than 125db</i>.
+The sentence *no student slept* can instead be written as *no(student, slept)*.
+On the other hand, *no(old man that I know, snores louder than 125db)* corresponds to the sentence *no old man that I know snores louder than 125db*.
 \end{example}
 
 The intuition here is that *no*-sentences are of the general form *no X does/is Y*, with *X* as the first argument and *Y* as the second.
@@ -94,11 +94,11 @@ The intuition here is that *no*-sentences are of the general form *no X does/is 
 \begin{exercise}
 Represent the following sentences in terms of this functional notation:
 
-<ol>
-<li>No professor writes good lecture notes.</li>
-<li>Every professor could earn more in industry.</li>
-<li>This professor, no student likes.</li>
-</ol>
+
+- No professor writes good lecture notes.
+- Every professor could earn more in industry.
+- This professor, no student likes.
+
 \end{exercise}
 
 One thing the functional notation makes very clear is that a sentence consists of two distinct parts that contribute to the meaning.
@@ -118,7 +118,7 @@ So all of a sudden the direction of inference is the other way round --- if the 
 This shows that even though *every* was downward entailing with respect to X, it is **upward entailing** with respect to Y.
 
 \begin{exercise}
-Show that <i>no</i> is downward entailing with respect to Y.
+Show that *no* is downward entailing with respect to Y.
 \end{exercise}
 
 And now we have the contrast between *every* and *no* that we need.
@@ -155,18 +155,18 @@ You can think of $f$ as a sentence with a hole in it that must be filled by the 
 
 \begin{example}
 The sentence
-<i>Every male student snored loudly</i>
+*Every male student snored loudly*
 is an instance of the function
-<i>every $\Box$ snored loudly</i>
+*every $\Box$ snored loudly*
 applied to the argument
-<i>male student</i>.
-The function maps <i>male student</i> to 1 iff every male student snored loudly.
+*male student*.
+The function maps *male student* to 1 iff every male student snored loudly.
 
-<br>
+
 Alternatively, we can view the sentence as an instance of the function
-<i>every male student $\Box$</i>
+*every male student $\Box$*
 applied to the argument
-<i>snored loudly</i>.
+*snored loudly*.
 This function, too, returns 1 iff it is true that every male student snored loudly.
 \end{example}
 
@@ -182,14 +182,14 @@ In other words, $f$ is upward entailing.
 
 \begin{example}
 Consider the sentences
-<i>Every student ran a 5k</i>
+*Every student ran a 5k*
 and
-<i>Every student ran</i>.
+*Every student ran*.
 Clearly if the former is true, the latter must be too.
 We also know already that the set of students that ran a 5k (call it $5k$) is a subset of the students that ran (call it $R$).
 So we have $5k \subseteq R$.
 
-<br>
+
 Now suppose that $\text{\emph{every student}}(5k) = 1$.
 Then $\text{\emph{every student}}(R) \geq 1$ because $R \supseteq 5k$ and the function is monotonically increasing.
 So the fact that the sentence is true for $5k$ entails that it is true for every superset of $5k$.

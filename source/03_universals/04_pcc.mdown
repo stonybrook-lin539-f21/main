@@ -112,12 +112,12 @@ The pair $\tuple{1,3}$, on the other hand, represents the combination of 1IO and
 \begin{exercise}
 Tranlate between IO/DO notation and pairs.
 
-<ol>
-<li>2IO, 1DO</li>
-<li>$\tuple{1,2}$</li>
-<li>$\tuple{3,3}$</li>
-<li>2DO, 1IO</li>
-</ol>
+
+- 2IO, 1DO
+- $\tuple{1,2}$
+- $\tuple{3,3}$
+- 2DO, 1IO
+
 \end{exercise}
 
 Using pairs, we now have $3 \mult 3 = 9$ distinct elements to order.
@@ -151,13 +151,13 @@ On the other hand, $\tuple{2,1}$ and $\tuple{1,3}$ are unordered with respect to
 Fill each gap with $<$, $>$, or $=$ as appropriate.
 If none of the three fit, leave the gap empty.
 
-<ol>
-<li>$\tuple{3,3} \_ \tuple{2,2}$</li>
-<li>$\tuple{2,3} \_ \tuple{2,2}$</li>
-<li>$\tuple{3,2} \_ \tuple{2,2}$</li>
-<li>$\tuple{2,2} \_ \tuple{2,2}$</li>
-<li>$\tuple{1,2} \_ \tuple{3,1}$</li>
-</ol>
+
+- $\tuple{3,3} \_ \tuple{2,2}$
+- $\tuple{2,3} \_ \tuple{2,2}$
+- $\tuple{3,2} \_ \tuple{2,2}$
+- $\tuple{2,2} \_ \tuple{2,2}$
+- $\tuple{1,2} \_ \tuple{3,1}$
+
 \end{exercise}
 
 Extending $1 < 2 < 3$ in this pointwise fashion yields the hierarchy below.
@@ -205,8 +205,8 @@ The U-PCC, for instance, is not monotonically increasing.
 \begin{exercise}
 Pick two pairs $x$ and $y$ and use them to show that the U-PCC is not a monotonically increasing map.
 
-<br>
-<i>Hint:</i> What's the main difference between the W-PCC and the U-PCC?
+
+*Hint:* What's the main difference between the W-PCC and the U-PCC?
 \end{exercise}
 
 \begin{exercise}
@@ -253,21 +253,21 @@ But for the very same reason, $\tuple{2,1}$ and $\tuple{3,3}$ are unordered with
 Fill each gap with $\triangleleft$, $\triangleright$, or $=$ as appropriate.
 If none of the three fit, leave the gap empty.
 
-<ol>
-<li>$\tuple{3,3} \_ \tuple{2,2}$</li>
-<li>$\tuple{2,3} \_ \tuple{2,2}$</li>
-<li>$\tuple{3,2} \_ \tuple{2,2}$</li>
-<li>$\tuple{2,2} \_ \tuple{2,2}$</li>
-<li>$\tuple{1,2} \_ \tuple{3,1}$</li>
-</ol>
+
+- $\tuple{3,3} \_ \tuple{2,2}$
+- $\tuple{2,3} \_ \tuple{2,2}$
+- $\tuple{3,2} \_ \tuple{2,2}$
+- $\tuple{2,2} \_ \tuple{2,2}$
+- $\tuple{1,2} \_ \tuple{3,1}$
+
 \end{exercise}
 
 \begin{exercise}
 This exercise is only for those who have already delved deep into the background sections:
 Explain why $\triangleleft$ is a weak partial order.
 
-<br>
-<i>Hint</i>: Remember the three properties that each weak partial order must satisfy, and explain for each one why it holds.
+
+*Hint*: Remember the three properties that each weak partial order must satisfy, and explain for each one why it holds.
 \end{exercise}
 
 The full person-person hierarchy now looks a bit different, although the overall geometry stays the same.
@@ -313,7 +313,7 @@ For instance, adjectival gradation never displays AAB patterns of the form *good
 Similarly, our revised person-person hierarchy allows for a few monotonic mappings that do not correspond to attested PCCs.
 
 \begin{exercise}
-Give two examples of functions from the revised person-person hierarchy to <b>2</b> (i.e. the True/False structure) that are monotonic but not one of the four PCCs.
+Give two examples of functions from the revised person-person hierarchy to **2** (i.e. the True/False structure) that are monotonic but not one of the four PCCs.
 You can represent them in the pictorial format used above.
 \end{exercise}
 

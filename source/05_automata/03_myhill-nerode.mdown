@@ -16,7 +16,7 @@ It is not a member of $L$, but we can add a $b$ at the end, yielding $\String{ab
 But there's infinitely many other strings we could've added: $\String{bab}$, $\String{babab}$, and so on.
 These are the good continuations of $\String{aba}$ with respect to $L$.
 
-<br>
+
 Now consider the string $\String{ababa}$.
 Like $\String{aba}$, it does not belong to $L$, but we can add various strings to it to obtain a member of $L$.
 But as you can verify for yourself, $\String{aba}$ and $\String{ababa}$ have exactly the same good continuations.
@@ -27,8 +27,8 @@ Hence $\String{aba}$ and $\String{ababa}$ are right congruent: $\String{aba} \eq
 \begin{exercise}
 Describe the good continuations of $\String{ab}$ with respect to $(ab)^+$ and show that $\String{ab} \equiv_L \String{abab}$.
 
-<br>
-<b>Caution:</b> The empty string is a possible continuation, too.
+
+**Caution:** The empty string is a possible continuation, too.
 \end{exercise}
 
 \begin{exercise}
@@ -78,12 +78,12 @@ So deterministic FSAs are quotient structures, with states as the counterpart of
 Consider once more the string language $L \is (ab)^+$.
 The right congruence relation $\equiv_L$ partitions the set $\Sigma^*$ of all strings into four equivalence classes:
 
-<ol>
-<li>$[\emptystring]$ consists only of the empty string, which can be continued with any member of $(ab)^+$,</li>
-<li>$[a] \is \setof{a, aba, ababa}$ contains all strings that can be continued with $b$, $bab$, $babab$, and so on,</li>
-<li>$[ab] \is \setof{ab, abab, ababab}$ contains all strings that can be continued with the empty string or any member of $(ab)^+$,</li>
-<li>$[b]$ contains strings such as $b$, $abb$, $abababaa$, i.e. any string that has no good continuations at all.</li>
-</ol>
+
+- $[\emptystring]$ consists only of the empty string, which can be continued with any member of $(ab)^+$,
+- $[a] \is \setof{a, aba, ababa}$ contains all strings that can be continued with $b$, $bab$, $babab$, and so on,
+- $[ab] \is \setof{ab, abab, ababab}$ contains all strings that can be continued with the empty string or any member of $(ab)^+$,
+- $[b]$ contains strings such as $b$, $abb$, $abababaa$, i.e. any string that has no good continuations at all.
+
 
 The automaton for $(ab)^+$ is shown below, with an explicit sink state for ill-formed strings.
 
@@ -152,14 +152,14 @@ In other words, $\equiv_L$ does not have finite index, wherefore $L$ is not regu
 \begin{exercise}
 Use the Myhill-Nerode theorem to show that the following language is not regular if the alphabet $\Sigma$ contains at least two distinct symbols (e.g. $a$ and $b$):
 $\setof{ww^R \mid w \in \Sigma^*}$, where $w^R$ is the reverse of $w$.
-This language is known as the <b>palindrome language</b>.
+This language is known as the **palindrome language**.
 The palindrome language contains strings such as $abccba$ or $aaaa$, but not $abcabc$ or $aaab$.
 \end{exercise}
 
 \begin{exercise}
 Use the Myhill-Nerode theorem to show that the following language is not regular if the alphabet $\Sigma$ contains at least two distinct symbols (e.g. $a$ and $b$):
 $\setof{ww \mid w \in \Sigma^*}$.
-This language is known as the <b>copy language</b>.
+This language is known as the **copy language**.
 The copy language contains strings like $abab$, $aaaa$, or $abbababbab$, but not $abba$, $aabaa$, or $baaaba$.
 \end{exercise}
 

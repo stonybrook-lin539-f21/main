@@ -22,10 +22,10 @@ wants to read up on n-grams models.
 He picks the first unit and is happy to set that it has no prerequesites.
 But as the second unit is much more formal, it requires some knowledge of set theory and functions:
 
-<ul>
-<li>set theory (operations, set-relations)</li>
-<li>functions (notation)</li>
-</ul>
+
+- set theory (operations, set-relations)
+- functions (notation)
+
 
 While Cantor got the first one down, he's a little rusty on his function notation.
 So he goes to the background section and checks out the unit on function notation.

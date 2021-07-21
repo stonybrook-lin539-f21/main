@@ -10,17 +10,17 @@ Strict orders can be partial or total.
 Their definitions are very succinct, but require specialized vocabulary.
 
 \begin{definition}
-A <b>strict partial order</b> is a binary relation $R$ that is
+A **strict partial order** is a binary relation $R$ that is
 
-<ol>
-<li><b>transitive</b>: for all $x, y, z$, $x \mathrel{R} y$ and $y \mathrel{R} z$ jointly imply $x \mathrel{R} z$, and</li>
-<li><b>irreflexive</b>: there is no $x$ such that $x \mathrel{R} x$, and</li>
-<li><b>asymmetric</b>: for all $x$ and $y$, if $x \mathrel{R} y$, then it is not the case that $y \mathrel{R} x$.</li>
-</ol>
+
+- **transitive**: for all $x, y, z$, $x \mathrel{R} y$ and $y \mathrel{R} z$ jointly imply $x \mathrel{R} z$, and
+- **irreflexive**: there is no $x$ such that $x \mathrel{R} x$, and
+- **asymmetric**: for all $x$ and $y$, if $x \mathrel{R} y$, then it is not the case that $y \mathrel{R} x$.
+
 \end{definition}
 
 \begin{definition}
-A <b>strict total order</b> is a strict partial order that is <b>semiconnex</b>: for all $x$ and $y$, if $x \neq y$ then it holds that $x \mathrel{R} y$ or $y \mathrel{R} x$.
+A **strict total order** is a strict partial order that is **semiconnex**: for all $x$ and $y$, if $x \neq y$ then it holds that $x \mathrel{R} y$ or $y \mathrel{R} x$.
 \end{definition}
 
 These are very abstract definitions.
@@ -44,7 +44,7 @@ So $x \mathrel{R} y$ and $y \mathrel{R} z$ entail that we also have $x \mathrel{
 Such relations are called **transitive**.
 
 \begin{definition}
-A binary relation $R$ over $D$ is <b>transitive</b> iff for all $x,y,c \in D$ it holds that $x \mathrel{R} y$ and $y \mathrel{R} z$ jointly imply $x \mathrel{R} z$.
+A binary relation $R$ over $D$ is **transitive** iff for all $x,y,c \in D$ it holds that $x \mathrel{R} y$ and $y \mathrel{R} z$ jointly imply $x \mathrel{R} z$.
 This must be the case even if $x$, $y$ and $z$ are not distinct.
 \end{definition}
 
@@ -53,7 +53,7 @@ The human ancestor relation $A$ is transitive.
 Your mother is one of your ancestors, and every ancestor of your mother is an ancestor of yourself.
 So $x \mathrel{A} y$ and $y \mathrel{A} z$ imply $x \mathrel{A} z$.
 
-<br>
+
 What about the sibling relation $S$?
 Well, if John is a sibling of Mary and Mary is a sibling of Sue, then John is a sibling of Sue.
 So it looks like it is transitive.
@@ -63,7 +63,7 @@ All cases have to.
 So let's look at this counterexample: John is a sibling of Mary, and Mary is a sibling of John, yet John is not his own sibling.
 In formal terms, we have $\text{John} \mathrel{S} \text{Mary}$ and $\text{Mary} \mathrel{S} \text{John}$, yet $\text{John} \not\mathrel{S} \text{John}$.
 
-<br>
+
 Many other relations are not transitive, either.
 The human parent-of relation is not transitive, because there can be $x$, $y$, and $z$ such that $x$ is the parent of $y$, $y$ is the parent of $z$, but $x$ is not the parent of $z$.
 In fact, that is how things are supposed to go in the real world and every deviation from this case is very problematic.
@@ -112,7 +112,7 @@ Only if there isn't a single node with such a loop is the relation *irreflexive*
 
 \begin{definition}
 Let $R$ be a binary relation over $D$.
-Then $R$ is <b>irreflexive</b> iff there is no $x \in D$ such that $x \mathrel{R} x$.
+Then $R$ is **irreflexive** iff there is no $x \in D$ such that $x \mathrel{R} x$.
 \end{definition}
 
 \begin{example}
@@ -137,7 +137,7 @@ A relation is asymmetric iff two elements can only be related in one direction, 
 
 \begin{definition}
 Let $R$ be a binary relation over $D$.
-Then $R$ is <b>asymmetric</b> iff it holds for all $x$ and $y$ in $D$ that $x \mathrel{R} y$ implies $y \not\mathrel{R} x$.
+Then $R$ is **asymmetric** iff it holds for all $x$ and $y$ in $D$ that $x \mathrel{R} y$ implies $y \not\mathrel{R} x$.
 \end{definition}
 
 \begin{example}
@@ -168,7 +168,7 @@ A relation is **semiconnex** iff all elements of the set are related to each oth
 Pictorially, there has to be some line between any two given nodes (\emph{modulo} the lines that can be inferred via transitivity). 
 
 \begin{definition}
-A binary relation $R$ over set $D$ is <b>semiconnex</b> iff $x \mathrel{R} y$ or $x \mathrel{R} y$ holds for all $x, y \in D$ such that $x \neq y$.
+A binary relation $R$ over set $D$ is **semiconnex** iff $x \mathrel{R} y$ or $x \mathrel{R} y$ holds for all $x, y \in D$ such that $x \neq y$.
 \end{definition}
 
 \begin{example}
@@ -195,12 +195,12 @@ Here none of the elements in the same "column" are related to each other, violat
 \begin{exercise}
 Indicate in the table below which properties hold of the respective relations.
 
-<i>Remarks</i>:
-<ol>
-<li>Assume suitable sets that the relations are defined over. For instance, the substring relation is defined over the set of all possible strings, and the subset relation should be defined over all possible sets.</li>
-<li>Lexicographic order refers to how words would be ordered in a dictionary, e.g. $\text{aardvark} < \text{apple} < \text{be} < \text{bet} < \text{zoom}$.</li>
-<li>For some relations, you might want to justify why you think they (do not) satisfy a certain property.</li>
-</ol>
+*Remarks*:
+
+- Assume suitable sets that the relations are defined over. For instance, the substring relation is defined over the set of all possible strings, and the subset relation should be defined over all possible sets.
+- Lexicographic order refers to how words would be ordered in a dictionary, e.g. $\text{aardvark} < \text{apple} < \text{be} < \text{bet} < \text{zoom}$.
+- For some relations, you might want to justify why you think they (do not) satisfy a certain property.
+
 \end{exercise}
 
 | **Relation**                  | **transitive** | **irreflexive** | **asymmetric** | **semiconnex** | **strict partial order** | **strict total order** |

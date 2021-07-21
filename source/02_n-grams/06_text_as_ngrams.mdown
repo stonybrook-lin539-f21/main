@@ -49,29 +49,29 @@ When the user enters a query, e.g. *fed my Gremlin after midnight*, the search e
 \begin{example}
 Suppose that our search engine has only indexed three websites so far, both of which contain very little text.
 
-<ol>
-<li>This website is a website about the movie Gremlins.</li>
-<li>I never feed my cat after midnight.</li>
-<li>There's a Gremlin in my closet.</li>
-</ol>
+
+- This website is a website about the movie Gremlins.
+- I never feed my cat after midnight.
+- There's a Gremlin in my closet.
+
 
 The corresponding sets of unigrams are as follows:
 
-<ol>
-<li>$\setof{\text{this}, \text{website}, \text{is}, \text{a}, \text{about}, \text{the}, \text{movie}, \text{gremlins}}$</li>
-<li>$\setof{\text{i}, \text{never}, \text{feed}, \text{my}, \text{cat}, \text{after}, \text{midnight}}$</li>
-<li>$\setof{\text{there's}, \text{a}, \text{gremlin}, \text{in}, \text{my}, \text{closet}}$</li>
-</ol>
 
-The query <i>fed my Gremlin after midnight</i> is mapped to the set
+- $\setof{\text{this}, \text{website}, \text{is}, \text{a}, \text{about}, \text{the}, \text{movie}, \text{gremlins}}$
+- $\setof{\text{i}, \text{never}, \text{feed}, \text{my}, \text{cat}, \text{after}, \text{midnight}}$
+- $\setof{\text{there's}, \text{a}, \text{gremlin}, \text{in}, \text{my}, \text{closet}}$
+
+
+The query *fed my Gremlin after midnight* is mapped to the set
 $\setof{\text{fed}, \text{my}, \text{gremlin}, \text{after}, \text{midnight}}$.
 We can now use intersection to see how much each website overlaps with the query.
 
-<ol>
-<li>$\emptyset$</li>
-<li>$\setof{\text{my}, \text{after}, \text{midnight}}$</li>
-<li>$\setof{\text{gremlin}, \text{my}}$</li>
-</ol>
+
+- $\emptyset$
+- $\setof{\text{my}, \text{after}, \text{midnight}}$
+- $\setof{\text{gremlin}, \text{my}}$
+
 
 The largest overlap is with the second website--- or in more mathematical terms, the intersection of our query with the second website has the largest cardinality.
 \end{example}

@@ -147,43 +147,43 @@ In other words, $x \leq_A y$ iff we can turn $x$ into $y$ by adding 0 or more ad
 We say that $y$ is an **adjunct extension** of $x$ iff $x \leq_A y$.
 
 \begin{example}
-Among the adjunct extensions of <i>John devoured twelve pounds of pasta</i>, we find, among many others:
+Among the adjunct extensions of *John devoured twelve pounds of pasta*, we find, among many others:
 
-<ol>
-<li><i>John quickly devoured twelve pounds of pasta.</i></li>
-<li><i>John devoured twelve delicious pounds of pasta.</i></li>
-<li><i>John devoured twelve pounds of pasta yesterday.</i></li>
-<li><i>John quickly devoured twelve delicious pounds of pasta.</i></li>
-<li><i>John quickly devoured twelve pounds of pasta yesterday.</i></li>
-<li><i>John devoured twelve delicious pounds of pasta yesterday.</i></li>
-<li><i>John quickly devoured twelve delicious pounds of pasta yesterday.</i></li>
-</ol>
 
-Note that <i>John devoured twelve pounds of pasta</i> is an adjunct extension of itself.
+- *John quickly devoured twelve pounds of pasta.*
+- *John devoured twelve delicious pounds of pasta.*
+- *John devoured twelve pounds of pasta yesterday.*
+- *John quickly devoured twelve delicious pounds of pasta.*
+- *John quickly devoured twelve pounds of pasta yesterday.*
+- *John devoured twelve delicious pounds of pasta yesterday.*
+- *John quickly devoured twelve delicious pounds of pasta yesterday.*
+
+
+Note that *John devoured twelve pounds of pasta* is an adjunct extension of itself.
 Using parentheses, we can represent all of this more succinctly as
 
-<ul>
-<li><i>John devoured twelve pounds of pasta</i> $\leq_A$ <i>John (quickly) devoured twelve (delicious) pounds of pasta (yesterday)</i></li>
-</ul>
+
+- *John devoured twelve pounds of pasta* $\leq_A$ *John (quickly) devoured twelve (delicious) pounds of pasta (yesterday)*
+
 
 Besides that, all of the following also hold.
 
-<ol>
-<li><i>John quickly devoured twelve pounds of pasta</i> $\leq_A$ <i>John quickly devoured twelve (delicious) pounds of pasta (yesterday)</i></li>
-<li><i>John devoured twelve pounds of pasta yesterday</i> $\leq_A$ <i>John (quickly) devoured twelve (delicious) pounds of pasta yesterday</i></li>
-</ol>
+
+- *John quickly devoured twelve pounds of pasta* $\leq_A$ *John quickly devoured twelve (delicious) pounds of pasta (yesterday)*
+- *John devoured twelve pounds of pasta yesterday* $\leq_A$ *John (quickly) devoured twelve (delicious) pounds of pasta yesterday*
+
 \end{example}
 
 \begin{exercise}
 Fill the gaps with $\leq_A$ or $\geq_A$ as appropriate.
 If neither $\leq_A$ nor $\geq_A$ hold, leave the gap empty.
-<ol>
-<li>John slept \_ John definitely slept yesterday</li>
-<li>The old man snored \_ The man snored</li>
-<li>John likes Mary \_ Mary really likes John</li>
-<li>John ate pasta \_ John ate pasta</li>
-<li>John ate pasta \_ John ate</li>
-</ol>
+
+- John slept \_ John definitely slept yesterday
+- The old man snored \_ The man snored
+- John likes Mary \_ Mary really likes John
+- John ate pasta \_ John ate pasta
+- John ate pasta \_ John ate
+
 \end{exercise}
 
 \begin{exercise}
@@ -208,21 +208,21 @@ $$A_L(s) \is \setof{ t \mid t \in L \text{ and } s \leq_A t}$$
 
 \begin{example}
 Let $s$ be the sentence
-<i>John really likes Mary</i>.
+*John really likes Mary*.
 Then $A_L(s)$ contains infinitely many sentences, including
 
-<ul>
-<li>John really likes Mary.</li>
-<li>John really, really likes Mary.</li>
-<li>John really likes Mary because she looks like Sue.</li>
-<li>and so on</li>
-</ul>
 
-But it also includes infinitely many sentences that wouldn't actually be good English sentences, e.g. <i>John because yesterday she looks like Sue adores really Mary really red</i>.
+- John really likes Mary.
+- John really, really likes Mary.
+- John really likes Mary because she looks like Sue.
+- and so on
+
+
+But it also includes infinitely many sentences that wouldn't actually be good English sentences, e.g. *John because yesterday she looks like Sue adores really Mary really red*.
 \end{example}
 
 \begin{exercise}
-Suppose that $s$ is <i>The old men quickly manned the boat</i>.
+Suppose that $s$ is *The old men quickly manned the boat*.
 Write down five members of $A_L(s)$.
 \end{exercise}
 
@@ -233,21 +233,21 @@ We can do the same thing with $A_L(s)$.
 Let's consider a small fragment of $A_L(\mathit{John\ snored})$.
 It contains
 
-<ol>
-<li>John snored.</li>
-<li>John snored yesterday.</li>
-<li>John really snored.</li>
-<li>John really snored yesterday.</li>
-<li>Allegedly, John really snored yesterday.</li>
-<li>John really, really snored yesterday.</li>
-<li>John really, really, really snored yesterday.</li>
-</ol>
+
+- John snored.
+- John snored yesterday.
+- John really snored.
+- John really snored yesterday.
+- Allegedly, John really snored yesterday.
+- John really, really snored yesterday.
+- John really, really, really snored yesterday.
+
 
 When we order these sentences by $\leq_A$, we get the structure depicted below.
 
 \input_mid{adjunctextension.tikz}
 
-We could've also drawn it upside-down with <i>John snored</i> at the top, this does not make a difference.
+We could've also drawn it upside-down with *John snored* at the top, this does not make a difference.
 \end{example}
 
 \begin{exercise}
@@ -261,13 +261,13 @@ You can check out the backgrounds section for all the math, but for our purposes
 
 \begin{example}
 Consider once more the fragment from the previous example, sorted by $\leq_A$.
-Pick two elements $x$ and $y$, for instance <i>Allegedly, John really snored yesterday</i> and <i>John really, really, really snored yesterday</i>.
+Pick two elements $x$ and $y$, for instance *Allegedly, John really snored yesterday* and *John really, really, really snored yesterday*.
 Put your fingers and those sentences.
-Now move your fingers downward, tracing a path towards the bottom element <i>John snored</i>.
-The <b>meet</b> $x \wedge y$ is the earliest point where your fingers can meet.
-In the case at hand, that's <i>John really snored yesterday</i>.
+Now move your fingers downward, tracing a path towards the bottom element *John snored*.
+The **meet** $x \wedge y$ is the earliest point where your fingers can meet.
+In the case at hand, that's *John really snored yesterday*.
 
-The meet of <i>John really, really, really snored yesterday</i> and <i>John really, really snored yesterday</i> is just <i>John really, really snored yesterday</i>.
+The meet of *John really, really, really snored yesterday* and *John really, really snored yesterday* is just *John really, really snored yesterday*.
 After all, the earliest point your fingers can meet is if you move the higher one down by one step while keeping the lower where it is.
 \end{example}
 
@@ -325,31 +325,31 @@ That is to say, if a sentence containing an adjunct is grammatical, it should st
 
 \begin{example}
 The sentence
-<i>Yesterday John definitely snored loudly</i>
+*Yesterday John definitely snored loudly*
 is well-formed, and so is every sentence that it is an adjunct extension of:
 
-<ol>
-<li>Yesterday John definitely snored loudly</li>
-<li>Yesterday John definitely snored</li>
-<li>Yesterday John snored loudly</li>
-<li>John definitely snored loudly</li>
-<li>Yesterday John snored</li>
-<li>John definitely snored</li>
-<li>John snored loudly</li>
-<li>John snored</li>
-</ol>
+
+- Yesterday John definitely snored loudly
+- Yesterday John definitely snored
+- Yesterday John snored loudly
+- John definitely snored loudly
+- Yesterday John snored
+- John definitely snored
+- John snored loudly
+- John snored
+
 \end{example}
 
 In the other direction, adding an adjunct cannot make an ill-formed sentence grammatical.
 
 \begin{example}
 The sentence
-<i>John meet</i>
+*John meet*
 is ill-formed,
 and so are
-<i>John meet yesterday</i>,
-<i>John definitely meet</i>,
-<i>John really, really meet</i>,
+*John meet yesterday*,
+*John definitely meet*,
+*John really, really meet*,
 and all other adjunct extensions of the sentence.
 \end{example}
 

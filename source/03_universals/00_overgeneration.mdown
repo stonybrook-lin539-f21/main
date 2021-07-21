@@ -20,14 +20,14 @@ Apparently, language simply does not work like that.
 
 \begin{exercise}
 Write a negative grammar for intervocalic devoicing, assuming that the alphabet consists only of
-<i>a</i>,
-<i>i</i>,
-<i>u</i>,
-<i>s</i>,
-<i>z</i>,
-<i>f</i>,
+*a*,
+*i*,
+*u*,
+*s*,
+*z*,
+*f*,
 and
-<i>v</i>.
+*v*.
 \end{exercise}
 
 \begin{exercise}
@@ -40,32 +40,32 @@ But keep in mind that $n$-gram grammars are just sets, and there's various way t
 \begin{exercise}
 Assuming the same alphabet as before,
 write an $n$-gram grammar (it may be positive or negative) that requires every word to start with
-<i>a</i>
+*a*
 and end with
-<i>f</i>.
+*f*.
 \end{exercise}
 
 \begin{exercise}
 Assuming the same alphabet as before,
-write an $n$-gram grammar (it may be positive or negative) for "penultimate <i>f</i>":
-if a word has at least two symbols, then the last but one symbol must be <i>f</i> and no other position may be <i>f</i>.
+write an $n$-gram grammar (it may be positive or negative) for "penultimate *f*":
+if a word has at least two symbols, then the last but one symbol must be *f* and no other position may be *f*.
 \end{exercise}
 
 \begin{exercise}
 Suppose that English only contains the words
-<i>the</i>,
-<i>old</i>,
-<i>man</i>,
-<i>woman</i>,
-<i>sleep</i>,
-<i>sleeps</i>,
-<i>snore</i>,
+*the*,
+*old*,
+*man*,
+*woman*,
+*sleep*,
+*sleeps*,
+*snore*,
 and
-<i>snores</i>.
+*snores*.
 Assume furthermore that the English subject verb agreement system works as follows:
-if the subject does not contain an adjective (like <i>old</i>),
+if the subject does not contain an adjective (like *old*),
 then use the inflected verb form; otherwise, use the base form.
-So we would get <i>The old man snore</i> but <i>The man snores</i>.
+So we would get *The old man snore* but *The man snores*.
 Write an $n$-gram grammar that captures this unnatural condition.
 \end{exercise}
 
@@ -93,16 +93,16 @@ Natural languages simply do not vary in all logically conceivable ways.
 \begin{example}
 No known language enforces any of the following conditions:
 
-<ol>
-<li>The further to the right a syllable occurs in a word, the more consonants it must have.</li>
-<li>Any sequence of sounds is a possible word as long as it contains at least as many vowels as consonants.</li>
-<li>When we sort the words of a language by their length, we get the <b>Fibonacci series</b>: 1, 1, 2, 3, 5, 8, 13, ...</li>
-<li>The first word in a sentence must rhyme with the last word in a sentence.</li>
-<li>Every sentence must have an odd number of words.</li>
-<li>To negate a sentence, utter it backwards.</li>
-<li>Adjectives that start with a vowel go before the noun, adjectives that start with a consonant go after the noun.</li>
-<li>Relative clauses follow the noun they modify if it is the subject, but otherwise precede the noun.</li>
-</ol>
+
+- The further to the right a syllable occurs in a word, the more consonants it must have.
+- Any sequence of sounds is a possible word as long as it contains at least as many vowels as consonants.
+- When we sort the words of a language by their length, we get the **Fibonacci series**: 1, 1, 2, 3, 5, 8, 13, ...
+- The first word in a sentence must rhyme with the last word in a sentence.
+- Every sentence must have an odd number of words.
+- To negate a sentence, utter it backwards.
+- Adjectives that start with a vowel go before the noun, adjectives that start with a consonant go after the noun.
+- Relative clauses follow the noun they modify if it is the subject, but otherwise precede the noun.
+
 
 Apparently languages can only enforce constraints of a specific kind, and the examples above do not fit the bill.
 \end{example}
@@ -114,8 +114,8 @@ For each constraint above, give a concrete example from English that violates it
 \begin{exercise}
 Can you think of a constraint that you are fairly certain does not arise in any natural language?
 
-<br>
-<i>Hint:</i> Mathematical concepts like prime numbers are very fruitful for this.
+
+*Hint:* Mathematical concepts like prime numbers are very fruitful for this.
 \end{exercise}
 
 The existence of universals means that there might be phenomena or constraints that can be described by an $n$-gram grammar yet never show up in the real world because they violate certain universals.

@@ -108,7 +108,7 @@ We start with a few key observations.
   We use $\card{\Sigma}$ as the special symbol for this number.
 
 \begin{example}
-  If a language only has the sounds <i>a</i>, <i>u</i>, <i>i</i>, <i>b</i>, <i>m</i>, <i>d</i>, <i>g</i>, and <i>h</i>, then $\card{\Sigma}$ for that specific language is $8$.
+  If a language only has the sounds *a*, *u*, *i*, *b*, *m*, *d*, *g*, and *h*, then $\card{\Sigma}$ for that specific language is $8$.
 \end{example}
 
 - As stated in the theorem, the longest $n$-gram is assumed to have length $k$.
@@ -117,43 +117,43 @@ We start with a few key observations.
   This implies that $G$ contains at most $(\card{\Sigma}+1)^k$ $n$-grams and thus contains only finitely many.
 
 \begin{example}
-Suppose that the language only has the sounds <i>a</i> and <i>d</i>, barely enough for *dada*.
+Suppose that the language only has the sounds *a* and *d*, barely enough for *dada*.
 It's $\card{\Sigma}^k$ is $2$.
 There are $(2+1)^3 = 3^3 = 27$ different trigrams:
 
-<ol>
-<li>aaa</li>
-<li>aad</li>
-<li>aa\$</li>
-<li>ada</li>
-<li>add</li>
-<li>ad\$</li>
-<li>a\$a</li>
-<li>a\$d</li>
-<li>a\$\$</li>
-<li>daa</li>
-<li>dad</li>
-<li>da\$</li>
-<li>dda</li>
-<li>ddd</li>
-<li>dd\$</li>
-<li>d\$a</li>
-<li>d\$d</li>
-<li>d\$\$</li>
-<li>\$aa</li>
-<li>\$ad</li>
-<li>\$a\$</li>
-<li>\$da</li>
-<li>\$dd</li>
-<li>\$d\$</li>
-<li>\$\$a</li>
-<li>\$\$d</li>
-<li>\$\$\$</li>
-</ol>
+
+- aaa
+- aad
+- aa\$
+- ada
+- add
+- ad\$
+- a\$a
+- a\$d
+- a\$\$
+- daa
+- dad
+- da\$
+- dda
+- ddd
+- dd\$
+- d\$a
+- d\$d
+- d\$\$
+- \$aa
+- \$ad
+- \$a\$
+- \$da
+- \$dd
+- \$d\$
+- \$\$a
+- \$\$d
+- \$\$\$
+
 
 Not all of them are ever useful.
-For example, no word ever contains an edge marker in the middle, so <i>a\$a</i> serves no purpose.
-But this does not change the fact that there are only finitely many trigrams over <i>a</i>, <i>d</i>, and <i>\$</i>.
+For example, no word ever contains an edge marker in the middle, so *a\$a* serves no purpose.
+But this does not change the fact that there are only finitely many trigrams over *a*, *d*, and *\$*.
 \end{example}
 
 Now suppose that we pick one of the finitely many $n$-grams of $G$.
@@ -166,70 +166,70 @@ We remove the $n$-gram $g$ from the grammar $G$, and instead add in a number of 
   For each such $n$-gram, put it in front of $g$ and add the result back to $G$.
 
 \begin{example}
-Suppose <i>G</i> contains the bigram <i>z\$</i>, the trigram <i>\$kn</i>, and the 4-gram <i>akzn</i>.
-Assume furthermore that the only possible sounds are <i>a</i>, <i>k</i>, <i>z</i>, and <i>n</i>.
+Suppose *G* contains the bigram *z\$*, the trigram *\$kn*, and the 4-gram *akzn*.
+Assume furthermore that the only possible sounds are *a*, *k*, *z*, and *n*.
 
-We have to pad out <i>z\$</i> from a bigram to a 4-gram.
-The length difference between a bigram and a 4-gram is 2, so we have to put bigrams in front of <i>z\$</i>.
+We have to pad out *z\$* from a bigram to a 4-gram.
+The length difference between a bigram and a 4-gram is 2, so we have to put bigrams in front of *z\$*.
 The list of possible bigrams is as follows:
 
-<ol>
-<li>\$\$</li>
-<li>\$a</li>
-<li>\$k</li>
-<li>\$z</li>
-<li>\$n</li>
-<li>a\$</li>
-<li>aa</li>
-<li>ak</li>
-<li>az</li>
-<li>an</li>
-<li>k\$</li>
-<li>ka</li>
-<li>kk</li>
-<li>kz</li>
-<li>kn</li>
-<li>z\$</li>
-<li>za</li>
-<li>zk</li>
-<li>zz</li>
-<li>zn</li>
-<li>n\$</li>
-<li>na</li>
-<li>nk</li>
-<li>nz</li>
-<li>nn</li>
-</ol>
 
-So we remove <i>z\$</i> from $G$ and instead add all of the following:
+- \$\$
+- \$a
+- \$k
+- \$z
+- \$n
+- a\$
+- aa
+- ak
+- az
+- an
+- k\$
+- ka
+- kk
+- kz
+- kn
+- z\$
+- za
+- zk
+- zz
+- zn
+- n\$
+- na
+- nk
+- nz
+- nn
 
-<ol>
-<li>\$\$z\$</li>
-<li>\$az\$</li>
-<li>\$kz\$</li>
-<li>\$zz\$</li>
-<li>\$nz\$</li>
-<li>a\$z\$</li>
-<li>aaz\$</li>
-<li>akz\$</li>
-<li>azz\$</li>
-<li>anz\$</li>
-<li>k\$z\$</li>
-<li>kaz\$</li>
-<li>kkz\$</li>
-<li>kzz\$</li>
-<li>knz\$</li>
-<li>z\$z\$</li>
-<li>zaz\$</li>
-<li>zkz\$</li>
-<li>zzz\$</li>
-<li>znz\$</li>
-<li>n\$z\$</li>
-<li>naz\$</li>
-<li>nkz\$</li>
-<li>nzz\$</li>
-<li>nnz\$</li>
-</ol>
+
+So we remove *z\$* from $G$ and instead add all of the following:
+
+
+- \$\$z\$
+- \$az\$
+- \$kz\$
+- \$zz\$
+- \$nz\$
+- a\$z\$
+- aaz\$
+- akz\$
+- azz\$
+- anz\$
+- k\$z\$
+- kaz\$
+- kkz\$
+- kzz\$
+- knz\$
+- z\$z\$
+- zaz\$
+- zkz\$
+- zzz\$
+- znz\$
+- n\$z\$
+- naz\$
+- nkz\$
+- nzz\$
+- nnz\$
+
 \end{example}
 
 - Construct every possible $n$-gram of length $k - i$.
@@ -238,34 +238,34 @@ So we remove <i>z\$</i> from $G$ and instead add all of the following:
 \begin{example}
 We also add the following 4-grams to $G$:
 
-<ol>
-<li>z\$\$\$</li>
-<li>z\$\$a</li>
-<li>z\$\$k</li>
-<li>z\$\$z</li>
-<li>z\$\$n</li>
-<li>z\$\$</li>
-<li>z\$aa</li>
-<li>z\$ak</li>
-<li>z\$az</li>
-<li>z\$an</li>
-<li>z\$a\$</li>
-<li>z\$ka</li>
-<li>z\$kk</li>
-<li>z\$kz</li>
-<li>z\$kn</li>
-<li>z\$k\$</li>
-<li>z\$za</li>
-<li>z\$zk</li>
-<li>z\$zz</li>
-<li>z\$zn</li>
-<li>z\$z\$</li>
-<li>z\$na</li>
-<li>z\$nk</li>
-<li>z\$nz</li>
-<li>z\$nn</li>
-<li>z\$n\$</li>
-</ol>
+
+- z\$\$\$
+- z\$\$a
+- z\$\$k
+- z\$\$z
+- z\$\$n
+- z\$\$
+- z\$aa
+- z\$ak
+- z\$az
+- z\$an
+- z\$a\$
+- z\$ka
+- z\$kk
+- z\$kz
+- z\$kn
+- z\$k\$
+- z\$za
+- z\$zk
+- z\$zz
+- z\$zn
+- z\$z\$
+- z\$na
+- z\$nk
+- z\$nz
+- z\$nn
+- z\$n\$
+
 
 As before, these are all useless because \$ does not occur inside words.
 But we add them anyways to stick with the procedure.
@@ -278,33 +278,33 @@ But we add them anyways to stick with the procedure.
 Since the difference between a 4-gram and a bigram is $2$, each one of the two "sandwich" $n$-grams must have length $1$.
 So we add the following:
 
-<ol>
-<li>\$z\$\$</li>
-<li>\$z\$a</li>
-<li>\$z\$k</li>
-<li>\$z\$z</li>
-<li>\$z\$n</li>
-<li>az\$a</li>
-<li>az\$k</li>
-<li>az\$z</li>
-<li>az\$n</li>
-<li>az\$\$</li>
-<li>kz\$a</li>
-<li>kz\$k</li>
-<li>kz\$z</li>
-<li>kz\$n</li>
-<li>kz\$\$</li>
-<li>zz\$a</li>
-<li>zz\$k</li>
-<li>zz\$z</li>
-<li>zz\$n</li>
-<li>zz\$\$</li>
-<li>nz\$a</li>
-<li>nz\$k</li>
-<li>nz\$z</li>
-<li>nz\$n</li>
-<li>nz\$\$</li>
-</ol>
+
+- \$z\$\$
+- \$z\$a
+- \$z\$k
+- \$z\$z
+- \$z\$n
+- az\$a
+- az\$k
+- az\$z
+- az\$n
+- az\$\$
+- kz\$a
+- kz\$k
+- kz\$z
+- kz\$n
+- kz\$\$
+- zz\$a
+- zz\$k
+- zz\$z
+- zz\$n
+- zz\$\$
+- nz\$a
+- nz\$k
+- nz\$z
+- nz\$n
+- nz\$\$
+
 
 Again there are many useless $n$-grams, but we do not care.
 \end{example}
@@ -317,9 +317,9 @@ Then some $n$-gram $g$ of $G$ must occur in the string, otherwise it would not b
   If $g$ has length $k$, then it is also an $n$-gram of $G'$, so $G'$ would consider the string illicit, too.
 
 \begin{example}
-Remember that our example grammar $G$ disallows <i>z\$</i>, <i>\$kn</i>, and <i>akzn</i>.
-The construction above constructs $G'$ by padding out <i>z\$</i> and <i>\$kn</i> to 4-grams, but it keeps <i>akzn</i> the same.
-So if some word is forbidden by $G$ because it contains <i>akzn</i>, it will also be forbidden $G'$.
+Remember that our example grammar $G$ disallows *z\$*, *\$kn*, and *akzn*.
+The construction above constructs $G'$ by padding out *z\$* and *\$kn* to 4-grams, but it keeps *akzn* the same.
+So if some word is forbidden by $G$ because it contains *akzn*, it will also be forbidden $G'$.
 \end{example}
 
 - **Case 2**  
@@ -338,15 +338,15 @@ So if some word is forbidden by $G$ because it contains <i>akzn</i>, it will als
     So if a string contains $g$, it also contains some illicit padding of $g$.
 
 \begin{example}
-Consider the word <i>kaz</i>, which is illicit because it contains <i>z\$</i> (remember, we always add a sufficient number of edge markers).
+Consider the word *kaz*, which is illicit because it contains *z\$* (remember, we always add a sufficient number of edge markers).
 This string is still considered illicit by $G'$.
-The padded out word is <i>\$\$\$kaz\$\$\$</i>, and several of the illicit 4-grams we constructed from <i>z\$</i> are contained in this string:
+The padded out word is *\$\$\$kaz\$\$\$*, and several of the illicit 4-grams we constructed from *z\$* are contained in this string:
 
-<ol>
-<li>kaz\$</li>
-<li>az\$\$</li>
-<li>z\$\$\$</li>
-</ol>
+
+- kaz\$
+- az\$\$
+- z\$\$\$
+
 \end{example}
       
 This shows that every string that is deemed illicit by $G$ is also illicit with respect to $G'$.

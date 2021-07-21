@@ -28,13 +28,13 @@ The union of $\setof{1,2}$ and $\setof{3,4}$ is also $\setof{1,2,3,4}$.
 \begin{exercise}
 Compute the union of the following:
 
-<ol>
-<li>$\setof{0,1} \cup \setof{2,3}$</li>
-<li>$\setof{0,1} \cup \setof{1,2,3}$</li>
-<li>$\setof{0,1} \cup \setof{0,1}$</li>
-<li>$\setof{0,1} \cup \emptyset$</li>
-<li>$\setof{1,2,3} \cup \setof{0,1}$</li>
-</ol>
+
+- $\setof{0,1} \cup \setof{2,3}$
+- $\setof{0,1} \cup \setof{1,2,3}$
+- $\setof{0,1} \cup \setof{0,1}$
+- $\setof{0,1} \cup \emptyset$
+- $\setof{1,2,3} \cup \setof{0,1}$
+
 \end{exercise}
 
 Union is **associative**, which means that $(A \cup B) \cup C = A \cup (B \cup C)$.
@@ -47,10 +47,10 @@ Also note that $A \cup \emptyset = \emptyset$ for any set $A$, just like $n + 0 
 \begin{exercise}
 Compute the union of the following in a step-wise fashion:
 
-<ol>
-<li>$\setof{0,1} \cup \setof{2,3} \cup \emptyset$</li>
-<li>$\setof{0,1} \cup \emptyset \cup \setof{2,3}$</li>
-</ol>
+
+- $\setof{0,1} \cup \setof{2,3} \cup \emptyset$
+- $\setof{0,1} \cup \emptyset \cup \setof{2,3}$
+
 \end{exercise}
 
 ## Intersection
@@ -66,13 +66,13 @@ Given two sets $A$ and $B$, their **intersection** $A \cap B$ is the set that co
 \begin{exercise}
 Compute the intersection of the following:
 
-<ol>
-<li>$\setof{0,1} \cap \setof{2,3}$</li>
-<li>$\setof{0,1} \cap \setof{1,2,3}$</li>
-<li>$\setof{0,1} \cap \setof{0,1}$</li>
-<li>$\setof{0,1} \cap \emptyset$</li>
-<li>$\setof{1,2,3} \cap \setof{0,1}$</li>
-</ol>
+
+- $\setof{0,1} \cap \setof{2,3}$
+- $\setof{0,1} \cap \setof{1,2,3}$
+- $\setof{0,1} \cap \setof{0,1}$
+- $\setof{0,1} \cap \emptyset$
+- $\setof{1,2,3} \cap \setof{0,1}$
+
 \end{exercise}
 
 Note that $A \cap \emptyset = \emptyset$ no matter what the set $A$ looks like.
@@ -115,12 +115,12 @@ Commutativity does not hold for relative complement either, as is shown by $\set
 
 \begin{definition}
 Let $A$ and $B$ be arbitrary sets.
-<ol>
-<li>The <b>union</b> of $A$ and $B$ is $A \cup B \is \setof{ x \mid x \in A \text{ or } x \in B}$.</li>
-<li>The <b>intersection</b> of $A$ and $B$ is $A \cap B \is \setof{ x \mid x \in A \text{ and } x \in B}$.</li>
-<li>The <b>relative complement</b> of $A$ and $B$ is $A - B \is \setof{ x \mid x \in A \text{ and } x \notin B}$.</li>
-<li>If $A$ is clear from context, we just write $\overline{B}$ for $A - B$ and call it the <b>complement</b> of $B$.</li>
-</ol>
+
+- The **union** of $A$ and $B$ is $A \cup B \is \setof{ x \mid x \in A \text{ or } x \in B}$.
+- The **intersection** of $A$ and $B$ is $A \cap B \is \setof{ x \mid x \in A \text{ and } x \in B}$.
+- The **relative complement** of $A$ and $B$ is $A - B \is \setof{ x \mid x \in A \text{ and } x \notin B}$.
+- If $A$ is clear from context, we just write $\overline{B}$ for $A - B$ and call it the **complement** of $B$.
+
 \end{definition}
 
 - Union and intersection are associative (order of evaluation doesn't matter) and commutative (order of arguments doesn't matter).

@@ -60,9 +60,9 @@ A given word's **set of bigrams** is the collection of all bigrams that occur in
 
 \begin{example}
     The bigrams of
-    <i>kobinal</i>
-    are <i>ko</i>, <i>ob</i>, <i>bi</i>, <i>in</i>, <i>na</i>, and <i>al</i>.
-    The bigrams of <i>banana</i> are <i>ba</i>, <i>an</i>, and <i>na</i>.
+    *kobinal*
+    are *ko*, *ob*, *bi*, *in*, *na*, and *al*.
+    The bigrams of *banana* are *ba*, *an*, and *na*.
 \end{example}
 
 ```python
@@ -83,16 +83,16 @@ bigram_print("wordtwo")
 
 \begin{exercise}
 Consider the word
-<i>supercalifragilisticexpialidocious</i>.
+*supercalifragilisticexpialidocious*.
 For each one of the following, say whether it is a bigram of the word.
-<ol>
-<li>fr</li>
-<li>z</li>
-<li>doci</li>
-<li>pail</li>
-<li>sit</li>
-<li>super</li>
-</ol>
+
+- fr
+- z
+- doci
+- pail
+- sit
+- super
+
 \end{exercise}
 
 ### Adding edge markers
@@ -120,8 +120,8 @@ Then *ababa* will be *\$ababa\$*, and *babab* will be *\$babab\$*.
 Now one can tell clearly which bigrams occurred at the start and the end.
 
 \begin{example}
-    To calculate the bigrams of <i>kobinal</i>, we first expand it to <i>\$kobinal\$</i>.
-    Then we extract bigrams as usual, giving us the following list: <i>\$k</i>, <i>ko</i>, <i>ob</i>, <i>bi</i>, <i>in</i>, <i>na</i>, <i>al</i>, <i>l\$</i>.
+    To calculate the bigrams of *kobinal*, we first expand it to *\$kobinal\$*.
+    Then we extract bigrams as usual, giving us the following list: *\$k*, *ko*, *ob*, *bi*, *in*, *na*, *al*, *l\$*.
 \end{example}
 
 ```python
@@ -140,16 +140,16 @@ bigram_print("babab")
 
 \begin{exercise}
 Consider once more the word
-<i>supercalifragilisticexpialidocious</i>.
+*supercalifragilisticexpialidocious*.
 Which one of the following is among its bigrams (with edge markers):
 
-<ol>
-<li>fr</li>
-<li>z</li>
-<li>\$\$</li>
-<li>\$s</li>
-<li>s\$\$</li>
-</ol>
+
+- fr
+- z
+- \$\$
+- \$s
+- s\$\$
+
 \end{exercise}
 
 ## Bigram grammars
@@ -162,17 +162,17 @@ If our hypothesis is correct, then it should be possible to write down a collect
 Every ill-formed word must contain at least one forbidden bigram.
 
 \begin{example}
-    Contrast the well-formed <i>kobinal</i> against the ill-formed <i>kbin</i>.
-    If <i>kb</i> is a forbidden bigram of English, then <i>kbin</i> is ill-formed.
-    In order for <i>kobinal</i> to be well-formed, none of the following bigrams may be forbbiden:
-    <i>\$k</i>,
-    <i>ko</i>,
-    <i>ob</i>,
-    <i>bi</i>,
-    <i>in</i>,
-    <i>na</i>,
-    <i>al</i>,
-    <i>l\$</i>.
+    Contrast the well-formed *kobinal* against the ill-formed *kbin*.
+    If *kb* is a forbidden bigram of English, then *kbin* is ill-formed.
+    In order for *kobinal* to be well-formed, none of the following bigrams may be forbbiden:
+    *\$k*,
+    *ko*,
+    *ob*,
+    *bi*,
+    *in*,
+    *na*,
+    *al*,
+    *l\$*.
 \end{example}
 
 As the example above shows, forbidding the bigram *kb* rules out *kbin* as an illicit word for English.
@@ -189,16 +189,16 @@ We can generalize the notion of bigram to sequences of arbitrary length.
 A trigram is a sequence of three elements, a 4-gram contains four elements, and quite generally, an **n-gram** consists of **n** elements.
 
 \begin{example}
-Let us first look at the bigrams, trigrams, and 4-grams of <i>kobinal</i>.
-The bigrams of <i>kobinal</i> are
-<i>ko</i>, <i>ob</i>, <i>bi</i>, <i>in</i>, <i>na</i>, and <i>al</i>.
-The trigrams are <i>kob</i>, <i>obi</i>, <i>bin</i>, <i>ina</i>, and <i>nal</i>.
-The 4-grams are <i>kobi</i>, <i>obin</i>, <i>bina</i>, and <i>inal</i>.
+Let us first look at the bigrams, trigrams, and 4-grams of *kobinal*.
+The bigrams of *kobinal* are
+*ko*, *ob*, *bi*, *in*, *na*, and *al*.
+The trigrams are *kob*, *obi*, *bin*, *ina*, and *nal*.
+The 4-grams are *kobi*, *obin*, *bina*, and *inal*.
 
-<br>
-For <i>banana</i>, the only bigrams are <i>ba</i>, <i>an</i>, and <i>na</i>.
-The trigrams are <i>ban</i>, <i>ana</i>, and <i>nan</i>.
-The 4-grams are <i>bana</i>, <i>anan</i>, and <i>nana</i>.
+
+For *banana*, the only bigrams are *ba*, *an*, and *na*.
+The trigrams are *ban*, *ana*, and *nan*.
+The 4-grams are *bana*, *anan*, and *nana*.
 \end{example}
 
 ```python
@@ -222,16 +222,16 @@ Just what are the 4-grams of *\$a\$*?
 To avoid this, we pad out the word with n-1 edge markers.
 
 \begin{example}
-Now consider the  bigrams, trigrams, and 4-grams of <i>kobinal</i> with edge markers.
-For bigrams, we have to look at <i>\$kobinal\$</i>, which has the bigrams 
-<i>\$k</i>, <i>ko</i>, <i>ob</i>, <i>bi</i>, <i>in</i>, <i>na</i>, <i>al</i>, and <i>l\$</i>.
-The trigrams are computed over <i>\$\$kobinal\$\$</i>, so they're <i>\$\$k</i>, <i>\$ko</i>, <i>kob</i>, <i>obi</i>, <i>bin</i>, <i>nal</i>, <i>al\$</i>, and <i>l\$\$</i>.
-The 4-grams are <i>\$\$\$k</i>, <i>\$\$ko</i>, <i>\$kob</i>, <i>kobi</i>, <i>obin</i>, <i>bina</i>, <i>inal</i>, <i>nal\$</i>, <i>al\$\$</i>, and <i>l\$\$</i>.
+Now consider the  bigrams, trigrams, and 4-grams of *kobinal* with edge markers.
+For bigrams, we have to look at *\$kobinal\$*, which has the bigrams 
+*\$k*, *ko*, *ob*, *bi*, *in*, *na*, *al*, and *l\$*.
+The trigrams are computed over *\$\$kobinal\$\$*, so they're *\$\$k*, *\$ko*, *kob*, *obi*, *bin*, *nal*, *al\$*, and *l\$\$*.
+The 4-grams are *\$\$\$k*, *\$\$ko*, *\$kob*, *kobi*, *obin*, *bina*, *inal*, *nal\$*, *al\$\$*, and *l\$\$*.
 
-<br>
-For <i>banana</i>, the bigrams are now <i>\$b</i>, <i>ba</i>, <i>an</i>, <i>na</i>, and <i>a\$</i>.
-The trigrams are <i>\$\$b</i>, <i>\$ba</i>, <i>ban</i>, <i>ana</i>, <i>nan</i>, <i>na\$</i>, and <i>a\$\$</i>.
-The 4-grams are <i>\$\$\$b</i>, <i>\$\$ba</i>, <i>\$ban</i>, <i>bana</i>, <i>anan</i>, <i>nana</i>, <i>ana\$</i>, <i>na\$\$</i>, and <i>a\$\$\$</i>.
+
+For *banana*, the bigrams are now *\$b*, *ba*, *an*, *na*, and *a\$*.
+The trigrams are *\$\$b*, *\$ba*, *ban*, *ana*, *nan*, *na\$*, and *a\$\$*.
+The 4-grams are *\$\$\$b*, *\$\$ba*, *\$ban*, *bana*, *anan*, *nana*, *ana\$*, *na\$\$*, and *a\$\$\$*.
 \end{example}
 
 ```python
@@ -257,20 +257,20 @@ We also refine our original hypothesis about the phonotactics of natural languag
 
 \begin{exercise}
 Consider once more the word
-<i>supercalifragilisticexpialidocious</i>.
+*supercalifragilisticexpialidocious*.
 For each one of the following, say whether it is a bigram of the word (with edge markers), a trigram, a 4-gram, or none of those choices.
-<ol>
-<li>\$fr</li>
-<li>z</li>
-<li>do\$c</li>
-<li>s\$\$\$</li>
-<li>sit</li>
-<li>\$sup</li>
-</ol>
+
+- \$fr
+- z
+- do\$c
+- s\$\$\$
+- sit
+- \$sup
+
 \end{exercise}
 
 \begin{exercise}
-Suppose a language has the vowels <i>a</i> and <i>u</i>, the voiced consonants <i>z</i> and <i>v</i>, and the voiceless consonants <i>s</i> and <i>f</i>.
+Suppose a language has the vowels *a* and *u*, the voiced consonants *z* and *v*, and the voiceless consonants *s* and *f*.
 The language also has intervocalic voicing, which means that no voiceless consonants may occur between vowels.
 Write an $n$-gram grammar that expresses this fact.
 \end{exercise}
@@ -292,12 +292,12 @@ Could this create inconsistencies, or make negative $n$-gram grammars more power
 We'll see in the next section.
 
 \begin{exercise}
-Consider the formal language where all strings are sequences of <i>a</i>, <i>b</i>, and <i>c</i> such that
-<ol>
-<li>every string starts with $a$</li>
-<li>no string ends with $c$</li>
-<li>$a$ and $c$ are always separated by at least two symbols.</li>
-</ol>
+Consider the formal language where all strings are sequences of *a*, *b*, and *c* such that
+
+- every string starts with $a$
+- no string ends with $c$
+- $a$ and $c$ are always separated by at least two symbols.
+
 Write a negative $n$-gram grammar for this language such that all $n$-grams have the same length.
 \end{exercise}
 

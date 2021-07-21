@@ -167,18 +167,18 @@ $$
 
 But it is very easy with our shortcut for Boolean matrix multiplication.
 
-<b>Row 1 \& Column 1</b>:
+**Row 1 \& Column 1**:
 Only the 2nd, 4th, and 6th value of Row 1 are not 0.
 We check the 2nd value of Column 1, which is 0.
 At this point, the final result is still unclear.
 We move on to the 4th value, which is 1.
 We stop and fill in 1.
 
-<b>Row 1 \& Column 2</b>:
+**Row 1 \& Column 2**:
 We already know that we only need to check the 2nd, 4th, or 6th value of Column 2.
 All three of them are 0, so we have to fill in 2.
 
-<b>Row 2</b>:
+**Row 2**:
 Since all values of Row 2 are 0, we can immediately fill in 0 for all columns of that row.
 
 The final matrix is shown below:
@@ -436,10 +436,10 @@ The end result is 1, as expected.
 \begin{exercise}
 Solve the equation in the example above in two ways:
 
-<ol>
-<li>proceeding from left to right, starting with the first matrix,</li>
-<li>proceeding from left to right but starting with the second matrix; only multiply with the first matrix at the very end.</li>
-</ol>
+
+- proceeding from left to right, starting with the first matrix,
+- proceeding from left to right but starting with the second matrix; only multiply with the first matrix at the very end.
+
 
 Both routes return the same result because matrix multiplication is associative.
 But one will be much less work for you than the other.
@@ -448,12 +448,12 @@ But one will be much less work for you than the other.
 \begin{exercise}
 Use Boolean matrix multiplication to determine for each one of the following strings whether it is a member of $a(\String{baa})^*$:
 
-<ol>
-<li>$\String{aab}$</li>
-<li>$\String{aba}$</li>
-<li>$a$</li>
-<li>$\emptystring$</li>
-</ol>
+
+- $\String{aab}$
+- $\String{aba}$
+- $a$
+- $\emptystring$
+
 \end{exercise}
 
 With a bit of practice, you'll notice that resolving the matrix multiplication formulas from left to right captures a specific intuition.
@@ -472,11 +472,11 @@ Construct the corresponding matrices for this automaton.
 Then use matrix multiplication to determine for each one of the following strings whether it is recognized by the automaton.
 Solve the equations from left to right and pay close attention to how the distribution of $1$s reflects which states the automaton may be in.
 
-<ol>
-<li>$\String{a}$</li>
-<li>$\String{ab}$</li>
-<li>$\String{aaab}$</li>
-</ol>
+
+- $\String{a}$
+- $\String{ab}$
+- $\String{aaab}$
+
 \end{exercise}
 
 \begin{exercise}

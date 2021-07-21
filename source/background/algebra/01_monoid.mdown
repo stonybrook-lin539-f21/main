@@ -38,12 +38,12 @@ This is a magma but not a semigroup because $5 - (3 - 2) = 4 \neq 0 = (5 - 3) - 
 For each one of the following, say whether it is a semigroup.
 Justify your answer.
 
-<ol>
-<li>the interval $[0,1]$ of real numbers between and including $0$ and $1$, with multiplication</li>
-<li>for any given set $S$, $\wp(S)$ with set union (where $\wp(S)$ is the powerset of $S$)</li>
-<li>for any given set $s$, $\wp(S)$ with relative complement</li>
-<li>$\Sigma^*$ with an operation *splice* that maps two strings $u_1 u_2 \cdots u_m$ and $v_1 v_2 \cdots v_n$ ($m, n \geq 0$) to $u_1 v_1 u_2 v_2 \cdots u_x v_x$, where $x \is \min(m,n)$ (for instance, $abc$ spliced with $defghij$ is $adbecf$, and $abcdefg$ spliced with $i$ is $ai$).
-</ol>
+
+- the interval $[0,1]$ of real numbers between and including $0$ and $1$, with multiplication
+- for any given set $S$, $\wp(S)$ with set union (where $\wp(S)$ is the powerset of $S$)
+- for any given set $s$, $\wp(S)$ with relative complement
+- $\Sigma^*$ with an operation *splice* that maps two strings $u_1 u_2 \cdots u_m$ and $v_1 v_2 \cdots v_n$ ($m, n \geq 0$) to $u_1 v_1 u_2 v_2 \cdots u_x v_x$, where $x \is \min(m,n)$ (for instance, $abc$ spliced with $defghij$ is $adbecf$, and $abcdefg$ spliced with $i$ is $ai$).
+
 \end{exercise}
 
 ## Monoid
@@ -57,7 +57,7 @@ Addition has $0$ as its identity element.
 For instance, $5 + 0 = 5$, and similarly $0 + 5 = 5$.
 So adding the identity element to some natural number $n$ just gives us $n$ again.
 
-<br>
+
 For multiplication, the identity element is $1$ as $5 \times 1 = 1 \times 5 = 5$.
 \end{example}
 
@@ -86,12 +86,12 @@ Therefore, the algebra lacks the required identity element.
 For each one of the following semigroups, say whether it is a monoid.
 Justify your answer.
 
-<ol>
-<li>$\tuple{\wp(S), \cap}$ (where $S$ is some arbitrary set)</li>
-<li>$\Sigma^+$ with string concatenation</li>
-<li>the set of all strings of even length with string concatenation</li>
-<li>a semilattice</li>
-</ol>
+
+- $\tuple{\wp(S), \cap}$ (where $S$ is some arbitrary set)
+- $\Sigma^+$ with string concatenation
+- the set of all strings of even length with string concatenation
+- a semilattice
+
 \end{exercise}
 
 A special case of the monoid is the **commutative monoid**, where $\oplus$ is also commutative.
@@ -138,12 +138,12 @@ That said, there are some promising attempts to find group-like mechanisms in la
 For each one of the following monoids, say whether it is a group.
 Justify your answer.
 
-<ol>
-<li>$\tuple{\mathbb{N}, \times, 1}$</li>
-<li>$\tuple{\mathbb{Q}, \times, 1}$ (where $\mathbb{Q}$ is the set of rationals; e.g. $\frac{3}{2} \times \frac{-2}{2}$)</li>
-<li>$\Sigma^{\geq 3} \cup \setof{\emptystring}$ with concatenation and identity element $\emptystring$ ($\Sigma^{\geq 3}$ contains all $\Sigma$-strings whose length is at least $3$)</li>
-<li>$\wp(\Sigma^*)$ with union</li>
-</ol>
+
+- $\tuple{\mathbb{N}, \times, 1}$
+- $\tuple{\mathbb{Q}, \times, 1}$ (where $\mathbb{Q}$ is the set of rationals; e.g. $\frac{3}{2} \times \frac{-2}{2}$)
+- $\Sigma^{\geq 3} \cup \setof{\emptystring}$ with concatenation and identity element $\emptystring$ ($\Sigma^{\geq 3}$ contains all $\Sigma$-strings whose length is at least $3$)
+- $\wp(\Sigma^*)$ with union
+
 \end{exercise}
 
 \begin{example}
@@ -151,13 +151,13 @@ The monoid $\tuple{\Sigma^*, \stringcat, \emptystring}$ is not a group because t
 No matter what one concatenates a string $u$ with, it won't reduce $u$ to $\emptystring$.
 But if one really wants the monoid to be a group, one can stipulate the existence of such inverses.
 
-<br>
+
 For any string $u$ let $\overline{u}$ be such that $u \stringcat \overline{u} = \overline{u} \stringcat u = \emptystring$.
 In cases where the two don't match, nothing happens: $u \stringcat \overline{v} = \overline{v} \stringcat u = u$ if $u \neq v$.
 So $\String{abc} \stringcat \overline{\String{abc}} = \emptystring$, but $\String{abc} \stringcat \overline{\String{aac}} = abc$.
 Intuitively, $\overline{\String{abc}}$ is an instruction to delete a string iff it is $\String{abc}$; basically the string equivalent of antimatter in physics.
 
-<br>
+
 Thanks to these "antistrings", $\tuple{\setof{u, \overline{u} \mid u \in \Sigma^*}, \stringcat, \emptystring}$ is a group.
 \end{example}
 

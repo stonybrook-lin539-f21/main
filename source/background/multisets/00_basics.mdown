@@ -11,9 +11,9 @@ Bags thus are closer to what mathematicians call **multisets**.
 Like sets, multisets are unordered, but idempotency does not hold; a multiset can contain multiple instances of the same object.
 
 \begin{definition}
-    A <b>multiset</b> is a set where each element has a numerosity.
+    A **multiset** is a set where each element has a numerosity.
     We indicate that a set $S$ is a multiset by prefixing it with a subscripted $M$, as in $S_M$.
-    For all $s \in S_M$, $S_M(s)$ indicates the numerosity or <b>count</b> of $s$ in $S_M$.
+    For all $s \in S_M$, $S_M(s)$ indicates the numerosity or **count** of $s$ in $S_M$.
     We may write $S_M(s) = 0$ instead of $s \notin S_M$.
 \end{definition}
 
@@ -26,13 +26,13 @@ Like sets, multisets are unordered, but idempotency does not hold; a multiset ca
 \begin{exercise}
 Fill in the gaps with $=$ and $\neq$ as appropriate.
 
-<ol>
-<li>$\setof{5, 5, 7, 8}_M \_ \setof{7, 5, 8, 7}_M$</li>
-<li>$\setof{5, 3, 4} \_ \setof{5,3,4,4,3,5,5,4,3}$</li>
-<li>$\setof{\text{peanut butter}, \text{jelly}}_M \_ \setof{\text{peanut butter}, \text{jelly}}_M$</li>
-<li>$\setof{\text{John}, \text{John}, \text{John}}_M \_ \setof{\text{John}}_M$</li>
-<li>$\setof{a}_M \_ \setof{a,a}$</li>
-</ol>
+
+- $\setof{5, 5, 7, 8}_M \_ \setof{7, 5, 8, 7}_M$
+- $\setof{5, 3, 4} \_ \setof{5,3,4,4,3,5,5,4,3}$
+- $\setof{\text{peanut butter}, \text{jelly}}_M \_ \setof{\text{peanut butter}, \text{jelly}}_M$
+- $\setof{\text{John}, \text{John}, \text{John}}_M \_ \setof{\text{John}}_M$
+- $\setof{a}_M \_ \setof{a,a}$
+
 \end{exercise}
 
 The notation for multisets is much less standardized than that for sets, and not everybody follows the convention of subscripting multisets with $M$.
@@ -74,8 +74,8 @@ print(multiset)
 Write down the multiset defined by each set-builder expression.
 These are not entirely straight-forward, and you'll have to make some educated guesses as to how to handle special cases.
 
-<ol>
-<li>$\setof{n: 10 - n \mid 0 \leq n \leq 10}$</li>
-<li>$\setof{a: b, b: a \mid a,b \geq 0, a + b = 10}$</li>
-</ol>
+
+- $\setof{n: 10 - n \mid 0 \leq n \leq 10}$
+- $\setof{a: b, b: a \mid a,b \geq 0, a + b = 10}$
+
 \end{exercise}

@@ -22,32 +22,32 @@ In the other direction, $B_M \not\subseteq A_M$ because $B_M(d) = 1 \not\leq 0 =
 
 The powerset of $B_M$ contains every multiset that is a subset of $B_M$.
 These are
-<ol>
-    <li>$\setof{a:1, b:1, c:2, d:1}$</li>
-    <li>$\setof{a:1, b:1, c:2, d:0}$</li>
-    <li>$\setof{a:1, b:1, c:1, d:1}$</li>
-    <li>$\setof{a:1, b:1, c:1, d:0}$</li>
-    <li>$\setof{a:1, b:1, c:0, d:1}$</li>
-    <li>$\setof{a:1, b:1, c:0, d:0}$</li>
-    <li>$\setof{a:1, b:0, c:2, d:1}$</li>
-    <li>$\setof{a:1, b:0, c:2, d:0}$</li>
-    <li>$\setof{a:1, b:0, c:1, d:1}$</li>
-    <li>$\setof{a:1, b:0, c:1, d:0}$</li>
-    <li>$\setof{a:1, b:0, c:0, d:1}$</li>
-    <li>$\setof{a:1, b:0, c:0, d:0}$</li>
-    <li>$\setof{a:0, b:1, c:2, d:1}$</li>
-    <li>$\setof{a:0, b:1, c:2, d:0}$</li>
-    <li>$\setof{a:0, b:1, c:1, d:1}$</li>
-    <li>$\setof{a:0, b:1, c:1, d:0}$</li>
-    <li>$\setof{a:0, b:1, c:0, d:1}$</li>
-    <li>$\setof{a:0, b:1, c:0, d:0}$</li>
-    <li>$\setof{a:0, b:0, c:2, d:1}$</li>
-    <li>$\setof{a:0, b:0, c:2, d:0}$</li>
-    <li>$\setof{a:0, b:0, c:1, d:1}$</li>
-    <li>$\setof{a:0, b:0, c:1, d:0}$</li>
-    <li>$\setof{a:0, b:0, c:0, d:1}$</li>
-    <li>$\setof{a:0, b:0, c:0, d:0}$</li>
-</ol>
+
+    - $\setof{a:1, b:1, c:2, d:1}$
+    - $\setof{a:1, b:1, c:2, d:0}$
+    - $\setof{a:1, b:1, c:1, d:1}$
+    - $\setof{a:1, b:1, c:1, d:0}$
+    - $\setof{a:1, b:1, c:0, d:1}$
+    - $\setof{a:1, b:1, c:0, d:0}$
+    - $\setof{a:1, b:0, c:2, d:1}$
+    - $\setof{a:1, b:0, c:2, d:0}$
+    - $\setof{a:1, b:0, c:1, d:1}$
+    - $\setof{a:1, b:0, c:1, d:0}$
+    - $\setof{a:1, b:0, c:0, d:1}$
+    - $\setof{a:1, b:0, c:0, d:0}$
+    - $\setof{a:0, b:1, c:2, d:1}$
+    - $\setof{a:0, b:1, c:2, d:0}$
+    - $\setof{a:0, b:1, c:1, d:1}$
+    - $\setof{a:0, b:1, c:1, d:0}$
+    - $\setof{a:0, b:1, c:0, d:1}$
+    - $\setof{a:0, b:1, c:0, d:0}$
+    - $\setof{a:0, b:0, c:2, d:1}$
+    - $\setof{a:0, b:0, c:2, d:0}$
+    - $\setof{a:0, b:0, c:1, d:1}$
+    - $\setof{a:0, b:0, c:1, d:0}$
+    - $\setof{a:0, b:0, c:0, d:1}$
+    - $\setof{a:0, b:0, c:0, d:0}$
+
 The powerset of $B \is \setof{a,b,c,d}$, on the other hand, has only $2^{\card{B}} = 2^4 = 16$ members.
 
 The contrast is even more pronounced when we consider a multiset like $\setof{a:9}$.

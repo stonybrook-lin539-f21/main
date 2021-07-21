@@ -57,10 +57,10 @@ print("Relative complement of {} and {} is {}".format(A, B, A-B))
 \begin{exercise}
 Calculate the cardinality of the following multisets:
 
-<ol>
-<li>$\setof{a:17}$</li>
-<li>$\setof{\text{John}: 5, \text{Mary}: 5, \text{Bill}: 10}$</li>
-<li>$\setof{a: 0, b: 0, c:0}$</li>
-</ol>
+
+- $\setof{a:17}$
+- $\setof{\text{John}: 5, \text{Mary}: 5, \text{Bill}: 10}$
+- $\setof{a: 0, b: 0, c:0}$
+
 \end{exercise}
 

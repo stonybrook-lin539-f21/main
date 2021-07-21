@@ -13,27 +13,27 @@ When drawing graphs, the elements of $E$ are represented by arrows.
 \begin{example}
 The graph depicted below has $\setof{0,1,2,\ldots,11}$ as its set of vertices, and $E$ consists of the following tuples:
 
-<ol>
-<li>$\tuple{0,3}$</li>
-<li>$\tuple{0,6}$</li>
-<li>$\tuple{0,9}$</li>
-<li>$\tuple{3,0}$</li>
-<li>$\tuple{3,6}$</li>
-<li>$\tuple{3,9}$</li>
-<li>$\tuple{6,0}$</li>
-<li>$\tuple{6,3}$</li>
-<li>$\tuple{6,9}$</li>
-<li>$\tuple{9,0}$</li>
-<li>$\tuple{9,3}$</li>
-<li>$\tuple{9,6}$</li>
-<li>$\tuple{1,4}$</li>
-<li>$\tuple{1,7}$</li>
-<li>$\tuple{1,10}$</li>
-<li>$\tuple{4,1}$</li>
-<li>$\tuple{4,7}$</li>
-<li>$\tuple{4,10}$</li>
-<li>and so on</li>
-</ol>
+
+- $\tuple{0,3}$
+- $\tuple{0,6}$
+- $\tuple{0,9}$
+- $\tuple{3,0}$
+- $\tuple{3,6}$
+- $\tuple{3,9}$
+- $\tuple{6,0}$
+- $\tuple{6,3}$
+- $\tuple{6,9}$
+- $\tuple{9,0}$
+- $\tuple{9,3}$
+- $\tuple{9,6}$
+- $\tuple{1,4}$
+- $\tuple{1,7}$
+- $\tuple{1,10}$
+- $\tuple{4,1}$
+- $\tuple{4,7}$
+- $\tuple{4,10}$
+- and so on
+
 
 \input_mid{modulo3_directed.tikz}
 \end{example}
@@ -69,11 +69,11 @@ Either one is fine, of course, but for linguistics directed graphs are usually m
 \begin{exercise}
 For each on the hierarchies listed below, define its corresponding graph.
 
-<ol>
-<li>the person hierarchy</li>
-<li>the person-person hierarchy used for the PCC</li>
-<li>the case hierarchy for noun stem allmorphy</li>
-</ol>
+
+- the person hierarchy
+- the person-person hierarchy used for the PCC
+- the case hierarchy for noun stem allmorphy
+
 
 Each edge you posit should correspond to a line in the figure for the relevant hierarchy.
 \end{exercise}

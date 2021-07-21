@@ -19,10 +19,10 @@ Let $f$ be a function that maps each natural number $x$ to the recursive sum of 
 That is to say, $f$ first sums up all the digits, then sums up the digits of the sum, and so on, until only a single digit remains.
 The computation for $537$, for instance, would proceed as follows:
 
-<ol>
-<li>$537: 5 + 3 + 7 = 15$</li>
-<li>$15: 1 + 5 = 6$</li>
-</ol>
+
+- $537: 5 + 3 + 7 = 15$
+- $15: 1 + 5 = 6$
+
 
 Consequently, $f(537) = 6$.
 Note that $f(537) = f(357) = f(753) = f(861) = f(96)$, so many different numbers have the same sum of digits.

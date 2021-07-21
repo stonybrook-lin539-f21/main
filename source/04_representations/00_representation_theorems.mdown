@@ -16,30 +16,30 @@ In fact, there are **representation theorems** that establish how, sometimes, on
 
 \begin{example}
 Here is a very simple representation theorem.
-Every set $S$ be represented as its <b>characteristic function</b> $f_S$ such that $f_S(x) = 1$ if $x \in S$ and $0$ otherwise.
+Every set $S$ be represented as its **characteristic function** $f_S$ such that $f_S(x) = 1$ if $x \in S$ and $0$ otherwise.
 Note how this preserves all crucial aspects of a set.
 The set is still unordered because the characteristic function only expresses whether the element is in the set, not what position it occupies.
 Idempotency also holds: $S \is \setof{a}$ is the same set as $T \is \setof{a,a}$ because $f_S$ and $f_T$ are the same function.
 They map $a$ to $1$, and everything else to $0$.
 
-<br>
+
 The functional view of sets is sometimes more convenient to work with.
 That's particularly the case for semantics, the linguistic study of meaning.
-Semanticists use a notational format that expresses everything in terms of functions (the <b>lambda calculus</b>).
+Semanticists use a notational format that expresses everything in terms of functions (the **lambda calculus**).
 \end{example}
 
 \begin{exercise}
 Suppose that the students in this class are
-<i>John</i>,
-<i>Sue</i>, and
-<i>Mary</i>.
+*John*,
+*Sue*, and
+*Mary*.
 Write
 
-<ol>
-<li>the characteristic function for the set of female students (assuming heteronormative naming conventions), and </li>
-<li>the characteristic function for the set of students whose name contains exactly four letters, and</li>
-<li>the characteristic function for the union of the two sets.</li>
-</ol>
+
+- the characteristic function for the set of female students (assuming heteronormative naming conventions), and 
+- the characteristic function for the set of students whose name contains exactly four letters, and
+- the characteristic function for the union of the two sets.
+
 
 Define each function by explicitly writing down the values, e.g. $\text{John} \mapsto 1$.
 \end{exercise}
@@ -47,7 +47,7 @@ Define each function by explicitly writing down the values, e.g. $\text{John} \m
 \begin{exercise}
 Continuing the previous exercise, can you give a general definition for union that uses the values 0 and 1 assigned by characteristic functions?
 
-<i>Hint</i>: Check out the <b>max</b> function in the backgrounds section.
+*Hint*: Check out the **max** function in the backgrounds section.
 \end{exercise}
 
 \begin{exercise}
@@ -61,7 +61,7 @@ Intutively, the two don't seem to have anything in common.
 But think about the crucial property of pairs: $\tuple{a,b} = \tuple{c,d}$ iff $a = c$ and $b = d$.
 This equivalence also holds under Kuratovsky's definition of pairs.
 
-<br>
+
 Suppose that $\tuple{a,b} = \tuple{c,d}$.
 Then by Kuratowsky's definition, $\setof{ \setof{a}, \setof{a,b} } = \setof{ \setof{c}, \setof{c,d}}$.
 If $\setof{a} \neq \setof{c}$, then $\setof{a} = \setof{c,d}$, which can only hold if $c = d$.
@@ -91,10 +91,10 @@ The Kuratowski definition does not hold for arbitrary tuples.
 That is to say, $\tuple{a, b, c}$ cannot always be represented as $\setof{ \setof{a}, \setof{a, b}, \setof{a,b,c}}$.
 To see this, try to represent the following two triples in terms of these sets:
 
-<ol>
-<li>$\tuple{a, a, b}$</li>
-<li>$\tuple{a, b, b}$</li>
-</ol>
+
+- $\tuple{a, a, b}$
+- $\tuple{a, b, b}$
+
 
 What is the problem?
 \end{exercise}

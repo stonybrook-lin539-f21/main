@@ -18,14 +18,14 @@ $$
     w_4 & \is \setof{\text{Aristotle}: 0, \text{ethics}: 7, \text{metaphysics}: 3, \text{Plato}: 9, \text{Sokrates}: 0}\\
 \end{array}
 $$
-With these counts, the best match for the query <i>Aristotle metaphysics</i> is $w_1$ (assuming that the first word of the query is 50\% more important than the second one).
-Now suppose that the query is <i>Aristotle's metaphysics</i>, which we analyze as consisting of three words:
-<i>Aristotle</i>,
-the possessive marker <i>'s</i>, and
-<i>metaphysics</i>.
+With these counts, the best match for the query *Aristotle metaphysics* is $w_1$ (assuming that the first word of the query is 50\% more important than the second one).
+Now suppose that the query is *Aristotle's metaphysics*, which we analyze as consisting of three words:
+*Aristotle*,
+the possessive marker *'s*, and
+*metaphysics*.
 Since we have no counts for the possessive marker, the results don't change and $w_1$ is still the best match.
 
-But let's assume that we actually included counts for <i>'s</i>, yielding the following multisets:
+But let's assume that we actually included counts for *'s*, yielding the following multisets:
 $$
 \begin{array}{rl}
     w_1 & \is \setof{\text{Aristotle}: 9, \text{ethics}: 3, \text{metaphysics}: 0, \text{Plato}: 6, \text{Sokrates}: 0,
@@ -39,8 +39,8 @@ $$
 \end{array}
 $$
 The corresponding multisets for the words in the query are
-$_MA$ for <i>Aristotle</i>,
-$_MP$ for <i>metaphysics</i>, and
+$_MA$ for *Aristotle*,
+$_MP$ for *metaphysics*, and
 $_MS$ for the possessive marker.
 $$
 \begin{array}{rl}
@@ -68,7 +68,7 @@ Let's assume a weighting where the counts for the $n$-th query are multiplied by
     \setof{w_1: 19, w_2: 17, w_3: 6, w_4: 44}
 \end{align*}
 
-As you can see, $w_4$ is now the best match, even though it does not contain a single mention of <i>Aristotle</i>, the most important word in the search query.
+As you can see, $w_4$ is now the best match, even though it does not contain a single mention of *Aristotle*, the most important word in the search query.
 \end{example}
 
 This example shows that not all words are on equal footing as far as the bag of words model is concerned.
@@ -175,28 +175,28 @@ Here is a list of English stop words (using a very lenient definition of word th
 Given such a list of stop words, it is a simple task to remove all stop words from a text.
 
 \begin{example}
-Here is a very short mini-text, the first sentence of Samuel Beckett's novel <i>Murphy</i>:
-<i>The sun shone, having no alternative, on the nothing new</i>.
+Here is a very short mini-text, the first sentence of Samuel Beckett's novel *Murphy*:
+*The sun shone, having no alternative, on the nothing new*.
 We can then go through the text word by word and delete each word token that is on our list of stop words.
 We ignore capitalization, but treat punctuation as separate words.
 
-<ol>
-<li><i>the</i>: delete</li>
-<li><i>sun</i>: keep</li>
-<li><i>shone</i>: keep</li>
-<li><i>,</i>: keep</li>
-<li><i>having</i>: delete</li>
-<li><i>no</i>: delete</li>
-<li><i>alternative</i>: keep</li>
-<li><i>,</i>: keep</li>
-<li><i>on</i>: delete</li>
-<li><i>the</i>: delete</li>
-<li><i>nothing</i>: keep</li>
-<li><i>new</i>: keep</li>
-<li><i>.</i>: keep</li>
-</ol>
 
-After stop word removal, the sentence has been truncated to <i>sun shone, alternative, nothing new</i>.
+- *the*: delete
+- *sun*: keep
+- *shone*: keep
+- *,*: keep
+- *having*: delete
+- *no*: delete
+- *alternative*: keep
+- *,*: keep
+- *on*: delete
+- *the*: delete
+- *nothing*: keep
+- *new*: keep
+- *.*: keep
+
+
+After stop word removal, the sentence has been truncated to *sun shone, alternative, nothing new*.
 Clearly the removal of stop words has completely destroyed the meaning of the sentence for humans.
 But a bag of words model can't capture meaning at this abstract level anyways, it can at best give a rough estimate as to what topics a text is about.
 For this limited understanding of text, removing stop words improves results.
@@ -205,15 +205,15 @@ For this limited understanding of text, removing stop words improves results.
 \begin{exercise}
 Igoring capitalization, what do the following strings look like after stop word removal?
 
-<ol>
-<li>Hi! What's up?</li>
-<li>How much wood would a woodchuck chuck if a woodchuck could chuck wood?</li>
-<li>I'm here to kick ass and chew bubblegum, and I'm all out of gum.</li>
-<li>There is no spoon.</li>
-<li>John loves Peter.</li>
-<li>Every student hates some professor.</li>
-<li>Some student hates some professor.</li>
-</ol>
+
+- Hi! What's up?
+- How much wood would a woodchuck chuck if a woodchuck could chuck wood?
+- I'm here to kick ass and chew bubblegum, and I'm all out of gum.
+- There is no spoon.
+- John loves Peter.
+- Every student hates some professor.
+- Some student hates some professor.
+
 
 Are there any sentences whose original meaning can still inferred after stop word removal?
 If so, why might that be?
@@ -272,7 +272,7 @@ Each $n$-gram grammar can be regarded as a function that maps strings to 1 (= we
 Given a fixed grammar $G$, a string $s$ is either well-formed or ill-formed, but never both.
 So $G$ assigns a unique value to $s$ that never changes.
 
-<br>
+
 The functional perspective of $n$-gram grammars will be very useful later on when we consider probabilistic version of n-gram grammars.
 \end{example}
 
@@ -290,24 +290,24 @@ If something is wrong with the input, you don't get anything.
 \begin{exercise}
 A soda machine corresponds to different functions depending on
 
-<ol>
-<li>how much change it has,</li>
-<li>which beverages are in stock.</li>
-</ol>
+
+- how much change it has,
+- which beverages are in stock.
+
 
 Explain why.
 \end{exercise}
 
 \begin{example}
 Consider a program that takes as input a collection of words and return a randomly generated sentence using those words.
-For instance, if you give it the works <i>Mary</i>, <i>ate</i>, and <i>sushi</i>, it may return
+For instance, if you give it the works *Mary*, *ate*, and *sushi*, it may return
 
-<ol>
-<li><i>Mary ate sushi</i>, or</li>
-<li><i>sushi at Mary</i>, or</li>
-<li><i>sushi, Mary ate</i>, or</li>
-<li><i>Mary, sushi ate</i>.</li>
-</ol>
+
+- *Mary ate sushi*, or
+- *sushi at Mary*, or
+- *sushi, Mary ate*, or
+- *Mary, sushi ate*.
+
 
 This is not a function because one and the same input can result in different outputs.
 \end{example}
@@ -317,14 +317,14 @@ For each one of the following, say whether or not it is a function (i.e. it take
 If things can go either way depending on additional assumptions, explain why.
 Whether your answer is correct is less important than whether you can justify it based on your assumptions about how the world works.
 
-<ol>
-<li>$f(x) = x^2 - x$</li>
-<li>an address book that only contains names and phone numbers</li>
-<li>a spam filter for emails</li>
-<li>chess</li>
-<li>$\in$</li>
-<li>the US laws for assigning children to schools</li>
-</ol>
+
+- $f(x) = x^2 - x$
+- an address book that only contains names and phone numbers
+- a spam filter for emails
+- chess
+- $\in$
+- the US laws for assigning children to schools
+
 \end{exercise}
 
 Given this very general understanding of functions, we can define stop word removal as a function $\mathit{del}$ that takes as its input a string $s$ and a set $S$ of stop words.

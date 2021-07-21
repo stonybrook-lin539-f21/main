@@ -25,10 +25,10 @@ An **alphabet** is a finite set of symbols.
 \begin{definition}
 Let $\Sigma$ be some alphabet, and $\Sigma_\$$ its extension with a distinguished edge marker symbol $\$ \notin \Sigma$.
 An $n$-gram over $\Sigma_\$$ is an element of $\Sigma_\$^n$ ($n \geq 1$).
-A <b>negative $n$-gram grammar</b> $G$ over alphabet $\Sigma$ is a finite set of $n$-grams over $\Sigma_\$$.
+A **negative $n$-gram grammar** $G$ over alphabet $\Sigma$ is a finite set of $n$-grams over $\Sigma_\$$.
 A string $s$ over $\Sigma$ is well-formed with respect to $G$ iff there are no $u, v$ over $\Sigma_\$$ and no $g \in G$ such that
 $ \$^{n-1} \stringcat s \stringcat \$^{n-1} = u \stringcat g \stringcat v$.
-The <b>language of $G$</b>, denoted $L(G)$, contains all strings that are well-formed with respect to $G$, and only those.
+The **language of $G$**, denoted $L(G)$, contains all strings that are well-formed with respect to $G$, and only those.
 \end{definition}
 
 \begin{example}
@@ -41,8 +41,8 @@ So $\mathit{VC}$ is a component of $\mathit{CVCV}$, and as a result the string i
 \end{example}
 
 \begin{definition}
-A <b>mixed negative $n$-gram grammar</b> $G$ is a finite set of strings over $\Sigma$ such that $n$ is the length of the longest string in $G$.
-A negative $n$-gram grammar that is not mixed is called <b>strict</b>.
+A **mixed negative $n$-gram grammar** $G$ is a finite set of strings over $\Sigma$ such that $n$ is the length of the longest string in $G$.
+A negative $n$-gram grammar that is not mixed is called **strict**.
 \end{definition}
 
 ## Normal form theorem

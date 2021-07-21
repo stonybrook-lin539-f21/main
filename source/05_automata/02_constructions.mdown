@@ -34,11 +34,11 @@ Move your fingers in parallel as you move along with the symbols in $\String{aba
 \begin{exercise}
 Using the same "finger pushing" procedure, say for each one of the following strings whether it is a member of $L(A) \cap L(B)$.
 
-<ol>
-<li>$\String{aba}$</li>
-<li>$\String{abaabaabaabaabaa}$</li>
-<li>$\String{abb}$</li>
-</ol>
+
+- $\String{aba}$
+- $\String{abaabaabaabaabaa}$
+- $\String{abb}$
+
 
 You do not need to write down each individual move of your finger, "Yes" and "No" are sufficient answers.
 \end{exercise}
@@ -63,13 +63,13 @@ For simplicity, we write $i, x$ instead of $(A:i, B:x)$.
 
 \begin{definition}
 Let $A \is \tuple{\Sigma, Q_A, I_A, F_A, \Delta_A}$ and $B \is \tuple{\Sigma, Q_B, I_B, F_B, \Delta_B}$ be two FSAs.
-The <b>intersection automaton</b> $A \cap B$ is the FSA $\tuple{\Sigma, Q_A \times Q_B, I, F, \Delta}$ such that
+The **intersection automaton** $A \cap B$ is the FSA $\tuple{\Sigma, Q_A \times Q_B, I, F, \Delta}$ such that
 
-<ol>
-<li>$\tuple{a,x} \in I$ iff $a \in I$ and $x \in I$,</li>
-<li>$\tuple{a,x} \in F$ iff $a \in F$ and $x \in F$,</li>
-<li>$\tuple{\tuple{a,x}, \sigma, \tuple{b,y}} \in \Delta$ iff $\tuple{a,\sigma,b} \in \Delta_A$ and $\tuple{x, \sigma, y} \in \Delta_B$.</li>
-</ol>
+
+- $\tuple{a,x} \in I$ iff $a \in I$ and $x \in I$,
+- $\tuple{a,x} \in F$ iff $a \in F$ and $x \in F$,
+- $\tuple{\tuple{a,x}, \sigma, \tuple{b,y}} \in \Delta$ iff $\tuple{a,\sigma,b} \in \Delta_A$ and $\tuple{x, \sigma, y} \in \Delta_B$.
+
 \end{definition}
 
 \begin{theorem}
@@ -88,10 +88,10 @@ The theorem above still requires a proof.
 We have to show that the intersection automaton $C \is A \cap B$ does indeed recognize $L(A) \cap L(B)$.
 This breaks down into two separate claims:
 
-<ol>
-<li>$L(C) \subseteq L(A) \cap L(B)$</li>
-<li>$L(C) \supseteq L(A) \cap L(B)$</li>
-</ol>
+
+- $L(C) \subseteq L(A) \cap L(B)$
+- $L(C) \supseteq L(A) \cap L(B)$
+
 
 Try to prove each statement.
 \end{exercise}
@@ -110,15 +110,15 @@ Whenever an automaton furnishes choices of this kind, it is non-deterministic.
 Automata for which this not the case are called **deterministic**.
 
 \begin{definition}
-An FSA $\tuple{\Sigma, Q, I, F, \Delta}$ is <b>deterministic</b> iff all of the following hold:
+An FSA $\tuple{\Sigma, Q, I, F, \Delta}$ is **deterministic** iff all of the following hold:
 
-<ol>
-<li>$I$ is singleton,</li>
-<li>$\Delta$ contains no transitions of the form $\tuple{q, \emptystring, u}$ ($q, u \in Q$),</li>
-<li>if $\Delta$ contains both $\tuple{q, \sigma, u}$ and $\tuple{q, \sigma, v}$, then $u = v$.</li>
-</ol>
 
-An automaton is <b>non-deterministic</b> iff it is not deterministic.
+- $I$ is singleton,
+- $\Delta$ contains no transitions of the form $\tuple{q, \emptystring, u}$ ($q, u \in Q$),
+- if $\Delta$ contains both $\tuple{q, \sigma, u}$ and $\tuple{q, \sigma, v}$, then $u = v$.
+
+
+An automaton is **non-deterministic** iff it is not deterministic.
 \end{definition}
 
 \begin{example}
@@ -166,13 +166,13 @@ And if we switch from $\setof{v,w}$ to $\setof{x}$, this means that both copies 
 
 \begin{definition}
 Let $A \is \tuple{\Sigma, Q, I, F \Delta}$ be a non-deterministic FSA.
-Then the <b>determinization</b> of $A$ is the FSA $\mathrm{Det}(A) \is \tuple{\Sigma, 2^Q, \setof{I}, F_D, \Delta_D}$ such that
+Then the **determinization** of $A$ is the FSA $\mathrm{Det}(A) \is \tuple{\Sigma, 2^Q, \setof{I}, F_D, \Delta_D}$ such that
 
-<ol>
-<li>$\setof{I}$ contains $I$ as its only initial state,</li>
-<li>$\setof{q_1, \ldots, q_n} \in 2^Q$ is a member of $F_D$ iff $q_i \in F$ for some $1 \leq i \leq n$,</li>
-<li>$\tuple{u, \sigma, v} \in \Delta_D$ iff $v \is \setof{ q \in Q \mid \tuple{p, \sigma, q} \in \Delta \text{ for some } p \in u}.$</li>
-</ol>
+
+- $\setof{I}$ contains $I$ as its only initial state,
+- $\setof{q_1, \ldots, q_n} \in 2^Q$ is a member of $F_D$ iff $q_i \in F$ for some $1 \leq i \leq n$,
+- $\tuple{u, \sigma, v} \in \Delta_D$ iff $v \is \setof{ q \in Q \mid \tuple{p, \sigma, q} \in \Delta \text{ for some } p \in u}.$
+
 \end{definition}
 
 When manually determinizing an FSA, it is best to follow this incremental procedure:
@@ -239,7 +239,7 @@ That's huge.
 For instance, a 10-state automaton might have 1024 states after determinization.
 A 20-state automaton over a million!
 
-<br>
+
 In practice, the blow-up is not as bad, but it isn't uncommon for automata size to double, triple, or quadruple.
 As a concrete example of this, determinize the automaton below.
 
@@ -249,7 +249,7 @@ As a concrete example of this, determinize the automaton below.
 \begin{exercise}
 Only for the brave!
 
-<br>
+
 The automaton above doubles its size after determinization.
 What about the automaton below?
 
@@ -260,7 +260,7 @@ What about the automaton below?
 Determinization does not necessarily increase the size of an automaton.
 If the original automaton contains some redundancies, determinization can eliminate those.
 
-<br>
+
 The automaton below is a slightly redundant machine for accepting all strings over $a$ and $b$ that contain at least three symbols.
 
 \input_med{nondet_shrinking.tikz}
@@ -298,12 +298,12 @@ Here is the result of adding a sink state $S$ to the automaton above:
 \begin{exercise}
 For each one of the following strings, give its run according to the automaton above with a sink state.
 
-<ol>
-<li>$\String{a}$</li>
-<li>$\String{ab}$</li>
-<li>$\String{abaa}$</li>
-<li>$\String{abba}$</li>
-<li>$\String{abaabaa}$</li>
-<li>$\String{abbabaa}$</li>
-</ol>
+
+- $\String{a}$
+- $\String{ab}$
+- $\String{abaa}$
+- $\String{abba}$
+- $\String{abaabaa}$
+- $\String{abbabaa}$
+
 \end{exercise}

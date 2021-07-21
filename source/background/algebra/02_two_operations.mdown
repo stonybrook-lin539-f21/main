@@ -19,10 +19,10 @@ But not any arbitrary monoids will do, instead the two monoids have to be tightl
 \begin{definition}
 An algebra $\tuple{C, \oplus, \otimes, 0, 1}$ is a **semiring** iff all of the following hold:
 
-<ol>
-<li>$\tuple{C, \oplus, 0}$ is a commutative monoid</li>
-<li>$\tuple{C, \otimes, 1}$ is a monoid</li>
-<li>$\otimes$ distributes over $\oplus$:
+
+- $\tuple{C, \oplus, 0}$ is a commutative monoid
+- $\tuple{C, \otimes, 1}$ is a monoid
+- $\otimes$ distributes over $\oplus$:
 $
 a \otimes (b \oplus c) = (a \otimes b) \oplus (a \otimes c)
 $
@@ -30,15 +30,15 @@ and
 $
 (b \oplus c) \otimes a = (b \otimes a) \oplus (c \otimes a)
 $
-</li>
-<li>$0$ is an annihilator for $\otimes$: $a \otimes 0 = 0 \otimes a = 0$</li>
-</ol>
+
+- $0$ is an annihilator for $\otimes$: $a \otimes 0 = 0 \otimes a = 0$
+
 \end{definition}
 
 \begin{example}
 The prototypical semiring is the natural numbers with addition and multiplication: $\tuple{\mathbb{N}, +, \times, 0, 1}$.
 
-<br>
+
 First of all, it holds that $\tuple{\mathbb{N}, +, 0}$ is a commutative monoid and $\tuple{\mathbb{N}, \times, 1}$ is a monoid (also a commutative one, in fact, but that's not required by the definition of semiring).
 Second, addition distributes over multiplication in the intended fashion:
 
@@ -71,10 +71,10 @@ Notice that the identity elements are now $\emptyset$ for $\cup$ and $\setof{\em
 \begin{exercise}
 Show that both of the following hold:
 
-<ol>
-<li>$\tuple{ \wp(\Sigma^*), \cup, \emptyset }$ is a commutative monoid</li>
-<li>$\tuple{ \wp(\Sigma^*), \stringcat, \setof{\emptystring}}$ is a monoid</li>
-</ol>
+
+- $\tuple{ \wp(\Sigma^*), \cup, \emptyset }$ is a commutative monoid
+- $\tuple{ \wp(\Sigma^*), \stringcat, \setof{\emptystring}}$ is a monoid
+
 \end{exercise}
 
 Next, the distributive property has to hold in both directions.
@@ -84,10 +84,10 @@ If $\otimes$ is commutative, it suffices to check distributivity in one directio
 Show with a concrete example that our generalized version of $\stringcat$ is not commutative.
 Then give two concrete examples for each one of the following distributivity equations:
 
-<ol>
-<li>$A \stringcat (B \cup C) = (A \stringcat B) \cup (A \stringcat C)$</li>
-<li>$(B \cup C) \stringcat A = (B \stringcat A) \cup (C \stringcat A)$</li>
-</ol>
+
+- $A \stringcat (B \cup C) = (A \stringcat B) \cup (A \stringcat C)$
+- $(B \cup C) \stringcat A = (B \stringcat A) \cup (C \stringcat A)$
+
 \end{exercise}
 
 The last condition requires that the additive identity also plays a special role for the multiplicative operation: it must be an annihilator.
@@ -125,16 +125,16 @@ Which one of the following are semirings?
 Justify your answer!
 If an algebraic structure is not a semiring, it is enough to list one axiom that is not satisfied (as an extra challenge, you may try to list as many reasons as possible).
 
-<ol>
-<li>$\tuple{ \setof{0,1}, \max, \min, 0, 1 }$</li> 
-<li>$\tuple{ \mathbb{N}, +, +, 0, 0 }$</li> 
-<li>$\tuple{ \Sigma^*, \mathrm{lcs}, \stringcat, \emptystring, \emptystring }$, where $\mathrm{lcs}(u,v)$ returns the longest common substring of $u$ and $v$;
+
+- $\tuple{ \setof{0,1}, \max, \min, 0, 1 }$ 
+- $\tuple{ \mathbb{N}, +, +, 0, 0 }$ 
+- $\tuple{ \Sigma^*, \mathrm{lcs}, \stringcat, \emptystring, \emptystring }$, where $\mathrm{lcs}(u,v)$ returns the longest common substring of $u$ and $v$;
 for instance, $\mathrm{lcs}(baaaa, aaaab) = aaaa$
-</li>
-<li>
+
+- 
 $\tuple{ \mathbb{N} \times \Sigma^*, \oplus, \otimes, \tuple{0,\emptyset}, \tuple{1, \setof{\emptystring}} }$, where $\tuple{m, A} \oplus \tuple{n, B} = \tuple{m + n, A \cup B}$ and $\tuple{m, A} \otimes \tuple{n, B} = \tuple{m \times n, A \stringcat B}$
-</li>
-</ol>
+
+
 \end{exercise}
 
 ## Rings and fields

@@ -8,9 +8,9 @@ Relations are similar to functions in that they establish connections between ob
 But whereas a function associates only one output with every input, a relation is more flexible and allows connections to arbitrarily many elements.
 
 \begin{example}
-The question <i>Is $x$ a biological child of $y$</i> is a function because it maps any two $x$ and $y$ to either true or false, but never both.
-But if we slightly change the question to just <i>Name a biological child of $y$</i>, we are no longer dealing with a function because multiple answers are possible if $y$ has more than one child.
-Instead, we can talk about the <i>biological child</i> relation $R$ such that $x$ is related to $y$ via $R$ iff $x$ is a biological child of $y$.
+The question *Is $x$ a biological child of $y$* is a function because it maps any two $x$ and $y$ to either true or false, but never both.
+But if we slightly change the question to just *Name a biological child of $y$*, we are no longer dealing with a function because multiple answers are possible if $y$ has more than one child.
+Instead, we can talk about the *biological child* relation $R$ such that $x$ is related to $y$ via $R$ iff $x$ is a biological child of $y$.
 \end{example}
 
 
@@ -26,14 +26,14 @@ However, it is not the case that $7$ is related to $5$ via $<$, since $7 < 5$ do
 \end{example}
 
 \begin{example}
-Suppose <i>John</i> has exactly two siblings, <i>Mary</i> and <i>Sue</i>.
-Then the sibling relation establishes two connections for John: <i>John</i>-<i>Mary</i>, and <i>John</i>-<i>Sue</i>.
+Suppose *John* has exactly two siblings, *Mary* and *Sue*.
+Then the sibling relation establishes two connections for John: *John*-*Mary*, and *John*-*Sue*.
 Using $S$ for the sibling relation, we have
 $\text{John} \mathrel{S} \text{Mary}$
 and
 $\text{John} \mathrel{S} \text{Sue}$.
 
-<br>
+
 In contrast to $<$, the sibling relation is symmetric.
 That is to say, if Mary is a sibling of John, then John is also a sibling of Mary.
 Therefore we also have
@@ -41,7 +41,7 @@ $\text{Mary} \mathrel{S} \text{John}$
 and
 $\text{Sue} \mathrel{S} \text{John}$.
 
-<br>
+
 The relation is also transitive.
 If John is a sibling of Mary, and Sue is a sibling of John, then Sue is a sibling of Mary.
 So is also holds that $\text{Mary} \mathrel{S} \text{Sue}$, and via symmetry we also get $\text{Sue} \mathrel{S} \text{Mary}$.
@@ -50,7 +50,7 @@ Overall, we have $x \mathrel{S} y$ where $x, y \in \setof{\text{John}, \text{Mar
 \end{example}
 
 \begin{example}
-The <b>substring relation</b> $\sqsubseteq$ holds between two strings $u$ and $v$ iff $u$ is a substring of $v$.
+The **substring relation** $\sqsubseteq$ holds between two strings $u$ and $v$ iff $u$ is a substring of $v$.
 That is to say, $u \subseteq v$ iff there are $w, w' \in \Sigma^*$ such that $w \stringcat u \stringcat w' = v$.
 Note that for any given string $u$, there are infinitely many $v$ that $u$ is a substring of.
 Even if the alphabet contains only $a$, the string $aa$ is a substring of $aaa$, $aaaa$, $aaaaa$, and so on, ad infinitum.
@@ -77,13 +77,13 @@ Now let's define a boundedness relation $B$ which relates function $f$ to functi
 Suppose, for instance, that $f(x) = x$ and $g(x) = x^2$.
 Then $f \mathrel{B} g$, but not $g \mathrel{B} f$.
 
-<br>
+
 Many functions aren't related via $B$ at all.
 One example of this is $f(x) = -x + 1$ and $g(x) = x^2$.
 It is the case that $f(x) \leq g(x)$ for all $x \geq 1$, but $f(0) = 1 > 0 = g(0)$.
 \end{example}
 
-We will mostly be dealing with the special case of <b>binary relations</b> where exactly one element is related to some other element.
+We will mostly be dealing with the special case of **binary relations** where exactly one element is related to some other element.
 
 \begin{example}
 Almost all relations above are binary relations.
@@ -111,11 +111,11 @@ Then $\text{John} \mathrel{P} = \setof{\text{Sue}}$ and $\mathrel{P} \text{Sue} 
 Let $R$ be the relation that connects words to their parts of speech (N for nouns, V for verbs, A for adjectives, P for prepositions, D for determiners, and so on).
 List the following for English:
 
-<ol>
-<li>export $R$</li>
-<li>apple $R$</li>
-<li>$R$ P</li>
-</ol>
+
+- export $R$
+- apple $R$
+- $R$ P
+
 \end{exercise}
 
 ## Relations versus functions
@@ -139,18 +139,18 @@ If $a$ is related to two elements or more (i.e. $\card{a \mathrel{R}} \geq 2$), 
 \begin{exercise}
 For each one of the following, say whether it is a function or just a relation.
 
-<ol>
-<li>the parent-of relation (e.g. $j \mathrel{P} m$ for "John is a parent of Mary")</li>
-<li>the parent-of relation in a world where the one-child policy is enforced globally</li>
-<li>the relation between a car's license plate and its owners</li>
-<li>the prefix relation, where $u$ is a prefix of $v$ iff there is some $w \in \Sigma^*$ such that $v = u \stringcat w$</li>
-</ol>
+
+- the parent-of relation (e.g. $j \mathrel{P} m$ for "John is a parent of Mary")
+- the parent-of relation in a world where the one-child policy is enforced globally
+- the relation between a car's license plate and its owners
+- the prefix relation, where $u$ is a prefix of $v$ iff there is some $w \in \Sigma^*$ such that $v = u \stringcat w$
+
 \end{exercise}
 
 \begin{exercise}
 Is the following statement true or false?
 Justify your answer.
 
-<br>
+
 Every relation $R$ can be regarded as a function that maps $x$ to $x \mathrel{R}$.
 \end{exercise}

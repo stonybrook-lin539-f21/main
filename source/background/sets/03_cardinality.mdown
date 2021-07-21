@@ -24,7 +24,7 @@ $a \mapsto f$,
 $b \mapsto d$,
 $c \mapsto g$.
 
-<br>
+
 In the other direction, $\card{D} \not\leq \card{A}$.
 No matter how one maps the elements of $D$ to members of $A$, at least two members of $D$ will have to be mapped to the same element in $A$.
 \end{example}

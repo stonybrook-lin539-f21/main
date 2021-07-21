@@ -7,19 +7,19 @@ A **substring** is a continuous part of a string.
 \begin{example}
 The string $\String{abcd}$ has 11 substrings:
 
-<ol>
-<li>$\emptystring$</li>
-<li>$\String{a}$</li>
-<li>$\String{b}$</li>
-<li>$\String{c}$</li>
-<li>$\String{d}$</li>
-<li>$\String{ab}$</li>
-<li>$\String{bc}$</li>
-<li>$\String{cd}$</li>
-<li>$\String{abc}$</li>
-<li>$\String{bcd}$</li>
-<li>$\String{abcd}$</li>
-</ol>
+
+- $\emptystring$
+- $\String{a}$
+- $\String{b}$
+- $\String{c}$
+- $\String{d}$
+- $\String{ab}$
+- $\String{bc}$
+- $\String{cd}$
+- $\String{abc}$
+- $\String{bcd}$
+- $\String{abcd}$
+
 \end{example}
 
 Note that
@@ -36,15 +36,15 @@ All the strings listed above are proper substrings of $\String{abcd}$, except $\
 \begin{exercise}
 For each one of the gaps below, enter $\sqsubseteq$, $\sqsubsetneq$, or $\not\sqsubseteq$ depending on whether the first string is a substring of the second string, a proper substring, or neither:
 
-<ol>
-<li>$\String{a} \_ \String{aaaa}$</li>
-<li>$\String{a} \_ \String{b}$</li>
-<li>$\emptystring \_ \String{b}$</li>
-<li>$\emptystring \_ \emptystring$</li>
-<li>$\String{aa} \_ \String{abbbca}$</li>
-<li>$\String{bc} \_ \String{abbbca}$</li>
-<li>$\String{cb} \_ \String{abbbca}$</li>
-</ol>
+
+- $\String{a} \_ \String{aaaa}$
+- $\String{a} \_ \String{b}$
+- $\emptystring \_ \String{b}$
+- $\emptystring \_ \emptystring$
+- $\String{aa} \_ \String{abbbca}$
+- $\String{bc} \_ \String{abbbca}$
+- $\String{cb} \_ \String{abbbca}$
+
 \end{exercise}
 
 ## Subsequence
@@ -54,23 +54,23 @@ A **subsequence** is a discontinuous part of a string that preserves the order b
 \begin{example}
 The string $\String{abcd}$ has subsequences:
 
-<ol>
-<li>$\emptystring$</li>
-<li>$\String{a}$</li>
-<li>$\String{b}$</li>
-<li>$\String{c}$</li>
-<li>$\String{d}$</li>
-<li>$\String{ab}$</li>
-<li>$\String{ac}$</li>
-<li>$\String{ad}$</li>
-<li>$\String{bc}$</li>
-<li>$\String{bd}$</li>
-<li>$\String{cd}$</li>
-<li>$\String{abc}$</li>
-<li>$\String{abd}$</li>
-<li>$\String{bcd}$</li>
-<li>$\String{abcd}$</li>
-</ol>
+
+- $\emptystring$
+- $\String{a}$
+- $\String{b}$
+- $\String{c}$
+- $\String{d}$
+- $\String{ab}$
+- $\String{ac}$
+- $\String{ad}$
+- $\String{bc}$
+- $\String{bd}$
+- $\String{cd}$
+- $\String{abc}$
+- $\String{abd}$
+- $\String{bcd}$
+- $\String{abcd}$
+
 
 Note that $\String{ca}$ is not a subsequence of $\String{abcd}$, but it is a subsequence of $\String{abcda}$.
 \end{example}
@@ -80,15 +80,15 @@ Just like substrings, a subsequence $u$ of $v$ is proper iff $u \neq v$.
 \begin{exercise}
 For each one of the gaps below, enter $\sqsubseteq$, $\sqsubsetneq$, or $\not\sqsubseteq$ depending on whether the first string is a subsequence of the second string, a proper subsequence, or neither:
 
-<ol>
-<li>$\String{a} \_ \String{aaaa}$</li>
-<li>$\String{a} \_ \String{b}$</li>
-<li>$\emptystring \_ \String{b}$</li>
-<li>$\emptystring \_ \emptystring$</li>
-<li>$\String{aa} \_ \String{abbbca}$</li>
-<li>$\String{bc} \_ \String{abbbca}$</li>
-<li>$\String{cb} \_ \String{abbbca}$</li>
-</ol>
+
+- $\String{a} \_ \String{aaaa}$
+- $\String{a} \_ \String{b}$
+- $\emptystring \_ \String{b}$
+- $\emptystring \_ \emptystring$
+- $\String{aa} \_ \String{abbbca}$
+- $\String{bc} \_ \String{abbbca}$
+- $\String{cb} \_ \String{abbbca}$
+
 \end{exercise}
 
 \begin{exercise}

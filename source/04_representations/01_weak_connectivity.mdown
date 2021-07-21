@@ -12,7 +12,7 @@ They are all weak partial orders, and some of them are linear orders.
 But weak partial orders can take a lot more general shapes than what we see above.
 
 \begin{example}
-Consider the <b>identity function</b> $\mathrm{id}$, which connects every node to itself and nothing else. 
+Consider the **identity function** $\mathrm{id}$, which connects every node to itself and nothing else. 
 We can view this function as a relation that connects each node to itself and nothing else.
 This is a weak partial order.
 It clearly satisfies reflexivity.
@@ -33,19 +33,19 @@ In other words, for all $x, y \in S$ it holds that there is a greatest lower bou
 \begin{exercise}
 Compute each one of the following for the corresponding hierarchy above (assume for each figure that if a node $x$ has a connection to some higher node $y$, this represents $x \leq y$, not $y \leq x$).
 
-<ol>
-<li>$1 \wedge 2$</li>
-<li>$2 \vee (1 \wedge 3)$</li>
-<li>$\text{positive} \wedge \text{comparative} \wedge \text{superlative}$</li>
-<li>$\text{Nom} \wedge (\text{Gen} \vee \text{Acc})$</li>
-</ol>
+
+- $1 \wedge 2$
+- $2 \vee (1 \wedge 3)$
+- $\text{positive} \wedge \text{comparative} \wedge \text{superlative}$
+- $\text{Nom} \wedge (\text{Gen} \vee \text{Acc})$
+
 \end{exercise}
 
 \begin{exercise}
 The PCC structure is neither a join semilattice nor a meet semilattice.
 Explain why.
 
-<i>Hint</i>: Find two elements that have no unique supremum or no unique infimum.
+*Hint*: Find two elements that have no unique supremum or no unique infimum.
 \end{exercise}
 
 \begin{exercise}

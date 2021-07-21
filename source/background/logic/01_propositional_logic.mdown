@@ -21,12 +21,12 @@ We can combine propositions with four operators:
 Let $p$ and $q$ be short for *Sue smokes* and *John likes fish*, respectively.
 Here are some of the combinations that are possible this way:
 
-<ol>
-<li>$p \wedge q$: *Sue smokes and John likes fish.*
-<li>$p \vee q$: *Sue smokes or John likes fish.*
-<li>$p \rightarrow q$: *If Sue smokes then John likes fish.*
-<li>$p \leftrightarrow q$: *Sue smokes if and only if John likes fish.*
-</ol>
+
+- $p \wedge q$: *Sue smokes and John likes fish.*
+- $p \vee q$: *Sue smokes or John likes fish.*
+- $p \rightarrow q$: *If Sue smokes then John likes fish.*
+- $p \leftrightarrow q$: *Sue smokes if and only if John likes fish.*
+
 \end{example}
 
 In addition, we can use the negation operator $\neg$ to switch the truth value of a proposition symbol to its opposite.
@@ -48,37 +48,37 @@ For propositional logic, the syntactic component revolves around combining propo
 Let $P$ be some non-empty set of **propositional symbols**.
 The set $L$ of propositional **sentences** or **formulae** contains all of the following, and only those:
 
-<ol>
-<li>$p$ for every $p \in P$</li>
-<li>$(\neg \phi)$ if $\phi \in L$</li>
-<li>$(\phi \wedge \psi)$ if $\phi, \psi \in L$</li>
-<li>$(\phi \vee \psi)$ if $\phi, \psi \in L$</li>
-<li>$(\phi \rightarrow \psi)$ if $\phi, \psi \in L$</li>
-<li>$(\phi \leftrightarrow \psi)$ if $\phi, \psi \in L$</li>
-</ol>
+
+- $p$ for every $p \in P$
+- $(\neg \phi)$ if $\phi \in L$
+- $(\phi \wedge \psi)$ if $\phi, \psi \in L$
+- $(\phi \vee \psi)$ if $\phi, \psi \in L$
+- $(\phi \rightarrow \psi)$ if $\phi, \psi \in L$
+- $(\phi \leftrightarrow \psi)$ if $\phi, \psi \in L$
+
 
 Given an **assignment function** $g: P \rightarrow \setof{0,1}$, the truth value of a propositional formula with respect to $g$ is computed as follows:
 
-<ol>
-<li>$g(\neg p) = 1 - g(p)$</li>
-<li>$g(\phi \wedge \psi) = \min(g(\phi), g(\psi))$</li>
-<li>$g(\phi \vee \psi) = \max(g(\phi), g(\psi))$</li>
-<li>$g(\phi \rightarrow \psi) = \max(g(\neg \phi) g(\psi))$</li>
-<li>$g(\phi \leftrightarrow \psi) = \min(g(\phi), g(\psi))$</li>
-</ol>
+
+- $g(\neg p) = 1 - g(p)$
+- $g(\phi \wedge \psi) = \min(g(\phi), g(\psi))$
+- $g(\phi \vee \psi) = \max(g(\phi), g(\psi))$
+- $g(\phi \rightarrow \psi) = \max(g(\neg \phi) g(\psi))$
+- $g(\phi \leftrightarrow \psi) = \min(g(\phi), g(\psi))$
+
 \end{definition}
 
 \begin{exercise}
 For each one of the following, say whether it is a valid propositional formula according to the definition above.
 If so, compute its truth value in a step-by-step fashion, assuming $g(p) = 1$ and $g(q) = 0$.
 
-<ol>
-<li>$(p \wedge q)$</li>
-<li>$((p \wedge q) \vee (\neg p))$</li>
-<li>$p$</li>
-<li>$(p \neg \rightarrow q)$</li>
-<li>$(\neg ((\neg p) \rightarrow (\neg (\neg q))))$</li>
-</ol>
+
+- $(p \wedge q)$
+- $((p \wedge q) \vee (\neg p))$
+- $p$
+- $(p \neg \rightarrow q)$
+- $(\neg ((\neg p) \rightarrow (\neg (\neg q))))$
+
 \end{exercise}
 
 \begin{exercise}
@@ -96,11 +96,11 @@ yields a correspondingly larger tree.
 
 Draw the corresponding tree for each one of the formulas below:
 
-<ol>
-<li>$(\neg p)$</li>
-<li>$(p \rightarrow ((q \rightarrow r) \wedge (\neg r)))$</li>
-<li>p</li>
-</ol>
+
+- $(\neg p)$
+- $(p \rightarrow ((q \rightarrow r) \wedge (\neg r)))$
+- p
+
 \end{exercise}
 
 \begin{exercise}
@@ -144,13 +144,13 @@ Finally, we bracket $\rightarrow$ to arrive at the final $((\neg p) \rightarrow 
 \begin{exercise}
 For each one of the following formulas, remove all brackets that are redundant given the operator hierarchy above.
 
-<ol>
-<li>$((\neg p) \rightarrow (\neg q))$</li>
-<li>$((p \wedge q) \leftrightarrow (\neg (q \vee r)))$</li>
-<li>$((\neg p) \rightarrow ((q \wedge r) \rightarrow s))$</li>
-<li>$(p \wedge (q \wedge r))$</li>
-<li>$(\neg (p \leftrightarrow (p \wedge q)))$</li>
-</ol>
+
+- $((\neg p) \rightarrow (\neg q))$
+- $((p \wedge q) \leftrightarrow (\neg (q \vee r)))$
+- $((\neg p) \rightarrow ((q \wedge r) \rightarrow s))$
+- $(p \wedge (q \wedge r))$
+- $(\neg (p \leftrightarrow (p \wedge q)))$
+
 \end{exercise}
 
 ## Truth tables
@@ -338,7 +338,7 @@ Exclusive or is known as XOR in computer science, and often occurs together with
 The two are very important for transistor design, because $\neg$, $\wedge$, $\vee$, $\rightarrow$, and $\leftrightarrow$ can all be expressed in terms of these two operators.
 So logical circuitry can be built entirely with XOR and NAND circuits, which keeps production costs low.
 
-<br>
+
 Express each one of the standard five operators as a combination of XOR and NAND (you may use each one multiple times, if necessary).
 \end{exercise}
 

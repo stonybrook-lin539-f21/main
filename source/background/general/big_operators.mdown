@@ -75,7 +75,7 @@ Sometimes both can show up in one and the same formula.
 \begin{example}
 Here is an example of a definition that mixes the sum operator $\sum$ with the alphabet symbol $\Sigma$:
 
-<br>
+
 As our alphabet $\Sigma$, we pick a random finite set of natural numbers.
 We define the ID-number of $\Sigma$ as
 

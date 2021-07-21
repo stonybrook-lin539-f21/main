@@ -39,7 +39,7 @@ A more interesting example is equivalence modulo $2$.
 The modulo $n$ operation divdies a number by $n$ and returns the remainder.
 For example, $5 \mod 2 = 1$, whereas $6 \mod 2 = 0$.
 
-<br>
+
 Suppose $x \equiv_2 y$ iff $x \mod 2 = y \mod 2$.
 Then $\equiv_2$ is an equivalence relation.
 First, it is clearly refleixve: $x \equiv_2 x$ iff $x \mod 2 = x \mod 2$, which always holds.
@@ -137,7 +137,7 @@ Alternatively, one can look at the quotient set.
 Take the two equivalence classes, and take their sum by picking the smallest number from each equivalence class and adding them together.
 Then apply modulo 2 as before.
 
-<br>
+
 Here's what this looks like with specific numbers.
 Suppose you want to calculate $(10,222 + 13,728,529) \mod 2$.
 You could add this up to $13,738,751$, divide by two, and get a remainder of $1$.

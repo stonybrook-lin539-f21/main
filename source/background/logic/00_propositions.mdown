@@ -9,25 +9,25 @@ It just means that the statement is such that it can have a truth value.
 \begin{example}
 All of the following are propositions, even though whether they're true or false can depend greatly on context:
 
-<ul>
-<li>Nobody likes ponies.</li>
-<li>He always snores like a pig.</li>
-<li>$2 + 2 = 4$</li>
-<li>We might see another stock market crash soon.</li>
-<li>A language is regular iff it is recognized by a finite-state automaton.</li>
-</ul>
+
+- Nobody likes ponies.
+- He always snores like a pig.
+- $2 + 2 = 4$
+- We might see another stock market crash soon.
+- A language is regular iff it is recognized by a finite-state automaton.
+
 \end{example}
 
 \begin{example}
 The following are not propositions.
 
-<ul>
-<li>Are you mad?</li>
-<li>Please open a window.</li>
-<li>Hell, yeah!</li>
-<li>A cute kitten</li>
-<li>John and Mary</li>
-</ul>
+
+- Are you mad?
+- Please open a window.
+- Hell, yeah!
+- A cute kitten
+- John and Mary
+
 \end{example}
 
 \begin{example}
@@ -42,14 +42,14 @@ Commands have no truth value and thus aren't propositions.
 For each one of the following, say whether it is a proposition.
 If you say no, justify your answer.
 
-<ol>
-<li>John and Peter met yesterday.</li>
-<li>The DeLorean DMC-12 is a sports car originally manufactured by John DeLorean's DeLorean Motor Company.</li>
-<li>Who would say no to that.</li>
-<li>That son of a gun has fooled us all.</li>
-<li>Colorless green ideas sleep furiously.</li>
-<li>John and Mary have only one child, who has three siblings.</li>
-</ol>
+
+- John and Peter met yesterday.
+- The DeLorean DMC-12 is a sports car originally manufactured by John DeLorean's DeLorean Motor Company.
+- Who would say no to that.
+- That son of a gun has fooled us all.
+- Colorless green ideas sleep furiously.
+- John and Mary have only one child, who has three siblings.
+
 \end{exercise}
 
 ## Entailment
@@ -86,30 +86,30 @@ Logic was devised as a means to study these different kinds of entailments, but 
 For each one of the following pairs of sentences, say whether entailment holds, and if so, in which direction.
 If entailment does not hold, explain why.
 
-<ol>
-<li>
+
+- 
 John likes his son's sisters. |
 John likes his daughters.
-</li>
-<li>
+
+- 
 I am 30 years old. |
 My age is a multiple of 15.
-</li>
-<li>
+
+- 
 1 is not a prime number. |
 No prime numbers is less than 2.
-</li>
-<li>
+
+- 
 John and Bill both left the party early. |
 Bill left the party around 9.
-</li>
-<li>
+
+- 
 The 45th US president isn't universally beloved. |
 Donald Trump isn't universally beloved.
-</li>
-<li>
+
+- 
 If $2 + 2 = 4$, then $2 + 2 = 4$. |
 $2 + 2 = 4$
-</li>
-</ol>
+
+
 \end{exercise}

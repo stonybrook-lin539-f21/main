@@ -10,7 +10,7 @@ These posets are called **semilattices** and **lattices**.
 
 The previous unit was only concerned with identifying lower bounds and upper bounds, but not all lower bounds and upper bounds are the same.
 Some are "closer" to the elements whose bounds we want to compute.
-This gives us the notion of <b>greatest lower bound</b> and <b>least upper bound</b>.
+This gives us the notion of **greatest lower bound** and **least upper bound**.
 
 \begin{example}
 We return once more to the poset of subsets of $\setof{1,2,3}$ ordered by the subset relation $\subseteq$.
@@ -39,10 +39,10 @@ The greatest lower bounds of some subset $S$ are exactly the upper bounds of the
 And the least upper bounds of $S$ are exactly the lower bounds of the upper bounds of $S$.
 
 \begin{definition}
-Given a poset $\tuple{S, \leq}$ and some arbitrary subset $T \subseteq S$, we call $\mathrm{lub}(T) \is \mathrm{lb}(\mathrm{ub}(T))$ the set of <b>least upper bounds</b> of $T$.
-An element of $\mathrm{lub}(T)$ is also called a <b>lub</b> or a <b>supremum</b> or a <b>join</b>.
-Similarly, $\mathrm{glb}(T) \is \mathrm{ub}(\mathrm{lb}(T))$ is the set of <b>greast lower bounds</b> of $T$.
-An element of $\mathrm{glb}(T)$ is also called a <b>glb</b> or an <b>infimum</b> or a <b>meet</b>.
+Given a poset $\tuple{S, \leq}$ and some arbitrary subset $T \subseteq S$, we call $\mathrm{lub}(T) \is \mathrm{lb}(\mathrm{ub}(T))$ the set of **least upper bounds** of $T$.
+An element of $\mathrm{lub}(T)$ is also called a **lub** or a **supremum** or a **join**.
+Similarly, $\mathrm{glb}(T) \is \mathrm{ub}(\mathrm{lb}(T))$ is the set of **greast lower bounds** of $T$.
+An element of $\mathrm{glb}(T)$ is also called a **glb** or an **infimum** or a **meet**.
 \end{definition}
 
 \begin{example}
@@ -55,14 +55,14 @@ This tells us that $\setof{1}$ is the only lub of $\setof{1}$, as expected.
 \begin{exercise}
 Given the same poset as in the previous examples, compute all of the following:
 
-<ol>
-<li>$\mathrm{lub}(\setof{\setof{1,2}, \setof{2,3}})$</li>
-<li>$\mathrm{glb}(\setof{\setof{1,2}, \setof{2,3}})$</li>
-<li>$\mathrm{lub}(\setof{\emptyset})$</li>
-<li>$\mathrm{glb}(\setof{\emptyset, \setof{1,2,3}})$</li>
-<li>$\mathrm{glb}(\setof{\setof{1}, \setof{2,3}, \setof{1,2,3}})$</li>
-<li>$\mathrm{lub}(\setof{\setof{1}, \setof{2}, \setof{3}})$</li>
-</ol>
+
+- $\mathrm{lub}(\setof{\setof{1,2}, \setof{2,3}})$
+- $\mathrm{glb}(\setof{\setof{1,2}, \setof{2,3}})$
+- $\mathrm{lub}(\setof{\emptyset})$
+- $\mathrm{glb}(\setof{\emptyset, \setof{1,2,3}})$
+- $\mathrm{glb}(\setof{\setof{1}, \setof{2,3}, \setof{1,2,3}})$
+- $\mathrm{lub}(\setof{\setof{1}, \setof{2}, \setof{3}})$
+
 \end{exercise}
 
 
@@ -102,7 +102,7 @@ If $\mathrm{glb}(T) \neq \emptyset$, then it contains exactly one element.
 \begin{exercise}
 Try to explain to yourself why this result holds.
 
-<i>Hint</i>: Suppose towards a contradiction that $\mathrm{lub}(T)$ does contain at least two distinct elements $x$ and $y$.
+*Hint*: Suppose towards a contradiction that $\mathrm{lub}(T)$ does contain at least two distinct elements $x$ and $y$.
 How would $x$ and $y$ have to be ordered by $\leq$?
 Is this possible in a poset?
 \end{exercise}
@@ -118,7 +118,7 @@ The operations $\vee$ and $\wedge$ are referred to as **join** and **meet**.
 Writing $\mathrm{glb}(\setof{s_1, \ldots, s_n})$ as $s_1 \wedge s_2 \wedge \cdots \wedge s_n$ is possible because $\wedge$ is an associative operation: $(x \wedge y) \wedge z = x \wedge (y \wedge z)$. 
 Explain why $\wedge$ is associative.
 
-<i>Hint</i>: You want to show that $\mathrm{glb}(\setof{ \mathrm{glb}(\setof{x, y}), z}) = \mathrm{glb}(\setof{x, \mathrm{glb}(\setof{y, z})})$ if one adopts the convention that the $\mathrm{glb}$ function returns a unique element rather than a set.
+*Hint*: You want to show that $\mathrm{glb}(\setof{ \mathrm{glb}(\setof{x, y}), z}) = \mathrm{glb}(\setof{x, \mathrm{glb}(\setof{y, z})})$ if one adopts the convention that the $\mathrm{glb}$ function returns a unique element rather than a set.
 \end{exercise}
 
 \begin{example}
@@ -133,8 +133,8 @@ In addition, you can think of the meet operation as looking at all the many elem
 The join operation $\vee$ is the mirror image of that.
 We look at the many things above and limit it to just one thing at the very bottom.
 
-Finally, the meet symbol $\wedge$ looks like one half of the letter <i>m</i> at the beginning of <i>meet</i>.
-And $\vee$ is the final part of the final letter <i>n</i> of <i>join</i>.
+Finally, the meet symbol $\wedge$ looks like one half of the letter *m* at the beginning of *meet*.
+And $\vee$ is the final part of the final letter *n* of *join*.
 This is perhaps the hokiest way of memorizing the symbols, but it's the one that worked best for me back in the days.
 \end{example}
 
@@ -145,9 +145,9 @@ As we have seen, not every poset furnishes a join or a meet for every subset of 
 The posets that do are particularly well-behaved and hence get special terms: **join semilattice** and **meet semilattice**.
 
 \begin{definition}
-A poset $\tuple{S, \leq}$ is a <b>join semilattice</b> iff $x \vee y$ exists for all $x, y \in S$.
-It is a <b>meet semilattice</b> iff $x \wedge y$ exists for all $x, y \in S$.
-It is a <b>semilattice</b> iff is a join semilattice or a meet semilattice.
+A poset $\tuple{S, \leq}$ is a **join semilattice** iff $x \vee y$ exists for all $x, y \in S$.
+It is a **meet semilattice** iff $x \wedge y$ exists for all $x, y \in S$.
+It is a **semilattice** iff is a join semilattice or a meet semilattice.
 \end{definition}
 
 In practice, the distinction between join and meet semilattices isn't all that relevant. 
@@ -169,7 +169,7 @@ Some posets are so well-behaved that they are both join semilattices and meet se
 These posets are **lattices**.
 
 \begin{definition}
-A poset is a <b>lattice</b> iff it is both a join semilattice and a meet semilattice.
+A poset is a **lattice** iff it is both a join semilattice and a meet semilattice.
 \end{definition}
 
 
@@ -221,7 +221,7 @@ Say whether it is a join semilattice, a meet semilattice, or both (and hence a l
 Say whether the following statement is true or false.
 Justify your answer.
 
-<br>
+
 If a poset $\tuple{S, \leq}$ with a finite carrier $S$ does not contain a unique element $x \in S$ such that $x \leq y$ for all $y \in S$, then this poset cannot be a meet semilattice.
 \end{exercise}
 
@@ -229,6 +229,6 @@ If a poset $\tuple{S, \leq}$ with a finite carrier $S$ does not contain a unique
 Say whether the following statement is true or false.
 Justify your answer.
 
-<br>
+
 If a poset $\tuple{S, \leq}$ with a finite carrier $S$ contains a unique element $x \in S$ such that $x \leq y$ for all $y \in S$, then this poset is guaranteed to be a meet semilattice.
 \end{exercise}

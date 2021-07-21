@@ -95,21 +95,21 @@ Monotonicity is actually an umbrella term for two distinct properties: **isotoni
 
 \begin{definition}
 Let $A$ and $B$ be arbitrary sets and $\leq_A$ and $\leq_B$ ordering relations over these respective sets.
-Then a function $f: A \rightarrow B$ is <b>isotonic</b> (or <b>monotonic increasing</b>) iff $x \leq_A y$ implies $f(x) \leq_B f(y)$.
-We call $f$ <b>antitonic</b> (or <b>monotonic decreasing</b>) iff $x \leq_A y$ implies $f(y) \leq_B f(x)$.
-A function is <b>monotonic</b> iff it is isotonic or antitonic.
+Then a function $f: A \rightarrow B$ is **isotonic** (or **monotonic increasing**) iff $x \leq_A y$ implies $f(x) \leq_B f(y)$.
+We call $f$ **antitonic** (or **monotonic decreasing**) iff $x \leq_A y$ implies $f(y) \leq_B f(x)$.
+A function is **monotonic** iff it is isotonic or antitonic.
 \end{definition}
 
 \begin{exercise}
 For each one of the following functions say whether it is isotonic, antitonic, or neither.
 
-<ol>
-<li>$f: \mathbb{N} \rightarrow \mathbb{N}$, $x \mapsto -x$</li>
-<li>$f: \mathbb{R} \rightarrow \mathbb{R}$, $x \mapsto x - 10$</li>
-<li>$f: \mathbb{R} \rightarrow \mathbb{R}$, $x \mapsto x^2$</li>
-<li>$f: \mathbb{R} \rightarrow \mathbb{R}$, $x \mapsto \frac{x}{2}$</li>
-<li>$f: \mathbb{N} \rightarrow \mathbb{N}$, $f(n)$ is $1$ if $n = 0$ and $n \mult f(n-1)$ otherwise</li>
-</ol>
+
+- $f: \mathbb{N} \rightarrow \mathbb{N}$, $x \mapsto -x$
+- $f: \mathbb{R} \rightarrow \mathbb{R}$, $x \mapsto x - 10$
+- $f: \mathbb{R} \rightarrow \mathbb{R}$, $x \mapsto x^2$
+- $f: \mathbb{R} \rightarrow \mathbb{R}$, $x \mapsto \frac{x}{2}$
+- $f: \mathbb{N} \rightarrow \mathbb{N}$, $f(n)$ is $1$ if $n = 0$ and $n \mult f(n-1)$ otherwise
+
 \end{exercise}
 
 \begin{exercise}

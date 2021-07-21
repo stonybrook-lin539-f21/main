@@ -22,12 +22,12 @@ If, say, $a = b = 1$ then $\tuple{a,b} = \tuple{1,1} = \tuple{b,a}$.
 \begin{exercise}
 Fill in the gaps with $=$ and $\neq$ as appropriate, assuming that $a$ and $b$ are distinct elements:
 
-<ol>
-<li>$\tuple{a} \_ \tuple{b}$</li>
-<li>$\tuple{a,b,a} \_ \tuple{a,b,b}$</li>
-<li>$\tuple{a,b,a,a} \_ \tuple{a,b,a,a}$</li>
-<li>$\tuple{a,a,b,a} \_ \tuple{a,b,a,a}$</li>
-</ol>
+
+- $\tuple{a} \_ \tuple{b}$
+- $\tuple{a,b,a} \_ \tuple{a,b,b}$
+- $\tuple{a,b,a,a} \_ \tuple{a,b,a,a}$
+- $\tuple{a,a,b,a} \_ \tuple{a,b,a,a}$
+
 \end{exercise}
 
 One often writes $A^n$ for the set of all $n$-tuples whose elements are drawn from $A$.
@@ -35,10 +35,10 @@ One often writes $A^n$ for the set of all $n$-tuples whose elements are drawn fr
 \begin{example}
 Suppose $A \is \setof{a,b}$.
 
-<ol>
-<li>$A^2 = A \times A = \setof{ \tuple{a,a}, \tuple{a,b}, \tuple{b,a}, \tuple{b,b}}$</li>
-<li>$A^1 = A = \setof{ \tuple{a}, \tuple{b}}$</li>
-</ol>
+
+- $A^2 = A \times A = \setof{ \tuple{a,a}, \tuple{a,b}, \tuple{b,a}, \tuple{b,b}}$
+- $A^1 = A = \setof{ \tuple{a}, \tuple{b}}$
+
 \end{example}
 
 \begin{exercise}
@@ -55,7 +55,7 @@ Two tuples $a$ and $b$ can be concatenated into a single large tuple $a \tupleca
 
 \begin{definition}
 Given an $m$-tuple $a \is \tuple{a_1, \ldots, a_m}$ and an $n$-tuple $b \is \tuple{b_1, \ldots, b_n}$,
-their <b>concatenation</b> is the $m+n$-tuple
+their **concatenation** is the $m+n$-tuple
 $a \tuplecat b \is \tuple{a_1, \ldots, a_m, b_1, \ldots, b_n}$.
 \end{definition}
 
@@ -66,7 +66,7 @@ This means that for any tuples $a$, $b$, and $c$, it holds that $a \tuplecat (b 
 The concatenation of $\tuple{x,y}$ and $\tuple{z}$ is $\tuple{x,y,z}$.
 If we concatenate $\tuple{x,y,z}$ and $\tuple{y,y,y,}$, we get $\tuple{x,y,z,y,y,y}$.
 
-<br>
+
 We could have gotten the same result by proceeding in a different order.
 We first concetate $\tuple{z}$ and $\tuple{y,y,y}$ into $\tuple{z,y,y,y}$.
 We then concatenate $\tuple{x,y}$ and $\tuple{z,y,y,y}$ to obtain $\tuple{x,y,z,y,y,y}$.
@@ -78,10 +78,10 @@ $$(\tuple{x,y} \tuplecat \tuple{z}) \tuplecat \tuple{y,y,y} = \tuple{x,y} \tuple
 \begin{exercise}
 Calculate the result of the following concatenations:
 
-<ol>
-<li>$\tuple{a,b} \tuplecat ((\tuple{c} \tuplecat \tuple{a,b}) \tuplecat \tuple{a,c,e})$</li>
-<li>$(\tuple{a,b} \tuplecat \tuple{c}) \tuplecat (\tuple{a,b} \tuplecat \tuple{a,c,e})$</li>
-</ol>
+
+- $\tuple{a,b} \tuplecat ((\tuple{c} \tuplecat \tuple{a,b}) \tuplecat \tuple{a,c,e})$
+- $(\tuple{a,b} \tuplecat \tuple{c}) \tuplecat (\tuple{a,b} \tuplecat \tuple{a,c,e})$
+
 \end{exercise}
 
 \begin{exercise}
@@ -120,24 +120,24 @@ So a tuple may consist of sets, multisets, other tuples, functions, relations, a
 \begin{example}
 All of the following are valid tuples:
 
-<ol>
-<li>$\tuple{\setof{5, -5}, 25}$ is a pair that consists of the set $\setof{5, -5}$ and the number $25$</li>
-<li>$\tuple{\mathbb{N}, \mathbb{N}, \mathbb{N}}$ is a triple where each component is the set of natural numbers</li>
-<li>$\tuple{\mathbb{N}, \setof{3,7, \setof{112}}, +, -}$ is a $4$-tuple that consists of the set of natural numbers, the set $\setof{3,7, \setof{112}}$, and the operations of addition and subtraction</li>
-<li>\tuple{a, \tuple{b, \tuple{}, \tuple{c}, \tuple{d,e}, b}, \setof{1,2,3, \tuple{}}} is triple that consists of $a$, the 5-tuple $\tuple{b, \tuple, \tuple{c}, \tuple{d,e}, b}$, and the set $\setof{1,2,3, \tuple{}}$</li>
-</ol>
+
+- $\tuple{\setof{5, -5}, 25}$ is a pair that consists of the set $\setof{5, -5}$ and the number $25$
+- $\tuple{\mathbb{N}, \mathbb{N}, \mathbb{N}}$ is a triple where each component is the set of natural numbers
+- $\tuple{\mathbb{N}, \setof{3,7, \setof{112}}, +, -}$ is a $4$-tuple that consists of the set of natural numbers, the set $\setof{3,7, \setof{112}}$, and the operations of addition and subtraction
+- \tuple{a, \tuple{b, \tuple{}, \tuple{c}, \tuple{d,e}, b}, \setof{1,2,3, \tuple{}}} is triple that consists of $a$, the 5-tuple $\tuple{b, \tuple, \tuple{c}, \tuple{d,e}, b}$, and the set $\setof{1,2,3, \tuple{}}$
+
 \end{example}
 
 \begin{exercise}
 What is the length of the following tuples?
 
-<ol>
-<li>$\tuple{a,b,c}$</li>
-<li>$\tuple{a, \tuple{b,c}}$</li>
-<li>$\tuple{\tuple{a}, \tuple{b}, \tuple{c}}$</li>
-<li>$\tuple{\tuple{a,b,c}}$</li>
-<li>$\tuple{\tuple{}, \tuple{}, \tuple{}}$</li>
-</ol>
+
+- $\tuple{a,b,c}$
+- $\tuple{a, \tuple{b,c}}$
+- $\tuple{\tuple{a}, \tuple{b}, \tuple{c}}$
+- $\tuple{\tuple{a,b,c}}$
+- $\tuple{\tuple{}, \tuple{}, \tuple{}}$
+
 \end{exercise}
 
 \begin{exercise}

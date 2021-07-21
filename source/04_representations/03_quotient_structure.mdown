@@ -15,11 +15,11 @@ We will come across several mechanism in later notebooks that that can be regard
 Consider the set of all natural numbers.
 We can put them into three distinct equivalence classes based on their remainder when divided by $3$.
 
-<ul>
-<li>$[0] \is \setof{0, 3, 6, 9, \ldots}$</li>
-<li>$[1] \is \setof{1, 4, 7, 10, \ldots}$</li>
-<li>$[2] \is \setof{2, 5, 8, 11, \ldots}$</li>
-</ul>
+
+- $[0] \is \setof{0, 3, 6, 9, \ldots}$
+- $[1] \is \setof{1, 4, 7, 10, \ldots}$
+- $[2] \is \setof{2, 5, 8, 11, \ldots}$
+
 
 We then stipulate that $[x] \prec [y]$ iff there is some $z \in [x]$ such that $z + 1 \in [y]$.
 For instance, $[2] \prec [0]$ because $5 \in [2]$ and $5 + 1 = 6 \in [0]$.

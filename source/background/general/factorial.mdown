@@ -8,13 +8,13 @@ Given a natural number $n \geq 1$, its **factorial** $n!$ is defined in a recurs
 \begin{example}
 The factorial of $5$ is $120$ because
 
-<ol>
-<li>$5! = 5 \cdot 4!$</li>
-<li>$4! = 4 \cdot 3!$</li>
-<li>$3! = 3 \cdot 2!$</li>
-<li>$2! = 2 \cdot 1!$</li>
-<li>$1! = 1$</li>
-</ol>
+
+- $5! = 5 \cdot 4!$
+- $4! = 4 \cdot 3!$
+- $3! = 3 \cdot 2!$
+- $2! = 2 \cdot 1!$
+- $1! = 1$
+
 
 So $5!$ reduces to $5 \cdot 4 \cdot 3 \cdot 2 \cdot 1$
 \end{example}
@@ -25,14 +25,14 @@ For instance, if you have $n$ distinct elements, then they can be arranged in $n
 \begin{example}
 There are $3! = 6$ ways to order $a$, $b$, and $c$:
 
-<ol>
-<li>$abc$</li>
-<li>$acb$</li>
-<li>$bac$</li>
-<li>$bca$</li>
-<li>$cab$</li>
-<li>$cba$</li>
-</ol>
+
+- $abc$
+- $acb$
+- $bac$
+- $bca$
+- $cab$
+- $cba$
+
 \end{example}
 
 The factorial function grows very fast, even faster than an exponential function.

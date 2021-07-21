@@ -68,21 +68,21 @@ Again we are forced to explain some typological gaps, and again monotonicity pro
 Pick one of the languages below and write down a case paradigm for a specific word of that language.
 Highlight the cells that are syncretic (if any).
 
-<ol>
-<li>Ancient Greek</li>
-<li>Basque</li>
-<li>Finnish</li>
-<li>German</li>
-<li>Hungarian</li>
-<li>Icelandic</li>
-<li>Japanese</li>
-<li>Korean</li>
-<li>Old English</li>
-<li>Old Norse</li>
-<li>Russian</li>
-<li>Sanskrit</li>
-<li>Tamil</li>
-</ol>
+
+- Ancient Greek
+- Basque
+- Finnish
+- German
+- Hungarian
+- Icelandic
+- Japanese
+- Korean
+- Old English
+- Old Norse
+- Russian
+- Sanskrit
+- Tamil
+
 
 Unless you're a native speaker of one of those languages, you will have to do some research to find out how their case system works.
 Try your local library, or an online resource like Wikipedia.
@@ -106,12 +106,12 @@ The $^*$ABA generalization, which we encountered with adjectival gradation and p
 In this broader form, it states that two cases $x$ and $z$ cannot have the same form in a paradigm unless every case $y$ that occurs between them in the hierarchy also has this form in the paradigm.
 
 \begin{example}
-The paradigm for Latin <i>rex</i> displays syncretism of nominative and accusative to the exclusion of genitive, dative, and ablative.
+The paradigm for Latin *rex* displays syncretism of nominative and accusative to the exclusion of genitive, dative, and ablative.
 But since these cases do not occur between nominative and accusative in Blake's case hierarchy, this obeys the $^*$ABA generalization.
 \end{example}
 
 \begin{exercise}
-The paradigm for <i>rex</i> also has syncretism of dative and ablative in the plural.
+The paradigm for *rex* also has syncretism of dative and ablative in the plural.
 Can a monotonic function produce this pattern from Blake's case hierarchy?
 Justify your answer.
 \end{exercise}
@@ -121,15 +121,15 @@ In many Germanic languages, dative and accusative are syncretic to the exclusion
 
 \begin{example}
 In German, it is very common for nominative, dative and accusative to take the base form, whereas genitive receives a special affix.
-So <i>Papa</i> 'dad' could be nominative, dative, or accusative, whereas the genitive must be <i>Papas</i>.
+So *Papa* 'dad' could be nominative, dative, or accusative, whereas the genitive must be *Papas*.
 German is not an ideal example, though, as the genitive is becoming increasingly unproductive.
-Moreover, the dative allows for a special suffix <i>-e</i> for nouns that end in a consonant, so that <i>Mann</i> can be either <i>Mann</i> or <i>Manne</i> (although the latter sounds very archaic).
-Nonetheless, it is conceivable that the dative of <i>Papa</i> is underlyingly <i>Papae</i>, with the final vowel subsequently deleted by some phonological process.
+Moreover, the dative allows for a special suffix *-e* for nouns that end in a consonant, so that *Mann* can be either *Mann* or *Manne* (although the latter sounds very archaic).
+Nonetheless, it is conceivable that the dative of *Papa* is underlyingly *Papae*, with the final vowel subsequently deleted by some phonological process.
 \end{example}
 
 \begin{example}
-A better example comes from the Icelandic word for <i>father</i>.
-In the nominative is <i>faðir</i>, its dative and accusative are <i>föður</i>, yet the genitive is <i>föðurs</i>.
+A better example comes from the Icelandic word for *father*.
+In the nominative is *faðir*, its dative and accusative are *föður*, yet the genitive is *föðurs*.
 And in contrast to German, there's no wiggle room here: these are the endings, and there aren't any colloquial variations.
 So accusative and dative are indeed the only syncretic cases, and crucially the genitive case does not participate in this syncretism.
 \end{example}
@@ -172,7 +172,7 @@ So far, we have implicitly assumed that linguistic hierarchies must be **trichot
 If we order the natural numbers by $<$, the result is a trichotomous order.
 No matter which two numbers $m$ and $n$ we pick, we either have $m < n$, $n < m$, or $m = n$.
 
-<br>
+
 Now suppose that we take the set of all humans that have ever lived and order them by the ancestor relation $A$ such that $x \mathrel{A} y$ iff $x$ is an ancestor of $y$.
 The resulting order is not trichotomous because there are at least two distinct human beings such that neither one is the other's ancestor.
 \end{example}
@@ -203,7 +203,7 @@ Without an ordering between accusative and genitive, it becomes possible for acc
 Suppose that accusative and dative are both mapped to the same exponent, which is different to the realization of genitive: $f(\text{Acc}) = f(\text{Dat}) \neq f(\text{Gen})$.
 We will show that this is compatible with the assumption of a monotonically increasing (or decreasing) function.
 
-<br>
+
 First, the revised case hierarchy above establishes that $\text{Acc} < \text{Dat}$.
 If $f$ is monotonically increasing, then $\text{Acc} < \text{Dat}$ entails $f(\text{Acc}) \leq f(\text{Dat})$.
 By our initial assumption, $f(\text{Acc}) = f(\text{Dat})$, which confirms $f(\text{Acc}) \leq f(\text{Dat})$.
@@ -216,13 +216,13 @@ Finally, $\text{Acc}$ and $\text{Gen}$ are unordered with respect to each other,
 For each one of the following syncretisms, state whether it can be realized by a monotonic mapping assuming the modified Blake hierarchy (if necessary, you may assume a different linear order of output forms for each syncretism).
 Justify your answer.
 
-<ol>
-<li>Syncretism of nominative and genitive to the exclusion of accusative</li>
-<li>Syncretism of nominative and dative to the exclusion of accusative</li>
-<li>Syncretism of nominative, accusative, and dative to the exclusion of genitive</li>
-<li>Syncretism of nominative, accusative, and genitive to the exclusion of dative</li>
-<li>Syncretism of accusative and genitive to the exclusion of nominative and dative</li>
-</ol>
+
+- Syncretism of nominative and genitive to the exclusion of accusative
+- Syncretism of nominative and dative to the exclusion of accusative
+- Syncretism of nominative, accusative, and dative to the exclusion of genitive
+- Syncretism of nominative, accusative, and genitive to the exclusion of dative
+- Syncretism of accusative and genitive to the exclusion of nominative and dative
+
 \end{exercise}
 
 It seems, then, that monotonicity does a lot of work even in the richer domain of case syncretisms.

@@ -11,10 +11,10 @@ This would allow us to give a nice, compact definition of the possible numbers.
 
 \begin{definition}
 The recursive Roman number system (RR) is defined as follows:
-<ol>
-<li>I is a number.</li>
-<li>If $x$ is a number, then so is $x$I.</li>
-</ol>
+
+- I is a number.
+- If $x$ is a number, then so is $x$I.
+
 \end{definition}
 
 The definition tells us that all of the following are numbers in the RR-system: I, II, III, IIII, and all other sequences of the letter I, e.g. IIIIIIIIIIIIIIIIII.
@@ -60,14 +60,14 @@ The example above is slightly silly because mathematicians have more abstract wa
 But the general principle is very close to mathematical practice and will be with us for the entirety of this course:
 
 \begin{advice}
-<ol>
-<li>Study simple systems.</li>
-<li>Reduce complex systems to simple systems.</li>
-</ol>
+
+- Study simple systems.
+- Reduce complex systems to simple systems.
+
 \end{advice}
 
 \begin{example}
-Suppose we are studying the set $\mathbb{Z}$ of <b>integers</b>, which contains $0$, $1$, $-1$, $2$, $-2$, and so on.
+Suppose we are studying the set $\mathbb{Z}$ of **integers**, which contains $0$, $1$, $-1$, $2$, $-2$, and so on.
 We want to know what kind of mathematical system we get if we allow addition and subtraction of integers.
 What are the properties of this system?
 Well, the first thing we can say is that subtraction is a redundant operation because $m - n = m + (-n)$.

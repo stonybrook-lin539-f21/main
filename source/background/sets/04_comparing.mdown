@@ -23,8 +23,8 @@ For example, $\setof{a,b} \subseteq \setof{a,b,c,d}$.
 Alternatively, one also says in this case that $B$ is a **superset** of $A$ (written $B \supseteq A$).
 
 \begin{example}
-    A transitive verb is a verb that occurs with a subject and an object: <i>devour</i>, <i>contradict</i>, <i>wager</i>, <i>flummox</i>, and many more.
-    Not all verbs are transitive, e.g. <i>sleep</i> or <i>give</i>. 
+    A transitive verb is a verb that occurs with a subject and an object: *devour*, *contradict*, *wager*, *flummox*, and many more.
+    Not all verbs are transitive, e.g. *sleep* or *give*. 
     Suppse $T$ is the set of all English transitive verbs, whereas $V$ is the set of all English verbs.
     Since every transitive verb is a verb, but no the other way round, we have $T \subseteq V$.
 \end{example}
@@ -97,13 +97,13 @@ We also say that $B$ is a **proper superset** of $A$ ($B \supsetneq A$).
 \begin{exercise}
 Fill in $=$, $\subsetneq$, or $\supsetneq$ as appropriate.
 
-<ol>
-<li>$\setof{a,b} \_ \setof{a}$</li>
-<li>$\setof{a,a,b,c} \_ \setof{b,b,a,c}$</li>
-<li>$\setof{1,2,3} \_ \setof{n + 5 \mid n \in \setof{-4, -3}}$</li>
-<li>$\emptyset \_ \setof{a}$</li>
-<li>$\emptyset \_ \setof{\emptyset}$</li>
-</ol>
+
+- $\setof{a,b} \_ \setof{a}$
+- $\setof{a,a,b,c} \_ \setof{b,b,a,c}$
+- $\setof{1,2,3} \_ \setof{n + 5 \mid n \in \setof{-4, -3}}$
+- $\emptyset \_ \setof{a}$
+- $\emptyset \_ \setof{\emptyset}$
+
 \end{exercise}
 
 ## Disjoint and incomparable sets
@@ -115,9 +115,9 @@ Alternatively, $A$ and $B$ might be **incomparable**.
 In this case the two sets have a limited overlap such that there is at least one $x$ with both $x \in A$ and $x \in B$, but there are also $a \in A$ and $b \in B$ such that $a \notin B$ and $b \notin A$.
 
 \begin{example}
-The set of English prepositions (<i>on</i>, <i>to</i>, <i>at</i>, ...) and the set of English determiners (<i>a</i>, <i>the</i>, <i>this</i>, ...) have not a single word in common and thus are disjoint.
+The set of English prepositions (*on*, *to*, *at*, ...) and the set of English determiners (*a*, *the*, *this*, ...) have not a single word in common and thus are disjoint.
 The set of English verbs and the set of English nouns, on the other hand, are incomparable.
-Many words like <i>water</i>, <i>cut</i>, <i>fall</i>, <i>love</i>, <i>try</i>, <i>judge</i>, <i>beat</i>, or <i>cross</i> can be used as nouns or verbs, but many other words are used only as nouns (<i>tree</i>, <i>waterfall</i>, <i>idea</i>, <i>Ferrari</i>) or only as verbs (<i>write</i>, <i>convince</i>, <i>admonish</i>).
+Many words like *water*, *cut*, *fall*, *love*, *try*, *judge*, *beat*, or *cross* can be used as nouns or verbs, but many other words are used only as nouns (*tree*, *waterfall*, *idea*, *Ferrari*) or only as verbs (*write*, *convince*, *admonish*).
 \end{example}
 
 Remember that it is possible for both $A \subseteq B$ and $B \subseteq A$ to be true --- in this case, $A = B$.
@@ -170,22 +170,22 @@ But there is no standardized symbol for sets being incomparable, although some a
 
 \begin{definition}
 Let $A$ and $B$ be arbitrary sets.
-Then $A$ is a <b>subset</b> of $B$ ($A \subseteq B$) iff every member of $A$ is a member of $B$.
-In this case, $B$ is a <b>superset</b> of $A$ ($B \supseteq A$).
+Then $A$ is a **subset** of $B$ ($A \subseteq B$) iff every member of $A$ is a member of $B$.
+In this case, $B$ is a **superset** of $A$ ($B \supseteq A$).
 \end{definition}
 
 \begin{definition}
-For $A$ and $B$ arbitrary sets, $A$ is a <b>proper subset</b> of $B$ ($A \subsetneq B$) iff $A \subseteq B$ and there is a $b \in B$ such that $b \notin A$.
-Similarly, $B$ is a <b>proper superset</b> of $A$ ($B \supsetneq A$).
+For $A$ and $B$ arbitrary sets, $A$ is a **proper subset** of $B$ ($A \subsetneq B$) iff $A \subseteq B$ and there is a $b \in B$ such that $b \notin A$.
+Similarly, $B$ is a **proper superset** of $A$ ($B \supsetneq A$).
 \end{definition}
 
 \begin{definition}
 Let $A$ and $B$ be arbitrary sets.
 Then $A$ and $B$ are:
 
-<ul>
-<li><b>identical</b> iff $A \subseteq B$ and $B \subseteq A$ both hold,</li>
-<li><b>disjoint</b> iff $A \cap B = \emptyset$,</li>
-<li><b>incomparable</b> iff $A \not\subseteq B$ and $B \not\subseteq A$ and $A \cap B \neq \emptyset$.</li>
-</ul>
+
+- **identical** iff $A \subseteq B$ and $B \subseteq A$ both hold,
+- **disjoint** iff $A \cap B = \emptyset$,
+- **incomparable** iff $A \not\subseteq B$ and $B \not\subseteq A$ and $A \cap B \neq \emptyset$.
+
 \end{definition}

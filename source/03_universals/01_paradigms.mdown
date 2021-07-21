@@ -126,17 +126,17 @@ It is the only function that is not **monotonic**.
 \begin{definition}
 Let $f: S \rightarrow T$ be a function from $S$ to $T$.
 Assume that $\leq_S$ is an ordering of elements of $S$, whereas $\leq_T$ is an ordering of the elements of $T$.
-Then $f$ is <b>monotonically increasing</b> (or <b>isotonic</b>) iff $x \leq_S y$ implies $f(x) \leq_T f(y)$.
+Then $f$ is **monotonically increasing** (or **isotonic**) iff $x \leq_S y$ implies $f(x) \leq_T f(y)$.
 \end{definition}
 
 \begin{example}
 The function $f_{AAB}$ is monotonically increasing because
 
-<ul>
-<li>$1 \leq_S 2$ and $f(1) = A \leq_T A = f(2)$</li>
-<li>$2 \leq_S 3$ and $f(2) = A \leq_T B = f(3)$</li>
-<li>$1 \leq_S 3$ and $f(1) = A \leq_T B = f(3)$</li>
-</ul>
+
+- $1 \leq_S 2$ and $f(1) = A \leq_T A = f(2)$
+- $2 \leq_S 3$ and $f(2) = A \leq_T B = f(3)$
+- $1 \leq_S 3$ and $f(1) = A \leq_T B = f(3)$
+
 \end{example}
 
 \begin{example}
@@ -166,7 +166,7 @@ But the ABA pattern isn't monotonically decreasing either.
 
 \begin{definition}
 Let $f$, $S$, $T$, $\leq_S$, and $\leq_T$ be as before.
-Then $f$ is <b>monotonically decreasing</b> (or <b>antitonic</b>) iff $x \leq_S y$ implies $f(x) \geq_T f(y)$.
+Then $f$ is **monotonically decreasing** (or **antitonic**) iff $x \leq_S y$ implies $f(x) \geq_T f(y)$.
 \end{definition}
 
 \begin{exercise}
@@ -191,7 +191,7 @@ The $^*$ABA generalization for pronouns thus follows from the interaction of a s
 
 \begin{exercise}
 Show that monotonicity also explains the absence of adjectival gradation paradigms like
-<i>good</i>-<i>better</i>-<i>goodest</i>
+*good*-*better*-*goodest*
 if one assumes the hierarchy $\text{positive} < \text{comparative} < \text{superlative}$.
 Explain why this is an intuitively plausible hierarchy.
 \end{exercise}

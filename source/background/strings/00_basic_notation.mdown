@@ -14,11 +14,11 @@ The sets $\setof{m,a,d}$, $\setof{d,a,m}$, and $\setof{a,d,a,m}$  are equivalent
 
 \begin{exercise}
 Fill in $=$ or $\neq$ as appropriate for each pair of strings below.
-<ol>
-<li>$\mathit{abba}$ \_ $\mathit{ABBA}$</li>
-<li>$10$ \_ $5 + 5$</li>
-<li>$\setof{m,a,d} \_ \setof{d,a,m}$</li>
-</ol>
+
+- $\mathit{abba}$ \_ $\mathit{ABBA}$
+- $10$ \_ $5 + 5$
+- $\setof{m,a,d} \_ \setof{d,a,m}$
+
 
 Caution: $\{$ and $\}$ can be symbols just like $m$, $a$, or $d$.
 \end{exercise}
@@ -34,12 +34,12 @@ A string over alphabet $\Sigma$ is also called a $\Sigma$-string.
 The set of Latin characters (A-Z, a-z) is an alphabet that's familiar to all of you.
 Strings over it include:
 
-<ul>
-<li>string</li>
-<li>alphabet</li>
-<li>aaaaaaa</li>
-<li>c</li>
-</ul>
+
+- string
+- alphabet
+- aaaaaaa
+- c
+
 \end{example}
 
 \begin{example}
@@ -57,13 +57,13 @@ The set $\mathbb{N}$ of all natural numbers is not a valid alphabet because it i
 For each one of the following, say whether it is a valid alphabet.
 Justify your answer.
 
-<ol>
-<li>$\setof{a}$</li>
-<li>$\setof{0,1}$</li>
-<li>the set of all English words that are spelled with at most 5 characters</li>
-<li>all natural numbers less than 1000</li>
-<li>the nucleobases of DNA: adenine, cytosine, guanine, thymine</li> 
-</ol>
+
+- $\setof{a}$
+- $\setof{0,1}$
+- the set of all English words that are spelled with at most 5 characters
+- all natural numbers less than 1000
+- the nucleobases of DNA: adenine, cytosine, guanine, thymine 
+
 \end{exercise}
 
 ## String length
@@ -79,16 +79,16 @@ The set of all strings over $\Sigma$ whose length is exactly $n$ is denoted by $
 Let $\Sigma \is \setof{a,b}$.
 Then $\Sigma^3$ contains all of the following strings, and only those:
 
-<ol>
-<li>$\mathit{aaa}$</li>
-<li>$\mathit{aab}$</li>
-<li>$\mathit{aba}$</li>
-<li>$\mathit{abb}$</li>
-<li>$\mathit{baa}$</li>
-<li>$\mathit{bab}$</li>
-<li>$\mathit{bba}$</li>
-<li>$\mathit{bbb}$</li>
-</ol>
+
+- $\mathit{aaa}$
+- $\mathit{aab}$
+- $\mathit{aba}$
+- $\mathit{abb}$
+- $\mathit{baa}$
+- $\mathit{bab}$
+- $\mathit{bba}$
+- $\mathit{bbb}$
+
 \end{example}
 
 The size of $\Sigma^n$ is always fixed.
@@ -101,12 +101,12 @@ That's exactly what we found.
 
 \begin{exercise}
 Which one of the following are members of $\setof{a,b}^4$, i.e. $\Sigma^4$ where $\Sigma$ contains $a$, $b$, and nothing else?
-<ol>
-<li>$\mathit{aaab}$</li>
-<li>$\mathit{aba}$</li>
-<li>$\mathit{aaaaa}$</li>
-<li>$\mathit{b}$</li>
-</ol>
+
+- $\mathit{aaab}$
+- $\mathit{aba}$
+- $\mathit{aaaaa}$
+- $\mathit{b}$
+
 \end{exercise}
 
 \begin{exercise}
@@ -122,11 +122,11 @@ The expression $\mathit{b a^5 c^3 d}$ is a shorthand for $\mathit{baaaaacccd}$.
 \begin{exercise}
 Write each one of the following in a more compact fashion using exponents.
 
-<ol>
-<li>ABBA</li>
-<li>loool</li>
-<li>aardvark</li>
-</ol>
+
+- ABBA
+- loool
+- aardvark
+
 \end{exercise}
 
 ## Infinite string sets over $\Sigma$
@@ -151,20 +151,20 @@ In fact, $\emptystring$ is the only string whose length is 0.
 Let $\Sigma = \setof{a,b}$.
 Then $\Sigma^*$ contains
 
-<ul>
-<li>$\emptystring$,</li>
-<li>$\mathit{a}$,</li>
-<li>$\mathit{b}$,</li>
-<li>$\mathit{aa}$,</li>
-<li>$\mathit{ab}$,</li>
-<li>$\mathit{ba}$,</li>
-<li>$\mathit{bb}$,</li>
-<li>$\mathit{aaa}$,</li>
-<li>$\mathit{aab}$,</li>
-<li>$\mathit{aba}$,</li>
-<li>$\mathit{abb}$,</li>
-<li>and so on.</li>
-</ul>
+
+- $\emptystring$,
+- $\mathit{a}$,
+- $\mathit{b}$,
+- $\mathit{aa}$,
+- $\mathit{ab}$,
+- $\mathit{ba}$,
+- $\mathit{bb}$,
+- $\mathit{aaa}$,
+- $\mathit{aab}$,
+- $\mathit{aba}$,
+- $\mathit{abb}$,
+- and so on.
+
 
 All these strings are also members of $\Sigma^+$, except $\emptystring$.
 \end{example}
@@ -188,23 +188,23 @@ Given two $\Sigma$-strings $u$ and $v$, their **concatenation** $u \stringcat v$
 \begin{example}
 Here are a few examples:
 
-<ol>
-<li>$\mathit{math} \stringcat \mathit{ematics} = \mathit{mathematics}$,</li>
-<li>$2000 \stringcat 18 = 200018$,</li>
-<li>$\text{Thomas} \stringcat \text{Graf} = \text{ThomasGraf}$.</li>
-</ol>
+
+- $\mathit{math} \stringcat \mathit{ematics} = \mathit{mathematics}$,
+- $2000 \stringcat 18 = 200018$,
+- $\text{Thomas} \stringcat \text{Graf} = \text{ThomasGraf}$.
+
 \end{example}
 
 Just like addition, concatenation is **associative**.
 This means that if we carry out multiple concatenations, it does not matter which concatenation step we resolve first: $u \stringcat (v \stringcat w) = (u \stringcat v) \stringcat w = u \stringcat v \stringcat w$.
 
 \begin{example}
-It does not matter in which order we combine <i>is</i> with <i>concatenation</i> and <i>associative</i> below:
+It does not matter in which order we combine *is* with *concatenation* and *associative* below:
 
-<ol>
-<li>$(\emph{concatenation} \stringcat \emph{is}) \stringcat \emph{associative} = \emph{concatenation is associvative}$</li>
-<li>$\emph{concatenation} \stringcat (\emph{is} \stringcat \emph{associative}) = \emph{concatenation is associvative}$</li>
-</ol>
+
+- $(\emph{concatenation} \stringcat \emph{is}) \stringcat \emph{associative} = \emph{concatenation is associvative}$
+- $\emph{concatenation} \stringcat (\emph{is} \stringcat \emph{associative}) = \emph{concatenation is associvative}$
+
 \end{example}
 
 Even though concatenation is associative, it is not **commutative**.
@@ -212,7 +212,7 @@ That is to say, $u \stringcat v$ and $v \stringcat u$ are not necessarily the sa
 
 \begin{example}
 Let $u \is \text{house}$ and $v \is \text{boat}$.
-Then $u \stringcat v$ is <i>houseboat</i>, whereas $v \stringcat u$ is <i>boathouse</i>.
+Then $u \stringcat v$ is *houseboat*, whereas $v \stringcat u$ is *boathouse*.
 Those are not the same strings (and they also happen to mean completely different things).
 \end{example}
 

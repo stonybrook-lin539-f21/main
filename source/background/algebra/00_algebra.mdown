@@ -91,14 +91,14 @@ Explain why!
 Which of the following is a magma?
 Give counterexamples where necessary.
 
-<ol>
-<li>the integers with subtraction</li>
-<li>the rationals with multiplication</li>
-<li>the odd natural numbers with addition</li>
-<li>$\Sigma^*$ with string concatenation</li>
-<li>the set of all English sentences with sentence-level conjunction via *and*</li>
-<li>the set of all creatures that ever lived, under the ancestor operation $\oplus$ (where $a \oplus b$ returns the closest shared ancestor of $a$ and $b$, $a \oplus a = a$).</li>
-</ol>
+
+- the integers with subtraction
+- the rationals with multiplication
+- the odd natural numbers with addition
+- $\Sigma^*$ with string concatenation
+- the set of all English sentences with sentence-level conjunction via *and*
+- the set of all creatures that ever lived, under the ancestor operation $\oplus$ (where $a \oplus b$ returns the closest shared ancestor of $a$ and $b$, $a \oplus a = a$).
+
 \end{exercise}
 
 Almost every algebra you will ever come across is total and a magma.

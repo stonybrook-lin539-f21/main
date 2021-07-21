@@ -12,22 +12,22 @@ The set operations union, intersection and relative complement can be generalize
 \begin{definition}
     Given two natural numbers $m$ and $n$ with $m \leq n$, let $\max(m,n) = n$ and $\min(m,n) = m$.
     Then for any two multisets $A_M$ and $B_M$
-    <ul>
-        <li>the union $A_M \cup B_M$ maps every $a$ to $\max(A_M(a), B_M(a))$,</li>
-        <li>the intersection $A_M \cap B_M$ maps every $a$ to $\min(A_M(a), B_M(a))$</li>
-        <li>the relative complement $A_M - B_M$ maps every $a$ to $A_M(a) - B_M(a)$ (or $0$ if the value would be negative)</li>
-    </ul>
+    
+        - the union $A_M \cup B_M$ maps every $a$ to $\max(A_M(a), B_M(a))$,
+        - the intersection $A_M \cap B_M$ maps every $a$ to $\min(A_M(a), B_M(a))$
+        - the relative complement $A_M - B_M$ maps every $a$ to $A_M(a) - B_M(a)$ (or $0$ if the value would be negative)
+    
 \end{definition}
 
 \begin{example}
     Let $A_M \is \setof{a:3, b:2, c:1}$ and $B_M \is \setof{a:1, b:1, c:2, d:1}$.
     Then
-    <ul>
-        <li>$A_M \cup B_M = B_M \cup A_M = \setof{a:3, b:2, c:2, d:1}$</li>
-        <li>$A_M \cap B_M = B_M \cap A_M = \setof{a:1, b:1, c:1}$</li>
-        <li>$A_M - B_M = \setof{a:2, b:1, c:0}$</li>
-        <li>$B_M - A_M = \setof{c:1, d:1}$</li>
-    </ul>
+    
+        - $A_M \cup B_M = B_M \cup A_M = \setof{a:3, b:2, c:2, d:1}$
+        - $A_M \cap B_M = B_M \cap A_M = \setof{a:1, b:1, c:1}$
+        - $A_M - B_M = \setof{a:2, b:1, c:0}$
+        - $B_M - A_M = \setof{c:1, d:1}$
+    
 \end{example}
 
 ```python
@@ -55,12 +55,12 @@ print("Relative complement of\n{} and\n{} is\n{}\n".format(B, A, B-A))
 \begin{exercise}
 Fill each gap with a matching multiset or operator.
 
-<ol>
-<li>$\setof{a:3, b:2, c:1} \cup \setof{a:5, b:1, d:8} = \_$</li>
-<li>$\setof{c:17} \_ \setof{a:5, b:1, d:8} = \setof{c:17}$</li>
-<li>$\setof{a:3, b:3} \cup \_ = \setof{a:5, b:3, c:5, d:6}$</li>
-<li>$\_\ \_ \setof{a:5, b:1, d:8} = \setof{a:3, b:1}$</li>
-</ol>
+
+- $\setof{a:3, b:2, c:1} \cup \setof{a:5, b:1, d:8} = \_$
+- $\setof{c:17} \_ \setof{a:5, b:1, d:8} = \setof{c:17}$
+- $\setof{a:3, b:3} \cup \_ = \setof{a:5, b:3, c:5, d:6}$
+- $\_\ \_ \setof{a:5, b:1, d:8} = \setof{a:3, b:1}$
+
 \end{exercise}
 
 ## Special operations for multisets
@@ -71,10 +71,10 @@ These are *multiset sum* ($\multisum$) and *scalar multiplication * ($\multimult
 \begin{definition}
     Let $A_M$ and $B_M$ be two multisets and $n$ a natural number.
     Then
-    <ul>
-        <li>the multiset sum $A_M \multisum B_M$ maps every $a$ to $A_M(a) + B_M(a)$,</li>
-        <li>the scalar multiplication $n \multimult A_M$ maps every $a$ to $n \mult A_M(a)$ (where $\mult$ denotes multiplication over natural numbers).</li>
-    </ul>
+    
+        - the multiset sum $A_M \multisum B_M$ maps every $a$ to $A_M(a) + B_M(a)$,
+        - the scalar multiplication $n \multimult A_M$ maps every $a$ to $n \mult A_M(a)$ (where $\mult$ denotes multiplication over natural numbers).
+    
 \end{definition}
 
 \begin{example}
@@ -96,9 +96,9 @@ print("{} * {} = {}".format(3, B, scalar_multiplication(B, 3)))
 Calculate the final result of the equations below.
 If the result cannot be uniquely determined without additional assumptions, explain why.
 
-<ol>
-<li>$3 \multimult \big( (\setof{a:5, b:3}_M \multisum \setof{a:1, c:5, d:6}_M) - (\setof{a:5, b:3}_M \cap \setof{a:1, c:5, d:6}_M) \big )$</li>
-<li>$\setof{\text{John}, \text{John}} \multisum 3 \multimult \setof{\text{Mary}, \text{Mary}, \text{Mary}, \text{John}}_M$</li>
-<li>$\setof{a:5, c:1}_M \cup \setof{a:3, b:3, c:3, d:3}_M \multisum \setof{a:1}_M$</li>
-</ol>
+
+- $3 \multimult \big( (\setof{a:5, b:3}_M \multisum \setof{a:1, c:5, d:6}_M) - (\setof{a:5, b:3}_M \cap \setof{a:1, c:5, d:6}_M) \big )$
+- $\setof{\text{John}, \text{John}} \multisum 3 \multimult \setof{\text{Mary}, \text{Mary}, \text{Mary}, \text{John}}_M$
+- $\setof{a:5, c:1}_M \cup \setof{a:3, b:3, c:3, d:3}_M \multisum \setof{a:1}_M$
+
 \end{exercise}

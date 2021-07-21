@@ -39,25 +39,25 @@ In general, $A_1 \times A_2 \times \cdots \times A_n \is \setof{ \tuple{a_1, a_2
 \begin{example}
 For $S \is \setof{\text{square}, \text{circle}}$ and $C \is \setof{\text{blue}, \text{red}}$, $S \times C$ contains the pairs 
 
-<ol>
-<li>$\tuple{\text{square}, \text{blue}}$</li>
-<li>$\tuple{\text{circle}, \text{blue}}$</li>
-<li>$\tuple{\text{square}, \text{red}}$</li>
-<li>$\tuple{\text{circle}, \text{red}}$</li>
-</ol>
+
+- $\tuple{\text{square}, \text{blue}}$
+- $\tuple{\text{circle}, \text{blue}}$
+- $\tuple{\text{square}, \text{red}}$
+- $\tuple{\text{circle}, \text{red}}$
+
 
 This is different from $C \times S$, which contains
 
-<ol>
-<li>$\tuple{\text{blue}, \text{square}}$</li>
-<li>$\tuple{\text{blue}, \text{circle}}$</li>
-<li>$\tuple{\text{red}, \text{square}}$</li>
-<li>$\tuple{\text{red}, \text{circle}}$</li>
-</ol>
+
+- $\tuple{\text{blue}, \text{square}}$
+- $\tuple{\text{blue}, \text{circle}}$
+- $\tuple{\text{red}, \text{square}}$
+- $\tuple{\text{red}, \text{circle}}$
+
 \end{example}
 
 \begin{exercise}
-Suppose $S$ consists of \emph{John}, \emph{Mary}, and \emph{the old man}, whereas $V$ contains only <i>slept</i> and <i>left</i>.
+Suppose $S$ consists of \emph{John}, \emph{Mary}, and \emph{the old man}, whereas $V$ contains only *slept* and *left*.
 Compute $S \times V$.
 \end{exercise}
 
@@ -65,12 +65,12 @@ Compute $S \times V$.
 Now suppose that we also have a set $A = \setof{ \text{awesome} }$.
 Then $S \times C \times A$ would be a set containing the following triples:
 
-<ol>
-<li>$\tuple{\text{square}, \text{blue}, \text{awesome}}$</li>
-<li>$\tuple{\text{circle}, \text{blue}, \text{awesome}}$</li>
-<li>$\tuple{\text{square}, \text{red},  \text{awesome}}$</li>
-<li>$\tuple{\text{circle}, \text{red},  \text{awesome}}$</li>
-</ol>
+
+- $\tuple{\text{square}, \text{blue}, \text{awesome}}$
+- $\tuple{\text{circle}, \text{blue}, \text{awesome}}$
+- $\tuple{\text{square}, \text{red},  \text{awesome}}$
+- $\tuple{\text{circle}, \text{red},  \text{awesome}}$
+
 \end{example}
 
 \begin{exercise}
@@ -92,7 +92,7 @@ The name Cartesian product makes more sense if you consider the special case of 
 Here $\mathbb{N} \is \setof{0, 1, 2, 3, \ldots}$ is the set of all natural numbers.
 So $\mathbb{N} \times \mathbb{N}$ is the set of all possible pairs of natural numbers.
 We can take these two components to represent $(x,y)$-coordinates in the upper right quadrant of a coordinate system.
-Such a coordinate system is also called a <b>Cartesian plane</b>, and that is why the crossproduct is sometimes called the Cartesian product.
+Such a coordinate system is also called a **Cartesian plane**, and that is why the crossproduct is sometimes called the Cartesian product.
 \end{remark}
 
 Just like tuple concatenation, the crossproduct operation is not commutative.
@@ -109,25 +109,25 @@ Most of the time, $A \times B \times C$ and $A \times (B \times C)$ and $(A \tim
 Let $A \is \setof{a,b,c}$, $B \is \setof{T,F}$, and $C \is \setof{1}$.
 Then $A \times (B \times C)$ contains 6 pairs:
 
-<ol>
-<li>$\tuple{a, \tuple{T,1}}$</li>
-<li>$\tuple{a, \tuple{F,1}}$</li>
-<li>$\tuple{b, \tuple{T,1}}$</li>
-<li>$\tuple{b, \tuple{F,1}}$</li>
-<li>$\tuple{c, \tuple{T,1}}$</li>
-<li>$\tuple{c, \tuple{F,1}}$</li>
-</ol>
+
+- $\tuple{a, \tuple{T,1}}$
+- $\tuple{a, \tuple{F,1}}$
+- $\tuple{b, \tuple{T,1}}$
+- $\tuple{b, \tuple{F,1}}$
+- $\tuple{c, \tuple{T,1}}$
+- $\tuple{c, \tuple{F,1}}$
+
 
 While $(A \times B) \times C$ also contains 6 pairs, they are different pairs:
 
-<ol>
-<li>$\tuple{\tuple{a, T}, 1}$</li>
-<li>$\tuple{\tuple{a, F}, 1}$</li>
-<li>$\tuple{\tuple{b, T}, 1}$</li>
-<li>$\tuple{\tuple{b, F}, 1}$</li>
-<li>$\tuple{\tuple{c, T}, 1}$</li>
-<li>$\tuple{\tuple{c, F}, 1}$</li>
-</ol>
+
+- $\tuple{\tuple{a, T}, 1}$
+- $\tuple{\tuple{a, F}, 1}$
+- $\tuple{\tuple{b, T}, 1}$
+- $\tuple{\tuple{b, F}, 1}$
+- $\tuple{\tuple{c, T}, 1}$
+- $\tuple{\tuple{c, F}, 1}$
+
 \end{example}
 
 \begin{exercise}

@@ -58,11 +58,11 @@ Implication can be decomposed into negation and disjunction:
 \begin{exercise}
 Rewrite each  one of the following formulae using only $\neg$ and $\wedge$ (yes, logical and, not logical or):
 
-<ol>
-<li>$p \rightarrow q$</li>
-<li>$(p \vee (q \rightarrow \neg p))$</li>
-<li>$p \rightarrow (q \rightarrow r)$</li>
-</ol>
+
+- $p \rightarrow q$
+- $(p \vee (q \rightarrow \neg p))$
+- $p \rightarrow (q \rightarrow r)$
+
 \end{exercise}
 
 ## Implication chains as conjunction

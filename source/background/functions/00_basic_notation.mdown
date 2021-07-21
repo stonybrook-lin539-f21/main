@@ -22,10 +22,10 @@ This is not a function because one and the same input can produce different outp
 \begin{exercise}
 Let $f$ be a function that takes as its input a number $n$ and returns $n+1$ on a weekday and $n + 2$ on the weekend.
 
-<ol>
-<li>Is $f$ a function?</li>
-<li>What if $f$ instead takes two arguments: a number $n$, and the name of the day of the week.</li>
-</ol>
+
+- Is $f$ a function?
+- What if $f$ instead takes two arguments: a number $n$, and the name of the day of the week.
+
 \end{exercise}
 
 This special property of functions is known as **right uniqueness**.

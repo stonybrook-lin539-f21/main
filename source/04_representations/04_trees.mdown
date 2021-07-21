@@ -18,51 +18,51 @@ Some words in a sentence are more tightly connected than others, and a string ca
 
 \begin{example}
 The sentence
-<i>John saw the man with the telescope</i>
+*John saw the man with the telescope*
 can have two meanings: one where John used a telescope to see the man, and one where the man that John saw had a telescope with him.
 In the first case
-<i>with the telescope</i>
+*with the telescope*
 seems more closely connected to
-<i>saw</i>, in the second to
-<i>man</i>.
+*saw*, in the second to
+*man*.
 \end{example}
 
 \begin{exercise}
 Each one of the following sentences is ambiguous.
 Describe the ambiguity, in particular which words seem to be more closely related depending on the reading.
 
-<ol>
-<li>I watched a movie with Arnold.</li>
-<li>The father of the woman on the balcony is an officer in the military.</li>
-<li>Sue must have met with John and Bill or Mary.</li>
-<li>My daughter is dating John and Bill's dad.</li>
-<li>The police man stopped and arrested the criminal.</li>
-<li>Who do you want to leave?</li>
-</ol>
+
+- I watched a movie with Arnold.
+- The father of the woman on the balcony is an officer in the military.
+- Sue must have met with John and Bill or Mary.
+- My daughter is dating John and Bill's dad.
+- The police man stopped and arrested the criminal.
+- Who do you want to leave?
+
 \end{exercise}
 
 \begin{example}
 Here's another piece of evidence that sentences aren't just a flat string of words that are all on equal footing and all enjoy equal status.
 English speakers can emphasize parts of a sentence by putting them at the beginning, as in the following paradigm:
 
-<ol>
-<li>The old man met this girl at a party</li>
-<li>It is the old man that met this girl at a party</li>
-<li>It is this girl that the old man met at a party</li>
-<li>It is at a party that the old man met this girl</li>
-<li>It is a party that the old man met this girl at</li>
-</ol>
+
+- The old man met this girl at a party
+- It is the old man that met this girl at a party
+- It is this girl that the old man met at a party
+- It is at a party that the old man met this girl
+- It is a party that the old man met this girl at
+
 
 But not everything can go in this spot, even if could be worth emphasizing.
 
-<ol>
-<li>It is man (not woman) that the old met this girl at a party</li>
-<li>It is old (not young) that the man met this girl at a party</li>
-<li>It is old man (not young woman) that the met this girl at a party</li>
-<li>It is this (not that) that the old man met girl at a party</li>
-<li>It is at (not after) that the old man met this girl a party</li>
-<li>It is met (not kiss) that the old man this girl at a party</li>
-</ol>
+
+- It is man (not woman) that the old met this girl at a party
+- It is old (not young) that the man met this girl at a party
+- It is old man (not young woman) that the met this girl at a party
+- It is this (not that) that the old man met girl at a party
+- It is at (not after) that the old man met this girl a party
+- It is met (not kiss) that the old man this girl at a party
+
 
 So not all words in a sentence are on the same level, some can do things that other cannot.
 And the same argument also shows that not all substrings of a sentence are alike.
@@ -101,10 +101,10 @@ The most common view of trees defines them as a special type of graph.
 \begin{definition}
 A tree is a graph $G$ such that
 
-<ol>
-<li>the graph is rooted and acyclic, and</li>
-<li>every vertex except the root has an in-degree of 1.</li>
-</ol>
+
+- the graph is rooted and acyclic, and
+- every vertex except the root has an in-degree of 1.
+
 \end{definition}
 
 Those are some fancy new terms in there, but all the ideas are simple.
@@ -124,7 +124,7 @@ In the left one, the vertices B, C, and D all have an in-degree of 1 and an out-
 The vertex A has an in-degree of 0 and an out-degree of 3, so it's a source but not a sink.
 Overall, the graph has an in-degree of 1 and an out-degree of 3.
 
-<br>
+
 Now look at the right graph.
 The vertices A, B, and C all have an out-degree of 2, whereas 10 has an out-degree of 1.
 The in-degree of A is 1, whereas B, C and D have in-degrees 2.
@@ -212,9 +212,9 @@ The two trees below are equivalent from a graph-theoretic perspective as they de
 
 But the two are not the same.
 One represents the structure of
-<i>Thus Mary died</i>,
+*Thus Mary died*,
 whereas the other is the structure of the (fairly stilted)
-<i>Thus died Mary</i>.
+*Thus died Mary*.
 \end{example}
 
 We could enrich graphs with a second relation for linear order, but then the definition for trees gets much more convoluted.

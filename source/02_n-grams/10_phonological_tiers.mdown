@@ -14,36 +14,36 @@ These phenomena have the property that it suffices to consider a finitely bounde
 Not all natural language phenomena obey this condition.
 
 \begin{example}
-One of these phenomena is attested in <b>Samala</b>, which belongs to the group of Chumash languages spoken in southern California.
-Samala displays a constraint known as <b>long-distance sibilant harmony</b>.
+One of these phenomena is attested in **Samala**, which belongs to the group of Chumash languages spoken in southern California.
+Samala displays a constraint known as **long-distance sibilant harmony**.
 All sibilants in a word must agree in anteriority, no matter how far apart they are.
-This means that a word can certainly contain multiple instances of <i>s</i> or multiple instances of <i>ʃ</i> (ʃ is the IPA symbol corresponding to English <i>sh</i>).
+This means that a word can certainly contain multiple instances of *s* or multiple instances of *ʃ* (ʃ is the IPA symbol corresponding to English *sh*).
 But it may never contain a mixture of the two.
-So <i>haʃxintilawaʃ</i> is well-formed, whereas <i>hasxintilawaʃ</i> and <i>haʃxinitilawas</i> are both ill-formed.
-The form <i>hasxintilawas</i>, while not an actual word of Samala, would also obey the sibilant harmony constraint.
+So *haʃxintilawaʃ* is well-formed, whereas *hasxintilawaʃ* and *haʃxinitilawas* are both ill-formed.
+The form *hasxintilawas*, while not an actual word of Samala, would also obey the sibilant harmony constraint.
 
-<br>
+
 Even a 10-gram grammar cannot capture these contrasts.
-A negative 10-gram grammar that generates both <i>hasxinitilawas</i> and <i>haʃxintilawaʃ</i> must not forbid any of the following:
+A negative 10-gram grammar that generates both *hasxinitilawas* and *haʃxintilawaʃ* must not forbid any of the following:
 
-<ol>
-<li><i>sxintilawa</i></li>
-<li><i>xintilawas</i></li>
-<li><i>ʃxintilawa</i></li>
-<li><i>xintilawaʃ</i></li>
-</ol>
 
-But then this grammar would also allow for the illicit <i>hasxintilawaʃ</i> and <i>haʃxintilawas</i>.
+- *sxintilawa*
+- *xintilawas*
+- *ʃxintilawa*
+- *xintilawaʃ*
+
+
+But then this grammar would also allow for the illicit *hasxintilawaʃ* and *haʃxintilawas*.
 Only an 11-gram grammar could capture the contrast.
 \end{example}
 
 \begin{exercise}
-Write an 11-gram grammar that generates <i>hasxintilawas</i> and <i>haʃxintilawaʃ</i>, but not <i>hasxintilawaʃ</i> and <i>haʃxinitilawas</i>.
+Write an 11-gram grammar that generates *hasxintilawas* and *haʃxintilawaʃ*, but not *hasxintilawaʃ* and *haʃxinitilawas*.
 The grammar may be positive or negative, whichever you prefer.
 \end{exercise}
 
 \begin{exercise}
-Extend the grammar so that it also captures the fact that <i>ʃtajanowonowaʃ</i> is licit whereas <i>stajanowonowaʃ</i> is illicit.
+Extend the grammar so that it also captures the fact that *ʃtajanowonowaʃ* is licit whereas *stajanowonowaʃ* is illicit.
 You might have to move beyond 11-grams.
 \end{exercise}
 
@@ -52,9 +52,9 @@ The examples above show that this $k$ is at least 12, so one would need at least
 Such large $n$-grams simply aren't feasible in practice.
 
 \begin{example}
-Suppose for the sake of argument that Samala has only three sounds: a vowel, <i>s</i>, and <i>ʃ</i>.
+Suppose for the sake of argument that Samala has only three sounds: a vowel, *s*, and *ʃ*.
 Then there are $3^{13} = 1,594,323$ distinct $n$-grams.
-Only the $n$-grams that do not mix <i>s</i> and <i>ʃ</i> are well-formed, of which there are $2 \mult 2^{13} = 2^{14} = 16,384$.
+Only the $n$-grams that do not mix *s* and *ʃ* are well-formed, of which there are $2 \mult 2^{13} = 2^{14} = 16,384$.
 So a positive 13-gram grammar for Samala's sibilant harmony would contain $16,384$ distinct 13-grams (plus a few with \$), and a negative one $1,594,323 - 16,384 = 1,586,131$.
 That's a lot.
 \end{example}
@@ -73,8 +73,8 @@ If you have some background in phonology, you might already be thinking that the
 That's one darn small grammar.
 
 \begin{example}
-The sibilant tier of <i>hasxintilawas</i> is <i>ss</i>, which is allowed by the negative grammar.
-The illicit <i>hasxintilawaʃ</i>, on the other hand, has the sibilant tier <i>sʃ</i>, which is not allowed.
+The sibilant tier of *hasxintilawas* is *ss*, which is allowed by the negative grammar.
+The illicit *hasxintilawaʃ*, on the other hand, has the sibilant tier *sʃ*, which is not allowed.
 \end{example}
 
 \input_mid{tier_good.tikz}
@@ -83,11 +83,11 @@ The illicit <i>hasxintilawaʃ</i>, on the other hand, has the sibilant tier <i>s
 \begin{exercise}
 Carry out the same calculations for
 
-<ol>
-<li><i>haʃxintilawaʃ</i>,</li>
-<li><i>haʃxinitilawas</i>, and</li>
-<li><i>ʃtajanowonowaʃ</i>.</li>
-</ol>
+
+- *haʃxintilawaʃ*,
+- *haʃxinitilawas*, and
+- *ʃtajanowonowaʃ*.
+
 \end{exercise}
 
 \begin{exercise}
@@ -113,14 +113,14 @@ With $\mathit{del}_{^+X}$, only the symbols in $X$ are kept, whereas $\mathit{de
 \begin{exercise}
 Compute the values for all of the following:
 
-<ol>
-<li>$\mathit{del}_{^-\setof{a,b}}(\mathit{aaccbad})$</li>
-<li>$\mathit{del}_{^+\setof{a,b}}(\mathit{aaccbad})$</li>
-<li>$\mathit{del}_{^+\setof{a,b}}(\mathit{aababad})$</li>
-<li>$\mathit{del}_{^-\setof{a,b}}(\mathit{aababad})$</li>
-<li>$\mathit{del}_{^-\setof{a,b}}(\emptystring)$</li>
-<li>$\mathit{del}_{^+\setof{a,b}}(\emptystring)$</li>
-</ol>
+
+- $\mathit{del}_{^-\setof{a,b}}(\mathit{aaccbad})$
+- $\mathit{del}_{^+\setof{a,b}}(\mathit{aaccbad})$
+- $\mathit{del}_{^+\setof{a,b}}(\mathit{aababad})$
+- $\mathit{del}_{^-\setof{a,b}}(\mathit{aababad})$
+- $\mathit{del}_{^-\setof{a,b}}(\emptystring)$
+- $\mathit{del}_{^+\setof{a,b}}(\emptystring)$
+
 \end{exercise}
 
 You might think that this isn't a true unification, we have just moved the difference between stop word removal and tier projection into the polarity distinction.
@@ -139,9 +139,9 @@ But mathematically, they are exactly the same thing.
 In later units, we will see many more examples of this unifying power of math.
 
 \begin{exercise}
-The term <b>culminativity</b> refers to the property that every word has exactly one primary stress.
+The term **culminativity** refers to the property that every word has exactly one primary stress.
 Suppose that our alphabet is $\setof{\sigma, \acute{\sigma}}$, where $\sigma$ denotes an unstressed syllable and $\acute{\sigma}$ one with primary stress.
-Specify a set $^+T$ of tier symbols and a bigram grammar $G$ to capture culminativity (<i>hint</i>: \$ can be used with tiers, too).
+Specify a set $^+T$ of tier symbols and a bigram grammar $G$ to capture culminativity (*hint*: \$ can be used with tiers, too).
 \end{exercise}
 
 ## Recap

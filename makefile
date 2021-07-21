@@ -24,13 +24,16 @@ TEX = $(patsubst $(SRCDIR)/%.mdown, $(TEXDIR)/%.tex, $(SRC))
 PDF = $(patsubst $(SRCDIR)/%.mdown, $(PDFDIR)/%.pdf, $(SRC))
 HTML = $(patsubst $(SRCDIR)/%.mdown, $(HTMLDIR)/%.html, $(SRC))
 
-PDFSUBDIRS = $(shell find $(PDFDIR) -type d)
-
 .DELETE_ON_ERROR:
 
-all: html
-pdf: $(filter $(PDFDIR)/test/%.pdf, $(PDF))
-html: $(filter $(HTMLDIR)/test/%.html, $(HTML))
+.PHONY: all
+all: $(PDF_CHS)
+
+.PHONY: testpdf
+testpdf: $(filter $(PDFDIR)/test/%.pdf, $(PDF))
+
+.PHONY: testhtml
+testhtml: $(filter $(HTMLDIR)/test/%.html, $(HTML))
 
 $(BUILDDIR) $(TEXDIR) $(PDFDIR) $(HTMLDIR):
 	mkdir -p $@
@@ -41,8 +44,7 @@ $(MODCMDS_TEX): $(MYCOMMANDS)
 
 $(MODCMDS_HTML): $(MYCOMMANDS)
 	mkdir -p $(shell dirname "$@")
-	sed -e 's/^\$$/\\(/g' -e 's/\$$$$/\\)/g' \
-		-e '/^%/d' \
+	sed -e 's/^\$$/\\(/g' -e 's/\$$$$/\\)/g' -e '/^%/d' \
 		"$(MYCOMMANDS)" > "$(MODCMDS_HTML)"
 
 $(MODSRC): $(MODSRCDIR)/%.mdown: $(SRCDIR)/%.mdown $(HTML2LATEX)
@@ -80,10 +82,11 @@ $(HTML): $(HTMLDIR)/%.html: $(SRCDIR)/%.mdown $(MODCMDS_HTML) $(WEBCSS)
 clean:
 	rm -rf $(MODSRCDIR)
 	rm -rf $(PDFDIR)
+	rm -rf $(HTMLDIR)
 
 .PHONY: cleanaux
 cleanaux:
-	bash $(CLEANAUX) $(PDFSUBDIRS)
+	bash $(CLEANAUX) $(shell find $(PDFDIR) -type d)
 
 .PHONY: cleanhtml
 cleanhtml:

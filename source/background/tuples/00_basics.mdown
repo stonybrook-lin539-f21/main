@@ -124,7 +124,7 @@ All of the following are valid tuples:
 - $\tuple{\setof{5, -5}, 25}$ is a pair that consists of the set $\setof{5, -5}$ and the number $25$
 - $\tuple{\mathbb{N}, \mathbb{N}, \mathbb{N}}$ is a triple where each component is the set of natural numbers
 - $\tuple{\mathbb{N}, \setof{3,7, \setof{112}}, +, -}$ is a $4$-tuple that consists of the set of natural numbers, the set $\setof{3,7, \setof{112}}$, and the operations of addition and subtraction
-- \tuple{a, \tuple{b, \tuple{}, \tuple{c}, \tuple{d,e}, b}, \setof{1,2,3, \tuple{}}} is triple that consists of $a$, the 5-tuple $\tuple{b, \tuple, \tuple{c}, \tuple{d,e}, b}$, and the set $\setof{1,2,3, \tuple{}}$
+- $\tuple{a, \tuple{b, \tuple{}, \tuple{c}, \tuple{d,e}, b}, \setof{1,2,3, \tuple{}}}$ is triple that consists of $a$, the 5-tuple $\tuple{b, \tuple, \tuple{c}, \tuple{d,e}, b}$, and the set $\setof{1,2,3, \tuple{}}$
 
 \end{example}
 

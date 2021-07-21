@@ -34,8 +34,11 @@ MODCMDS_HTML = HTMLDIR / MYCOMMANDS.name
 # PDF = $(patsubst $(SRCDIR)/%.mdown, $(PDFDIR)/%.pdf, $(SRC))
 # HTML = $(patsubst $(SRCDIR)/%.mdown, $(HTMLDIR)/%.html, $(SRC))
 
-BOOK_CHAPS = ["01_intro", "02_n-grams", "03_universals",
-              "04_representations", "05_automata"]
+BOOK_CHAPS = ["01_intro", "02_n-grams", "03_universals", "04_representations",
+              "05_automata"]
+BOOK_CHAPS += [f"background/{subch}" for subch in
+               ["algebra", "functions", "general", "graphs", "logic",
+                "multisets", "posets", "relations", "sets", "strings", "tuples"]]
 
 
 def task_mkdirs():
@@ -77,9 +80,30 @@ def task_modsource():
                 f"sed -f {LATEX_PREPROC} {infile} > {outfile}"]}
 
 
+def task_latex_chaps():
+    for ch in BOOK_CHAPS:
+        infiles = sorted(glob(f"{MODSRCDIR}/{ch}/*.mdown"))
+        print(infiles)
+        outfile = f"{TEXDIR}/{ch}.tex"
+        cmd = (
+            "pandoc -s -f markdown -t latex"
+            f" --metadata-file={YAMLHEADER}"
+            f" -H {MYPACKAGES} -H {MODCMDS_TEX}"
+            f" -L {CSTM_BLKS} -L {INCL_FILE}"
+            f" {' '.join(infiles)} -o {outfile}"
+        )
+        yield {
+            "name": outfile,
+            "targets": [outfile],
+            "file_dep": infiles + [YAMLHEADER, MYPACKAGES, MODCMDS_TEX],
+            "actions": [f"mkdir -p $(dirname {outfile})", cmd],
+            "clean": True}
+
+
 def task_pdf_chaps():
     for ch in BOOK_CHAPS:
-        infiles = glob(f"{MODSRCDIR}/{ch}/*.mdown")
+        infiles = sorted(glob(f"{MODSRCDIR}/{ch}/*.mdown"))
+        print(infiles)
         outfile = f"{PDFDIR}/{ch}.pdf"
         cmd = (
             "pandoc -s -f markdown -t pdf"
@@ -98,10 +122,10 @@ def task_pdf_chaps():
 
 def task_html_chaps():
     for ch in BOOK_CHAPS:
-        infiles = glob(f"{MODSRCDIR}/{ch}/*.mdown")
+        infiles = sorted(glob(f"{MODSRCDIR}/{ch}/*.mdown"))
         outfile = f"{HTMLDIR}/{ch}.html"
         cmd = (
-            "pandoc -s -f markdown -t html"
+            "pandoc -s -f markdown -t html --shift-heading-level-by=1"
             f" --mathjax -Vmath='' -H {MATHJAXCALL}"
             f" -H {MODCMDS_HTML}"
             f" -L {INCL_FILE}"

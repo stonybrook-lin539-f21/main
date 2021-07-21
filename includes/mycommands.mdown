@@ -1,36 +1,36 @@
-$\newcommand{\is}{\ensuremath{\mathrel{\mathop:}=}}$
-$\newcommand{\range}{\ensuremath{\mathop{ran}}}$
-$\newcommand{\setof}[1]{\ensuremath{\left \{ #1 \right \}}}$
-$\newcommand{\card}[1]{\ensuremath{\left | #1 \right |}}$
-$\newcommand{\tuple}[1]{\ensuremath{\left \langle #1 \right \rangle}}$
-$\newcommand{\emptytuple}{\ensuremath{\left \langle \right \rangle}}$
-$\newcommand{\tuplecat}{\ensuremath{\cdot}}$
-$\newcommand{\stringcat}{\ensuremath{\cdot}}$
-$\newcommand{\emptystring}{\ensuremath{\varepsilon}}$
-$\newcommand{\String}[1]{\ensuremath{\mathit{#1}}}$
-$\newcommand{\LeftEdgeSymbol}{\ensuremath{\rtimes}}$
-$\newcommand{\RightEdgeSymbol}{\ensuremath{\ltimes}}$
-$\newcommand{\LeftEdge}{\ensuremath{\LeftEdgeSymbol}}$
-$\newcommand{\RightEdge}{\ensuremath{\RightEdgeSymbol}}$
-$\newcommand{\mult}{\ensuremath{\times}}$
-$\newcommand{\multisum}{\ensuremath{\uplus}}$
-$\newcommand{\multimult}{\ensuremath{\otimes}}$
-$\newcommand{\freqsymbol}{\ensuremath{\mathrm{freq}}}$
-$\newcommand{\freq}[1]{\ensuremath{\freqsymbol(#1)}}$
-$\newcommand{\prob}{\ensuremath{P}}$
-$\newcommand{\counts}[2]{\ensuremath{\card{#2}}_{#1}}$
-$\newcommand{\inv}[1]{\ensuremath{#1^{-1}}}$
-$\newcommand{\Lex}{\ensuremath{\mathit{Lex}}}$
-$\newcommand{\length}[1]{\ensuremath{\left | #1 \right |}}$
-$\newcommand{\suc}{\ensuremath{S}}$
-$\newcommand{\sprec}{\ensuremath{<}}$
-$\newcommand{\Rcomp}[2]{\ensuremath{#1 \circ #2}}$
-$\newcommand{\domsymbol}{\ensuremath{\triangleleft}}$
-$\newcommand{\idom}{\ensuremath{\domsymbol}}$
-$\newcommand{\pdom}{\ensuremath{\domsymbol^+}}$
-$\newcommand{\rdom}{\ensuremath{\domsymbol^*}}$
-$\newcommand{\indegree}[1]{\ensuremath{\mathrm{in}(#1)}}$
-$\newcommand{\outdegree}[1]{\ensuremath{\mathrm{out}(#1)}}$
+$\newcommand{\is}{\mathrel{\mathop:}=}$
+$\newcommand{\range}{\mathop{ran}}$
+$\newcommand{\setof}[1]{\left \{ #1 \right \}}$
+$\newcommand{\card}[1]{\left | #1 \right |}$
+$\newcommand{\tuple}[1]{\left \langle #1 \right \rangle}$
+$\newcommand{\emptytuple}{\left \langle \right \rangle}$
+$\newcommand{\tuplecat}{\cdot}$
+$\newcommand{\stringcat}{\cdot}$
+$\newcommand{\emptystring}{\varepsilon}$
+$\newcommand{\String}[1]{\mathit{#1}}$
+$\newcommand{\LeftEdgeSymbol}{\rtimes}$
+$\newcommand{\RightEdgeSymbol}{\ltimes}$
+$\newcommand{\LeftEdge}{\LeftEdgeSymbol}$
+$\newcommand{\RightEdge}{\RightEdgeSymbol}$
+$\newcommand{\mult}{\times}$
+$\newcommand{\multisum}{\uplus}$
+$\newcommand{\multimult}{\otimes}$
+$\newcommand{\freqsymbol}{\mathrm{freq}}$
+$\newcommand{\freq}[1]{\freqsymbol(#1)}$
+$\newcommand{\prob}{P}$
+$\newcommand{\counts}[2]{\card{#2}_{#1}}$
+$\newcommand{\inv}[1]{#1^{-1}}$
+$\newcommand{\Lex}{\mathit{Lex}}$
+$\newcommand{\length}[1]{\left | #1 \right |}$
+$\newcommand{\suc}{S}$
+$\newcommand{\sprec}{<}$
+$\newcommand{\Rcomp}[2]{#1 \circ #2}$
+$\newcommand{\domsymbol}{\triangleleft}$
+$\newcommand{\idom}{\domsymbol}$
+$\newcommand{\pdom}{\domsymbol^+}$
+$\newcommand{\rdom}{\domsymbol^*}$
+$\newcommand{\indegree}[1]{\mathrm{in}(#1)}$
+$\newcommand{\outdegree}[1]{\mathrm{out}(#1)}$
 % $\newcommand{\cupdot}{\cup\mkern-11.5mu\cdot\mkern5mu}$
-$\newcommand{\mymatrix}[1]{\ensuremath{\left ( \matrix{#1}} \right )}$
-$\newcommand{\id}{\ensuremath{\mathrm{id}}}$
+$\newcommand{\mymatrix}[1]{\left ( \matrix{#1} \right )}$
+$\newcommand{\id}{\mathrm{id}}$

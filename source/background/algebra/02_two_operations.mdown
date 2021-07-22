@@ -23,14 +23,9 @@ An algebra $\tuple{C, \oplus, \otimes, 0, 1}$ is a **semiring** iff all of the f
 - $\tuple{C, \oplus, 0}$ is a commutative monoid
 - $\tuple{C, \otimes, 1}$ is a monoid
 - $\otimes$ distributes over $\oplus$:
-$
-a \otimes (b \oplus c) = (a \otimes b) \oplus (a \otimes c)
-$
-and
-$
-(b \oplus c) \otimes a = (b \otimes a) \oplus (c \otimes a)
-$
-
+  $a \otimes (b \oplus c) = (a \otimes b) \oplus (a \otimes c)$
+  and
+  $(b \oplus c) \otimes a = (b \otimes a) \oplus (c \otimes a)$
 - $0$ is an annihilator for $\otimes$: $a \otimes 0 = 0 \otimes a = 0$
 
 :::

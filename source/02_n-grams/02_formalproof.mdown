@@ -27,7 +27,7 @@ Let $\Sigma$ be some alphabet, and $\Sigma_\$$ its extension with a distinguishe
 An $n$-gram over $\Sigma_\$$ is an element of $\Sigma_\$^n$ ($n \geq 1$).
 A **negative $n$-gram grammar** $G$ over alphabet $\Sigma$ is a finite set of $n$-grams over $\Sigma_\$$.
 A string $s$ over $\Sigma$ is well-formed with respect to $G$ iff there are no $u, v$ over $\Sigma_\$$ and no $g \in G$ such that
-$ \$^{n-1} \stringcat s \stringcat \$^{n-1} = u \stringcat g \stringcat v$.
+$\$^{n-1} \stringcat s \stringcat \$^{n-1} = u \stringcat g \stringcat v$.
 The **language of $G$**, denoted $L(G)$, contains all strings that are well-formed with respect to $G$, and only those.
 :::
 

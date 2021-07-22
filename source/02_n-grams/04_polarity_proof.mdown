@@ -17,7 +17,7 @@ An $n$-gram over $\Sigma_\$$ is an element of $\Sigma_\$^n$ ($n \geq 1$).
 An $n$-gram grammar $G$ over alphabet $\Sigma$ is a finite set of $n$-grams over $\Sigma_\$$.
 Every $n$-gram grammar has a **polarity**:
 
-- If $G$ is negative ($^-G$), then a string $s$ over $\Sigma$ is well-formed with respect to $^-G$ iff there are no $u, v$ over $\Sigma_\$$ and no $g \in ^-G$ such that $ \$^{n-1} \stringcat s \stringcat \$^{n-1} = u \stringcat g \stringcat v$.
+- If $G$ is negative ($^-G$), then a string $s$ over $\Sigma$ is well-formed with respect to $^-G$ iff there are no $u, v$ over $\Sigma_\$$ and no $g \in ^-G$ such that $\$^{n-1} \stringcat s \stringcat \$^{n-1} = u \stringcat g \stringcat v$.
 - If $G$ is positive ($^+G$), then a string $s$ over $\Sigma$ is well-formed with respect to $^+G$ iff for all $u, v$ over $\Sigma_\$$ and $g \in \Sigma_\$^n$ such that $\$^{n-1} \stringcat s \stringcat \$^{n-1} = u \stringcat g \stringcat v$, it holds that $g \in ^+G$.
 
 The **language of $G$**, denoted $L(G)$, contains all strings that are well-formed with respect to $G$, and only those.

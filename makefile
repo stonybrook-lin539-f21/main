@@ -29,11 +29,11 @@ HTML = $(patsubst $(SRCDIR)/%.mdown, $(HTMLDIR)/%.html, $(SRC))
 .PHONY: all
 all: $(PDF_CHS)
 
-.PHONY: testpdf
-testpdf: $(filter $(PDFDIR)/test/%.pdf, $(PDF))
+# .PHONY: testpdf
+# testpdf: $(filter $(PDFDIR)/test/%.pdf, $(PDF))
 
-.PHONY: testhtml
-testhtml: $(filter $(HTMLDIR)/test/%.html, $(HTML))
+# .PHONY: testhtml
+# testhtml: $(filter $(HTMLDIR)/test/%.html, $(HTML))
 
 $(BUILDDIR) $(TEXDIR) $(PDFDIR) $(HTMLDIR):
 	mkdir -p $@

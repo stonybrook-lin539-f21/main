@@ -6,12 +6,12 @@ Intuitively, a set is a collection of objects, but with two important twists:
 1. Sets are unordered.
 1. Sets contain no duplicates.
 
-\begin{example}
+::: example
 Suppose you want to keep a record of which words occur in a text.
 You aren't interested in how often a given word occured, just whether it occurs at all.
 Nor do you care in which order the words occurred in the text.
 So you are actually interested in the *set* of words that occur in the text.
-\end{example}
+:::
 
 ```python
 # Converting a text to the set of words
@@ -38,7 +38,7 @@ Here $a$, $b$, $c$, $d$ are some arbitrary objects.
 This is known as **list notation**.
 More complex sets are defined with [**set-builder notation**, which will be covered in a later unit](./fixme).
 
-\begin{example}
+::: example
 Consider the string *If John slept, then Mary left*.
 Its set of words (ignoring sentence-initial capitalization) is
 $\setof{
@@ -49,9 +49,9 @@ $\setof{
 \text{slept},
 \text{then}
 }$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Write the following as a set:
 
 
@@ -59,7 +59,7 @@ Write the following as a set:
 - the colors of the rainbow,
 - all prime numbers between 1 and 10 (remember, 1 is not a prime number!)
 
-\end{exercise}
+:::
 
 ## Elements and set membership
 
@@ -68,21 +68,21 @@ One writes $e \in S$ to indicate that $e$ is an element of $S$.
 The opposite is denoted $e \notin S$: $e$ is not an element of $S$.
 The symbol $\in$ thus indicates **set membership**.
 
-\begin{example}
+::: example
 Let $W$ be the set of words in the string *If John slept, then Mary left*.
 Then it holds that $\emph{left} \in W$ and $\emph{right} \notin W$.
 But it is not the case that $\emph{then} \notin W$ or $\emph{awake} \in W$.
-\end{example}
+:::
 
 Sometimes $\ni$ is used as the mirror image of $\in$.
 For example, $a \in S$ could also be written as $S \ni a$.
 
-\begin{example}
+::: example
 Continuing the previous example, it is true that $\emph{left} \in W \ni \emph{then}$.
 That is to say, both $\emph{left} \in W$ and $\emph{then} \in W$ are true.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Put $\in$, $\ni$, $\notin$, $\not\ni$ in the gaps below as appropriate:
 
 - $5 \_ \setof{1,2,4,5,8}$
@@ -90,7 +90,7 @@ Put $\in$, $\ni$, $\notin$, $\not\ni$ in the gaps below as appropriate:
 - $\setof{5} \_ \setof{1,2,4,5,8}$
 - $5 \_ \setof{1,2,4,5,8} \_ 6$
 
-\end{exercise}
+:::
 
 ## Lack of order
 
@@ -104,12 +104,12 @@ $\setof{a,b,c} =
  \setof{c,a,b} =
  \setof{c,b,a}$.
 
-\begin{example}
+::: example
 Consider the strings
 *If John slept, then Mary left* and
 *If Mary left, then John slept*.
 While they are clearly distinct sentences, their sets of words are identical.
-\end{example}
+:::
 
 ```python
 import re
@@ -125,14 +125,14 @@ print("Are the sets identical?")
 print("Yes") if set1 == set2 else print("No")
 ```
 
-\begin{exercise}
+::: exercise
 For each one of the following, fill the gap with $=$ or $\neq$ as appropriate:
 
 - $\setof{a,b} \_ \setof{a,b}$
 - $\setof{b,a} \_ \setof{a,b}$
 - $\setof{b,a,c,d} \_ \setof{e,a,b,d}$
 
-\end{exercise}
+:::
 
 ## Lack of duplicates/Idempotency
 
@@ -154,14 +154,14 @@ print("Are the sets identical?")
 print(set1 == set2)
 ```
 
-\begin{example}
+::: example
 Linguists distinguish between **word types** and **word tokens**.
 The sentence *dogs love dogs* contain two tokens of the type *dogs*, and one token of the type *love*.
 The sentences *dogs love* and *dogs love dogs* are different with respect to word tokens, but identical with respect to word types.
 So if you care about word types rather than word tokens, you're dealing with a set because the only thing that matters is which words the text contains, not how many tokens of each word.
-\end{example}
+:::
 
-\begin{example}
+::: example
 Consider the sentence *If police police police, then police police police*.
 Its set of words (ignoring capitalization) is 
 $\setof{
@@ -169,9 +169,9 @@ $\setof{
 \text{police},
 \text{then}
 }$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 For each one of the following, fill the gap with $=$ or $\neq$ as appropriate:
 
 - $\setof{a,b} \_ \setof{a,a,b,b}$
@@ -179,9 +179,9 @@ For each one of the following, fill the gap with $=$ or $\neq$ as appropriate:
 - $\setof{c,b,a,a,d,c} \_ \setof{a,a,b,d,c,c,c}$
 - $\setof{a} \_ \setof{a,a,a,a,a,a,c,a,a,a,a,a,a}$
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 The sentence *If police police police, then police police police* actually uses two different word types.
 It just just so happens that both are pronounced and spelled *police*.
 But one is the noun *police*, the other one the verb *police*.
@@ -189,7 +189,7 @@ So we might want to annote the string as follows:
 *If police[N] police[V] police[N], then police[N] police[V] police[N]*.
 Assume that words are annotated with their part of speech in this fashion.
 Then what would be the corresponding set of words?
-\end{exercise}
+:::
 
 ## Recap
 

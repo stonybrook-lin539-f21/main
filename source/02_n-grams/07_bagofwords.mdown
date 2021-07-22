@@ -20,7 +20,7 @@ Sometimes, we only refer to a multiset by its name without listing any specific 
 In this case, I will prefix multisets with a subscripted $M$ to distinguish them from normal sets.
 So whereas $S$ denotes a set, $_MS$ denotes a multiset.
 
-\begin{example}
+::: example
 The set-of-words model converts the mini-text
 *Only John could like John*
 (modulo capitalization) to the set $\setof{\text{only}, \text{john}, \text{could}, \text{like}}$.
@@ -32,9 +32,9 @@ is converted to $\setof{\text{if}, \text{police}, \text{then}}$.
 The bag-of-words model gives different results.
 The first sentence is mapped to the multiset $\setof{\text{only}: 1, \text{john}: 2, \text{could}: 1, \text{like}: 1}$.
 The second one yields $\setof{\text{if}: 1, \text{police}: 10, \text{then}: 1}$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Consider the two sentences below.
 
 
@@ -44,9 +44,9 @@ Consider the two sentences below.
 
 Are their sets identical?
 Are their multisets identical?
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 This exercise is just for fun.
 Can you figure out all the possible interpretations of the sentence
 *If police police police police police, then police police police police police*?
@@ -57,7 +57,7 @@ A few hints:
 - In English, *police* can be a noun or a verb (*to police something or somebody*).
 - English allows for reduced relative clauses, e.g. *the man that Mary saw* can be reduced to *the man Mary saw*.
 
-\end{exercise}
+:::
 
 Just like sets, multisets aren't limited to unigrams.
 One can just as well count bigrams, trigrams, and so on.
@@ -85,23 +85,23 @@ print("Set for\n{}\n is\n{}".format(" ".join(sentence2), ngram_set(sentence2, 2)
 print("Multiset for\n{} is\n{}".format(" ".join(sentence2), ngram_multiset(sentence2, 2)))
 ```
 
-\begin{example}
+::: example
 Given the sentence *if police police police police police then police police police police police*,
 its bigram multiset is
 $$
 \setof{\text{if police}: 1, \text{police police}: 8, \text{police then}: 1, \text{then police}: 1}.
 $$
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Construct the trigram multiset for
 *if police police police police police then police police police police police*.
-\end{exercise}
+:::
 
 Since multisets aren't limited to invididual words in language-related applications, one often encounters the term **type** instead for the members of the multiset.
 The **tokens**, on the other hand, are the counts of the types.
 
-\begin{example}
+::: example
 The bigram multiset
 $$
 \setof{\text{if police}: 1, \text{police police}: 8, \text{police then}: 1, \text{then police}: 1}.
@@ -113,7 +113,7 @@ contains four distinct types, which are
 and
 *then police*.
 The overall number of tokens is 11 as the type *police police* has 8 tokens and the other 3 types have 1 token each.
-\end{example}
+:::
 
 ## Counts for frequencies
 
@@ -134,12 +134,12 @@ It's impossible to tell unless one knows the total size of the corpus that the c
 In practice, it is best to keep the bag of words untouched and store the frequencies separately.
 But just for notation, it is often nicer to have frequencies instead of counts.
 
-\begin{example}
+::: example
 Let's go back to the multiset 
 $$_SM \is \setof{\text{if police}: 1, \text{police police}: 8, \text{police then}: 1, \text{then police}: 1}.$$
 The total number of counts is $11$.
 So after we replace counts by frequencies, $_MS$ becomes $\setof{\text{if police}: \frac{1}{11}, \text{police police}: \frac{8}{11}, \text{police then}: \frac{1}{11}, \text{then police}: \frac{1}{11}}$ (which is no longer a multiset).
-\end{example}
+:::
 
 ```python
 import matplotlib.pyplot as plt
@@ -169,7 +169,7 @@ for ngrams in [unigrams, bigrams, trigrams]:
     plt.show()
 ```
 
-\begin{exercise}
+::: exercise
 Construct a bag of words from the following text of four sentences, then compute the relative frequency of each word:
 
 
@@ -183,12 +183,12 @@ It is up to you to decide what should be treated as different words.
 You do not have to ignore capitalization in every case if you think that keeping capitalization gives a better result.
 Similarly, you may posit words that contain spaces.
 But take the opportunity to reflect on whether a computer program could easily make the linguistic distinctions you are making.
-\end{exercise}
+:::
 
 Counts and frequency information can be used in various ways, for example for search engines.
 One can measure the relevance of a text for a given search query based on how much of the text consists of the words in the search query.
 
-\begin{example}
+::: example
 The sentence
 *Only John thinks John thinks John likes John*
 corresponds to the multiset
@@ -196,14 +196,14 @@ $$_MS \is \setof{\text{only}: 1, \text{john}: 4, \text{thinks}: 2, \text{likes}:
 With frequencies instead of counts this is
 $$_MS \is \setof{\text{only}: 0.125, \text{john}: 0.5, \text{thinks}: 0.25, \text{likes}: 0.5}.$$
 So the relevance score to the query *john* would be $0.5$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Suppose the sentence were
 *Only John thinks he thinks he thinks he likes himself*.
 What would be the score of *john* in this case?
 Is that a problem?
-\end{exercise}
+:::
 
 For practical purposes, both absolute counts and relative frequency can provide important information.
 Absolute counts by themselves are not enough because a document that mentions *rules* 10 times might still not be a good match for "rules and representations" if the whole document contains 10,000 words.
@@ -228,7 +228,7 @@ For all these reasons, it makes more sense to treat *Aristotle* and *metaphysics
 First, suppose that the search engine has a large index of unigram multisets, where each unigram multiset encodes the unigram counts for a specific website.
 Since we only care about the counts for *Aristotle* and *metaphysics*, we will construct two new multisets that encode for each website how many tokens of *Aristotle* and *metaphysics* it contains.
 
-\begin{example}
+::: example
 To keep the example simple we assume that our search engine has indexed only four websites, which we refer to as $w_1$, $w_2$, $w_3$, and $w_4$.
 In doing so, it has only recorded counts for a few words.
 Each one of the four indeces created by the search enginge is represented as a multiset below:
@@ -254,18 +254,18 @@ $$
 As you can see, each multiset has at its types the websites in the search engine's index, and the counts are carried over directly from the corresponding multisets above.
 For instance, $_MA$ could be represented more abstractly as
 $$_MA \is \setof{w_i: w_i(\text{Aristotle}) \mid w_i \text{ is in the search engine's index}}.$$
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Construct similar multisets for *ethics* and *Plato*.
-\end{exercise}
+:::
 
 At this point we have two multisets over websites that tell us how well each website fits the individual terms *Aristotle* and *metaphysics*.
 However, we still need to combine them into some kind of aggregate score.
 This is easily accomplished with **multiset sum**.
 That sounds like a fancy operation, but it's little more than adding up the counts for each element across multisets.
 
-\begin{example}
+::: example
 Here are the multisets $_MA$ and $_MP$ that we computed before.
 $$
 \begin{array}{rl}
@@ -281,11 +281,11 @@ Their multiset sum is
 \end{align*}
 
 The best match according to this measure is the website $w_2$, closely followed by $w_1$ and $w_3$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Calculate the multiset sum of the two multisets you constructed for *ethics* and *Plato* in the previous exercise.
-\end{exercise}
+:::
 
 While multiset sum offers an easy way to convert the multisets produced according to the query into a single score for each website, it is also a bit too simplistic.
 Multiset sum is *commutative*, which means that the order of arguments does not matter: $_MA \multisum _MP = _MP \multisum _MA$.
@@ -293,7 +293,7 @@ But the same arguably isn't true for the order of unigrams in a search query.
 The fact that the student typed *Aristotle metaphysics* rather than *metaphysics Aristotle* suggests that *Aristotle* may be more important. 
 In line with this interpretation we can use **scalar multiplication** to assign $_MA$ a greater weight relative to $_MP$.
 
-\begin{example}
+::: example
 The values of $_MP$ and $_MP$ are listed here once more for the sake of easier reference:
 $$
 \begin{array}{rl}
@@ -321,13 +321,13 @@ As before, we combine the two multisets via multiset sum.
 
 As you can see, $w_1$ is now the best match, followed by $w_3$ and $w_4$.
 Considering that $w_1$ does not contain any mention of metaphysics, we actually ended up making things worse.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Suppose the user entered *ethics Plato Aristotle*.
 Use scalar multiplication to assign appropriate weights to each word (it is up to you to decide what is appropriate).
 Then compute the multiset sum and determine which website is the best fit for the query.
-\end{exercise}
+:::
 
 ## Recap
 

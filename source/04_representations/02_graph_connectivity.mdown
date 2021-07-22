@@ -25,7 +25,7 @@ We can view each one of the hierarchies as a **graph**.
 A graph consists of a set $V$ of vertices ordered by an edge relation $E$, which must be binary.
 With graphs, we are still essentially dealing with a set that is ordered by a relation, but we now look at this structure through a slightly different lens.
 
-\begin{example}
+::: example
 The person hierarchy $1 < 2 < 3$ corresponds to a graph with
 $V \is \setof{1, 2, 3}$.
 The choice of edges is less fixed.
@@ -40,7 +40,7 @@ The choice of edges is less fixed.
 Note that each one of the four choices for $E$ results in a different graph, but they can be constructed automatically from the first one.
 The second graph uses the transitive closure of the original edge relation, the third one the reflexive closure, and the fourth one the reflexive transitive closure.
 Because of these principled connections between their edge relations, all four graphs can be regarded as distinct representations of the same person hierarchy. 
-\end{example}
+:::
 
 A graph is **weakly connected** if it does not consist of disjoint components that have no edges between them.
 If a graph looks like a collection of islands, it is not weakly connected.
@@ -90,8 +90,8 @@ So now we finally have some very natural restrictions on what a linguistic hiera
 The mathematical formalization of those ideas may seem abstract, but it is just a matter of interpretation.
 Once one understands what these technical concepts accomplish, it is a fairly pleasing state of affairs.
 
-\begin{exercise}
+::: exercise
 Does the condensation trick help us with the PCC?
 That is to say, is the hierarchy for the PCC such that its condensation is a semilattice?
 Justify your answer.
-\end{exercise}
+:::

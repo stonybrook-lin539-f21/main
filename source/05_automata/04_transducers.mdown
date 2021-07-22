@@ -22,7 +22,7 @@ The first one still determines how the transducer switches between states as it 
 The second symbol, on the other hand, is emitted by the transducer.
 This allows the transducer to gradually produce an output string as it moves through the input string.
 
-\begin{example}
+::: example
 The transducer below keeps all $a$s as $b$s while keeping $b$ and $c$ the same.
 
 \input_small{fst_a2b.tikz}
@@ -37,38 +37,38 @@ It gradually transforms $acbbaa$ one symbol after the other:
 - $bcbb\mathbf{b}a$
 - $bcbba\mathbf{b}$
 
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Gradually rewrite $aaaaba$ in the fashion above.
-\end{exercise}
+:::
 
-\begin{example}
+::: example
 This transducer rewrites $a$ as $b$ if it immediately follows $b$ in the input.
 
 \input_small{fst_aafterb.tikz}
-\end{example}
+:::
 
 In a transducer, both the input and the output component of an arc label may be the empty string.
 
-\begin{example}
+::: example
 The transducer below can follow the $\emptystring$-arc to start rewriting $a$ as $b$.
 
 \input_med{fst_emptyarcs.tikz}
 
 For example, $aaaa$ can be rewritten as $aabb$, but not $abba$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 The transducer above produces multiple outputs for the input string $aaaa$.
 List all of them.
-\end{exercise}
+:::
 
 In fact, the arcs of an FSA may also be labeled by the empty string.
 But in an FSA $\emptystring$-labeled edges can always be replaced by arcs that are labeled by some symbol of the alphabet.
 With FSTs, this is not the case: some transductions can only be defined by FSTs with $\emptystring$ in the labels.
 
-\begin{example}
+::: example
 Suppose an FSA contains an $\emptystring$-arc from state $q_1$ to state $q_2$.
 Assume furthermore that $q_2$ only has an $a$-arc to $q_3$.
 Then one can also add an $a$-arc between $q_1$ and $q_3$.
@@ -95,28 +95,28 @@ At this point, state $3$ becomes redundant because it cannot be reached.
 So we remove it, giving us the final, $\emptystring$-free FSA.
 
 \input_med{fsa_emptyarcs_step4.tikz}
-\end{example}
+:::
 
-\begin{example}
+::: example
 The following FST uses an empty input label to randomly insert arbitrarily many $b$s in a string of $a$s.
 
 \input_small{fst_randominsert.tikz}
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Without $\emptystring$ as the input label, the number of $b$s that could be inserted would be bound by the size of the input string.
 Explain why!
-\end{exercise}
+:::
 
-\begin{example}
+::: example
 The FST below uses an empty output label to delete all $a$s in the input.
 
 \input_small{fst_delete.tikz}
 
 Deletion is impossible without $\emptystring$ as the output label.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Design an FST that
 
 
@@ -124,7 +124,7 @@ Design an FST that
 - can insert an unbounded number of $a$s after each $b$ in the input, and
 - deletes the first $b$ that occurs immediately after $a$ in the input.
 
-\end{exercise}
+:::
 
 As you can see, FSTs look very similar to FSAs, but that does not mean that every result that holds for FSAs also holds for FSTs.
 Unfortunately, this result extends to two important properties of FSAs: determinizability, and closure under intersection.
@@ -136,7 +136,7 @@ Finite-state transductions are closed under composition.
 So if $f$ and $g$ are finite-state transductions, then so is $f \circ g \is \setof{ \tuple{a,c} \mid \tuple{a,b} \in f, \tuple{b,c} \in g}$.
 One can easily construct a transducer for the composition of two FSTs by modifying the basic idea behind the intersection construction for FSAs.
 
-\begin{example}
+::: example
 Consider the two FSTs below.
 The first one rewrites each $a$ as $b$, whereas the second one rewrites ever other $b$ as $c$.
 
@@ -149,11 +149,11 @@ Then the first transducer rewrites it to $bbcbb$, which is then rewritten as $bc
 This is also the result obtained by the transducer below.
 
 \input_med{fst_intersection.tikz}
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 What is the output of $bacab$ if one applies the second transducer before the first?
-\end{exercise}
+:::
 
 Here's the relevant steps for the construction.
 As with the intersection construction for FSA, each state is a pair that encodes which state the first and second transducer are in, respectively.
@@ -172,7 +172,7 @@ So the basic idea is: look at the output symbol of first transducer, and use tha
 
 One more important difference: whereas a state in the intersection automaton is final iff both components are final, a state of the composition transducer is final iff its second component is final.
 
-\begin{example}
+::: example
 Consider the composition automaton from the previous example, now with simplified state names.
 
 \input_med{fst_intersection_simplestates.tikz}
@@ -186,32 +186,32 @@ For such inputs, no output is produced.
 The composition construction yields the following transducer:
 
 \input_med{fst_composition_large.tikz}
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 
 - What output $o$ does the first transducer produce for $ccaaabc$?
 - Does the second transducer accept $o$ as an input? If so, what output does it produce?
 - Verify that the composition transducer computes the same output for $ccaaabca$.
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 
 - Construct a transducer $\tau$ that takes members of $\setof{a,b}^*$ and replaces every other $a$ by $b$.
 - Construct a transducer $\rho$ that takes members of $\setof{a,b}^*$ and replaces every other $b$ by $a$.
 - Construct a transducer that computes $\Rcomp{\tau}{\rho}$.
 - Construct a transducer that computes $\Rcomp{\rho}{\tau}$.
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 
 - Construct a transducer that takes members of $\setof{a,b}^n$, $n \geq 2$, as input and non-deterministically rewrites the first two symbols by members of $a^+$.
 - Construct a transducer that takes members of $\setof{a,b}^*$ as input and rewrites the last symbol as $b$, if it exists.
 - Construct the corresponding composition transducer.
 
-\end{exercise}
+:::
 
 Composition is a very important property of FSTs.
 It allows you to define very complex rewriting procedures as a cascade of simple FSTs.
@@ -229,13 +229,13 @@ Since a language is regular iff it is generated by an FSA, this shows that an FS
 
 But this argument only works if the FST is not restricted by what inputs we feed into it.
 
-\begin{example}
+::: example
 Let $\tau$ be the FST that maps every string to itself.
 Dropping the input components shows that the FST generates $\Sigma^*$.
 But now suppose that we only take input strings from $a^n b^n$.
 Since $\tau$ maps every string to itself, the output language is $a^n b^b \neq \Sigma^*$.
 We already know from the Myhill-Nerode theorem that $a^n b^n$ is not regular.
-\end{example}
+:::
 
 So the choice of input language can directly affect the complexity of the output language.
 Not too surprising.
@@ -254,9 +254,9 @@ The important point is that FSTs preserve regularity.
    So $\tau(L)$ is identical to the FSA that is obtained by dropping the input labels from $\Rcomp{\id_L}{\tau}$.
    Therefore $\tau(L)$ is regular.
 
-\begin{exercise}
+::: exercise
 Describe how one can construct an FST for $\setof{ \tuple{s,s} \mid s \in L}$ as long as $L$ is regular.
-\end{exercise}
+:::
 
 ## Closure under inverse
 
@@ -264,15 +264,15 @@ FSTs enjoy one more property that is tremendously useful: the **inverse** of an 
 So if we know that the mapping from inputs to outputs is a finite-state transduction, the corresponding mapping from outputs to inputs is to.
 All we have to do for this is switch the input and output components of the arc labels.
 
-\begin{example}
+::: example
 to be done
-\end{example}
+:::
 
 Inversion makes it possible to use one and the same FST for generation and analysis.
 
-\begin{example}
+::: example
 to be done
-\end{example}
+:::
 
 1. Connection between FSTs and SPE
 1. Implications for phonology

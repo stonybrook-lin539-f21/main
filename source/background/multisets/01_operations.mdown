@@ -9,7 +9,7 @@
 
 The set operations union, intersection and relative complement can be generalized to multisets.
 
-\begin{definition}
+::: definition
     Given two natural numbers $m$ and $n$ with $m \leq n$, let $\max(m,n) = n$ and $\min(m,n) = m$.
     Then for any two multisets $A_M$ and $B_M$
     
@@ -17,9 +17,9 @@ The set operations union, intersection and relative complement can be generalize
         - the intersection $A_M \cap B_M$ maps every $a$ to $\min(A_M(a), B_M(a))$
         - the relative complement $A_M - B_M$ maps every $a$ to $A_M(a) - B_M(a)$ (or $0$ if the value would be negative)
     
-\end{definition}
+:::
 
-\begin{example}
+::: example
     Let $A_M \is \setof{a:3, b:2, c:1}$ and $B_M \is \setof{a:1, b:1, c:2, d:1}$.
     Then
     
@@ -28,7 +28,7 @@ The set operations union, intersection and relative complement can be generalize
         - $A_M - B_M = \setof{a:2, b:1, c:0}$
         - $B_M - A_M = \setof{c:1, d:1}$
     
-\end{example}
+:::
 
 ```python
 from collections import Counter
@@ -52,7 +52,7 @@ print("Relative complement of\n{} and\n{} is\n{}\n".format(A, B, A-B))
 print("Relative complement of\n{} and\n{} is\n{}\n".format(B, A, B-A))
 ```
 
-\begin{exercise}
+::: exercise
 Fill each gap with a matching multiset or operator.
 
 
@@ -61,27 +61,27 @@ Fill each gap with a matching multiset or operator.
 - $\setof{a:3, b:3} \cup \_ = \setof{a:5, b:3, c:5, d:6}$
 - $\_\ \_ \setof{a:5, b:1, d:8} = \setof{a:3, b:1}$
 
-\end{exercise}
+:::
 
 ## Special operations for multisets
 
 Since multisets are a generalization of sets, they allow for certain operations that would not make much sense with sets.
 These are *multiset sum* ($\multisum$) and *scalar multiplication * ($\multimult$).
 
-\begin{definition}
+::: definition
     Let $A_M$ and $B_M$ be two multisets and $n$ a natural number.
     Then
     
         - the multiset sum $A_M \multisum B_M$ maps every $a$ to $A_M(a) + B_M(a)$,
         - the scalar multiplication $n \multimult A_M$ maps every $a$ to $n \mult A_M(a)$ (where $\mult$ denotes multiplication over natural numbers).
     
-\end{definition}
+:::
 
-\begin{example}
+::: example
     As in the previous examples, we will look at the multisets $A_M \is \setof{a:3, b:2, c:1}$ and $B_M \is \setof{a:1, b:1, c:2, d:1}$.
     For those two sets, $A_M \multisum B_M \is \setof{a:4, b:3, c:3, d:1}$, which is identical to $B_M \multisum A_M$.
     Furthermore, $3 \multimult A_M = \setof{a:9, b:6, c:3}$ whereas $3 \multimult B_M = \setof{a:3, b:3, c:6, d:3}$.
-\end{example}
+:::
 
 ```python
 def scalar_multiplication(A, n):
@@ -92,7 +92,7 @@ print("{} * {} = {}".format(3, A, scalar_multiplication(A, 3)))
 print("{} * {} = {}".format(3, B, scalar_multiplication(B, 3)))
 ```
 
-\begin{exercise}
+::: exercise
 Calculate the final result of the equations below.
 If the result cannot be uniquely determined without additional assumptions, explain why.
 
@@ -101,4 +101,4 @@ If the result cannot be uniquely determined without additional assumptions, expl
 - $\setof{\text{John}, \text{John}} \multisum 3 \multimult \setof{\text{Mary}, \text{Mary}, \text{Mary}, \text{John}}_M$
 - $\setof{a:5, c:1}_M \cup \setof{a:3, b:3, c:3, d:3}_M \multisum \setof{a:1}_M$
 
-\end{exercise}
+:::

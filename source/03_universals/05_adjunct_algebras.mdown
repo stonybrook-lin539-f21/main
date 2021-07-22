@@ -134,19 +134,19 @@ Given two sentences $s$ and $t$, we can order them with respect to each other ba
 For instance, we could say $s \leq_l t$ iff the length of $s$ does not exceed the length of $t$.
 Or we could say $s \leq_s t$ iff $s$ contains at most as many slurs as $t$.
 
-\begin{exercise}
+::: exercise
 Neither $\leq_l$ nor $\leq_s$ are weak partial orders.
 Remember that a relation is a weak partial order iff it is transitive, antisymmetric, and reflexive.
 Which of these properties do not hold of $\leq_l$ or $\leq_s$?
 Justify your answer.
-\end{exercise}
+:::
 
 Neither $\leq_l$ nor $\leq_s$ are of any use for our problem, though; we need something a bit more sophisticated.
 Instead, we will establish an order $\leq_A$ between sentences based on whether one can be obtained from the other by adding 0 or more adjuncts.
 In other words, $x \leq_A y$ iff we can turn $x$ into $y$ by adding 0 or more adjuncts.
 We say that $y$ is an **adjunct extension** of $x$ iff $x \leq_A y$.
 
-\begin{example}
+::: example
 Among the adjunct extensions of *John devoured twelve pounds of pasta*, we find, among many others:
 
 
@@ -172,9 +172,9 @@ Besides that, all of the following also hold.
 - *John quickly devoured twelve pounds of pasta* $\leq_A$ *John quickly devoured twelve (delicious) pounds of pasta (yesterday)*
 - *John devoured twelve pounds of pasta yesterday* $\leq_A$ *John (quickly) devoured twelve (delicious) pounds of pasta yesterday*
 
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Fill the gaps with $\leq_A$ or $\geq_A$ as appropriate.
 If neither $\leq_A$ nor $\geq_A$ hold, leave the gap empty.
 
@@ -184,12 +184,12 @@ If neither $\leq_A$ nor $\geq_A$ hold, leave the gap empty.
 - John ate pasta \_ John ate pasta
 - John ate pasta \_ John ate
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Show that $\leq_A$ is a weak partial order.
 That is to say, it is a binary relation that is transitive, antisymmetric, and reflexive.
-\end{exercise}
+:::
 
 As we will see next, $\leq_A$ interacts with well-formedness in a particular way.
 Understanding this interaction will allow us to derive the AIC from monotonicity.
@@ -206,7 +206,7 @@ Now pick some sentence $s \in L$.
 We will write $A_L(s)$ to denote the set of sentences in $L$ that are adjunct extensions of $s$.
 $$A_L(s) \is \setof{ t \mid t \in L \text{ and } s \leq_A t}$$
 
-\begin{example}
+::: example
 Let $s$ be the sentence
 *John really likes Mary*.
 Then $A_L(s)$ contains infinitely many sentences, including
@@ -219,17 +219,17 @@ Then $A_L(s)$ contains infinitely many sentences, including
 
 
 But it also includes infinitely many sentences that wouldn't actually be good English sentences, e.g. *John because yesterday she looks like Sue adores really Mary really red*.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Suppose that $s$ is *The old men quickly manned the boat*.
 Write down five members of $A_L(s)$.
-\end{exercise}
+:::
 
 When we order $L$ with the partial order $\leq_A$, we turn it into a partially ordered set, i.e. a **poset**.
 We can do the same thing with $A_L(s)$.
 
-\begin{example}
+::: example
 Let's consider a small fragment of $A_L(\mathit{John\ snored})$.
 It contains
 
@@ -248,18 +248,18 @@ When we order these sentences by $\leq_A$, we get the structure depicted below.
 \input_mid{adjunctextension.tikz}
 
 We could've also drawn it upside-down with *John snored* at the top, this does not make a difference.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Continuing the previous exercise, draw the corresponding figure for your fragment of $A_L(s)$.
-\end{exercise}
+:::
 
 When we order $A_L(s)$ with $\leq_A$, we don't just get any poset, we get a particular type of poset that's a **semilattice**.
 More precisely, it is a **meet semilattice**.
 Nice, another fancy term for your vocabulary, but this one sounds a lot scarier than it actually is.
 You can check out the backgrounds section for all the math, but for our purposes here a visual example suffices.
 
-\begin{example}
+::: example
 Consider once more the fragment from the previous example, sorted by $\leq_A$.
 Pick two elements $x$ and $y$, for instance *Allegedly, John really snored yesterday* and *John really, really, really snored yesterday*.
 Put your fingers and those sentences.
@@ -269,41 +269,41 @@ In the case at hand, that's *John really snored yesterday*.
 
 The meet of *John really, really, really snored yesterday* and *John really, really snored yesterday* is just *John really, really snored yesterday*.
 After all, the earliest point your fingers can meet is if you move the higher one down by one step while keeping the lower where it is.
-\end{example}
+:::
 
 A poset is a meet semilattice iff it holds for all elements $x$ and $y$ that they have a unique meet.
 This is the case for $A_L(s)$ no matter what sentence we pick for $s$.
 But there are posets that do not meet this condition.
 
-\begin{example}
+::: example
 Consider the structure below.
 Even though it is a poset, it is not a meet semilattice because $a$ and $b$ have no meet.
 
 \input_mid{poset_nomeet.tikz}
-\end{example}
+:::
 
-\begin{example}
+::: example
 The structure below is also a poset that fails to be a meet semilattice.
 
 \input_mid{poset_nouniquemeet.tikz}
 
 In this case, the problem is that there is no unique meet for $a$ and $b$. 
 Both $c$ and $d$ are viable choices, which violates the requirement that the meet must be unique.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Suppose we take the set of natural numbers and order it by $\leq$ in the usual way, yielding a single line of numbers.
 Is this a meet semilattice?
 Justify your answer.
-\end{exercise}
+:::
 
-\begin{example}
+::: example
 Finally, the structure below isn't a meet semilattice either.
 Even though it consists of two parts, each one of which forms a semilattice, there's many pairs of elements that do not have meet, e.g. $c$ and $x$.
 As one missing meet is enough to prevent a poset from being a semilattice, this shows that the structure isn't as semilattice.
 
 \input_mid{poset_union.tikz}
-\end{example}
+:::
 
 The structure in the last example is exactly what we find with the poset $L$ ordered by $\leq_A$.
 Each sentence $s$ that does not contain any adjuncts is the bottom element of a meet semilattice that consists of $s$ and all its adjunct extensions.
@@ -323,7 +323,7 @@ This turns a language from a simple set of sentences into a poset whose structur
 Now remember from earlier on that adjuncts have a crucial property: they are optional.
 That is to say, if a sentence containing an adjunct is grammatical, it should still be grammatical after removal of the adjunct.
 
-\begin{example}
+::: example
 The sentence
 *Yesterday John definitely snored loudly*
 is well-formed, and so is every sentence that it is an adjunct extension of:
@@ -338,11 +338,11 @@ is well-formed, and so is every sentence that it is an adjunct extension of:
 - John snored loudly
 - John snored
 
-\end{example}
+:::
 
 In the other direction, adding an adjunct cannot make an ill-formed sentence grammatical.
 
-\begin{example}
+::: example
 The sentence
 *John meet*
 is ill-formed,
@@ -351,7 +351,7 @@ and so are
 *John definitely meet*,
 *John really, really meet*,
 and all other adjunct extensions of the sentence.
-\end{example}
+:::
 
 If we take optionality in this sense as an intrinsic property of adjuncts, then we can use the structure of $L$ under $\leq_A$ to infer the well-formedness of one string from another.
 In particular, the following two laws follow from optionality:
@@ -361,9 +361,9 @@ In particular, the following two laws follow from optionality:
 
 In other words, well-formedness travels downward in each meet semilattice $A_L(s)$, and ill-formedness travels upward.
 
-\begin{exercise}
+::: exercise
 Explain why these entailments follow from the optionality of adjuncts.
-\end{exercise}
+:::
 
 
 ## Monotonicity derives the AIC

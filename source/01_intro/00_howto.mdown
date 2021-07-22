@@ -16,7 +16,7 @@ This means that you have to know about set operations like union and intersectio
 If you don't have the required background, you should go to the background material about sets and read the units on operations and set-relations.
 These units may themselves have prerequisites, so if you don't meet those either you have to start with those prerequisites first.
 
-\begin{example}
+::: example
 Georg Ferdinand Luwdig Philipp Cantor
 wants to read up on n-grams models.
 He picks the first unit and is happy to set that it has no prerequesites.
@@ -31,4 +31,4 @@ While Cantor got the first one down, he's a little rusty on his function notatio
 So he goes to the background section and checks out the unit on function notation.
 The unit also requires some set theory, but since Cantor is on top of that he can read the unit right away.
 Once he's done, he continues with the second unit on n-gram models.
-\end{example}
+:::

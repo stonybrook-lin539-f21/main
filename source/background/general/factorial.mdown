@@ -5,7 +5,7 @@ Given a natural number $n \geq 1$, its **factorial** $n!$ is defined in a recurs
 - $1! = 1$, and
 - $n! = n \cdot (n - 1)!$.
 
-\begin{example}
+::: example
 The factorial of $5$ is $120$ because
 
 
@@ -17,12 +17,12 @@ The factorial of $5$ is $120$ because
 
 
 So $5!$ reduces to $5 \cdot 4 \cdot 3 \cdot 2 \cdot 1$
-\end{example}
+:::
 
 The factorial often appears in combinatorial problems.
 For instance, if you have $n$ distinct elements, then they can be arranged in $n!$ ways.
 
-\begin{example}
+::: example
 There are $3! = 6$ ways to order $a$, $b$, and $c$:
 
 
@@ -33,7 +33,7 @@ There are $3! = 6$ ways to order $a$, $b$, and $c$:
 - $cab$
 - $cba$
 
-\end{example}
+:::
 
 The factorial function grows very fast, even faster than an exponential function.
 

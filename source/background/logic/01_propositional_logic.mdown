@@ -17,7 +17,7 @@ We can combine propositions with four operators:
 | $\rightarrow$     | if-then        |
 | $\leftrightarrow$ | if and only if |
 
-\begin{example}
+::: example
 Let $p$ and $q$ be short for *Sue smokes* and *John likes fish*, respectively.
 Here are some of the combinations that are possible this way:
 
@@ -27,15 +27,15 @@ Here are some of the combinations that are possible this way:
 - $p \rightarrow q$: *If Sue smokes then John likes fish.*
 - $p \leftrightarrow q$: *Sue smokes if and only if John likes fish.*
 
-\end{example}
+:::
 
 In addition, we can use the negation operator $\neg$ to switch the truth value of a proposition symbol to its opposite.
 
-\begin{example}
+::: example
 Suppose that $p$ corresponds to the proposition *Sue smokes*.
 Then $\neg p$ is equivalent to *It is not the case that Sue smokes*.
 If $p$ is true, $\neg p$ is false, and the other way round.
-\end{example}
+:::
 
 
 ## Formal definition
@@ -44,7 +44,7 @@ Every logic is defined in terms of two components.
 Its **syntax** describes the shape of the logical expressions, whereas the **semantics** specifies how these expressions are to be interpreted.
 For propositional logic, the syntactic component revolves around combining propositional symbols via the propositional operators, whereas the semantics describes how one determines whether these expressions are true or false.
 
-\begin{definition}
+::: definition
 Let $P$ be some non-empty set of **propositional symbols**.
 The set $L$ of propositional **sentences** or **formulae** contains all of the following, and only those:
 
@@ -66,9 +66,9 @@ Given an **assignment function** $g: P \rightarrow \setof{0,1}$, the truth value
 - $g(\phi \rightarrow \psi) = \max(g(\neg \phi) g(\psi))$
 - $g(\phi \leftrightarrow \psi) = \min(g(\phi), g(\psi))$
 
-\end{definition}
+:::
 
-\begin{exercise}
+::: exercise
 For each one of the following, say whether it is a valid propositional formula according to the definition above.
 If so, compute its truth value in a step-by-step fashion, assuming $g(p) = 1$ and $g(q) = 0$.
 
@@ -79,9 +79,9 @@ If so, compute its truth value in a step-by-step fashion, assuming $g(p) = 1$ an
 - $(p \neg \rightarrow q)$
 - $(\neg ((\neg p) \rightarrow (\neg (\neg q))))$
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 The definition above defines formulas in terms of strings.
 However, sometimes it is more insightful to define them as trees.
 The formula $(p \wedge (\neg q))$ corresponds to the tree below.
@@ -101,26 +101,26 @@ Draw the corresponding tree for each one of the formulas below:
 - $(p \rightarrow ((q \rightarrow r) \wedge (\neg r)))$
 - p
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Define a context-free grammar that generates all trees of all well-formed propositional formulas, and only those.
 You may assume that the set of propositional symbols is finite.
-\end{exercise}
+:::
 
 
 ## Bracketing conventions
 
 The formal definition of propositional formulas rigorously places brackets to avoid any potential ambiguities.
 
-\begin{example}
+::: example
 The formula $p \wedge q \vee r$ is ambiguous.
 It could either mean $((p \wedge q) \vee r)$, or $p \wedge (q \vee r)$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Give an assignment of truth values to $p$, $q$, and $r$ such that $((p \wedge q) \vee r)$ and $p \wedge (q \vee r)$ receive different truth values.
-\end{exercise}
+:::
 
 But excessive bracketing is very inconvenient and hard to read.
 The need for brackets can be reduced via an operator hierarchy:
@@ -132,16 +132,16 @@ The need for brackets can be reduced via an operator hierarchy:
 
 Operators that are higher in this hierarchy are stronger binders than operators in lower levels.
 
-\begin{example}
+::: example
 Consider the formula $\neg p \rightarrow q \wedge \neg v$, where many brackets have been omitted.
 According to the operator hierarchy above, this is equivalent to $((\neg p) \rightarrow (q \wedge (\neg v)))$.
 The negation operator is highest in the hierarchy, so it gets to combine first.
 This yields $(\neg p) \rightarrow q \wedge (\neg v)$.
 Next we bracket all instances of $\wedge$ and $\vee$, resulting in $(\neg p) \rightarrow (q \wedge (\neg v))$.
 Finally, we bracket $\rightarrow$ to arrive at the final $((\neg p) \rightarrow (q \wedge (\neg v)))$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 For each one of the following formulas, remove all brackets that are redundant given the operator hierarchy above.
 
 
@@ -151,7 +151,7 @@ For each one of the following formulas, remove all brackets that are redundant g
 - $(p \wedge (q \wedge r))$
 - $(\neg (p \leftrightarrow (p \wedge q)))$
 
-\end{exercise}
+:::
 
 ## Truth tables
 
@@ -200,7 +200,7 @@ Truth tables not only provide an easier format for mastering the propositional o
 The table contains one row for every possible assignment of truth values to propositional symbols.
 Then one proceeds row by row, adding in the values of the operators based on what other values have already been filled in.
 
-\begin{example}
+::: example
 Consider the fairly complex formula $p \rightarrow (q \wedge r \rightarrow (\neg q \rightarrow p \wedge \neg q))$.
 Is is true or false?
 It certainly is hard to tell at first glance, and translating to English doesn't help much (in fact, it makes things worse):
@@ -288,9 +288,9 @@ We then continue like this in a step-wise fashion, paying close attention to eac
 The last column to be filled in shows the truth value for the whole formula.
 As you can see, this formula is always true, irrespective of the specific assignment. 
 Such a formula is called a **tautology**.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 The **Quine dagger** has the following truth table.
 
 | $p$ | $q$ | $p \downarrow   q$   |
@@ -302,12 +302,12 @@ The **Quine dagger** has the following truth table.
 
 How could you express $p \downarrow q$ with the standard operators?
 Can you think of an English construction that corresponds to the Quine dagger?
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 A set of operators is **(functionally) complete** iff $\neg$, $\wedge$, $\vee$, $\rightarrow$, and $\leftrightarrow$ can all be described in terms of the set's operators.
 Show that $\setof{\neg, \wedge}$ is functionally complete in this sense by defining $\vee$, $\rightarrow$, and $\leftrightarrow$ in terms of $\neg$ and $\wedge$.
-\end{exercise}
+:::
 
 
 ## Two unintuitive aspects of $\vee$ and $\rightarrow$
@@ -317,7 +317,7 @@ There are two common stumble blocks, though, which pertain to the logical *or*-o
 Logical or corresponds to what is called **inclusive or** in linguistics, in contrast to **exclusive or**.
 Inclusive or is true whenever at least one of the arguments is true, whereas exclusive or holds only if exactly one of the arguments is true.
 
-\begin{exercise}
+::: exercise
 Exclusive or is known as XOR in computer science, and often occurs together with NAND, which is a negated $\wedge$ (the NAND operator is also known as the **Sheffer stroke** $\downarrow$).
 
 | $p$ | $q$ | $p \mathrm{XOR} q$   |
@@ -340,7 +340,7 @@ So logical circuitry can be built entirely with XOR and NAND circuits, which kee
 
 
 Express each one of the standard five operators as a combination of XOR and NAND (you may use each one multiple times, if necessary).
-\end{exercise}
+:::
 
 With implication, the unintuitive part is that $p \rightarrow q$ is true whenever $p$ is false.
 This is known as **ex falso quodlibet** --- from a falsehood we may infer whatever we want.

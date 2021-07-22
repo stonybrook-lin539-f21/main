@@ -9,13 +9,13 @@ For a concrete example of a system that would not please mathematicians, conside
 It starts out very promising, as 1 is I, 2 is II, and 3 III.
 This would allow us to give a nice, compact definition of the possible numbers.
 
-\begin{definition}
+::: definition
 The recursive Roman number system (RR) is defined as follows:
 
 - I is a number.
 - If $x$ is a number, then so is $x$I.
 
-\end{definition}
+:::
 
 The definition tells us that all of the following are numbers in the RR-system: I, II, III, IIII, and all other sequences of the letter I, e.g. IIIIIIIIIIIIIIIIII.
 So the number 4 would be represented as IIII, 7 as IIIIIII, and so on.
@@ -66,7 +66,7 @@ But the general principle is very close to mathematical practice and will be wit
 
 \end{advice}
 
-\begin{example}
+::: example
 Suppose we are studying the set $\mathbb{Z}$ of **integers**, which contains $0$, $1$, $-1$, $2$, $-2$, and so on.
 We want to know what kind of mathematical system we get if we allow addition and subtraction of integers.
 What are the properties of this system?
@@ -74,4 +74,4 @@ Well, the first thing we can say is that subtraction is a redundant operation be
 For instance, $5 - 3 = 2 = 5 + (-3)$.
 So instead of $\mathbb{Z}$ with $+$ and $-$, we can focus on the simpler system $\mathbb{Z}$ with $+$ only.
 That will make our life quite a bit easier because there's only one operation to worry about instead of two.
-\end{example}
+:::

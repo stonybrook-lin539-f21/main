@@ -29,7 +29,7 @@ Matrices with other values cannot be used in Boolean matrix multiplication.
 As long as we start with matrices that only contain 0s and 1s, almost everything will work just fine.
 The only problem is addition, which has to be capped at 1: whenever we would get a value above 1, we just use 1 instead.
 
-\begin{example}
+::: example
 Consider the following formula, with $\otimes$ used for matrix multiplication.
 
 $$
@@ -62,9 +62,9 @@ $$
     1 & 0\\
 \end{bmatrix}
 $$
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 For each one of the following equations, give its result under Boolean matrix multiplication.
 If the output is undefined, say so.
 
@@ -127,7 +127,7 @@ $$
     1\\
 \end{bmatrix}
 $$
-\end{exercise}
+:::
 
 Boolean matrix multiplication is actually quite a bit easier than standard matrix multiplication since we only need to determine if a cell should be filled by 0 or 1.
 And this is is pretty simple.
@@ -146,7 +146,7 @@ For this reason, Boolean matrix multiplication follows a very simple recipe:
     1. If $c_i = 1$, the product of $r$ and $c$ is 1.
     1. If there is no $i$ with $c_i = 1$, the product of $r$ and $c$ is 0.
 
-\begin{example}
+::: example
 Calculating the matrix product of the two matrices below might usually take you quite a while.
 
 $$
@@ -189,13 +189,13 @@ $$
     0 & 0\\
 \end{bmatrix}
 $$
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Recompute the values for the formulas from the previous exercise, using the faster procedure now.
 Write down the relevant steps as in the example above.
 Skip any formulas that you said were not well-defined for Boolean matrix multiplication.
-\end{exercise}
+:::
 
 
 ## FSA recognition as Boolean matrix multiplication: the intuition
@@ -206,7 +206,7 @@ However, the automaton must not contain any $\emptystring$-transitions (there is
 
 We will start with a concrete example as the translation procedure is a little abstract when written out in formal terms.
 
-\begin{example}
+::: example
 Consider once more the familiar automaton for the language $a(\String{baa})^*$.
 To avoid confusion, the states have been renamed X, Y, and Z.
 
@@ -329,14 +329,14 @@ $$
 
 And that's it.
 Remember that $X$, $Y$, and $Z$ aren't part of the matrices above, they're just labels that have been added for the sake of clarity.
-\end{example}
+:::
 
 Given a matrix representation of an FSA, it is very easy to check whether a string is recognized by the automaton.
 Just replace each symbol by the corresponding matrix, put $I$ at the very beginning of the formula, and $F$ at the very end.
 Then perform Boolean matrix multiplication on all the matrices.
 The string is accepted iff the final product is 1.
 
-\begin{example}
+::: example
 We already konw that the automaton above accepts the string $\String{abaa}$.
 Let's see how we get the same result via Boolean matric multiplication.
 We have to construct a formula that evaluates to 1.
@@ -431,9 +431,9 @@ $$
 And now we just solve this formula.
 It's best to do so from left to right as this keeps the matrices fairly small.
 The end result is 1, as expected.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Solve the equation in the example above in two ways:
 
 
@@ -443,9 +443,9 @@ Solve the equation in the example above in two ways:
 
 Both routes return the same result because matrix multiplication is associative.
 But one will be much less work for you than the other.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Use Boolean matrix multiplication to determine for each one of the following strings whether it is a member of $a(\String{baa})^*$:
 
 
@@ -454,7 +454,7 @@ Use Boolean matrix multiplication to determine for each one of the following str
 - $a$
 - $\emptystring$
 
-\end{exercise}
+:::
 
 With a bit of practice, you'll notice that resolving the matrix multiplication formulas from left to right captures a specific intuition.
 You always end up with a 1-dimensional matrix (i.e. a vector).
@@ -463,7 +463,7 @@ In a deterministic automaton like the one above, exactly one column has a 1, all
 This is also called a **one-hot vector**.
 With non-deterministic automata, the matrix may contain multiple 1s as there are multiple states the automaton could possibly be in.
 
-\begin{exercise}
+::: exercise
 Consider the non-deterministic FSA below for $a^+b^*$.
 
 \input_med{aplusb_nondet.tikz}
@@ -477,12 +477,12 @@ Solve the equations from left to right and pay close attention to how the distri
 - $\String{ab}$
 - $\String{aaab}$
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Continuing the previous exercise, determinize the automaton.
 Then repeat the previous steps using the deterministic automaton instead.
-\end{exercise}
+:::
 
 
 ## FSA recognition as Boolean matrix multiplication: Formal procedure
@@ -500,8 +500,8 @@ This section specifies the translation in formal terms.
    Given $a \in \Sigma$ and $u \in \Sigma^*$, $t_A(au) \is A_a \otimes t_A(u)$.
 1. A string $s \in \Sigma^*$ is recognized by $A$ iff $A_I \otimes t_A(s) = 1$.
 
-\begin{exercise}
+::: exercise
 Carefully read through the definition above.
 Try to make sense of it based on the previously established intuition.
 Write down anything you do not understand, and discuss it in class.
-\end{exercise}
+:::

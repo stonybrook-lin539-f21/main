@@ -46,7 +46,7 @@ set_of_words("Police police police police police.")
 A search engine, for instance, could use this model to convert any given website to a set of words.
 When the user enters a query, e.g. *fed my Gremlin after midnight*, the search engine could convert the query to a set of words, too, and then check which websites have a similar set of words.
 
-\begin{example}
+::: example
 Suppose that our search engine has only indexed three websites so far, both of which contain very little text.
 
 
@@ -74,13 +74,13 @@ We can now use intersection to see how much each website overlaps with the query
 
 
 The largest overlap is with the second website--- or in more mathematical terms, the intersection of our query with the second website has the largest cardinality.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 This model is hopelessly olibvious about the connections between words.
 Give two examples of important connections that this model missed.
 Would this have changed which website is a better fit?
-\end{exercise}
+:::
 
 The general idea of the model is simple enough, and as you can see even the implementation in a programming language is straight-forward.
 Note that here we are no longer dealing with $n$-gram grammars.

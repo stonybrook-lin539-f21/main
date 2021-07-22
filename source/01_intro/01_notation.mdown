@@ -176,12 +176,12 @@ In mathematics, this distinction is very important.
 So pay close attention to whether the text uses an *if* or an *iff* (which is short for *if and only if*).
 The former is an implication, the latter a biconditional.
 
-\begin{example}
+::: example
     The following is an implication but not an equivalence/biconditional: "If you are an actress, then you are female".
     After all, not every female is an actress.
     On the other hand, "You are a bachelor iff you are an unmarried man" is a biconditional.
     Every unmarried man is a bachelor, and every bachelor (in the non-academic sense) is an unmarried man.
-\end{example}
+:::
 
 ## Recap
 

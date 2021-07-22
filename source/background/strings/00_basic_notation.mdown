@@ -8,11 +8,11 @@ Strings play a very prominent role in computational linguistics.
 A string is a sequence of symbols, like $\mathit{nfm}$, *wendigo*, or *105§/*.
 In contrast to sets, strings are ordered and can contain duplicates.
 
-\begin{example}
+::: example
 The sets $\setof{m,a,d}$, $\setof{d,a,m}$, and $\setof{a,d,a,m}$  are equivalent, but for strings $\mathit{mad} \neq \mathit{dam} \neq \mathit{adam}$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Fill in $=$ or $\neq$ as appropriate for each pair of strings below.
 
 - $\mathit{abba}$ \_ $\mathit{ABBA}$
@@ -21,7 +21,7 @@ Fill in $=$ or $\neq$ as appropriate for each pair of strings below.
 
 
 Caution: $\{$ and $\}$ can be symbols just like $m$, $a$, or $d$.
-\end{exercise}
+:::
 
 ## Alphabet
 
@@ -30,7 +30,7 @@ This is called an **alphabet**.
 Alphabets are often given labels like $\Sigma$ or $\Omega$.
 A string over alphabet $\Sigma$ is also called a $\Sigma$-string.
 
-\begin{example}
+::: example
 The set of Latin characters (A-Z, a-z) is an alphabet that's familiar to all of you.
 Strings over it include:
 
@@ -40,20 +40,20 @@ Strings over it include:
 - aaaaaaa
 - c
 
-\end{example}
+:::
 
-\begin{example}
+::: example
 The set of Arabic digits is an alphabet with symbols 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9.
 Every natural number (0, 1, 2, ...), when represented in decimal as usual, is a string over this alphabet.
 But not every string over this alphabet is a number of the decimal system.
 For instance, 000134095 is not a valid number, although 134095 is.
-\end{example}
+:::
 
-\begin{example}
+::: example
 The set $\mathbb{N}$ of all natural numbers is not a valid alphabet because it isn't finite.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 For each one of the following, say whether it is a valid alphabet.
 Justify your answer.
 
@@ -64,7 +64,7 @@ Justify your answer.
 - all natural numbers less than 1000
 - the nucleobases of DNA: adenine, cytosine, guanine, thymine 
 
-\end{exercise}
+:::
 
 ## String length
 
@@ -75,7 +75,7 @@ $\length{0770001} = 7$,
 and $\length{\text{a}} = 1$.
 The set of all strings over $\Sigma$ whose length is exactly $n$ is denoted by $\Sigma^n$.
 
-\begin{example}
+::: example
 Let $\Sigma \is \setof{a,b}$.
 Then $\Sigma^3$ contains all of the following strings, and only those:
 
@@ -89,17 +89,17 @@ Then $\Sigma^3$ contains all of the following strings, and only those:
 - $\mathit{bba}$
 - $\mathit{bbb}$
 
-\end{example}
+:::
 
 The size of $\Sigma^n$ is always fixed.
 If $\Sigma$ has $m$ members, then $\Sigma^n$ contains $m^n$ strings.
 
-\begin{example}
+::: example
 In the previous example, $\Sigma$ contains two symbols, so $\Sigma^n$ should consist of $2^3 = 8$ distinct strings.
 That's exactly what we found.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Which one of the following are members of $\setof{a,b}^4$, i.e. $\Sigma^4$ where $\Sigma$ contains $a$, $b$, and nothing else?
 
 - $\mathit{aaab}$
@@ -107,19 +107,19 @@ Which one of the following are members of $\setof{a,b}^4$, i.e. $\Sigma^4$ where
 - $\mathit{aaaaa}$
 - $\mathit{b}$
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 List all members of $\setof{k,o,z}^2$.
-\end{exercise}
+:::
 
 Very often expressions like $a^n$ are used as a shorthand for $\setof{a}^n$.
 
-\begin{example}
+::: example
 The expression $\mathit{b a^5 c^3 d}$ is a shorthand for $\mathit{baaaaacccd}$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Write each one of the following in a more compact fashion using exponents.
 
 
@@ -127,18 +127,18 @@ Write each one of the following in a more compact fashion using exponents.
 - loool
 - aardvark
 
-\end{exercise}
+:::
 
 ## Infinite string sets over $\Sigma$
 
 Since alphabets must be finite, $\Sigma^n$ is necessarily finite for any alphabet $\Sigma$ and $n \geq 0$.
 But the set of all strings over $\Sigma$ is infinite.
 
-\begin{example}
+::: example
 Let $\Sigma \is \setof{a}$.
 Then $a$ is a string over $\Sigma$, and so are $\mathit{aa}$, $\mathit{aaa}$, $\mathit{aaaa}$, and so on.
 This enumeration continues indefinitely, so there must be infinitely many distinct strings over $\Sigma$.
-\end{example}
+:::
 
 Two infinite string sets are commonly defined over $\Sigma$.
 They are $\Sigma^*$ and $\Sigma^+$, respectively.
@@ -147,7 +147,7 @@ The only difference between the two is that $\Sigma^*$ also contains the **empty
 The empty string is the string counterpart of the number 0: it represents nothing.
 In fact, $\emptystring$ is the only string whose length is 0.
 
-\begin{example}
+::: example
 Let $\Sigma = \setof{a,b}$.
 Then $\Sigma^*$ contains
 
@@ -167,7 +167,7 @@ Then $\Sigma^*$ contains
 
 
 All these strings are also members of $\Sigma^+$, except $\emptystring$.
-\end{example}
+:::
 
 $\Sigma^*$ is also called the **Kleene closure**, named after [Stephen C. Kleene](https://en.wikipedia.org/wiki/Stephen_Cole_Kleene).
 
@@ -177,15 +177,15 @@ So $\Sigma^*$ can be translated as "every string built over $\Sigma$".
 On the other hand $\Sigma^+$ only contains those strings whose length is at least 1, or in other words, whose length is positive.
 And $+$ is a common abbreviation for positive (just think of batteries).
 
-\begin{exercise}
+::: exercise
 Enumerate the five shortest members of $\setof{a}^*$.
-\end{exercise}
+:::
 
 ## Concatenation
 
 Given two $\Sigma$-strings $u$ and $v$, their **concatenation** $u \stringcat v$ is the result of "glueing" the left end of $v$ to the right end of $u$.
 
-\begin{example}
+::: example
 Here are a few examples:
 
 
@@ -193,37 +193,37 @@ Here are a few examples:
 - $2000 \stringcat 18 = 200018$,
 - $\text{Thomas} \stringcat \text{Graf} = \text{ThomasGraf}$.
 
-\end{example}
+:::
 
 Just like addition, concatenation is **associative**.
 This means that if we carry out multiple concatenations, it does not matter which concatenation step we resolve first: $u \stringcat (v \stringcat w) = (u \stringcat v) \stringcat w = u \stringcat v \stringcat w$.
 
-\begin{example}
+::: example
 It does not matter in which order we combine *is* with *concatenation* and *associative* below:
 
 
 - $(\emph{concatenation} \stringcat \emph{is}) \stringcat \emph{associative} = \emph{concatenation is associvative}$
 - $\emph{concatenation} \stringcat (\emph{is} \stringcat \emph{associative}) = \emph{concatenation is associvative}$
 
-\end{example}
+:::
 
 Even though concatenation is associative, it is not **commutative**.
 That is to say, $u \stringcat v$ and $v \stringcat u$ are not necessarily the same.
 
-\begin{example}
+::: example
 Let $u \is \text{house}$ and $v \is \text{boat}$.
 Then $u \stringcat v$ is *houseboat*, whereas $v \stringcat u$ is *boathouse*.
 Those are not the same strings (and they also happen to mean completely different things).
-\end{example}
+:::
 
 Note the special behavior of the empty string: $u \stringcat \emptystring = \emptystring \stringcat u = u$. 
 This makes sense because adding nothing to $u$ does not change $u$, just like adding 0 to a number does not change that number.
 
 Sometimes concatenation is not explicitly indicated, so that instead of $u \stringcat v$ one may simply write $\mathit{uv}$.
 
-\begin{exercise}
+::: exercise
 Given an example of distinct $u$ and $v$ such that $u \stringcat v = v \stringcat u$ and neither $u$ nor $v$ is the empty string.
-\end{exercise}
+:::
 
 
 ## Recap

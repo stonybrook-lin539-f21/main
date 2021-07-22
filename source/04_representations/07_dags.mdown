@@ -9,14 +9,14 @@ For example, the first prefix tree could be represented more parsimoniously as t
 Relaxing prefix trees in this way is tantamount to removing the condition that every node has an indegree of at most one.
 Doing so generalizes prefix trees to prefix DAGs, where DAG is short for *directed acyclic graph*.
 
-\begin{definition}
+::: definition
 A graph $G \is \tuple{V,E}$ is a **directed acyclic graph** (DAG) iff
 
 
 - $G$ is weakly connected, and
 - $G$ is acyclic.
 
-\end{definition}
+:::
 
 For prefix trees, DAGs are actually not the best match.
 Suppose we want to add the word *alternate* to the prefix DAG above.
@@ -73,20 +73,20 @@ The result is what is called a *parse forest*.
 
 Even though parse forests look much more complicated than grafts, both are instances of DAGs.
 
-\begin{exercise}
+::: exercise
 Represent the character-based prefix tree from the exercise in the previous notebook as a DAG instead.
 Can you think of a word that cannot easily be added to this prefix DAG?
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Represent the morpheme-based prefix tree from the exercise in the previous notebook as a DAG instead.
 Can you think of a word that cannot easily be added to this prefix DAG?
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Below are two syntactic analyses for *John and Bill or Mary left the party in a hurry*.
 Draw the corresponding parse forest.
-\end{exercise}
+:::
 
 \input_mid{JohnBillMary1.forest}
 \input_mid{JohnBillMary2.forest}

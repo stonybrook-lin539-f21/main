@@ -3,16 +3,16 @@
 This unit discussed monotonicity as an abstract yet very important aspect of natural language.
 Monotonicity is a mathematical property of functions and breaks down into two distinct notions.
 
-\begin{definition}
+::: definition
 Let $f: S \rightarrow T$ be a function from $S$ to $T$.
 Assume that $\leq_S$ is an ordering of elements of $S$, whereas $\leq_T$ is an ordering of the elements of $T$.
 Then $f$ is **monotonically increasing** (or **isotonic**) iff $x \leq_S y$ implies $f(x) \leq_T f(y)$.
-\end{definition}
+:::
 
-\begin{definition}
+::: definition
 Let $f$, $S$, $T$, $\leq_S$, and $\leq_T$ be as before.
 Then $f$ is **monotonically decreasing** (or **antitonic**) iff $x \leq_S y$ implies $f(x) \geq_T f(y)$.
-\end{definition}
+:::
 
 Monotonicity is only of interest if the domain and co-domain of a function aren't just flat sets but have additional structure that puts the elements into an order.
 A monotonically increasing function preserves order, a monotonically decreasing function reverses it.

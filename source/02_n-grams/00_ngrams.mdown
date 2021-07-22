@@ -58,12 +58,12 @@ For phonotactics, the elements are sounds (to all trained linguists: we do not n
 Examples of bigrams include *ko*, *ob*, or *bn*.
 A given word's **set of bigrams** is the collection of all bigrams that occur in it, without repetitions.
 
-\begin{example}
+::: example
     The bigrams of
     *kobinal*
     are *ko*, *ob*, *bi*, *in*, *na*, and *al*.
     The bigrams of *banana* are *ba*, *an*, and *na*.
-\end{example}
+:::
 
 ```python
 def bigrams(word):
@@ -81,7 +81,7 @@ bigram_print("wordone")
 bigram_print("wordtwo")
 ```
 
-\begin{exercise}
+::: exercise
 Consider the word
 *supercalifragilisticexpialidocious*.
 For each one of the following, say whether it is a bigram of the word.
@@ -93,7 +93,7 @@ For each one of the following, say whether it is a bigram of the word.
 - sit
 - super
 
-\end{exercise}
+:::
 
 ### Adding edge markers
 
@@ -119,10 +119,10 @@ Concretely, we will add an edge marker \$.
 Then *ababa* will be *\$ababa\$*, and *babab* will be *\$babab\$*.
 Now one can tell clearly which bigrams occurred at the start and the end.
 
-\begin{example}
+::: example
     To calculate the bigrams of *kobinal*, we first expand it to *\$kobinal\$*.
     Then we extract bigrams as usual, giving us the following list: *\$k*, *ko*, *ob*, *bi*, *in*, *na*, *al*, *l\$*.
-\end{example}
+:::
 
 ```python
 def bigrams(word):
@@ -138,7 +138,7 @@ bigram_print("ababa")
 bigram_print("babab")
 ```
 
-\begin{exercise}
+::: exercise
 Consider once more the word
 *supercalifragilisticexpialidocious*.
 Which one of the following is among its bigrams (with edge markers):
@@ -150,7 +150,7 @@ Which one of the following is among its bigrams (with edge markers):
 - \$s
 - s\$\$
 
-\end{exercise}
+:::
 
 ## Bigram grammars
 
@@ -161,7 +161,7 @@ We call such a collection of forbidden bigrams a **negative bigram grammar**.
 If our hypothesis is correct, then it should be possible to write down a collection of bigrams for English so that all phonotactically well-formed words are allowed, and only those.
 Every ill-formed word must contain at least one forbidden bigram.
 
-\begin{example}
+::: example
     Contrast the well-formed *kobinal* against the ill-formed *kbin*.
     If *kb* is a forbidden bigram of English, then *kbin* is ill-formed.
     In order for *kobinal* to be well-formed, none of the following bigrams may be forbbiden:
@@ -173,7 +173,7 @@ Every ill-formed word must contain at least one forbidden bigram.
     *na*,
     *al*,
     *l\$*.
-\end{example}
+:::
 
 As the example above shows, forbidding the bigram *kb* rules out *kbin* as an illicit word for English.
 But there is a problem: *kb* does occur in some well-formed words, such as *cookbook* or *workbench*.
@@ -188,7 +188,7 @@ This is a **trigram**, not a bigram.
 We can generalize the notion of bigram to sequences of arbitrary length.
 A trigram is a sequence of three elements, a 4-gram contains four elements, and quite generally, an **n-gram** consists of **n** elements.
 
-\begin{example}
+::: example
 Let us first look at the bigrams, trigrams, and 4-grams of *kobinal*.
 The bigrams of *kobinal* are
 *ko*, *ob*, *bi*, *in*, *na*, and *al*.
@@ -199,7 +199,7 @@ The 4-grams are *kobi*, *obin*, *bina*, and *inal*.
 For *banana*, the only bigrams are *ba*, *an*, and *na*.
 The trigrams are *ban*, *ana*, and *nan*.
 The 4-grams are *bana*, *anan*, and *nana*.
-\end{example}
+:::
 
 ```python
 def ngrams(word, n):
@@ -221,7 +221,7 @@ One problem with large $n$-grams is that some words may be shorter than $n$ even
 Just what are the 4-grams of *\$a\$*?
 To avoid this, we pad out the word with n-1 edge markers.
 
-\begin{example}
+::: example
 Now consider the  bigrams, trigrams, and 4-grams of *kobinal* with edge markers.
 For bigrams, we have to look at *\$kobinal\$*, which has the bigrams 
 *\$k*, *ko*, *ob*, *bi*, *in*, *na*, *al*, and *l\$*.
@@ -232,7 +232,7 @@ The 4-grams are *\$\$\$k*, *\$\$ko*, *\$kob*, *kobi*, *obin*, *bina*, *inal*, *n
 For *banana*, the bigrams are now *\$b*, *ba*, *an*, *na*, and *a\$*.
 The trigrams are *\$\$b*, *\$ba*, *ban*, *ana*, *nan*, *na\$*, and *a\$\$*.
 The 4-grams are *\$\$\$b*, *\$\$ba*, *\$ban*, *bana*, *anan*, *nana*, *ana\$*, *na\$\$*, and *a\$\$\$*.
-\end{example}
+:::
 
 ```python
 def ngrams(word, n):
@@ -255,7 +255,7 @@ Now we can finally state clearly why *kobinal*, *workbench* and *akbar* are all 
 
 We also refine our original hypothesis about the phonotactics of natural languages: every phonotactic system is described by a set of forbidden $n$-grams.
 
-\begin{exercise}
+::: exercise
 Consider once more the word
 *supercalifragilisticexpialidocious*.
 For each one of the following, say whether it is a bigram of the word (with edge markers), a trigram, a 4-gram, or none of those choices.
@@ -267,13 +267,13 @@ For each one of the following, say whether it is a bigram of the word (with edge
 - sit
 - \$sup
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Suppose a language has the vowels *a* and *u*, the voiced consonants *z* and *v*, and the voiceless consonants *s* and *f*.
 The language also has intervocalic voicing, which means that no voiceless consonants may occur between vowels.
 Write an $n$-gram grammar that expresses this fact.
-\end{exercise}
+:::
 
 ## A look at German
 
@@ -291,7 +291,7 @@ More generally, can every negative $n$-gram grammar also contain $k$-grams, wher
 Could this create inconsistencies, or make negative $n$-gram grammars more powerful?
 We'll see in the next section.
 
-\begin{exercise}
+::: exercise
 Consider the formal language where all strings are sequences of *a*, *b*, and *c* such that
 
 - every string starts with $a$
@@ -299,5 +299,5 @@ Consider the formal language where all strings are sequences of *a*, *b*, and *c
 - $a$ and $c$ are always separated by at least two symbols.
 
 Write a negative $n$-gram grammar for this language such that all $n$-grams have the same length.
-\end{exercise}
+:::
 

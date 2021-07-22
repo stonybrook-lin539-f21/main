@@ -22,7 +22,7 @@ $$
     \end{cases}
 $$
 
-\begin{example}
+::: example
 Suppose $\Sigma \is \setof{a,b}$ and $S \is \setof{a}$.
 Let $s \is \mathit{abba}$.
 Then $\mathit{del}_S(s)$ should yield $\mathit{bb}$.
@@ -56,7 +56,7 @@ b \stringcat b
 \end{align*}
 
 So $\mathit{del}_S(\mathit{abba}) = \mathit{bb}$, as expected.
-\end{example}
+:::
 
 As you can see, $\mathit{del}_S$ is partially defined in terms of itself:
 the value of $\mathit{del}_S(\mathit{abba})$ is inferred from the value of $\mathit{del}_S(\mathit{bba})$.
@@ -73,7 +73,7 @@ Instead, we immediately get $\emptystring$ as the output.
 The recursion step defines the function in terms of the function itself.
 In the graph above, that's every instance of $\mathit{del}_S$ which has another instance of $\mathit{del}_S$ below it.
 
-\begin{exercise}
+::: exercise
 Here is another recursively defined function.
 
 $$
@@ -86,19 +86,19 @@ $$
 
 What does this function do?
 Is there a commonly used name for it?
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 This continues the previous exercise.
 Draw a diagram like the one above for $f(5,4)$.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Give a recursive definition of a function that takes two arguments: a string $u \is u_1 \cdots u_n$ over alphabet $\Sigma$, and a set $S$ of symbols drawn from $\Sigma$.
 The function returns $1$ if at least one member of $S$ occurs in $u$, and $0$ otherwise.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 This continues the previous exercise.
 Draw a diagram like the one above for $f(\mathit{aaba}, \setof{b})$ and $f(\mathit{aaba}, \setof{c,d,e})$.
-\end{exercise}
+:::

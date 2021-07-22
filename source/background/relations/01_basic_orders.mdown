@@ -6,14 +6,14 @@ This unit only covers the intuition behind orders, and the formal definitions ar
 
 ## Examples of ordered sets
 
-\begin{example}
+::: example
 The prototypical example of an order is the "equal or less than" relation $\leq$ over the set $\mathbb{N}$ of natural numbers.
 While the set of natural numbers is unordered, we can use $\leq$ to define the usual order over it with $0$ at the beginning, followed by $1$, which is followed by $2$, and so on.
-\end{example}
+:::
 
 \input_mid{natnum_lessthan.tikz}
 
-\begin{example}
+::: example
 We could have defined a very different kind of order over $\mathbb{N}$.
 Let $f$ be a function that maps each natural number $x$ to the recursive sum of its digits.
 That is to say, $f$ first sums up all the digits, then sums up the digits of the sum, and so on, until only a single digit remains.
@@ -28,13 +28,13 @@ Consequently, $f(537) = 6$.
 Note that $f(537) = f(357) = f(753) = f(861) = f(96)$, so many different numbers have the same sum of digits.
 Now we define an order $R$ such that $x \mathrel{R} y$ iff $f(x) < f(y)$.
 That's a very different way of ordering the natural numbers, but it's still an order.
-\end{example}
+:::
 
 \input_mid{natnum_digitsum.tikz}
 
-\begin{example}
+::: example
 The standard way of reciting the alphabet in English can be regarded as an order on the set $\setof{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z}$.
-\end{example}
+:::
 
 
 ## Not every binary relation is an order
@@ -45,16 +45,16 @@ We are effectively ranking the elements of the set.
 
 Not every binary relation gives rise to such a ranking.
 
-\begin{example}
+::: example
 Suppose that we define the following binary relation $R$ over the set $\setof{1,2,3}$ of person features: $1 \mathrel{R} 2$, $1 \mathrel{R} 3$, $2 \mathrel{R} 3$, and $3 \mathrel{R} 2$.
 That's not really a ranking.
 Yes, we can see that $1$ is ranked higher than $2$ and $3$ (or lower, depending on how you look at it).
 But $2$ and $3$ are not clearly ranked with respect to each other.
 On the one hand $2$ is higher than $3$, and on the other hand $3$ is higher than $2$.
 We have a kind of cycle, and that's not okay for orders.
-\end{example}
+:::
 
-\begin{example}
+::: example
 Now consider the successor relation $S$ over natural numbers. 
 Here $x \mathrel{S} y$ iff $y = x + 1$.
 So we have $0 \mathrel{S} 1$, $1 \mathrel{S} 2$, $2 \mathrel{S} 3$, and so on.
@@ -67,7 +67,7 @@ But in a normal ranking, this would mean that $0$ is also ranked higher than $2$
 Yet we do not have $0 \mathrel{S} 2$.
 According to $S$, $0$ and $2$ are completely unrelated, contradicting our intuitions about how a ranking ought to work.
 In a ranking, it is always the case that if $x$ outranks something that outranks $y$, then $x$ outranks $y$.
-\end{example}
+:::
 
 For this reason, an ordered set has to use a binary relation that is in some sense ranking-like.
 Among other things, this means that the relation can't contain loops or cycles, and it must not have gaps that would be filled in if it were actually a ranking.

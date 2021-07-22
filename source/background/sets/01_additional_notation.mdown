@@ -19,14 +19,14 @@ This might make more sense if you think of sets as boxes or bags: an empty bag i
 The empty set may seem rather useless to you at this point, but it actually has a very important role to play. 
 You will see it quite a bit in definitions, but also in the construction of abstract mathematical objects such as [monoids](fixme).
 
-\begin{exercise}
+::: exercise
 For each one of the statements below, say whether it is true or false.
 
 - $\emptyset = \setof{}$
 - $\emptyset \in \setof{a}$
 - $\setof{a,b} \neq \emptyset$
 
-\end{exercise}
+:::
 
 ## Set-builder notation
 
@@ -48,7 +48,7 @@ Rather than rely on human intuition about what would be a natural interpretation
 
 Set-builder notation uses the general template $\setof{ \text{expression using variable} \mid \text{definition of variable} }$.
 
-\begin{example}
+::: example
 Instead of $\setof{2, \ldots}$ for the set of natural numbers that are both positive and even, one can write the following:
 $$
 \setof{ 2n \mid \text{$n$ a natural number and $n \geq 1$}}
@@ -56,7 +56,7 @@ $$
 This means that for every $n$ that is a natural number and is at least $1$, the set contains $2n$.
 
 The table below illustrates this for a few values.
-\end{example}
+:::
 
 | $n$ | Satisfies definition? | $2n$ | 
 | :-- | :-:                   | --:  | 
@@ -84,7 +84,7 @@ Quite generally, definitions should not intimidate or dazzle the reader.
 A good definition is as complex as necessary and as simple as possible.
 \end{advice}
 
-\begin{example}
+::: example
 The following definition is more complex because it uses multiple variables and uses the expression to define two values at the same time.
 But it is still fairly simple and could be used in a definition:
 $$
@@ -92,7 +92,7 @@ $$
 $$
 
 The table below shows all the values for the variables and the resulting elements of the set.
-\end{example}
+:::
 
 | $x$ | $y$ | $x + y \geq 5$? | added $x^y$ | added  $y^10$ | 
 | :-  | :-  | :-              | :-          | :-            |
@@ -103,22 +103,22 @@ The table below shows all the values for the variables and the resulting element
 | 3   | 2   | yes             | 9           | 1024          | 
 | 3   | 7   | yes             | 2187        | 282,475,249   | 
 
-\begin{exercise}
+::: exercise
 For each one of the following, put $=$ or $\neq$ in the gap as appropriate:
 
 - $\setof{0,1,2,3,4,5} \_ \setof{ 10 - x \mid x \in \setof{5,6,7,8,9,10} }$
 - $\emptyset \_ \setof{ x \mid x \text{ is both a square and circle}}$
 - $\setof{2,3,5,7} \_ \setof{n + 1 \mid n \text{ is a prime number between 0 and 10}}$
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Express the following in terms of set-builder notation:
 
 - $\setof{\text{George Washington}, \text{John Adams}, \text{Thomas Jefferson}}$
 - $\setof{\text{a}, \text{e}, \text{i}, \text{o}, \text{u}}$
 
-\end{exercise}
+:::
 
 ## Summary
 

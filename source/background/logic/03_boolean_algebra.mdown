@@ -7,7 +7,7 @@ Let $S$ be some fixed set.
 We may order $\wp(S)$ by the subset relation to obtain the familiar powerset lattice, with join corresponding to union and meet to intersection.
 In fact, this lattice satisfies two additional properties that make it a **Boolean lattice** (or **Boolean algebra**).
 
-\begin{definition}
+::: definition
 A lattice $\tuple{L, \leq}$ is
 
 
@@ -16,9 +16,9 @@ A lattice $\tuple{L, \leq}$ is
 - **complemented** iff every eleement $a$ has a complement $\neg a$ such that $a \wedge \neg a = 0$ and $a \vee \neg a = 1$.
 
 A lattice is **Boolean** iff it satisfies all three of the criteria.
-\end{definition}
+:::
 
-\begin{exercise}
+::: exercise
 Show that $\tuple{\wp(S), \subseteq}$ is a Boolean lattice.
 More specifically:
 
@@ -27,7 +27,7 @@ More specifically:
 - What are the least and greatest elements of $\wp(S)$?
 - For any arbitrary $A \in \wp(S)$, what is its complement $\neg A$?
 
-\end{exercise}
+:::
 
 As you might already expect, propositional logic also has the structure of a Boolean lattice.
 All we have to do is figure out the carrier set, and the rest will follow immediately.
@@ -38,12 +38,12 @@ In other words, $\phi \leq \psi$ iff $\phi \rightarrow \psi$ is a tautology.
 We're almost done, but not quite.
 Note that $\tuple{L, \leq}$ is not a poset because antisymmetry is violated.
 
-\begin{example}
+::: example
 Consider the formulas $a$ and $\neg \neg a$.
 Clearly $a \rightarrow \neg \neg a$ and $\neg \neg a \rightarrow a$. 
 So we ahve $a \leq \neg \neg a$ and $\neg \neg a \leq a$, yet $a$ and $\neg \neg a$ are distinct memebers of $L$. 
 This contradicts antisymmetry.
-\end{example}
+:::
 
 In order to fix this, we instead look at the quotient structure $\tuple{L_\sim, \leq}$, where $\phi \sim \psi$ iff $\phi$ and $\psi$ entail each other.
 So $L_\sim$ consists of equivalence classes of propositional formulas whose truth values never differ from each other.
@@ -60,7 +60,7 @@ In fact, this complement $\neg [\phi]$ is simply $[\neg \phi]$, showing the clos
 Overall, then, $\tuple{L_\sim, \leq}$ is a poset where any two elements have a unique join and meet, where join and meet distribute over each, with unique least and greatest bounds, and a complement for every element of the $L_\sim$.
 That's just a very roundabout way of saying that $\tuple{L_\sim, \leq}$ is a Boolean lattice, just like $\tuple{\wp(S), \subseteq}$, and that's why De Morgan's Law holds for both sets and propositional logic.
 
-\begin{exercise}
+::: exercise
 Instead of the propositional formulas themselves, we could also look at their truth values.
 Show that $\tuple{ \setof{F, T}, \leq }$ with $F \leq T$ is also a Boolean lattice.
-\end{exercise}
+:::

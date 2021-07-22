@@ -18,7 +18,7 @@ Intervocalic devoicing would be the opposite: voiced sounds like *z* and *v* may
 Intervocalic voicing is a very natural and common process, whereas intervocalic devoicing has not been found in even a single language.
 Apparently, language simply does not work like that.
 
-\begin{exercise}
+::: exercise
 Write a negative grammar for intervocalic devoicing, assuming that the alphabet consists only of
 *a*,
 *i*,
@@ -28,30 +28,30 @@ Write a negative grammar for intervocalic devoicing, assuming that the alphabet 
 *f*,
 and
 *v*.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Assuming the same alphabet as before,
 write an $n$-gram grammar (it may be positive or negative) that requires every word to consist of exactly 5 symbols.
 This will be a large grammar.
 But keep in mind that $n$-gram grammars are just sets, and there's various way to compactly define large sets.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Assuming the same alphabet as before,
 write an $n$-gram grammar (it may be positive or negative) that requires every word to start with
 *a*
 and end with
 *f*.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Assuming the same alphabet as before,
 write an $n$-gram grammar (it may be positive or negative) for "penultimate *f*":
 if a word has at least two symbols, then the last but one symbol must be *f* and no other position may be *f*.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Suppose that English only contains the words
 *the*,
 *old*,
@@ -67,7 +67,7 @@ if the subject does not contain an adjective (like *old*),
 then use the inflected verb form; otherwise, use the base form.
 So we would get *The old man snore* but *The man snores*.
 Write an $n$-gram grammar that captures this unnatural condition.
-\end{exercise}
+:::
 
 These exercises show that our models **overgenerate** from a typological perspective.
 Not only can they express constraints that occur in natural languages, but also phenomena that exist in no known language at all.
@@ -90,7 +90,7 @@ Data isn't cheap, so overgeneration should be avoided if possible.
 Linguists use the term **universals** to refer to certain invariable properties of language.
 Natural languages simply do not vary in all logically conceivable ways.
 
-\begin{example}
+::: example
 No known language enforces any of the following conditions:
 
 
@@ -105,25 +105,25 @@ No known language enforces any of the following conditions:
 
 
 Apparently languages can only enforce constraints of a specific kind, and the examples above do not fit the bill.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 For each constraint above, give a concrete example from English that violates it.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Can you think of a constraint that you are fairly certain does not arise in any natural language?
 
 
 *Hint:* Mathematical concepts like prime numbers are very fruitful for this.
-\end{exercise}
+:::
 
 The existence of universals means that there might be phenomena or constraints that can be described by an $n$-gram grammar yet never show up in the real world because they violate certain universals.
 
-\begin{exercise}
+::: exercise
 Can any of the constraints listed above be enforced by an $n$-gram grammar?
 If so, explain how.
-\end{exercise}
+:::
 
 The idea of universals is very powerful: if we can identify a reliable list of universals, then we know what constraints in natural language may look like.
 That would give us a very good idea of what our models have to be capable of and what is superfluous, and thus we could design more restrictive and efficient models that can be learned from less data.

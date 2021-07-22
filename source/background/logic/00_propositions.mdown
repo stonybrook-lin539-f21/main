@@ -6,7 +6,7 @@ A proposition is a statement that is either true or false.
 This does not mean that one can necessarily tell whether a proposition is true, nor that the proposition makes any sense considering what our world is like.
 It just means that the statement is such that it can have a truth value.
 
-\begin{example}
+::: example
 All of the following are propositions, even though whether they're true or false can depend greatly on context:
 
 
@@ -16,9 +16,9 @@ All of the following are propositions, even though whether they're true or false
 - We might see another stock market crash soon.
 - A language is regular iff it is recognized by a finite-state automaton.
 
-\end{example}
+:::
 
-\begin{example}
+::: example
 The following are not propositions.
 
 
@@ -28,17 +28,17 @@ The following are not propositions.
 - A cute kitten
 - John and Mary
 
-\end{example}
+:::
 
-\begin{example}
+::: example
 Some cases are borderline and require some more detailed analysis.
 Take *Either John leaves or I will*.
 As a literal description of how the world is, this can be either true or false, so it's a proposition.
 But we can also interpret it as a command that the addressee must choose between John and the speaker.
 Commands have no truth value and thus aren't propositions.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 For each one of the following, say whether it is a proposition.
 If you say no, justify your answer.
 
@@ -50,39 +50,39 @@ If you say no, justify your answer.
 - Colorless green ideas sleep furiously.
 - John and Mary have only one child, who has three siblings.
 
-\end{exercise}
+:::
 
 ## Entailment
 
 Some propositions are atomic in the sense that one cannot break them down into smaller propositions, whereas others are clearly built up from smaller propositions.
 
-\begin{example}
+::: example
 The sentence *John rode a bike and Mary her dragon* might be true or false, so it's a proposition.
 But it is not an atomic proposition because it's built up from two smaller propositions.
 One is *John rode a bike*, the other one *Mary rode her dragon* (that English allows for the verb to be omitted in the second conjunct is irrelevant for this point).
-\end{example}
+:::
 
 As a result, propositions can be related to each other so that the truth value of one follows immediately from the other.
 This is called **entailment**.
 
-\begin{example}
+::: example
 If *John rode a bike and Mary her dragon* is true, then it must also be true that John rode a bike, and it must be true that Mary rode her dragon.
 In the other direction, if *John rode a bike* is false, then so is *John rode a bike and Mary her dragon*.
-\end{example}
+:::
 
 Entailment can also hold between propositions that do not stand in an obvious part-whole relation to each other.
 
-\begin{example}
+::: example
 Consider the sentences *If pigs can fly, then Sokrates is a chain-smoking dragon* and *No human is a dragon*.
 Assuming that both are true, the sentence *Sokrates is human* entails that pigs cannot fly.
-\end{example}
+:::
 
 The entailments in these two examples are slightly different.
 For the first, it suffices to recognize how one proposition was built up from smaller ones.
 The second one presents a more complex reasoning pattern that hinges on the meaning of the quantifier *no*.
 Logic was devised as a means to study these different kinds of entailments, but over the centuries it has evolved to a highly flexible system that can be used for all kinds of purposes.
 
-\begin{exercise}
+::: exercise
 For each one of the following pairs of sentences, say whether entailment holds, and if so, in which direction.
 If entailment does not hold, explain why.
 
@@ -112,4 +112,4 @@ If $2 + 2 = 4$, then $2 + 2 = 4$. |
 $2 + 2 = 4$
 
 
-\end{exercise}
+:::

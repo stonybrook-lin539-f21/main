@@ -13,13 +13,13 @@ An $n$-tuple $t$ consists of exactly $n$ elements.
 We also say that $t$ has **length** $n$.
 Tuples are usually written between pointy brackets, e.g. the pair $\tuple{a,b}$, the triple $\tuple{a,b,c}$, or the $1$-tuple $\tuple{a}$.
 
-\begin{example}
+::: example
 The pair $\tuple{a,a}$ is distinct from the 1-tuple $\tuple{a}$, the triple $\tuple{a,a,a}$, or the $4$-tuple $\tuple{a,a,a,a}$.
 Since order matters, we also have $\tuple{a,b} \neq \tuple{b,a}$ if $a \neq b$.
 If, say, $a = b = 1$ then $\tuple{a,b} = \tuple{1,1} = \tuple{b,a}$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Fill in the gaps with $=$ and $\neq$ as appropriate, assuming that $a$ and $b$ are distinct elements:
 
 
@@ -28,22 +28,22 @@ Fill in the gaps with $=$ and $\neq$ as appropriate, assuming that $a$ and $b$ a
 - $\tuple{a,b,a,a} \_ \tuple{a,b,a,a}$
 - $\tuple{a,a,b,a} \_ \tuple{a,b,a,a}$
 
-\end{exercise}
+:::
 
 One often writes $A^n$ for the set of all $n$-tuples whose elements are drawn from $A$.
 
-\begin{example}
+::: example
 Suppose $A \is \setof{a,b}$.
 
 
 - $A^2 = A \times A = \setof{ \tuple{a,a}, \tuple{a,b}, \tuple{b,a}, \tuple{b,b}}$
 - $A^1 = A = \setof{ \tuple{a}, \tuple{b}}$
 
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 If $A \is \setof{a}$, then what is $A^5$?
-\end{exercise}
+:::
 
 Note that just like $a \neq \setof{a}$, it also holds that $a \neq \tuple{a}$.
 A container with $a$ in it is not the same thing as $a$ by itself.
@@ -53,16 +53,16 @@ A container with $a$ in it is not the same thing as $a$ by itself.
 
 Two tuples $a$ and $b$ can be concatenated into a single large tuple $a \tuplecat b$ that contains all elements of $a$ and $b$, in the same order.
 
-\begin{definition}
+::: definition
 Given an $m$-tuple $a \is \tuple{a_1, \ldots, a_m}$ and an $n$-tuple $b \is \tuple{b_1, \ldots, b_n}$,
 their **concatenation** is the $m+n$-tuple
 $a \tuplecat b \is \tuple{a_1, \ldots, a_m, b_1, \ldots, b_n}$.
-\end{definition}
+:::
 
 Tuple concatenation is associative.
 This means that for any tuples $a$, $b$, and $c$, it holds that $a \tuplecat (b \tuplecat c) = (a \tuplecat b) \tuplecat c$.
 
-\begin{example}
+::: example
 The concatenation of $\tuple{x,y}$ and $\tuple{z}$ is $\tuple{x,y,z}$.
 If we concatenate $\tuple{x,y,z}$ and $\tuple{y,y,y,}$, we get $\tuple{x,y,z,y,y,y}$.
 
@@ -73,27 +73,27 @@ We then concatenate $\tuple{x,y}$ and $\tuple{z,y,y,y}$ to obtain $\tuple{x,y,z,
 That's indeed the same output as before.
 Overall, then,
 $$(\tuple{x,y} \tuplecat \tuple{z}) \tuplecat \tuple{y,y,y} = \tuple{x,y} \tuplecat (\tuple{z} \tuplecat \tuple{y,y,y}) = \tuple{x,y,z,y,y,y,y}.$$
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Calculate the result of the following concatenations:
 
 
 - $\tuple{a,b} \tuplecat ((\tuple{c} \tuplecat \tuple{a,b}) \tuplecat \tuple{a,c,e})$
 - $(\tuple{a,b} \tuplecat \tuple{c}) \tuplecat (\tuple{a,b} \tuplecat \tuple{a,c,e})$
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Write down all possible ways of obtaining $\tuple{a,b,c,d}$ via concatenation of tuples whose length is at least $1$.
 For instance, one possible way is $\tuple{a,b} \tuplecat \tuple{c, d}$, but there's several more.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Tuple concatenation is not commutative.
 That is to say, for some tuples $a$ and $b$ it is not the case that $a \tuplecat b = b \tuplecat a$.
 Illustrate this with an example.
-\end{exercise}
+:::
 
 
 ## The empty tuple
@@ -104,9 +104,9 @@ It is the only 0-tuple.
 With respect to concatenation, the empty tuple behaves like $0$ with respect to addition.
 That is to say, concatenating a tuple with the empty tuple does not change said tuple.
 
-\begin{exercise}
+::: exercise
 Compute $\tuple{a} \tuplecat \tuple{}$ and $\tuple{} \tuplecat \tuple{a,a,a}$.
-\end{exercise}
+:::
 
 
 ## Difference to strings
@@ -117,7 +117,7 @@ However, tuples are more general because their elements do not need to be symbol
 Just like sets and multisets, tuples can contain arbitrary objects.
 So a tuple may consist of sets, multisets, other tuples, functions, relations, any combination of those, and much, much more.
 
-\begin{example}
+::: example
 All of the following are valid tuples:
 
 
@@ -126,9 +126,9 @@ All of the following are valid tuples:
 - $\tuple{\mathbb{N}, \setof{3,7, \setof{112}}, +, -}$ is a $4$-tuple that consists of the set of natural numbers, the set $\setof{3,7, \setof{112}}$, and the operations of addition and subtraction
 - $\tuple{a, \tuple{b, \tuple{}, \tuple{c}, \tuple{d,e}, b}, \setof{1,2,3, \tuple{}}}$ is triple that consists of $a$, the 5-tuple $\tuple{b, \tuple, \tuple{c}, \tuple{d,e}, b}$, and the set $\setof{1,2,3, \tuple{}}$
 
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 What is the length of the following tuples?
 
 
@@ -138,12 +138,12 @@ What is the length of the following tuples?
 - $\tuple{\tuple{a,b,c}}$
 - $\tuple{\tuple{}, \tuple{}, \tuple{}}$
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Does the concatenation of $\tuple{a,b}$ and $\tuple{c}$ yield the same result as the concatenation of $\tuple{a,b}$ and $\tuple{\tuple{c}}$?
 Justify your answer!
-\end{exercise}
+:::
 
 
 ## Recap

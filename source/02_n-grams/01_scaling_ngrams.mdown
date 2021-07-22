@@ -93,10 +93,10 @@ So we are proving a theorem about the existence of a normal form, hence the term
 
 In order to avoid an overload of notation and terminology, we state the theorem in a slightly inaccurate manner as follows:
 
-\begin{theorem}
+::: theorem
     Let $G$ be some collection of sound $n$-grams of different lengths where $k$ is the length of the longest $n$-gram.
     Then there exists an equivalent grammar $G'$ such that every $n$-gram of $G'$ has length $k$.
-\end{theorem}
+:::
 
 ### Proof
 
@@ -107,16 +107,16 @@ We start with a few key observations.
   The important thing is that it is finite.
   We use $\card{\Sigma}$ as the special symbol for this number.
 
-\begin{example}
+::: example
   If a language only has the sounds *a*, *u*, *i*, *b*, *m*, *d*, *g*, and *h*, then $\card{\Sigma}$ for that specific language is $8$.
-\end{example}
+:::
 
 - As stated in the theorem, the longest $n$-gram is assumed to have length $k$.
   Since each position is filled by either a sound or the edge marker *\$*, there are $\card{\Sigma} + 1$ choices for each position.
   Consequently, there are at most $(\card{\Sigma}+1)^k$ different $n$-grams of length $k$.
   This implies that $G$ contains at most $(\card{\Sigma}+1)^k$ $n$-grams and thus contains only finitely many.
 
-\begin{example}
+::: example
 Suppose that the language only has the sounds *a* and *d*, barely enough for *dada*.
 It's $\card{\Sigma}^k$ is $2$.
 There are $(2+1)^3 = 3^3 = 27$ different trigrams:
@@ -154,7 +154,7 @@ There are $(2+1)^3 = 3^3 = 27$ different trigrams:
 Not all of them are ever useful.
 For example, no word ever contains an edge marker in the middle, so *a\$a* serves no purpose.
 But this does not change the fact that there are only finitely many trigrams over *a*, *d*, and *\$*.
-\end{example}
+:::
 
 Now suppose that we pick one of the finitely many $n$-grams of $G$.
 Call it $g$.
@@ -165,7 +165,7 @@ We remove the $n$-gram $g$ from the grammar $G$, and instead add in a number of 
 - Construct every possible $n$-gram of length $k - i$.
   For each such $n$-gram, put it in front of $g$ and add the result back to $G$.
 
-\begin{example}
+::: example
 Suppose *G* contains the bigram *z\$*, the trigram *\$kn*, and the 4-gram *akzn*.
 Assume furthermore that the only possible sounds are *a*, *k*, *z*, and *n*.
 
@@ -230,12 +230,12 @@ So we remove *z\$* from $G$ and instead add all of the following:
 - nzz\$
 - nnz\$
 
-\end{example}
+:::
 
 - Construct every possible $n$-gram of length $k - i$.
   For each such $n$-gram, put it after $g$ and add the result back to $G$.
 
-\begin{example}
+::: example
 We also add the following 4-grams to $G$:
 
 
@@ -269,12 +269,12 @@ We also add the following 4-grams to $G$:
 
 As before, these are all useless because \$ does not occur inside words.
 But we add them anyways to stick with the procedure.
-\end{example}
+:::
 
 - Finally, pick any two $n$-grams of length $i'$ and $i''$ such that $i' + i + i'' = k$ (remember that $i$ is the length of the n-gram $g$ that must padded out, and $k$ is the length of the longest $n$-gram in the grammar).
   Sandwich $g$ between those $n$-grams and add the result to the grammar $G$.
 
-\begin{example}
+::: example
 Since the difference between a 4-gram and a bigram is $2$, each one of the two "sandwich" $n$-grams must have length $1$.
 So we add the following:
 
@@ -307,7 +307,7 @@ So we add the following:
 
 
 Again there are many useless $n$-grams, but we do not care.
-\end{example}
+:::
 
 The new grammar $G'$ constructed this way is equivalent to $G$.
 To see this, suppose that some string is ill-formed according to $G$.
@@ -316,11 +316,11 @@ Then some $n$-gram $g$ of $G$ must occur in the string, otherwise it would not b
 - **Case 1**  
   If $g$ has length $k$, then it is also an $n$-gram of $G'$, so $G'$ would consider the string illicit, too.
 
-\begin{example}
+::: example
 Remember that our example grammar $G$ disallows *z\$*, *\$kn*, and *akzn*.
 The construction above constructs $G'$ by padding out *z\$* and *\$kn* to 4-grams, but it keeps *akzn* the same.
 So if some word is forbidden by $G$ because it contains *akzn*, it will also be forbidden $G'$.
-\end{example}
+:::
 
 - **Case 2**  
   Now assume that $g$'s length is less than $k$.
@@ -337,7 +337,7 @@ So if some word is forbidden by $G$ because it contains *akzn*, it will also be 
     But $G'$ contains every padded version of $g$, i.e. $g$ with 0 or more symbols to its left and right.
     So if a string contains $g$, it also contains some illicit padding of $g$.
 
-\begin{example}
+::: example
 Consider the word *kaz*, which is illicit because it contains *z\$* (remember, we always add a sufficient number of edge markers).
 This string is still considered illicit by $G'$.
 The padded out word is *\$\$\$kaz\$\$\$*, and several of the illicit 4-grams we constructed from *z\$* are contained in this string:
@@ -347,7 +347,7 @@ The padded out word is *\$\$\$kaz\$\$\$*, and several of the illicit 4-grams we 
 - az\$\$
 - z\$\$\$
 
-\end{example}
+:::
       
 This shows that every string that is deemed illicit by $G$ is also illicit with respect to $G'$.
 We still have to show the opposite, which is much easier.

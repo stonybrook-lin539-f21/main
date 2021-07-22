@@ -13,7 +13,7 @@ But these grammars can only enforce locally bounded conditions like intervocalic
 These phenomena have the property that it suffices to consider a finitely bounded number of adjacent segments.
 Not all natural language phenomena obey this condition.
 
-\begin{example}
+::: example
 One of these phenomena is attested in **Samala**, which belongs to the group of Chumash languages spoken in southern California.
 Samala displays a constraint known as **long-distance sibilant harmony**.
 All sibilants in a word must agree in anteriority, no matter how far apart they are.
@@ -35,29 +35,29 @@ A negative 10-gram grammar that generates both *hasxinitilawas* and *haʃxintila
 
 But then this grammar would also allow for the illicit *hasxintilawaʃ* and *haʃxintilawas*.
 Only an 11-gram grammar could capture the contrast.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Write an 11-gram grammar that generates *hasxintilawas* and *haʃxintilawaʃ*, but not *hasxintilawaʃ* and *haʃxinitilawas*.
 The grammar may be positive or negative, whichever you prefer.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Extend the grammar so that it also captures the fact that *ʃtajanowonowaʃ* is licit whereas *stajanowonowaʃ* is illicit.
 You might have to move beyond 11-grams.
-\end{exercise}
+:::
 
 Samala's long-distance sibilant harmony can be handled by an $n$-gram grammar only if there is some upper bound $k < n$ such that sibilants in a Samala word are never separated by more than $k$ symbols.
 The examples above show that this $k$ is at least 12, so one would need at least a 13-gram grammar to handle the process.
 Such large $n$-grams simply aren't feasible in practice.
 
-\begin{example}
+::: example
 Suppose for the sake of argument that Samala has only three sounds: a vowel, *s*, and *ʃ*.
 Then there are $3^{13} = 1,594,323$ distinct $n$-grams.
 Only the $n$-grams that do not mix *s* and *ʃ* are well-formed, of which there are $2 \mult 2^{13} = 2^{14} = 16,384$.
 So a positive 13-gram grammar for Samala's sibilant harmony would contain $16,384$ distinct 13-grams (plus a few with \$), and a negative one $1,594,323 - 16,384 = 1,586,131$.
 That's a lot.
-\end{example}
+:::
 
 Large grammars are undesirable for multiple reasons.
 They are almost impossible to decipher for humans.
@@ -72,15 +72,15 @@ Small grammars trump large grammars.
 If you have some background in phonology, you might already be thinking that there is a much simpler solution: project a **tier** that contains only sibilants (*s* and *ʃ*), and regulate the shape of this sibilant tier with a negative bigram grammar containing only *sʃ* and *ʃs*.
 That's one darn small grammar.
 
-\begin{example}
+::: example
 The sibilant tier of *hasxintilawas* is *ss*, which is allowed by the negative grammar.
 The illicit *hasxintilawaʃ*, on the other hand, has the sibilant tier *sʃ*, which is not allowed.
-\end{example}
+:::
 
 \input_mid{tier_good.tikz}
 \input_mid{tier_bad.tikz}
 
-\begin{exercise}
+::: exercise
 Carry out the same calculations for
 
 
@@ -88,12 +88,12 @@ Carry out the same calculations for
 - *haʃxinitilawas*, and
 - *ʃtajanowonowaʃ*.
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 As an abstract example, suppose that our alphabet consists of $a$, $b$, and $c$, and that all symbols except $c$ should be projected on the tier.
 What is the tier of $\mathit{aabaccacb}$?
-\end{exercise}
+:::
 
 Tiers are a nice linguistic metaphor, but what is going on here at a formal level?
 Exactly the same thing as with stop word removal.
@@ -110,7 +110,7 @@ This difference is very similar to the split between positive and negative gramm
 We can unify stop word removal and tier projection to a single function $\mathit{del}_X$, where $X$ is some set with a specified polarity.
 With $\mathit{del}_{^+X}$, only the symbols in $X$ are kept, whereas $\mathit{del}_{^-X}$ removes all symbols that belong to $X$ (and only those).
 
-\begin{exercise}
+::: exercise
 Compute the values for all of the following:
 
 
@@ -121,16 +121,16 @@ Compute the values for all of the following:
 - $\mathit{del}_{^-\setof{a,b}}(\emptystring)$
 - $\mathit{del}_{^+\setof{a,b}}(\emptystring)$
 
-\end{exercise}
+:::
 
 You might think that this isn't a true unification, we have just moved the difference between stop word removal and tier projection into the polarity distinction.
 But just as with $n$-gram grammars, polarity doesn't actually matter.
 For every set $S$ of a given polarity, there is some set $T$ of opposite polarity such that $\mathit{del}_X(s) = \mathit{del}_Y(s)$ for every string $s$ over some fixed alphabet $\Sigma$.
 
-\begin{exercise}
+::: exercise
 Explain why this holds.
 Illustrate your argument with a few examples.
-\end{exercise}
+:::
 
 This is a pretty nifty result.
 Intuitively, stop word removal and tier projection seem completely unrelated.
@@ -138,11 +138,11 @@ One is about cleaning up data for practical applications, the other about simpli
 But mathematically, they are exactly the same thing.
 In later units, we will see many more examples of this unifying power of math.
 
-\begin{exercise}
+::: exercise
 The term **culminativity** refers to the property that every word has exactly one primary stress.
 Suppose that our alphabet is $\setof{\sigma, \acute{\sigma}}$, where $\sigma$ denotes an unstressed syllable and $\acute{\sigma}$ one with primary stress.
 Specify a set $^+T$ of tier symbols and a bigram grammar $G$ to capture culminativity (*hint*: \$ can be used with tiers, too).
-\end{exercise}
+:::
 
 ## Recap
 

@@ -31,7 +31,7 @@ Move your fingers in parallel as you move along with the symbols in $\String{aba
 5. Verdict: Both are final states, and thus the string is recognized by both automata.
    This means that $\String{abaa}$ is a member of $L(A) \cap L(B)$.
 
-\begin{exercise}
+::: exercise
 Using the same "finger pushing" procedure, say for each one of the following strings whether it is a member of $L(A) \cap L(B)$.
 
 
@@ -41,7 +41,7 @@ Using the same "finger pushing" procedure, say for each one of the following str
 
 
 You do not need to write down each individual move of your finger, "Yes" and "No" are sufficient answers.
-\end{exercise}
+:::
 
 Based on this intuition, we construct an automaton where each state keeps track of the position of our fingers in these two automata.
 For the string above, we start out in $(A:0, B:0)$.
@@ -61,7 +61,7 @@ For simplicity, we write $i, x$ instead of $(A:i, B:x)$.
 \input_med{intersection_automaton.tikz}
 
 
-\begin{definition}
+::: definition
 Let $A \is \tuple{\Sigma, Q_A, I_A, F_A, \Delta_A}$ and $B \is \tuple{\Sigma, Q_B, I_B, F_B, \Delta_B}$ be two FSAs.
 The **intersection automaton** $A \cap B$ is the FSA $\tuple{\Sigma, Q_A \times Q_B, I, F, \Delta}$ such that
 
@@ -70,18 +70,18 @@ The **intersection automaton** $A \cap B$ is the FSA $\tuple{\Sigma, Q_A \times 
 - $\tuple{a,x} \in F$ iff $a \in F$ and $x \in F$,
 - $\tuple{\tuple{a,x}, \sigma, \tuple{b,y}} \in \Delta$ iff $\tuple{a,\sigma,b} \in \Delta_A$ and $\tuple{x, \sigma, y} \in \Delta_B$.
 
-\end{definition}
+:::
 
-\begin{theorem}
+::: theorem
 For all FSAs $A$ and $B$ there exists an FSA $C$ such that $L(A) \cap L(B) = L(C)$.
-\end{theorem}
+:::
 
-\begin{exercise}
+::: exercise
 In an earlier exercise you had to construct FSAs for $\String{a^* b^+}$ and $\String{a^+ b^+ a^*}$.
 Construct their intersection automaton and verify that it recognizes the language $\String{a^+ b^+}$.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 This exercise is optional!
 
 The theorem above still requires a proof.
@@ -94,7 +94,7 @@ This breaks down into two separate claims:
 
 
 Try to prove each statement.
-\end{exercise}
+:::
 
 
 ## Determinization
@@ -109,7 +109,7 @@ This too, creates a choice point: should the automaton follow the $\emptystring$
 Whenever an automaton furnishes choices of this kind, it is non-deterministic.
 Automata for which this not the case are called **deterministic**.
 
-\begin{definition}
+::: definition
 An FSA $\tuple{\Sigma, Q, I, F, \Delta}$ is **deterministic** iff all of the following hold:
 
 
@@ -119,21 +119,21 @@ An FSA $\tuple{\Sigma, Q, I, F, \Delta}$ is **deterministic** iff all of the fol
 
 
 An automaton is **non-deterministic** iff it is not deterministic.
-\end{definition}
+:::
 
-\begin{example}
+::: example
 The familiar automaton below is non-deterministic because there are two distinct arcs out of $0$ that are both labeled $a$.
 
 \input_med{nondet.tikz}
 
 Formally, $\tuple{0, a, 1} \in \Delta$ and $\tuple{0, a, 2} \in \Delta$, yet $1$ and $2$ are distinct states.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Construct a non-deterministic automaton that recognizes the language $ac^*b \cup acb^*$.
 Careful, the automaton should recognize all strings of this language, but no more than that.
 For instance, $\String{accbb}$ is not a string of this language.
-\end{exercise}
+:::
 
 Determinism is a very desirable property.
 Not only does it simplify certain proofs, it also is essential for efficient recognition.
@@ -164,7 +164,7 @@ A state like $\setof{u}$ encodes that we only need one copy of the machine, whic
 If we then transition from $\setof{u}$ to $\setof{v,w}$, that is tantamount to saying "we had a single automaton in state $u$, and then we spawned a copy so that we now have one automaton in state $v$ and one in state $w$".
 And if we switch from $\setof{v,w}$ to $\setof{x}$, this means that both copies of the automaton moved into state $x$, so we destroyed one of the copies as it had become redundant.
 
-\begin{definition}
+::: definition
 Let $A \is \tuple{\Sigma, Q, I, F \Delta}$ be a non-deterministic FSA.
 Then the **determinization** of $A$ is the FSA $\mathrm{Det}(A) \is \tuple{\Sigma, 2^Q, \setof{I}, F_D, \Delta_D}$ such that
 
@@ -173,7 +173,7 @@ Then the **determinization** of $A$ is the FSA $\mathrm{Det}(A) \is \tuple{\Sigm
 - $\setof{q_1, \ldots, q_n} \in 2^Q$ is a member of $F_D$ iff $q_i \in F$ for some $1 \leq i \leq n$,
 - $\tuple{u, \sigma, v} \in \Delta_D$ iff $v \is \setof{ q \in Q \mid \tuple{p, \sigma, q} \in \Delta \text{ for some } p \in u}.$
 
-\end{definition}
+:::
 
 When manually determinizing an FSA, it is best to follow this incremental procedure:
 
@@ -220,7 +220,7 @@ Note that it looks exactly like the deterministic one above, with the only diffe
 
 \input_med{aplus_nondet_det.tikz}
 
-\begin{example}
+::: example
 Consider the slightly more complicated FSA below.
 
 \input_med{nondet_complex.tikz}
@@ -230,9 +230,9 @@ Determinization yields the equivalent automaton below:
 \input_med{nondet_complex_det.tikz}
 
 You should verify for yourself that you can correctly construct this automaton.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 In the previous two examples, determinization does not increase the size of the automaton.
 in general, though, determinization can cause an exponential blow-up: determinizing a non-deterministic FSA with $n$ states may yield a deterministic FSA with $2^n$ states.
 That's huge.
@@ -244,9 +244,9 @@ In practice, the blow-up is not as bad, but it isn't uncommon for automata size 
 As a concrete example of this, determinize the automaton below.
 
 \input_med{nondet_blowup.tikz}
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Only for the brave!
 
 
@@ -254,9 +254,9 @@ The automaton above doubles its size after determinization.
 What about the automaton below?
 
 \input_med{nondet_blowup2.tikz}
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Determinization does not necessarily increase the size of an automaton.
 If the original automaton contains some redundancies, determinization can eliminate those.
 
@@ -266,20 +266,20 @@ The automaton below is a slightly redundant machine for accepting all strings ov
 \input_med{nondet_shrinking.tikz}
 
 What does it look like after determinization?
-\end{exercise}
+:::
 
 ## Adding a Sink
 
 There are two reasons why a string $s$ might not be recognized by an automaton $A$: either there is a run of $A$ over $s$ that is not accepting, or there is no run at all because at some point we reach a state from which no transition can be taken.
 
-\begin{example}
+::: example
 Consider once more the automaton for $\String{a(baa)^*}$.
 
 \input_med{abaa.tikz}
 
 This automaton rejects $\String{ab}$ because the run for this string ends in state $2$, which is not a final state.
 But it also rejects $\String{abb}$ because there is no $b$-transition from $2$.
-\end{example}
+:::
 
 It is sometimes convenient to eliminate the latter case by adding a *sink state*.
 This sink state is never a final state!
@@ -289,13 +289,13 @@ So once we end up in the sink state, we are trapped and cannot reach a final sta
 Adding a sink state ensures that there is a run for every $s \in \Sigma^*$ without altering the recognized string language.
 Hence the only distinction between recognized and rejected strings is whether their run is accepting, not whether they have a run at all.
 
-\begin{example}
+::: example
 Here is the result of adding a sink state $S$ to the automaton above:
 
 \input_med{abaa_sink.tikz}
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 For each one of the following strings, give its run according to the automaton above with a sink state.
 
 
@@ -306,4 +306,4 @@ For each one of the following strings, give its run according to the automaton a
 - $\String{abaabaa}$
 - $\String{abbabaa}$
 
-\end{exercise}
+:::

@@ -14,7 +14,7 @@ A **weakly connected** graph is such that it forms one cohesive whole via the ed
 A **connected graph** satisfies the strong property that for all nodes $u$ and $v$, $u$ is reachable from $v$ or the other way round.
 A **strongly connected** graph, finally, is such that every node is reachable from every node.
 
-\begin{definition}
+::: definition
 A directed graph is
 
 - *weakly connected* iff the reflexive, symmetric, transitive closure of its edge relation is total,
@@ -22,9 +22,9 @@ A directed graph is
 - *strongly connected* iff the reflexive, transitive closure of its edge relation is identical to $V \times V$,
 - *disconnected* iff it is not weakly connected.
 
-\end{definition}
+:::
 
-\begin{example}
+::: example
 The undirected graph we saw at the beginning of the unit is disconnected, and the same goes for any directed version of it.
 For example, there is no edge between $1$ and $3$, one simply cannot be reached from the other.
 
@@ -60,7 +60,7 @@ Finally, consider what happens if we remove one edge from the graph above.
 Now even the reflexive, transitive closure of the edge relation does not connect $6$ and $9$, so the graph cannot be connected.
 However, $6$ and $9$ are still reachable from each other if we consider the reflexive, symmetric, transitive closure of the edge relation.
 Therefore, the graph is weakly connected.
-\end{example}
+:::
 
 Intuitively, the three degrees of connectivity can be described in terms of how we have to move along the arrows in a graph to read one node from another one:
 
@@ -68,12 +68,12 @@ Intuitively, the three degrees of connectivity can be described in terms of how 
 - If we can reach $a$ from $b$ by following a sequence of arrows, but not necessarily $b$ from $a$, the graph is connected.
 - If we have to sometimes go against the direction of the arrow to get from $a$ to $b$, the graph is weakly connected.
 
-\begin{exercise}
+::: exercise
 Is every strongly connected graph weakly connected?
 Justify your answer.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Suppose that a graph $G$ is weakly connected.
 Is is guaranteed to be connected if we take the reflexive, symmetric, transitive closure of the edge relation?
-\end{exercise}
+:::

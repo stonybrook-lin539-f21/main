@@ -22,12 +22,12 @@ In this case, one writes $A \subseteq B$.
 For example, $\setof{a,b} \subseteq \setof{a,b,c,d}$.
 Alternatively, one also says in this case that $B$ is a **superset** of $A$ (written $B \supseteq A$).
 
-\begin{example}
+::: example
     A transitive verb is a verb that occurs with a subject and an object: *devour*, *contradict*, *wager*, *flummox*, and many more.
     Not all verbs are transitive, e.g. *sleep* or *give*. 
     Suppse $T$ is the set of all English transitive verbs, whereas $V$ is the set of all English verbs.
     Since every transitive verb is a verb, but no the other way round, we have $T \subseteq V$.
-\end{example}
+:::
 
 By the definition of subset, every set $S$ is a subset of itself.
 The reasoning is simple.
@@ -36,10 +36,10 @@ If $S \subseteq S$, then every member of $S$ must be a member of $S$, which is o
 In addition, the empty set is a subset of every set, including itself.
 This is because the empty set contains no elements at all, so it trivially holds that every member of the empty set is a member of every set.
 
-\begin{exercise}
+::: exercise
 Complete the table below.
 You can use the Python code to help you with this.
-\end{exercise}
+:::
 
 | A             | B                 | $A \subseteq B$? | $A \supseteq B$? | 
 | :--           | :--               | :--              | :--              | 
@@ -63,10 +63,10 @@ else:
     print(set_print(set1), "is not a subset of", set_print(set2))
 ```
 
-\begin{exercise}
+::: exercise
 Say whether the following statement is true or false and justify your answer:
 for any two sets $A$ and $B$, $A \subseteq B$ iff $A \cap B = A$.
-\end{exercise}
+:::
 
 ## Identity
 
@@ -88,13 +88,13 @@ We call $A$ a **proper subset** of $B$ ($A \subsetneq B$) iff $A$ is a subset of
 In other words, every element of $A$ is a member of $B$, but not every element of $B$ is a member of $A$.
 We also say that $B$ is a **proper superset** of $A$ ($B \supsetneq A$).
 
-\begin{example}
+::: example
     Given our previous discussion, the set $T$ of transitive verbs is proper subset of the set $V$ of verbs because it is a subset but not every verb is a transitivie verb.
     In other words, $T \subseteq V$ yet $T \neq V$.
     Hence $T \subsetneq V$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Fill in $=$, $\subsetneq$, or $\supsetneq$ as appropriate.
 
 
@@ -104,7 +104,7 @@ Fill in $=$, $\subsetneq$, or $\supsetneq$ as appropriate.
 - $\emptyset \_ \setof{a}$
 - $\emptyset \_ \setof{\emptyset}$
 
-\end{exercise}
+:::
 
 ## Disjoint and incomparable sets
 
@@ -114,18 +114,18 @@ In mathematical terms, $A \cap B = \emptyset$.
 Alternatively, $A$ and $B$ might be **incomparable**.
 In this case the two sets have a limited overlap such that there is at least one $x$ with both $x \in A$ and $x \in B$, but there are also $a \in A$ and $b \in B$ such that $a \notin B$ and $b \notin A$.
 
-\begin{example}
+::: example
 The set of English prepositions (*on*, *to*, *at*, ...) and the set of English determiners (*a*, *the*, *this*, ...) have not a single word in common and thus are disjoint.
 The set of English verbs and the set of English nouns, on the other hand, are incomparable.
 Many words like *water*, *cut*, *fall*, *love*, *try*, *judge*, *beat*, or *cross* can be used as nouns or verbs, but many other words are used only as nouns (*tree*, *waterfall*, *idea*, *Ferrari*) or only as verbs (*write*, *convince*, *admonish*).
-\end{example}
+:::
 
 Remember that it is possible for both $A \subseteq B$ and $B \subseteq A$ to be true --- in this case, $A = B$.
 But there can be no $A$ and $B$ such that $A \subsetneq B$ and $B \subsetneq A$.
 
-\begin{exercise}
+::: exercise
 For each line in the table, say whether the sets are disjoint, incomparable, identical, or stand in a proper subset/superset relation.
-\end{exercise}
+:::
 
 | A               | B                                                 | 
 | :--             | :--                                               | 
@@ -168,18 +168,18 @@ But there is no standardized symbol for sets being incomparable, although some a
 
 ## Recap
 
-\begin{definition}
+::: definition
 Let $A$ and $B$ be arbitrary sets.
 Then $A$ is a **subset** of $B$ ($A \subseteq B$) iff every member of $A$ is a member of $B$.
 In this case, $B$ is a **superset** of $A$ ($B \supseteq A$).
-\end{definition}
+:::
 
-\begin{definition}
+::: definition
 For $A$ and $B$ arbitrary sets, $A$ is a **proper subset** of $B$ ($A \subsetneq B$) iff $A \subseteq B$ and there is a $b \in B$ such that $b \notin A$.
 Similarly, $B$ is a **proper superset** of $A$ ($B \supsetneq A$).
-\end{definition}
+:::
 
-\begin{definition}
+::: definition
 Let $A$ and $B$ be arbitrary sets.
 Then $A$ and $B$ are:
 
@@ -188,4 +188,4 @@ Then $A$ and $B$ are:
 - **disjoint** iff $A \cap B = \emptyset$,
 - **incomparable** iff $A \not\subseteq B$ and $B \not\subseteq A$ and $A \cap B \neq \emptyset$.
 
-\end{definition}
+:::

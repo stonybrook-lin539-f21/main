@@ -8,10 +8,10 @@
 
 Given a multiset $S_M$, we write $S_M(a)$ for the count of $a$ in $S_M$.
 
-\begin{example}
+::: example
 Let $A_M \is \setof{a:3, b:2, c:1}$ and $B_M \is \setof{a:1, b:1, c:1, d:1}$.
 Then $A_M(a) = 3$ and $B_M(a) = 1$, whereas $A_M(c) = B_M(c) = 1$.
-\end{example}
+:::
 
 The **cardinality** of a multiset with finitely many elements is the sum of all its counts.
 As a formula, this looks as follows:
@@ -24,7 +24,7 @@ This formula uses the symbol $\sum$ as an abbreviation for addition.
 The subscript on $\sum$ tells us that $s$ should be substituted in all possible ways by elements of $S_M$.
 For multiset $S_M \is \setof{s_1: c_1, s_2: c_2, \ldots , s_n: c_n}$ the formula expands to $S_M(s_1) + S_M(s_2) + \cdots + S_M(s_n)$, which in turn reduces to $c_1 + c_2 + \cdots + c_n$.
 
-\begin{example}
+::: example
     Consider once more the multisets $A_M \is \setof{a:3, b:2, c:1}$ and $B_M \is \setof{a:1, b:1, c:2, d:1}$, for which the following hold:
 
     \begin{align*}
@@ -41,7 +41,7 @@ For multiset $S_M \is \setof{s_1: c_1, s_2: c_2, \ldots , s_n: c_n}$ the formula
         \card{A_M - B_M} &= 3\\
         \card{B_M - A_M} &= 2\\
     \end{align*}
-\end{example}
+:::
 
 ```python
 def card(multiset):
@@ -54,7 +54,7 @@ print("Intersection of {} and {} is {}".format(A, B, multiset_intersection(A, B)
 print("Relative complement of {} and {} is {}".format(A, B, A-B))
 ```
 
-\begin{exercise}
+::: exercise
 Calculate the cardinality of the following multisets:
 
 
@@ -62,5 +62,5 @@ Calculate the cardinality of the following multisets:
 - $\setof{\text{John}: 5, \text{Mary}: 5, \text{Bill}: 10}$
 - $\setof{a: 0, b: 0, c:0}$
 
-\end{exercise}
+:::
 

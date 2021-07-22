@@ -190,7 +190,7 @@ These findings do not preclude a tree-like structure, but they argue against a p
 Overall, then, prefix trees are far from a perfect model of the mental lexicon in humans.
 But they are nonetheless a highly efficient data structure for computers and a prime example of how inducing structure over a set can bring many computational advantages.
 
-\begin{exercise}
+::: exercise
 Represent the following list of words as a prefix tree (assuming characters as the basic alphabet).
 
 
@@ -201,12 +201,12 @@ Represent the following list of words as a prefix tree (assuming characters as t
 - nationalize
 - naturalize
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Represent the same list of words as a prefix tree but taking morphemes as the basic unit.
 For example, *natural* would only consist of the symbols *nature* and *-al*.
-\end{exercise}
+:::
 
 ## Prefix trees as graphs/gorn domains
 
@@ -228,12 +228,12 @@ So in a sense a colored graph isn't really different from an uncolored one, it's
 That node colors are just node labels becomes even clearer when we view prefix trees as edge labeled rather than node labeled.
 In that case, we have two distinct labeling functions, one for nodes and one for labels.
 
-\begin{definition}
+::: definition
 An **edge-labeling** for a graph $\tuple{V,E}$ is a total function $\ell: E \rightarrow \Sigma$.
 For every path $p \is \tuple{v_0, v_1, \ldots, v_{n-1}, v_n}$ ($n \geq 1$), we call $s \is \ell(\tuple{v_0, v_1}) \cdots \ell(\tuple{v_{n-1}, v_n})$ the **string associated with $p$**.
-\end{definition}
+:::
 
-\begin{definition}
+::: definition
 A **prefix tree** is a 4-tuple $\tuple{V,E,c,\ell}$ such that
 
 
@@ -241,7 +241,7 @@ A **prefix tree** is a 4-tuple $\tuple{V,E,c,\ell}$ such that
 - $c: V \rightarrow \setof{0,1}$ is a node labeling function, and 
 - $\ell: E \rightarrow \Sigma$ is an edge labeling function.
 
-\end{definition}
+:::
 
 The string language (i.e. lexicon) encoded by a prefix tree is the set of all strings associated with a path from the root to a node with label $1$.
 

@@ -77,9 +77,9 @@ By contrast, the AAA pattern is the result of linking each person to A.
 
 \input_mid{123_AAA.tikz}
 
-\begin{exercise}
+::: exercise
 What patterns do the two pictures below represent?
-\end{exercise}
+:::
 
 \input_mid{123_AAB.tikz}
 
@@ -108,14 +108,14 @@ For example, the AAB pattern corresponds to a function $f_{AAB}$ such that
 - $2 \mapsto A$,
 - $3 \mapsto B$.
 
-\begin{exercise}
+::: exercise
 Define
 $f_{AAA}$,
 $f_{ABB}$,
 $f_{ABC}$,
 and
 $f_{ABA}$.
-\end{exercise}
+:::
 
 But this is a bit too simplistic.
 In the pictures above, the elements of $\setof{1,2,3}$ and $\setof{A,B,C}$ are put in a left-to-right order.
@@ -123,13 +123,13 @@ So we aren't just dealing with sets, but with sets that have an order defined ov
 What differentiates $f_{ABA}$ from the others is that it does not respect this order.
 It is the only function that is not **monotonic**.
 
-\begin{definition}
+::: definition
 Let $f: S \rightarrow T$ be a function from $S$ to $T$.
 Assume that $\leq_S$ is an ordering of elements of $S$, whereas $\leq_T$ is an ordering of the elements of $T$.
 Then $f$ is **monotonically increasing** (or **isotonic**) iff $x \leq_S y$ implies $f(x) \leq_T f(y)$.
-\end{definition}
+:::
 
-\begin{example}
+::: example
 The function $f_{AAB}$ is monotonically increasing because
 
 
@@ -137,12 +137,12 @@ The function $f_{AAB}$ is monotonically increasing because
 - $2 \leq_S 3$ and $f(2) = A \leq_T B = f(3)$
 - $1 \leq_S 3$ and $f(1) = A \leq_T B = f(3)$
 
-\end{example}
+:::
 
-\begin{example}
+::: example
 The function $f_{ABA}$ is not monotonically increasing because
 $2 \leq_S 3$ yet $f(2) = B \geq_T A = f(3)$.
-\end{example}
+:::
 
 The ABA pattern stands out among the rest because it is not monotonically increasing.
 We can even visualize that using the Cartesian coordinate system that you're probably familiar.
@@ -164,43 +164,43 @@ Well, you're right to assume that this mirror image exists.
 Whereas a monotonically increasing function preserves the original order, a monotonically decreasing function reverses this order.
 But the ABA pattern isn't monotonically decreasing either.
 
-\begin{definition}
+::: definition
 Let $f$, $S$, $T$, $\leq_S$, and $\leq_T$ be as before.
 Then $f$ is **monotonically decreasing** (or **antitonic**) iff $x \leq_S y$ implies $f(x) \geq_T f(y)$.
-\end{definition}
+:::
 
-\begin{exercise}
+::: exercise
 Show that $f_{ABA}$ is not monotonically decreasing.
-\end{exercise}
+:::
 
 Sometimes it does not matter whether a function is monotonically increasing or monotonically decreasing as long as it is one of the two, and in that case one simply speaks of **monotonic functions**.
 One can show that no matter how one orders A, B, and C, no monotonic function can produce an ABA pattern as long as the hierarchy for person is $1 < 2 < 3$.
 
-\begin{example}
+::: example
 Suppose that $1 < 2 < 3$, that $f(1) = f(3) = A$, and that $A$, $B$, and $C$ are linearly ordered (e.g. $A < B < C$ or $C < A < B$ or $A < C < B$).
 If $f$ is monotonic, then it must be the case that either $f(1) \leq f(2) \leq f(3)$ or $f(1) \geq f(2) \geq f(3)$.
 Either way, the fact that $f(1) = f(3)$ entails both $f(1) = f(2)$ and $f(2) = f(3)$.
 Consequently, $f(2) = A$.
 Since that is not the case for the ABA pattern, it cannot be produced by a monotonic function.
-\end{example}
+:::
 
 The $^*$ABA generalization for pronouns thus follows from the interaction of a substantive universal and a formal universal:
 
 1. **Substantive universal**: All languages use a person hierarchy $1 < 2 < 3$.
 1. **Formal universal**: For every morphological paradigm, the mapping from the underlying hierarchy to the output forms must be monotonic.
 
-\begin{exercise}
+::: exercise
 Show that monotonicity also explains the absence of adjectival gradation paradigms like
 *good*-*better*-*goodest*
 if one assumes the hierarchy $\text{positive} < \text{comparative} < \text{superlative}$.
 Explain why this is an intuitively plausible hierarchy.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 As was briefly mentioned earlier, no language seems to allow AAB as an adjectival gradation pattern.
 Is this predicted by monotonicity?
 If not, is this an undergeneration or an overgeneration problem?
-\end{exercise}
+:::
 
 You might wonder why we restated the No-Crossing constraint in terms of the mathematical property of monotonicity.
 Doesn't the former get the job done just as well?

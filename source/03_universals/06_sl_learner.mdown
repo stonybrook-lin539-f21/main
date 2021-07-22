@@ -17,10 +17,10 @@ It's a finite set of $n$-grams such that a string is well-formed iff it does not
 A positive strictly $n$-local grammar is the counterpart where a string may only consists of $n$-grams that are allowed by the grammar.
 Every negative SL grammar can be translated into a positive one, and the other way round.
 
-\begin{exercise}
+::: exercise
 As a reminder for yourself, write down an SL grammar for an attested linguistic phenomenon.
 A simple option is word-final devoicing or intervocalic voicing, but feel free to mix it up a bit.
-\end{exercise}
+:::
 
 Suppose we have a phenomenon that is SL.
 Then of course we can write an SL grammar for it.
@@ -69,7 +69,7 @@ This means that I only have to figure out what this finite set of allowed trigra
 And that is easy: I look at every example string and memorize which trigrams occur in it.
 Since there can be only finitely many allowed trigrams, eventually I will have seen all of them, and at that point I have learned the phonotactics of the language.
 
-\begin{example}
+::: example
 Suppose that we have to learn the (infinite) SL-$2$ language of all strings that start with either $a$ or $b$ and where $a$ and $b$ have to alternate.
 This language contains the following strings, starting from the shortest:
 
@@ -129,13 +129,13 @@ Once again we extract the bigrams and add them to what we have so far, giving us
 
 Lo and behold, it's the grammar for the target language.
 Two examples were enough to learn the whole infinite set of well-formed strings!
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Suppose that you have the SL-$3$ language $(\String{abc})^+$, which contains $\String{abc}$, $\String{abcabc}$, $\String{abcabcabc}$, and so on.
 Write down the positive trigram grammar for this language.
 Then write down a single example from which one can immediately infer the whole grammar.
-\end{exercise}
+:::
 
 As you can see, learning SL-$n$ languages is easy as long as there is a fixed upper bound on the value of $n$.
 In that case, we simply memorize all $n$-grams we see in the examples, and eventually we will have seen all well-formed $n$-grams.
@@ -176,7 +176,7 @@ As we just saw, $\mathcal{G}$ can be huge, but it will always be finite.
 Since each $n$-gram grammar is itself a set, we can order the set of $n$-gram grammars by the subset relation.
 This gives us a poset, which we will refer to by $\mathbb{G}$.
 
-\begin{example}
+::: example
 Suppose $n = 2$ and our alphabet $\Sigma$ contains only $a$.
 We add the edge marker to $\Sigma$ to give us the extended alphabet $\Sigma_\$$.
 There are 16 distinct bigram grammars over $\Sigma_\$$.
@@ -203,7 +203,7 @@ There are 16 distinct bigram grammars over $\Sigma_\$$.
 Ordering these sets by the subset relation $\subseteq$ yields the following structure.
 
 \input_mid{lattice_bigrams.tikz}
-\end{example}
+:::
 
 The structure in the above example is rather special.
 For any two grammars $G_1$ and $G_2$, there is a unique smallest grammar $G_{1 \vee 2}$ such that $G_1, G_2 \subseteq G_{1 \vee 2}$.
@@ -211,10 +211,10 @@ Similarly, there's also a unique largest grammar $G_{1 \wedge 2}$ such that $G_1
 In other words, $\mathcal{G}$ is both a meet semilattice and a join semilattice.
 This makes $\mathbb{G}$ a **lattice**.
 
-\begin{exercise}
+::: exercise
 Suppose $G_1 \is \setof{\$\$, \$a, aa}$ and $G_2 \is \setof{a\$}$.
 Compute $G_{1 \wedge 2}$ and $G_{1 \vee 2}$.
-\end{exercise}
+:::
 
 In fact, $\mathbb{G}$ is a **powerset lattice**.
 The powerset of a set $S$ is $\wp(S) \is \setof{ X \mid X \subseteq S}$.
@@ -226,13 +226,13 @@ The learning algorithm effectively moves us upwards in the lattice.
 When our currently conjectured grammar is $G_c$ and we get an example containing the $n$-grams $\setof{g_1, \ldots, g_m}$, our new grammar is the union of the two.
 But this is exactly the same as taking the join of the two sets in the grammar lattice $\mathbb{G}$.
 
-\begin{exercise}
+::: exercise
 Suppose that the lattice of grammars is as depicted above.
 Assume furthermore that the currently conjectured grammar is $\setof{\$\$}$.
 The next example contains the bigrams $\$a$ and $a\$$.
 Verify via calculation that
 $\setof{\$\$} \cup \setof{\$a, a\$} = \setof{\$\$} \vee \setof{\$a, a\$}$.
-\end{exercise}
+:::
 
 Taking the join moves up upwards in $\mathbb{G}$ by 0 or more "levels".
 Each level we move up, we get closer to a grammar that generates the target language that we are trying to learn.
@@ -241,10 +241,10 @@ One step upwards in a grammar lattice may rule out tons of grammars at once.
 Levels is where the action is.
 And the number of levels is a lot smaller.
 
-\begin{example}
+::: example
 The grammar lattice above has 16 grammars but only 5 levels.
 That is an exponential reduction is size.
-\end{example}
+:::
 
 Quite generally, a powerset lattice with $n$ levels has $2^{n-1}$ elements.
 Or the other way round, a powerset lattice with $n$ elements has $1 + \log_2 n$ levels, where $\log_2$ is the **base-2 logarithm**.
@@ -263,7 +263,7 @@ Let us call the set of all these languages $\mathcal{L}$.
 More formally, $\mathcal{L} \is \setof{ L(G) \mid G \in \mathcal{G} }$.
 Just like $\mathcal{G}$, we can order $\mathcal{L}$ by $\subseteq$ to obtain a lattice $\mathbb{L} \is \tuple{\mathcal{L}, \subseteq}$.
 
-\begin{example}
+::: example
 Recall that all grammars in $\mathcal{G}$ are assumed to be positive.
 Then the languages generated by these grammars are as follows:
 
@@ -285,7 +285,7 @@ Then the languages generated by these grammars are as follows:
 - $L(\setof{\$a, a\$, aa}) = \setof{a, aa, aaa, \ldots} = a^+$ (1 or more $a$s)
 - $L(\setof{\$\$, \$a, a\$, aa}) = \setof{\emptystring, a, aa, aaa, \ldots} = a^*$ (0 or more $a$s)
 
-\end{example}
+:::
 
 Let us put the lattices from the two examples next to each other.
 We also add frames around nodes to indicate which grammar generates which language.
@@ -299,16 +299,16 @@ Once again we've stumbled across monotonicity.
 The relation between grammars and their languages is order-preserving: move to a larger positive grammar, and you either get the same string language or a larger one.
 This monotonicity connection is what powers the $n$-gram memorization algorithm I sketched at the beginning of this unit.
 
-\begin{exercise}
+::: exercise
 Suppose that all members of $\mathcal{G}$ are negative grammars.
 Draw the corresponding lattice of languages, and connect each grammar to its language with a colored line.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 What is the relation between negative grammars and their languages?
 Is it still monotonic?
 If so, is it the same kind of monotonicity?
-\end{exercise}
+:::
 
 
 ## Monotonicity provides safe generalization
@@ -347,12 +347,12 @@ This would be a big problem.
 Once we have a grammar that generates $L(G_2)$, we cannot backtrack to $L(G_3)$.
 That's because we only get examples of which strings are well-formed, not which strings are ill-formed.
 
-\begin{example}
+::: example
 Suppose that you have already conjectured a grammar that generates $a^+$.
 I now tell you that $a$ is well-formed.
 This is perfectly compatible with your assumption that the target language is $a^+$, but maybe it's just $\setof{a}$.
 Who knows?
-\end{example}
+:::
 
 You might say that this is a case of the proverbial mountain in labor.
 The learning algorithm at the beginning of this section was so simple that anybody could see right away that it works.
@@ -384,7 +384,7 @@ Since $n$-grams can always be padded out to some higher value, we can set $n$ to
 For the vast majority of cases, that should work just fine.
 The downside of picking a large value for $n$ is that the lattice becomes much bigger, which reduces the speed of the learning algorithm.
 
-\begin{example}
+::: example
 Suppose the target language is SL-4 but our learner assumes an SL-10 language.
 With just 10 alphabet symbols there are $2^{10^{10}} = 2^{10,000,000,000}$ distinct SL-10 grammars.
 This is once again a huge number, and the grammar lattice $10,000,000,001$ levels.
@@ -394,7 +394,7 @@ With 10 sounds and 4-grams, there are "only" $2^{10^4} = 2^{10,000}$ distinct gr
 That's still a mindboggingly large number, but remember that each update rules out a good chunk of those grammars.
 The number of levels in the grammar lattice will be $10,001$, and that's actually a tiny number as far as machine learning is concerned.
 So the learning algorithm can still converge fairly quickly on the correct grammar, assuming that it uses the smaller space of SL-$4$ grammars.
-\end{example}
+:::
 
 Children presumably start out with some safe value $n$ as a genetically encoded universal about the maximum complexity of languages.
 Perhaps, as they figure out more about the target language, they use some smart heuristics to reduce the size of the grammar lattice, which increases the speed of acquisition.

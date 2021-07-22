@@ -4,7 +4,7 @@
 
 A **substring** is a continuous part of a string.
 
-\begin{example}
+::: example
 The string $\String{abcd}$ has 11 substrings:
 
 
@@ -20,7 +20,7 @@ The string $\String{abcd}$ has 11 substrings:
 - $\String{bcd}$
 - $\String{abcd}$
 
-\end{example}
+:::
 
 Note that
 
@@ -29,11 +29,11 @@ Note that
 
 A substring $u$ of $v$ is **proper** iff $u \neq v$.
 
-\begin{example}
+::: example
 All the strings listed above are proper substrings of $\String{abcd}$, except $\String{abcd}$ itself.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 For each one of the gaps below, enter $\sqsubseteq$, $\sqsubsetneq$, or $\not\sqsubseteq$ depending on whether the first string is a substring of the second string, a proper substring, or neither:
 
 
@@ -45,13 +45,13 @@ For each one of the gaps below, enter $\sqsubseteq$, $\sqsubsetneq$, or $\not\sq
 - $\String{bc} \_ \String{abbbca}$
 - $\String{cb} \_ \String{abbbca}$
 
-\end{exercise}
+:::
 
 ## Subsequence
 
 A **subsequence** is a discontinuous part of a string that preserves the order between the symbols.
 
-\begin{example}
+::: example
 The string $\String{abcd}$ has subsequences:
 
 
@@ -73,11 +73,11 @@ The string $\String{abcd}$ has subsequences:
 
 
 Note that $\String{ca}$ is not a subsequence of $\String{abcd}$, but it is a subsequence of $\String{abcda}$.
-\end{example}
+:::
 
 Just like substrings, a subsequence $u$ of $v$ is proper iff $u \neq v$.
 
-\begin{exercise}
+::: exercise
 For each one of the gaps below, enter $\sqsubseteq$, $\sqsubsetneq$, or $\not\sqsubseteq$ depending on whether the first string is a subsequence of the second string, a proper subsequence, or neither:
 
 
@@ -89,10 +89,10 @@ For each one of the gaps below, enter $\sqsubseteq$, $\sqsubsetneq$, or $\not\sq
 - $\String{bc} \_ \String{abbbca}$
 - $\String{cb} \_ \String{abbbca}$
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Say whether the following is True or False:
 Every substring of some string $s$ is also a subsequence of $s$, but not the other way round.
 Justify your answer.
-\end{exercise}
+:::

@@ -14,10 +14,10 @@ The PCC is a restriction on **clitics**.
 A clitic is a reduced pronoun that has attached to another word.
 For instance, the English pronoun *her* is often realized as a clitic *'er*, as in *I saw'er yesterday*.
 
-\begin{exercise}
+::: exercise
 Can you think of other clitics in English?
 Exemplify their use with specific sentences.
-\end{exercise}
+:::
 
 English does not allow combinations of clitics like *I showed'er'em*.
 Other languages do, but usually not all combinations are okay.
@@ -86,9 +86,9 @@ $\downarrow$IO/DO$\rightarrow$ | 1 | 2 | 3
 2   | Y   | -   | Y
 3   | N   | N   | -
 
-\begin{exercise}
+::: exercise
 Add the corresponding table for the M-PCC.
-\end{exercise}
+:::
 
 
 ## A hierarchy for PCCs
@@ -104,12 +104,12 @@ We can represent the combination of two person features $x$ and $y$ as a pair $\
 As a convention, the first component of the pair will indicate the row in the corresponding table, the second the column.
 So the pairs first give the IO person, then the DO person.
 
-\begin{example}
+::: example
 The combination of 3IO and 1DO is $\tuple{3,1}$.
 The pair $\tuple{1,3}$, on the other hand, represents the combination of 1IO and 3DO.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Tranlate between IO/DO notation and pairs.
 
 
@@ -118,7 +118,7 @@ Tranlate between IO/DO notation and pairs.
 - $\tuple{3,3}$
 - 2DO, 1IO
 
-\end{exercise}
+:::
 
 Using pairs, we now have $3 \mult 3 = 9$ distinct elements to order.
 
@@ -141,13 +141,13 @@ This is actually fairly easy.
 Given a set $S$ ordered by some relation $R$, one can order pairs over this set by extending the order **pointwise**.
 That is to say, $\tuple{u,v} \mathrel{R} \tuple{x,y}$ iff both $u \mathrel{R} x$ and $v \mathrel{R} y$ hold.
 
-\begin{example}
+::: example
 When the person hierarchy is extended in a pointwise fashion, $\tuple{2,1} < \tuple{3,3}$ because $2 < 3$ and $1 < 3$.
 Similarly, $\tuple{2,1} < \tuple{3,1}$ because $2 < 3$ and $1 = 1$, and $\tuple{1,2} < \tuple{1,3}$ because $1 = 1$ and $2 < 3$.
 On the other hand, $\tuple{2,1}$ and $\tuple{1,3}$ are unordered with respect to each other because $2 > 1$ and $1 < 3$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Fill each gap with $<$, $>$, or $=$ as appropriate.
 If none of the three fit, leave the gap empty.
 
@@ -158,7 +158,7 @@ If none of the three fit, leave the gap empty.
 - $\tuple{2,2} \_ \tuple{2,2}$
 - $\tuple{1,2} \_ \tuple{3,1}$
 
-\end{exercise}
+:::
 
 Extending $1 < 2 < 3$ in this pointwise fashion yields the hierarchy below.
 
@@ -173,14 +173,14 @@ But a map to what?
 Well, PCCs either permit a combination, or forbid it.
 We can represent this by True (T) for allowed, and False (F) for forbidden.
 
-\begin{example}
+::: example
 The U-PCC allows 1IO-2DO but not 2IO-1DO.
 We can view it as a function $f$ such that $f(\tuple{1,2}) = T$ and $f(\tuple{2,1}) = F$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Write down the 6 values of $f$ for the W-PCC.
-\end{exercise}
+:::
 
 The set $\setof{\text{T}, \text{F}}$ is ordered such that $\text{F} < \text{T}$.
 The opposite ordering would work just as well, but it is rarely seen because F is usually identified with 0 and T with 1.
@@ -202,16 +202,16 @@ The U-PCC, for instance, is not monotonically increasing.
 
 \input_mid{pcc_hierarchy_wrong_upcc.tikz}
 
-\begin{exercise}
+::: exercise
 Pick two pairs $x$ and $y$ and use them to show that the U-PCC is not a monotonically increasing map.
 
 
 *Hint:* What's the main difference between the W-PCC and the U-PCC?
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Continuing the previous exercise, show that the U-PCC isn't a monotonically decreasing map either.
-\end{exercise}
+:::
 
 Hmm, looks like not every PCC variant is a monotonic map from our person hierarchy to **2**.
 Back to the drawing board!
@@ -244,12 +244,12 @@ So $\tuple{u,v} \triangleleft \tuple{x,y}$ iff both of the following hold:
 - $u < x$ or $u = x$, and
 - $v \prec y$ or $v = y$.
 
-\begin{example}
+::: example
 With this revised definition, we have $\tuple{2,3} \triangleleft \tuple{3,1}$ because $2 < 3$ and $3 \prec 1$.
 But for the very same reason, $\tuple{2,1}$ and $\tuple{3,3}$ are unordered with respect to each other.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Fill each gap with $\triangleleft$, $\triangleright$, or $=$ as appropriate.
 If none of the three fit, leave the gap empty.
 
@@ -260,15 +260,15 @@ If none of the three fit, leave the gap empty.
 - $\tuple{2,2} \_ \tuple{2,2}$
 - $\tuple{1,2} \_ \tuple{3,1}$
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 This exercise is only for those who have already delved deep into the background sections:
 Explain why $\triangleleft$ is a weak partial order.
 
 
 *Hint*: Remember the three properties that each weak partial order must satisfy, and explain for each one why it holds.
-\end{exercise}
+:::
 
 The full person-person hierarchy now looks a bit different, although the overall geometry stays the same.
 
@@ -286,14 +286,14 @@ Nodes without boxes around them are mapped to F.
 \input_mid{pcc_hierarchy_right_wpcc.tikz}
 \input_mid{pcc_hierarchy_right_upcc.tikz}
 
-\begin{exercise}
+::: exercise
 Redraw the figures above with arrows pointing towards T and F as we did earlier on in this unit.
 Confirm for yourself that this is indeed a monotonically increasing map.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Draw the corresponding pictures (with boxes instead of arrows) for the S(trong)-PCC and the M(e first)-PCC.
-\end{exercise}
+:::
 
 ## Summary
 
@@ -312,10 +312,10 @@ Often there are additional principles that need to be put in place.
 For instance, adjectival gradation never displays AAB patterns of the form *good*-*gooder*-*best*, even though those are monotonic.
 Similarly, our revised person-person hierarchy allows for a few monotonic mappings that do not correspond to attested PCCs.
 
-\begin{exercise}
+::: exercise
 Give two examples of functions from the revised person-person hierarchy to **2** (i.e. the True/False structure) that are monotonic but not one of the four PCCs.
 You can represent them in the pictorial format used above.
-\end{exercise}
+:::
 
 So monotonicity does not tell the whole story, for each domain there are additional factors to take into consideration.
 But monotonicity is sufficient to carve out a broad range of options that need to be whittled down a bit by additional restrictions.

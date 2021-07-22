@@ -9,15 +9,15 @@ According to this model, the phonotactic well-formedness of a word can be determ
 In a trigram model, for instance, a word is ill-formed iff it contains one or more illicit trigrams.
 We formalize this in terms of a negative $n$-gram grammar, which is a finite set of illicit $n$-grams.
 
-\begin{example}
+::: example
 Suppose our alphabet, i.e. the set of available symbols, is $\setof{a,b,c}$.
 Then the negative trigram grammar $\setof{\mathit{aac}, \mathit{abc}, \mathit{acc}}$ only permits strings where no symbol is directly sandwiched between $a$ and $c$.
-\end{example}
+:::
 
 The model looks rather promising as it can handle a variety of phenomena that have been studied extensively by linguists:
 word-final devoicing, intervocalic voicing, local assimilation, and various stress rules.
 
-\begin{exercise}
+::: exercise
 For each one of the following phenomena, write a negative $n$-gram grammar that handles it correctly.
 For some of them, you have to rephrase the phenomenon as a phonotactic constraint first.
 
@@ -27,7 +27,7 @@ For some of them, you have to rephrase the phenomenon as a phonotactic constrain
 - **local disimilation**: *rVr* becomes *lVr*, where *V* is *a*, *i*, or *u*
 - **penultimate stress**: in words with at least two syllables, stress falls on the last but one syllable (assume that words are strings of stress syllables ($\acute{\sigma}$) and unstressed syllables ($\sigma$))
 
-\end{exercise}
+:::
 
 Since the model seems to work well for phonotactics, it is tempting to expand it to other domains of language.
 But as we will see next, this reveals certain shortcomings of the negative grammar format.
@@ -56,7 +56,7 @@ print("{} with sounds as symbols: {}-gram".format(chunk, len("izaSon")))
 print("{} with morphemes as symbols: {}-gram".format(chunk, len(("-ize", "-ation"))))
 ```
 
-\begin{exercise}
+::: exercise
 For each one of the following $n$-grams, say how large it is depending on what one chooses as the basic symbols that $n$-grams are built from.
 Possible choices for building blocks are typed characters, morphemes, or words.
 Not all choice may be appropriate in each case.
@@ -66,7 +66,7 @@ Not all choice may be appropriate in each case.
 - *mpi*
 - *John likes Mary*
 
-\end{exercise}
+:::
 
 With each morpheme as a separate symbol, it should be straight-forward to design a negative grammar to generate *de-nature-al-ize-ation* but none of the other orders.
 Let's first write down the conditions in plain English:
@@ -142,17 +142,17 @@ Intuitively, it would be much more appealing to list what combinations are allow
 
 This is a **positive $n$-gram grammar**, where the $n$-grams list what sequences are allowed, rather than forbidden.
 
-\begin{example}
+::: example
 The list of bigrams above is *\$ de-*, *de- nature*, *nature -al*, *-al -ize*, *-ize -ation*, *-ation \$*.
 If this is interpreted as positive bigram grammar, then only *denaturalization* is well-formed.
 A string like *nature -al -ize -ation -de* is illicit because it contains the bigram *-ation de-*, which is not part of the positive grammar and thus forbidden.
 If one adds *nature \$* to the grammar, then *nature* can also be generated.
-\end{example}
+:::
 
 In positive $n$-gram grammars, all $n$-grams must be of the same length to avoid inconsistencies.
 That's because with a positive $n$-gram grammar, a word is well-formed iff each one of its $n$-grams is part of the grammar.
 
-\begin{example}
+::: example
 Suppose we want to allow both *natural* and *denaturalization*, but not *denatural*.
 In order to allow the former, the grammar has to contain the bigrams *\$ nature*, *nature -al*, and *-al \$*.
 But in combination with the bigrams from the previous example, this would also allow for *denatural*.
@@ -170,19 +170,19 @@ But then it is unclear how the grammar should be evaluated.
 If we look at all the 5-grams of *\$ de- nature -al -ize -ation*, then only *\$ de -nature -al -ize* is part of the grammar and the string is incorrectly ruled out.
 If we instead look at all the bigrams, then the word is ruled out because *\$ de-* is no longer part of the grammar.
 Either way the mixing of bigrams and 5-grams causes inconsistencies.
-\end{example}
+:::
 
 Despite the requirement to stick with one fixed length of $n$-grams, positive grammars can be much smaller than negative ones.
 But the opposite is also true, in particular for mixed negative grammars.
 It depends on the specific phenomenon.
 
-\begin{exercise}
+::: exercise
 Write both a positive and a negative grammar that each allow only strings of the form *ab*, *abab*, *ababab*, *abababab*, and so on (assume that all symbols are either *a* or *b*).
 Is one of the two grammars more succinct or general than the other?
 What if the set of symbols is larger, e.g. *a*, *b*, *c*, and *d*?
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 For each one of the following phenomena, write a positive $n$-gram grammar that handles it correctly.
 For some of them, you have to rephrase the phenomenon as a phonotactic constraint first.
 
@@ -195,7 +195,7 @@ For some of them, you have to rephrase the phenomenon as a phonotactic constrain
 
 Once you're done, contrast the positive grammars against the negative ones.
 Can you identify some general guidelines for when a positive grammar is preferable to a negative one?
-\end{exercise}
+:::
 
 ## ...and back: Translating between positive and negative grammars
 
@@ -237,7 +237,7 @@ Notice anything?
 Each one of those bigrams is either in the negative grammar or in the positive one (but never in both).
 So in order to convert a positive grammar to a negative one, or the other way round, it suffices to first compute all possible $n$-grams and then remove all those that are in the grammar that is to be converted to the opposite polarity.
 
-\begin{example}
+::: example
 Suppose our alphabet contains only *a* and that the only well-formed string is *aa*.
 This would be the case if we have a positive trigram grammar containing:
 
@@ -271,7 +271,7 @@ Furthermore removing all trigrams of the positive trigram grammar leaves us with
 
 
 You can verify for yourself that a negative trigram grammar that contains those three trigrams (and no other $n$-grams) can only generate *aa* over the alphabet $\setof{a}$.
-\end{example}
+:::
 
 ```python
 from itertools import product
@@ -309,12 +309,12 @@ print("The opposite polarity version is:")
 print(pos_gram)
 ```
 
-\begin{exercise}
+::: exercise
 English allows for *nature*, *natural*, *naturalize*, *denaturalize*, *naturalization*, and *denaturalization*, but not *denature* or any of misordered forms like *naturizalation*.
 Write a grammar that generates all the well-formed forms but none of the ill-formed ones.
 It is up to you whether you want to use a positive or a negative grammar.
 If you use a negative grammar, it can be in the mixed format, with $n$-grams of varying lengths.
-\end{exercise}
+:::
 
 ## An important take-home message
 

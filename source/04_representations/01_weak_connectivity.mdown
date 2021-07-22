@@ -11,14 +11,14 @@ They're shown below to jog your memory.
 They are all weak partial orders, and some of them are linear orders.
 But weak partial orders can take a lot more general shapes than what we see above.
 
-\begin{example}
+::: example
 Consider the **identity function** $\mathrm{id}$, which connects every node to itself and nothing else. 
 We can view this function as a relation that connects each node to itself and nothing else.
 This is a weak partial order.
 It clearly satisfies reflexivity.
 Transitivity holds because $a \mathrel{R} b$ and $b \mathrel c$ hold only if $a = b = c$, wherefore $a \mathrel{R} c$ is the same as $a \mathrel{R} a$, which is guranteed by reflexivity.
 Antisymmetry holds for the same rason: $a \mathrel{R} b$ holds only if $a = b$, so it is trivially true that $a \mathrel{R} b$ and $b \mathrel{R} a$ implies $a = b$.
-\end{example}
+:::
 
 The four hierarchies above hence are all weak partial orders, but the opposite does not hold.
 Not every weak partial order is a possible linguistic hierarchy.
@@ -30,7 +30,7 @@ The top three structures above are lattices, but the fourth structure for the PC
 Remember, a partially ordered set $S$ is a lattice iff it is both a meet semilattice and a join semilattice.
 In other words, for all $x, y \in S$ it holds that there is a greatest lower bound $x \wedge y$ and a least upper bound $x \vee y$.
 
-\begin{exercise}
+::: exercise
 Compute each one of the following for the corresponding hierarchy above (assume for each figure that if a node $x$ has a connection to some higher node $y$, this represents $x \leq y$, not $y \leq x$).
 
 
@@ -39,19 +39,19 @@ Compute each one of the following for the corresponding hierarchy above (assume 
 - $\text{positive} \wedge \text{comparative} \wedge \text{superlative}$
 - $\text{Nom} \wedge (\text{Gen} \vee \text{Acc})$
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 The PCC structure is neither a join semilattice nor a meet semilattice.
 Explain why.
 
 *Hint*: Find two elements that have no unique supremum or no unique infimum.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Remember that we removed all elements from the PCC lattice where the first and second component are the same person.
 If we put these nodes back into the structure, would the result be a lattice?
-\end{exercise}
+:::
 
 With the exception of the PCC, the class of lattices seems to be a good fit.
 It even provides a good characterization for phenomena we haven't considered at all yet.
@@ -75,9 +75,9 @@ So it isn't too surprising that the GCC is a monotonic map given a gender hierar
 
 \input_mid{gcc_hierarchy.tikz}
 
-\begin{exercise}
+::: exercise
 Show that the Zapotec GCC is monotonic over this hierarchy.
-\end{exercise}
+:::
 
 So it looks like we might be able narrow down the class of potential hierarchies from any weak partial order to lattices --- if we can deal with the PCC hierarchy somehow.
 That would be a significant reduction.
@@ -121,9 +121,9 @@ Instead, we need a partial order.
 
 \input_mid{tense_hierarchy.forest}
 
-\begin{exercise}
+::: exercise
 For each one of the three data paradigms above, show that it is monotonic over this tense hierarchy.
-\end{exercise}
+:::
 
 This is not a lattice as neither $\text{future} \wedge \text{participle}$ nor $\text{future} \wedge \text{past}$ exist.
 Instead, it is a (join) semilattice.
@@ -132,9 +132,9 @@ So perhaps all linguistic hierarchies that aren't lattices are at least semilatt
 That would be nifty.
 But the PCC hierarchy isn't a semilattice, either, and once again this isn't the only problematic case.
 
-\begin{exercise}
+::: exercise
 Why can't we generalize the tense semilattice to a lattice by also setting $\text{past} < \text{future}$?
-\end{exercise}
+:::
 
 
 ## Semilattices (and weak partial orders) are too specific
@@ -172,10 +172,10 @@ Arrows that can be inferred via transitivity are omitted.
 So $\text{Acc} < \text{Dat}$ even though there is no arrow that directly connects the two.
 Note how this hierarchy essentially creates a cycle from accusative to genitive, dative, other cases, and back to accusative.
 
-\begin{exercise}
+::: exercise
 A monotonic mapping must map all cases in this cycle to the same value.
 Explain why.
-\end{exercise}
+:::
 
 The hierarchy above allows for the two attested noun stem allmorphy patterns, and nothing else.
 So it provides a very tight characterization of this phenomeon.

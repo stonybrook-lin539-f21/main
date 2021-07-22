@@ -17,16 +17,16 @@ One example we could have included there is the definition of tuples and strings
 Just like sets can be viewed in terms of their characteristic functions, so can be strings and tuples.
 The idea is that the function maps each position of the tuple/string to the symbol that occurs in this position.
 
-\begin{example}
+::: example
 The string
 *aaba*
 can be regarded as a function $f$ with $0 \mapsto a$, $1 \mapsto a$, $2 \mapsto b$, $3 \mapsto a$.
-\end{example}
+:::
 
 Each string/tuple can be regarded as function whose domain is an initial subset of the natural numbers (a set that starts with 0 and doesn't skip any numbers).
 The co-domain of the function depends on the chosen alphabet.
 
-\begin{exercise}
+::: exercise
 Define the corresponding functions (with suitable domains and co-domains) for the following strings:
 
 
@@ -34,23 +34,23 @@ Define the corresponding functions (with suitable domains and co-domains) for th
 - z
 - $\emptystring$
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Assume that $g$ is a function with domain $\setof{0, 1, 2, \ldots, 7}$ such that $g$ maps $x$ to $a$ if $x$ is odd and at least 5.
 In all other cases, $x$ is mapped to $b$.
 What is the string defined by $g$?
-\end{exercise}
+:::
 
 Here's another way of saying what we just said: each string is a pair $\tuple{D, \ell}$ where $D$ is a **downward-closed** set of natural numbers and $\ell$ is a *labeling function* from $D$ to $\Sigma$.
 By downward-closed we mean that for every $y \in D$ and $x < y$, it must be the case that $x \in D$.
 So $4 \in D$ implies $3 \in D$, $2 \in D$, $1 \in D$, and $0 \in D$.
 
-\begin{example}
+::: example
 The set $S \is \setof{0,1,2,4,5}$ is not downward closed because $4 \in S$ and $3 < 4$, yet $3 \notin S$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Which of the following sets are downward-closed?
 
 
@@ -59,7 +59,7 @@ Which of the following sets are downward-closed?
 - $\setof{0}$
 - $\emptyset$
 
-\end{exercise}
+:::
 
 This definition of strings as a pair $\tuple{D, \ell}$ is fully equivalent to our previous notion, but it clearly separates the relevant properties of a string:
 
@@ -81,7 +81,7 @@ What we would like for trees is a similar system of numbering nodes that immedia
 The answer to that are **Gorn addresses**, named after [Saul Gorn](https://en.wikipedia.org/wiki/Saul_Gorn).
 This is a simple system that assigns each node in a tree a unique identifier that is not a number, but a string of numbers.
 
-\begin{example}
+::: example
 Let's look once more at the very frist tree we encountered in the previous unit.
 
 \input_mid{tree_psg.forest}
@@ -90,14 +90,14 @@ If instead of the labels we write down the Gorn addresses of each node, the tree
 
 \input_mid{tree_psg_gorn.forest}
 
-\end{example}
+:::
 
 A Gorn address of node $n$ is the result of concatenating two components:
 
 1. The Gorn address of the node $m$ immediately above $n$.
 1. The number of nodes that are to the left of $n$ that also have $m$ immediately above them.
 
-\begin{example}
+::: example
 Here is how this system is applied in the previous example:
 
 
@@ -111,13 +111,13 @@ Below $1$ we find two nodes, whose addresses are $10$ and $11$.
 Careful here: those aren't the natural numbers ten and eleven, those are the strings $1 \tuplecat 0 = 10$ and $1 \tuplecat 1 = 11$.
 So they should be read "one-zero" and "one-one".
 Similarly, $1110$ is not "one thousand one hundred ten", or "one hundred eleven - zero", it is "one-one-one-zero".
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 The way we write Gorn addresses, $11$ is ambiguous as it could be "one-one" (the second daughter of the second daughter of the root) or "eleven" (the twelfth daughter of the root).
 However, this is actually just a problem with our notation for natural numbers, not the actual definition of Gorn addresses.
 Explain why!
-\end{exercise}
+:::
 
 Since Gorn addresses follow a very specific pattern, the set of Gorn addresses for any given tree obeys two closure properties:
 
@@ -125,7 +125,7 @@ Since Gorn addresses follow a very specific pattern, the set of Gorn addresses f
 1. **Downward closure:** if string $a$ is an address for a node in the tree,
 then so is every string that can be obtained from $a$ by replacing the last symbol by a smaller natural number.
 
-\begin{example}
+::: example
 Consider once more our example tree, repeated here for your convenience:
 
 \input_mid{tree_psg_gorn.forest}
@@ -135,17 +135,17 @@ The prefixes of $111$ are, in decreasing length: $111$, $11$, $1$, and $\emptyst
 Every one of those addresses is part of the tree --- they're the addresses of the nodes that are higher than $111$.
 And we can also take $111$ and replace its last component by the smaller number $0$ to get $110$.
 That's the address to the left of $111$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Annotate each node in the tree below with its Gorn address.
 
 \input_mid{tree_exercise.forest}
-\end{exercise}
+:::
 
 With Gorn addresses, is it very easy to define trees.
 
-\begin{definition}
+::: definition
 A **$\Sigma$-labeled Gorn tree domain** (or simply **$\Sigma$-tree**) is a pair $\tuple{D, \ell}$, where $D \subseteq \mathbb{N}^*$ is the set of nodes in the tree and  $\ell: D \rightarrow \Sigma$ is a (total) labeling function.
 We require that $D$ satisfies the following closure properties:
 
@@ -153,7 +153,7 @@ We require that $D$ satisfies the following closure properties:
 - **Prefix closure:** If $u \in D$, then $v \in D$ for every $v$ such that $u = v \tuplecat v'$ ($v, v' \in \mathbb{N}^*$).
 - **Downard closure:** If $u \in D$ and $u = v \tuplecat i$ for some $v \in \mathbb{N}^*$ and $i \in \mathbb{N}$, then $v \tuplecat j \in D$ for every $j < i$.
 
-\end{definition}
+:::
 
 Note that the definition of $\Sigma$-tree is very similar to the factorized definition of string we used above.
 The main difference is the choice of $D$.
@@ -175,7 +175,7 @@ Visually, a node $x$ is the mother of $y$ iff $x$ and $y$ are connected by a sin
 In the other direction, we say that $y$ is a **daughter** or **child** of $x$.
 So the daughter-of relation is the inverse of the mother-of relation.
 
-\begin{example}
+::: example
 Here is the by now familiar example tree:
 
 \input_mid{tree_psg.forest}
@@ -186,7 +186,7 @@ And here is its counterpart with Gorn addresses:
 
 The node at address $10$ labeled VP is the parent of V and NP at address $100$ and $101$, respectively.
 This VP node is the daughter of the node at address $1$, which is also labeled VP.
-\end{example}
+:::
 
 The "node above you" analogy is not a formal definition of course, it's just a convention for how we draw those trees.
 If we were to rotate every tree by 90 degrees in counterclockwise fashion, then the parent would instead be to the left.
@@ -194,20 +194,20 @@ In order to make the parent-of relation more precise, we once again view trees a
 As mentioned before, whenever a node $y$ is the daughter of a node $x$, the Gorn address of $y$ is obtained by taking the Gorn address of $x$ and adding a natural number at the end.
 In other words, $x$ is the mother of $y$ iff $x$ is the longest proper prefix of $y$.
 
-\begin{definition}
+::: definition
     Let $D$ be a Gorn tree domain.
     Then the **parent-of** relation $P \subset D \times D$ contains $\tuple{x,y}$ iff there exists some $u \in \mathbb{N}$ such that $y = x \tuplecat u$.
     We call $\inv{P}$ the **child-of** relation.
-\end{definition}
+:::
 
-\begin{example}
+::: example
 In the previous example, we saw that $10$ is the mother of $100$ and $101$.
 That fits the definition because $10$ is indeed the longest proper prefix of each one of those strings.
 The definition works even for $0$ and $1$, the daughters of the root node:
 the root has address $\emptystring$, and $0 = \emptystring \tuplecat 0$ and $1 = \emptystring \tuplecat 1$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Indicate for each one of the following pairs of nodes whether the first node is a parent of the second.
 You may assume that each digit is a component of the Gorn address (so 10 means "one zero", not "ten").
 
@@ -219,41 +219,41 @@ You may assume that each digit is a component of the Gorn address (so 10 means "
 - $101$ and $102$
 - $101$ and $101$
 
-\end{exercise}
+:::
 
 With the parent-of relation, it is also very easy to identify which nodes are parents and which are children.
 Note that most nodes are both.
 Only the root node is not a child, and only the nodes at the very bottom of a tree are not parents.
 These nodes are also called *leaves*.
 
-\begin{definition}
+::: definition
     For any Gorn tree domain $D$, we call
     
     - $D_P \is \setof{ x \mid \text{there is a $y$ s.t.} \tuple{x,y} \in P}$ the set of **parents**,
     - $D_C \is \setof{ y \mid \text{there is an $x$ s.t.} \tuple{x,y} \in P}$ the set of **children**,
     - $D_L \is D - D_P$ the set of **leaves**
     
-\end{definition}
+:::
 
-\begin{example}
+::: example
 In our example tree, the leaves are $000$, $010$, $020$, $1000$, $10100$, $10110$, $1100$, $11100$, and $11110$.
 
 \input_mid{tree_psg_gorn.forest}
-\end{example}
+:::
 
 Linguists are often interested in nodes that are closely related.
 The parent-of relation is arguably the closest possible relation, but the **sibling** or **sister** relation is also important.
 Two nodes are siblings iff they have the same parent.
 
-\begin{definition}
+::: definition
     Given a Gorn tree domain $D$, the **sibling relation** is $S \is \setof{ \tuple{x,y} \mid \text{$x \neq y$ and there exists a $z$ s.t. $\tuple{z,x} \in P$ and $\tuple{z,y} \in P$}}$ 
-\end{definition}
+:::
 
-\begin{example}
+::: example
 In our example tree, $00$, $01$, and $02$ are all siblings of each other because they share the parent $0$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Indicate for each one of the following pairs of nodes whether they are siblings.
 You may assume that each digit is a component of the Gorn address (so 10 means "one zero", not "ten").
 
@@ -265,22 +265,22 @@ You may assume that each digit is a component of the Gorn address (so 10 means "
 - $101$ and $102$
 - $101$ and $101$
 
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Define the sibling relation in terms of Gorn addresses rather than the parent-of relation.
-\end{exercise}
+:::
 
 Arguably the most important relation, however, is *dominance*.
 Dominance can be regarded as the tree analogue of ancestry: $x$ dominates $y$ iff $x$ is the parent of $y$, or $x$ is the parent of the parent of $y$, or $x$ is the parent of the parent of the parent of $y$, and so on.
 Like the parent relation, we can describe this in terms of string prefixes of Gorn addresses.
 Whereas $x$ is the parent of $y$ iff it is the **longest** proper prefix of $y$, $x$ dominates $y$ iff it is **some** proper prefix of $y$.
 
-\begin{example}
+::: example
 In our example tree, $0$ properly dominates $00$, $01$, $02$, $000$, $010$, and $020$.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Indicate for each one of the following pairs of nodes whether the first dominates the second.
 You may assume that each digit is a component of the Gorn address (so 10 means "one zero", not "ten").
 
@@ -292,7 +292,7 @@ You may assume that each digit is a component of the Gorn address (so 10 means "
 - $101$ and $102$
 - $101$ and $101$
 
-\end{exercise}
+:::
 
 The way the term *dominance* is used in the linguistic literature is actually somewhat sloppy.
 Sometimes a node is taken to dominate itself, and sometimes it is not.
@@ -300,7 +300,7 @@ That's because there are two distinct notions of dominance, **proper dominance**
 But "often" does not mean "always", unfortunately, and adding insult to injury is that the *parent-of* relation is sometimes called **immediate dominance**.
 As you can see, there's a lot of potential for confusion here, so let us make the three terms crystal clear with our formal terminology.
 
-\begin{definition}
+::: definition
 Let $D$ be a Gorn domain and $x$ and $y$ nodes of $D$.
 Then
 
@@ -308,13 +308,13 @@ Then
 - $x$ properly dominates $y$ ($x \pdom y$) iff $x$ is a proper prefix of $y$,
 - $x$ reflexively dominates $y$ ($x \rdom y$) iff $x$ is a prefix of $y$.
 
-\end{definition}
+:::
 
-\begin{example}
+::: example
 We already know that $0$ immediately dominates $00$, $01$, $02$, which implies that it properly dominates them.
 In addition, it properly dominates $000$, $010$, and $020$.
 Reflexive dominance only adds $0$ itself (remember that every string is a prefix of itself).
-\end{example}
+:::
 
 
 ## Linear order in trees
@@ -328,19 +328,19 @@ First, we can have a linear order between siblings.
 Let us call this the *left-of* relation.
 This relation only holds between siblings.
 
-\begin{example}
+::: example
 We return once more to our example tree.
 
 \input_mid{tree_psg_gorn.forest}
 
 Here $00$ is left-of $01$ and $02$, and $01$ is left-of $02$.
 Even though the nodes appear to the left of many other nodes, e.g. $10$ and $11$, they do not stand in the left-of relation to them.
-\end{example}
+:::
 
 We may also use a **successor** relation, which holds between two adjacent siblings.
 Intuitively, "successor" is just a shorter name for the inverse of "immediately left-of".
 
-\begin{example}
+::: example
 $00$ is immediately left-of $01$, so $01$ is the successor of $00$.
 Similarly, $02$ is the successor of $01$.
 Again we are restricted to siblings, so $02$ has no successor.
@@ -350,12 +350,12 @@ For instance, *met* is the successor of *man* in
 *The old man met this girl at a party*.
 But in the corresponding tree, *met* is $1000$ whereas *man* is $020$.
 These nodes do not stand in a successor relation.
-\end{example}
+:::
 
 To talk about the linear order of nodes that are not siblings, we use the *precedence* relation.
 Intuitively, a node $a$ precedes a node $b$ iff we can go up from $a$, take a right branch, and keep going down until we hit $b$. 
 
-\begin{example}
+::: example
 Even though $02$ is not left-of any node, there are many nodes it precedes.
 Going up from $02$, we can reach $0$ --- taking a right branch there would only take us back to $02$, so we instead go up one more step.
 Now we are at the root node.
@@ -363,11 +363,11 @@ From here we can reach $1$, $10$, $11$, and all nodes below them.
 All these nodes are preceded by $02$.
 
 The same procedure shows that $01$ precedes $020$, $02$, and everything that node precedes.
-\end{example}
+:::
 
 Precedence is the natural tree counterpart to string precedence: if we restrict it to leaf nodes, we obtain the order of words in the sentence that the tree represents.
 
-\begin{definition}
+::: definition
 Let $D$ be an arbitrary Gorn tree domain.
 Then for all $ui,vj \in D$ with $u,v \in \mathbb{N}^*$ and $i,j \in \mathbb{N}$:
 
@@ -377,9 +377,9 @@ Then for all $ui,vj \in D$ with $u,v \in \mathbb{N}^*$ and $i,j \in \mathbb{N}$:
 - $ui$ is the **successor** of $vj$ iff $vj$ is immediately left-of $ui$,
 - $ui$ **precedes** $vj$ ($ui \prec vj$) iff there are $a$ and $b$ such that $a$ reflexively dominates $ui$, $b$ reflexively dominates $vj$, and $a$ is left-of $b$.
 
-\end{definition}
+:::
 
-\begin{exercise}
+::: exercise
 Indicate for each one of the following pairs of nodes whether the first precedes the second.
 You may assume that each digit is a component of the Gorn address (so 10 means "one zero", not "ten").
 
@@ -391,7 +391,7 @@ You may assume that each digit is a component of the Gorn address (so 10 means "
 - $101$ and $102$
 - $101$ and $101$
 
-\end{exercise}
+:::
 
 Some syntacticians do not like the idea of ordered trees and say that the linear order of words in a sentence is computed in a more indirect fashion from an unordered tree structure.
 They support this with the claim that unordered trees are simpler than ordered trees.
@@ -426,7 +426,7 @@ Whereas the relations we discussed so far are also useful in computer science, c
 Intuitively, a node c-commands everything its sisters reflexively dominate.
 If a node has no sisters, then it c-commands whatever its mother c-commands.
 
-\begin{example}
+::: example
 You know the deal, let's look at the example tree for the gazillionth time:
 
 \input_mid{tree_psg_gorn.forest}
@@ -435,7 +435,7 @@ Here $01$ c-commands everything its siblings $00$ and $02$ reflexively dominate.
 That's $00$, $000$, $02$, and $020$.
 The node $010$ has no siblings, so it c-commands whatever its parent c-commands.
 The parent of $010$ is $01$, for which we have already computed the c-commandees.
-\end{example}
+:::
 
 Many definitions of c-command can be found in the literature, and unfortunately many of them are stated in a sloppy manner.
 Here is a common version: *X c-commands Y iff X does not dominate Y and the first branching node dominating X dominates Y*.
@@ -461,12 +461,12 @@ This is still not perfect because the meaning of "lowest" has to be intuited, bu
 In the special case where a tree contains no unary branching nodes, i.e. nodes that have only one child, c-command can be stated in a simpler fashion as the *composition* of the sibling relation $S$ with reflexive dominance: $C \is \Rcomp{S}{\rdom}$.
 This just means that if we can reach $z$ from $x$ by first moving from $x$ to $y$ with the sibling relation and then from $y$ to $z$ via reflexive dominance, then $x$ c-commands $z$.
 
-\begin{definition}
+::: definition
 The **composition** of two relations $R$ and $S$ is
 $\Rcomp{R}{S} \is \{ \tuple{x,z} \mid \text{there is a $y$ s.t.} \tuple{x,y} \in R \text{ and } \tuple{y,z} \in S \}$.
-\end{definition}
+:::
 
-\begin{example}
+::: example
 Guess what, it's your favorite tree:
 
 \input_mid{tree_psg_gorn.forest}
@@ -478,24 +478,24 @@ We also know that $\rdom$ contains $\tuple{00, 000}$, and $\tuple{02, 020}$.
 We combine $\tuple{01, 00}$ and $\tuple{00, 000}$ to obtain $\tuple{01, 000}$.
 The same way we also get $\tuple{01, 020}$ from $\tuple{01, 02}$ and $\tuple{02, 020}$.
 So $\Rcomp{S}{\rdom}$ must contain those two pairs, wherefore 01 c-commands 000 and 020 as stated earlier.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Suppose you are given two relations $X \is \setof{\tuple{n,n+1} \mid n \geq 0}$ and $Y \is \setof{\tuple{n,n-1} \mid n > 0}$.
 What is $\Rcomp{X}{Y}$?
-\end{exercise}
+:::
 
-\begin{definition}
+::: definition
 Given a Gorn tree domain $D$ and $x, y \in D$, $x$ **c-commands** $y$ iff $\tuple{x,y} \in \Rcomp{S}{\rdom}$.
-\end{definition}
+:::
 
 If we want to extend this definition to trees with unary branches, the sibling relation has to be replaced by a relation that instead chooses the siblings of an appropriate node at a structurally higher position.
 
-\begin{exercise}
+::: exercise
 Define c-command in terms of Gorn addresses (assuming our definition of c-command as the composition of the sibling relation and reflexive dominance).
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Give a function that takes as input a Gorn tree domain $D$ and a Gorn address $a$ and returns the set of all $d \in D$ that c-command $a$ (assuming again our definition of c-command as the composition of the sibling relation and reflexive dominance).
 Looking at this function, would you say it is particularly complex or difficult to compute?
-\end{exercise}
+:::

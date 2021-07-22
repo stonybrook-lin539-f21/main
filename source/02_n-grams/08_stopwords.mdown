@@ -8,7 +8,7 @@ None of these applications count all the words in the text.
 Instead, many words are ignored, just like we only used counts for a few words like *Aristotle*, *Plato*, *ethics*, and *metaphysics* in the previous notebook.
 The reason is simple: if we kept track of the counts for every single word, then interesting words like *Plato* and *ethics* would be completely drowned out by irrelevant high-frequency words like *the* and *is*.
 
-\begin{example}
+::: example
 In the previous notebook we had counts for four websites $w_1$, $w_2$, $w_3$ and $w_4$, as shown below.
 $$
 \begin{array}{rl}
@@ -69,7 +69,7 @@ Let's assume a weighting where the counts for the $n$-th query are multiplied by
 \end{align*}
 
 As you can see, $w_4$ is now the best match, even though it does not contain a single mention of *Aristotle*, the most important word in the search query.
-\end{example}
+:::
 
 This example shows that not all words are on equal footing as far as the bag of words model is concerned.
 Some contribute useful information, whereas others are pretty useless.
@@ -78,10 +78,10 @@ At the best, they add unnecessary clutter to the set, at worst, they make the mo
 The problem of cluttered sets is a very real one.
 This is due to **Zipf's law**, which was formulated by the linguist [George Kingsley Zipf](https://en.wikipedia.org/wiki/George_Kingsley_Zipf).
 
-\begin{definition}
+::: definition
     Let $t$ be a text of natural language utterances, and $R$ a linear ranking of words by their frequency in $t$.
     Then the frequency $f$ of a word in $t$ is inversely proportional to its rank $r$ in $R$ ($f = \frac{1}{r}$).
-\end{definition}
+:::
 
 Zipf's law tell us that the most common word in a text occurs
 
@@ -120,11 +120,11 @@ plt.plot(x, f(x))
 plt.show()
 ```
 
-\begin{exercise}
+::: exercise
 Suppose you have a text with 20,000 words where the most frequent word occurs 1068 times.
 Assuming a distribution that is exactly Zipfian, calculate the frequencies for rank 2, 3, 5, 15, 50, 100, 200, 500, and 1000.
 Give a rough estimate how many of the top ranks jointly make up at least 50\% of the text.
-\end{exercise}
+:::
 
 Zipf's law is more than an interesting curiosity, it has noticeable repercussions in practice.
 In fact, it is one of the primary reasons why language technology is still much less capable than humans despite the recent advances in machine learning.
@@ -174,7 +174,7 @@ Here is a list of English stop words (using a very lenient definition of word th
 
 Given such a list of stop words, it is a simple task to remove all stop words from a text.
 
-\begin{example}
+::: example
 Here is a very short mini-text, the first sentence of Samuel Beckett's novel *Murphy*:
 *The sun shone, having no alternative, on the nothing new*.
 We can then go through the text word by word and delete each word token that is on our list of stop words.
@@ -200,9 +200,9 @@ After stop word removal, the sentence has been truncated to *sun shone, alternat
 Clearly the removal of stop words has completely destroyed the meaning of the sentence for humans.
 But a bag of words model can't capture meaning at this abstract level anyways, it can at best give a rough estimate as to what topics a text is about.
 For this limited understanding of text, removing stop words improves results.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Igoring capitalization, what do the following strings look like after stop word removal?
 
 
@@ -217,7 +217,7 @@ Igoring capitalization, what do the following strings look like after stop word 
 
 Are there any sentences whose original meaning can still inferred after stop word removal?
 If so, why might that be?
-\end{exercise}
+:::
 
 ## Stop word removal as a function
 
@@ -257,37 +257,37 @@ Yes $f(x) = 2 \mult x$ is a function that takes a number as its only argument an
 But so many more things are functions.
 A function is any kind of system that takes a fixed number of inputs and always returns the same output for the same input.
 
-\begin{example}
+::: example
 Consider $f(x) = x$.
 This is a function: it takes a fixed number of arguments (i.e. one) and the value of $f(x)$ stays the same as long as $x$ does not change.
-\end{example}
+:::
 
-\begin{example}
+::: example
 Another mathematical function is $f(x) = 1$.
 This is a constant function, which means that all arguments yield the same output.
-\end{example}
+:::
 
-\begin{example}
+::: example
 Each $n$-gram grammar can be regarded as a function that maps strings to 1 (= well-formed) or 0 (= ill-formed).
 Given a fixed grammar $G$, a string $s$ is either well-formed or ill-formed, but never both.
 So $G$ assigns a unique value to $s$ that never changes.
 
 
 The functional perspective of $n$-gram grammars will be very useful later on when we consider probabilistic version of n-gram grammars.
-\end{example}
+:::
 
-\begin{example}
+::: example
 A dispersive prism breaks light down into its spectral colors.
 It thus is a function that takes light as input and produces a unique spectral decomposition as its output.
-\end{example}
+:::
 
-\begin{example}
+::: example
 A soda machine is a function that takes two inputs: a fixed monetary value (usually fed in piecewise as coins) and a number that encodes your choice of beverage.
 If everything is in order, it outputs the desired beverage.
 If something is wrong with the input, you don't get anything.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 A soda machine corresponds to different functions depending on
 
 
@@ -296,9 +296,9 @@ A soda machine corresponds to different functions depending on
 
 
 Explain why.
-\end{exercise}
+:::
 
-\begin{example}
+::: example
 Consider a program that takes as input a collection of words and return a randomly generated sentence using those words.
 For instance, if you give it the works *Mary*, *ate*, and *sushi*, it may return
 
@@ -310,9 +310,9 @@ For instance, if you give it the works *Mary*, *ate*, and *sushi*, it may return
 
 
 This is not a function because one and the same input can result in different outputs.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 For each one of the following, say whether or not it is a function (i.e. it takes a fixed number of arguments and no input can yield more than one output).
 If things can go either way depending on additional assumptions, explain why.
 Whether your answer is correct is less important than whether you can justify it based on your assumptions about how the world works.
@@ -325,7 +325,7 @@ Whether your answer is correct is less important than whether you can justify it
 - $\in$
 - the US laws for assigning children to schools
 
-\end{exercise}
+:::
 
 Given this very general understanding of functions, we can define stop word removal as a function $\mathit{del}$ that takes as its input a string $s$ and a set $S$ of stop words.
 Then the output $\mathit{del}(s,S)$ is the unique string that is obtained from $s$ by deleting every symbol that is a member of $S$.
@@ -350,10 +350,10 @@ The notebook after the next one illustrates how a more abstract understanding in
 
 - Many aspects of language exhibit a Zipfian distribution.
 
-\begin{definition}
+::: definition
     Let $t$ be a text of natural language utterances, and $R$ a linear ranking of words by their frequency in $t$.
     Then the frequency $f$ of a word in $t$ is inversely proportional to its rank $r$ in $R$ ($f = \frac{1}{r}$).
-\end{definition}
+:::
 
 - Over 50% of any natural language text are made up from a few very high frequency words like *a*, *the*, *is*, *of*, and so on.
 

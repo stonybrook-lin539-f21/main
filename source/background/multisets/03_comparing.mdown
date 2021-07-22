@@ -7,15 +7,15 @@
 
 The (proper) subset and superset relations are readily extended to multisets.
 
-\begin{definition}
+::: definition
     Given two multisets $A_M$ and $B_M$, $A_M$ is a subset of $B_M$ ($A_M \subseteq B_M$) iff it holds for all $a \in A_M$ that $A_M(a) \leq B_M(a)$.
     The subset relation is proper ($A_M \subsetneq B_M$) iff $A_M(a) < B_M(a)$ for all $a \in A_M$.
     Superset and proper superset are defined in an analogous fashion.
-\end{definition}
+:::
 
 Note that this definition of subset entails that the powerset of a multiset can be much larger than that of a set.
 
-\begin{example}
+::: example
 Returning once more to $A_M \is \setof{a:3, b:2, c:1}$ and $B_M \is \setof{a:1, b:1, c:2, d:1}$, we can see immediately that neither is a subset of the other.
 First, $A_M \not\subseteq B_M$ because $A_M(a) = 3 \not\leq 1 = B_M(a)$.
 In the other direction, $B_M \not\subseteq A_M$ because $B_M(d) = 1 \not\leq 0 = A_M(d)$.
@@ -52,7 +52,7 @@ The powerset of $B \is \setof{a,b,c,d}$, on the other hand, has only $2^{\card{B
 
 The contrast is even more pronounced when we consider a multiset like $\setof{a:9}$.
 While $\wp(\setof{a})$ only consists of $\emptyset$ and $\setof{a}$, $\wp(\setof{a:9})$ has $10$ members.
-\end{example}
+:::
 
 ```python
 def is_subset(A, B):
@@ -98,7 +98,7 @@ $$
 The operator $\prod$ behaves exactly like $\sum$, except that it is a shorthand for multiplication rather than addition.
 So the formula above expands to $( S_M(s_1) + 1 ) \mult ( S_M(s_2) + 1 ) \mult \cdots \mult ( S_M(s_n) + 1 )$.
 
-\begin{example}
+::: example
 We have already seen that $B_M \is \setof{a:1, b:1, c:2, d:1}$ has 24 subsets, so its powerset has cardinality 24.
 Our formula yields exactly the same value.
 
@@ -109,4 +109,4 @@ Our formula yields exactly the same value.
                     &= 2 \mult 2 \mult 3 \mult 2\\
                     &= 24\\
 \end{align*}
-\end{example}
+:::

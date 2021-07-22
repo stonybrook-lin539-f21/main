@@ -30,9 +30,9 @@ From the truth tables of $\wedge$ and $\vee$, it follows immediately that
 It always holds that $\phi$ is equivalent to $\neg \neg \phi$, no matter what formula or propositional symbol $\phi$ corresponds to.
 So $\phi \leftrightarrow \neg \neg \phi$ is a tautology.
 
-\begin{exercise}
+::: exercise
 Explain how this also entails that $\neg \phi \leftrightarrow \neg \neg \neg \phi$.
-\end{exercise}
+:::
 
 ## De Morgan's Law
 
@@ -45,9 +45,9 @@ Both of the following are tautologies:
 
 This means that every instance of $\phi \wedge \psi$ can be replaced by $\neg (\neg \phi \wedge \neg \psi)$, and similarly for negation.
 
-\begin{exercise}
+::: exercise
 Give the truth table for each one of the two tautologies.
-\end{exercise}
+:::
 
 ## Decomposition of implication
 
@@ -55,7 +55,7 @@ Implication can be decomposed into negation and disjunction:
 
 - $\phi \rightarrow \psi \leftrightarrow \neg \phi \vee \psi$
 
-\begin{exercise}
+::: exercise
 Rewrite each  one of the following formulae using only $\neg$ and $\wedge$ (yes, logical and, not logical or):
 
 
@@ -63,7 +63,7 @@ Rewrite each  one of the following formulae using only $\neg$ and $\wedge$ (yes,
 - $(p \vee (q \rightarrow \neg p))$
 - $p \rightarrow (q \rightarrow r)$
 
-\end{exercise}
+:::
 
 ## Implication chains as conjunction
 
@@ -74,12 +74,12 @@ Some implicational chains can be converted to a single implication with $\wedge$
 Bracketing is crucial.
 It is not the case that $(\phi \rightarrow \psi) \rightarrow \rho$ is equivalent to $\phi \wedge \psi \rightarrow \rho$.
 
-\begin{exercise}
+::: exercise
 Give truth tables for the two formulas below to show that only the first is a tautology.
 
 - $\phi \rightarrow (\psi \rightarrow \rho) \leftrightarrow \phi \wedge \psi \rightarrow \rho$
 - $(\phi \rightarrow \psi) \rightarrow \rho \leftrightarrow \phi \wedge \psi \rightarrow \rho$
-\end{exercise}
+:::
 
 ## Distributivity of $\wedge$ and $\vee$
 
@@ -88,6 +88,6 @@ The operators $\wedge$ and $\vee$ distribute over each other
 - $\phi \wedge (\psi \vee \rho) \leftrightarrow (\phi \wedge \psi) \vee (\phi \wedge \rho)$
 - $\phi \vee (\psi \wedge \rho) \leftrightarrow (\phi \vee \psi) \wedge (\phi \vee \rho)$
 
-\begin{exercise}
+::: exercise
 Show via truth tables that both formulae are indeed tautologies.
-\end{exercise}
+:::

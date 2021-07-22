@@ -14,7 +14,7 @@ A representation is a structure that expresses crucial properties of the object 
 Mathematically, we are free to choose our representations any way we want.
 In fact, there are **representation theorems** that establish how, sometimes, one representation can be transferred into another representation without losing any essential properties.
 
-\begin{example}
+::: example
 Here is a very simple representation theorem.
 Every set $S$ be represented as its **characteristic function** $f_S$ such that $f_S(x) = 1$ if $x \in S$ and $0$ otherwise.
 Note how this preserves all crucial aspects of a set.
@@ -26,9 +26,9 @@ They map $a$ to $1$, and everything else to $0$.
 The functional view of sets is sometimes more convenient to work with.
 That's particularly the case for semantics, the linguistic study of meaning.
 Semanticists use a notational format that expresses everything in terms of functions (the **lambda calculus**).
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Suppose that the students in this class are
 *John*,
 *Sue*, and
@@ -42,19 +42,19 @@ Write
 
 
 Define each function by explicitly writing down the values, e.g. $\text{John} \mapsto 1$.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Continuing the previous exercise, can you give a general definition for union that uses the values 0 and 1 assigned by characteristic functions?
 
 *Hint*: Check out the **max** function in the backgrounds section.
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Can you define the analog of a characteristic function for multisets?
-\end{exercise}
+:::
 
-\begin{example}
+::: example
 A more complicated representation theorem is the Kuratovsky definition of pairs.
 Rather than taking tuples as a primitive, Kuratovsky defined $\tuple{a,b}$ as a shorthand for $\setof{ \setof{a}, \setof{a,b} }$.
 Intutively, the two don't seem to have anything in common.
@@ -68,25 +68,25 @@ If $\setof{a} \neq \setof{c}$, then $\setof{a} = \setof{c,d}$, which can only ho
 But then $\setof{a} = \setof{c,d} = \setof{c,c} = \setof{c} \neq \setof{a}$.
 As this is a contradiction, it must be the case that $\setof{a} = \setof{c}$.
 From this it follows that $a = c$, wherefore $\setof{a,b} = \setof{c,d}$ implies $b = d$, exactly as desired.
-\end{example}
+:::
 
-\begin{exercise}
+::: exercise
 Explain why the equivalence also holds in the other direction: if $a = c$ and $b = d$, then $\setof{\setof{a}, \setof{a,b}} = \setof{\setof{c}, \setof{c,d}}$ (and thus $\tuple{a,b} = \tuple{c,d}$).
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 Under Kuratovsky's definition, what set corresponds to the pair $\tuple{a,a}$?
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 In earlier units, we said that the crucial difference between sets and tuples is that the latter are ordered and not idempotent.
 So $\tuple{a,b} \neq \tuple{b,a}$ ("order matters") and $\tuple{a} \neq \tuple{a,a}$ ("tuples are not idempotent").
 But now we only checked that $\tuple{a,b} = \tuple{c,d}$ iff $a = c$ and $b = d$.
 This biconditional actually entails that pairs are ordered and not idempotent, as desired.
 Explain why!
-\end{exercise}
+:::
 
-\begin{exercise}
+::: exercise
 The Kuratowski definition does not hold for arbitrary tuples.
 That is to say, $\tuple{a, b, c}$ cannot always be represented as $\setof{ \setof{a}, \setof{a, b}, \setof{a,b,c}}$.
 To see this, try to represent the following two triples in terms of these sets:
@@ -97,7 +97,7 @@ To see this, try to represent the following two triples in terms of these sets:
 
 
 What is the problem?
-\end{exercise}
+:::
 
 Alright, so mathematically the sky is the limit when it comes to representations.
 That is certainly a good thing: using representation theorems, we can switch between representations in whatever way is convenient for the task at hand.

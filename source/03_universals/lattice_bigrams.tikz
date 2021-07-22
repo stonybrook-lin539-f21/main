@@ -1,5 +1,7 @@
 \documentclass[tikz]{standalone}
 \usetikzlibrary{positioning}
+\newcommand{\emptystring}{\varepsilon}
+\newcommand{\setof}[1]{\left \{ #1 \right \}}
 \begin{document}
 \begin{tikzpicture}
     % level 0

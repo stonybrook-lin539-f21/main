@@ -1,5 +1,6 @@
 \documentclass[tikz]{standalone}
 \usetikzlibrary{matrix,positioning}
+\newcommand{\setof}[1]{\left \{ #1 \right \}}
 \begin{document}
 \begin{tikzpicture}
     \matrix (m) at (0,0) [matrix of nodes,

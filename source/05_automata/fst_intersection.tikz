@@ -1,9 +1,10 @@
 \documentclass[tikz]{standalone}
 \usetikzlibrary{arrows, automata, calc, positioning}
+\newcommand{\tuple}[1]{\left \langle #1 \right \rangle}
 \begin{document}
 \begin{tikzpicture}
-    \node[state, initial, accepting] (0) at (0,0) {\tuple{0,0}};
-    \node[state, accepting] (1) [right=of 0] {\tuple{0,1}};
+    \node[state, initial, accepting] (0) at (0,0) {$\tuple{0,0}$};
+    \node[state, accepting] (1) [right=of 0] {$\tuple{0,1}$};
 
     \path[->]
         (0) edge [loop above] node [above,align=center] {c:c} (0)

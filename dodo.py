@@ -5,7 +5,8 @@ Doit task definition file.
 from pathlib import Path
 from glob import glob
 
-DOIT_CONFIG = {"default_tasks": ["pdf_chaps", "html_chaps"]}
+DOIT_CONFIG = {"default_tasks": ["pdf_chaps", "latex_chaps", "html_chaps",
+                                 "modsource"]}
 # DOIT_CONFIG = {"action_string_formatting": "new"}
 
 CLEANAUX = "scripts/cleanaux.sh"
@@ -20,15 +21,16 @@ WEBCSS = Path("includes/web-custom.css").resolve()  # must be absolute to load l
 MATHJAXCALL = Path("includes/include-mathjax.html")
 
 SRCDIR = Path("source")
-BUILDDIR = Path("build")
-MODSRCDIR = Path("build") / "modsource"
-TEXDIR = Path("build") / "latex"
-PDFDIR = Path("build") / "pdf"
-HTMLDIR = Path("build") / "html"
-
 SRC = SRCDIR.glob("**/*.mdown")
-MODCMDS_TEX = TEXDIR / MYCOMMANDS.name
-MODCMDS_HTML = HTMLDIR / MYCOMMANDS.name
+
+BUILDDIR = Path("build")
+MODSRCDIR = BUILDDIR / "modsource"
+TEXDIR = BUILDDIR / "latex"
+PDFDIR = BUILDDIR / "pdf"
+HTMLDIR = BUILDDIR / "html"
+MODCMDS = BUILDDIR / "mycommands-preproc.mdown"
+# MODCMDS_TEX = BUILDDIR / "mycommands-tex.mdown"
+# MODCMDS_HTML = BUILDDIR / "mycommands-html.mdown"
 # MODSRC = $(patsubst $(SRCDIR)/%.mdown, $(MODSRCDIR)/%.mdown, $(SRC))
 # TEX = $(patsubst $(SRCDIR)/%.mdown, $(TEXDIR)/%.tex, $(SRC))
 # PDF = $(patsubst $(SRCDIR)/%.mdown, $(PDFDIR)/%.pdf, $(SRC))
@@ -37,8 +39,8 @@ MODCMDS_HTML = HTMLDIR / MYCOMMANDS.name
 BOOK_CHAPS = ["01_intro", "02_n-grams", "03_universals", "04_representations",
               "05_automata"]
 BOOK_CHAPS += [f"background/{subch}" for subch in
-               ["algebra", "functions", "general", "graphs", "logic",
-                "multisets", "posets", "relations", "sets", "strings", "tuples"]]
+               ["algebra", "functions", "general", "graphs", "logic", "multisets",
+                "posets", "relations", "sets", "strings", "tuples"]]
 
 
 def task_mkdirs():
@@ -49,23 +51,18 @@ def task_mkdirs():
             "actions": [f"mkdir -p {dirname}"]}
 
 
-def task_modcommands_tex():
+def task_modcommands():
+    """
+    Remove surrounding $ signs.
+    """
     return {
-        "targets": [MODCMDS_TEX],
+        "targets": [MODCMDS],
         "file_dep": [MYCOMMANDS],
         "actions": [
-            f"mkdir -p $(dirname {MODCMDS_TEX})",
-            f"sed 's/\\(^\\$\\|\\$$\\)//g' {MYCOMMANDS} > {MODCMDS_TEX}"]}
-
-
-def task_modcommands_html():
-    return {
-        "targets": [MODCMDS_HTML],
-        "file_dep": [MYCOMMANDS],
-        "actions": [
-            f"mkdir -p $(dirname {MODCMDS_HTML})",
-            ("sed -e 's/^\\$/\\\\(/g' -e 's/\\$$/\\\\)/g' -e '/^%%/d'"
-             f" {MYCOMMANDS} > {MODCMDS_HTML}")]}
+            f"mkdir -p $(dirname {MODCMDS})",
+            ("sed -e 's/\\(^\\$\\|\\$$\\)//g' -e '/^%%/d'"
+             f" {MYCOMMANDS} > {MODCMDS}")],
+            "clean": True}
 
 
 def task_modsource():
@@ -77,64 +74,69 @@ def task_modsource():
             "file_dep": [infile],
             "actions": [
                 f"mkdir -p $(dirname {outfile})",
-                f"sed -f {LATEX_PREPROC} {infile} > {outfile}"]}
+                f"sed -f {LATEX_PREPROC} {infile} > {outfile}"],
+            "clean": True}
 
 
 def task_latex_chaps():
     for ch in BOOK_CHAPS:
-        infiles = sorted(glob(f"{MODSRCDIR}/{ch}/*.mdown"))
-        print(infiles)
+        infiles = sorted(str(MODSRCDIR / f.relative_to(SRCDIR))
+                         for f in Path(f"{SRCDIR}/{ch}").glob("*.mdown"))
         outfile = f"{TEXDIR}/{ch}.tex"
         cmd = (
             "pandoc -s -f markdown -t latex"
             f" --metadata-file={YAMLHEADER}"
-            f" -H {MYPACKAGES} -H {MODCMDS_TEX}"
+            f" -H {MYPACKAGES} -H {MODCMDS}"
             f" -L {CSTM_BLKS} -L {INCL_FILE}"
             f" {' '.join(infiles)} -o {outfile}"
         )
         yield {
             "name": outfile,
             "targets": [outfile],
-            "file_dep": infiles + [YAMLHEADER, MYPACKAGES, MODCMDS_TEX],
+            "file_dep": infiles + [YAMLHEADER, MYPACKAGES, MODCMDS],
             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
             "clean": True}
 
 
 def task_pdf_chaps():
+    """
+    Build PDF chapters directly from source.
+    """
     for ch in BOOK_CHAPS:
-        infiles = sorted(glob(f"{MODSRCDIR}/{ch}/*.mdown"))
-        print(infiles)
+        infiles = sorted(str(MODSRCDIR / f.relative_to(SRCDIR))
+                         for f in Path(f"{SRCDIR}/{ch}").glob("*.mdown"))
         outfile = f"{PDFDIR}/{ch}.pdf"
         cmd = (
             "pandoc -s -f markdown -t pdf"
             f" --metadata-file={YAMLHEADER}"
-            f" -H {MYPACKAGES} -H {MODCMDS_TEX}"
+            f" -H {MYPACKAGES} -H {MODCMDS}"
             f" -L {CSTM_BLKS} -L {INCL_FILE}"
             f" {' '.join(infiles)} -o {outfile}"
         )
         yield {
             "name": outfile,
             "targets": [outfile],
-            "file_dep": infiles + [YAMLHEADER, MYPACKAGES, MODCMDS_TEX],
+            "file_dep": infiles + [YAMLHEADER, MYPACKAGES, MODCMDS],
             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
             "clean": True}
 
 
 def task_html_chaps():
     for ch in BOOK_CHAPS:
-        infiles = sorted(glob(f"{MODSRCDIR}/{ch}/*.mdown"))
+        infiles = sorted(str(MODSRCDIR / f.relative_to(SRCDIR))
+                         for f in Path(f"{SRCDIR}/{ch}").glob("*.mdown"))
         outfile = f"{HTMLDIR}/{ch}.html"
         cmd = (
             "pandoc -s -f markdown -t html --shift-heading-level-by=1"
+            f" --metadata title={ch}"
             f" --mathjax -Vmath='' -H {MATHJAXCALL}"
-            f" -H {MODCMDS_HTML}"
             f" -L {INCL_FILE}"
             f" -c {WEBCSS}"
-            f" {' '.join(infiles)} -o {outfile}"
+            f" {MODCMDS} {' '.join(infiles)} -o {outfile}"
         )
         yield {
             "name": outfile,
             "targets": [outfile],
-            "file_dep": infiles + [YAMLHEADER, MYPACKAGES, MODCMDS_HTML],
+            "file_dep": infiles + [YAMLHEADER, MYPACKAGES, MODCMDS],
             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
             "clean": True}

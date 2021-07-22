@@ -24,10 +24,10 @@ MATHJAXCALL = Path("includes/include-mathjax.html")
 SRCDIR = Path("source")
 
 MD_EXTS = (".mdown", ".md")
-SRC_MD = (f for f in SRCDIR.glob('**/*') if f.suffix in MD_EXTS)
+SRC_MD = sorted(f for f in SRCDIR.glob('**/*') if f.suffix in MD_EXTS)
 
 TIKZ_EXTS = (".tikz", ".forest")
-SRC_TIKZ = (f for f in SRCDIR.glob('**/*') if f.suffix in TIKZ_EXTS)
+SRC_TIKZ = sorted(f for f in SRCDIR.glob('**/*') if f.suffix in TIKZ_EXTS)
 
 SRC_FOREST = SRCDIR.glob("**/*.forest")
 
@@ -161,4 +161,42 @@ def task_images():
             "actions": [
                 f"mkdir -p $(dirname {outfile})",
                 f"{TIKZ2SVG} {infile} {outfile}"],
+            "clean": True}
+
+
+def task_latex_sections():
+    MODSRC_MD = (MODSRCDIR / f.relative_to(SRCDIR) for f in SRC_MD)
+    for infile in MODSRC_MD:
+        outfile = TEXDIR / infile.relative_to(MODSRCDIR).with_suffix(".tex")
+        cmd = (
+            "pandoc -s -f markdown -t latex"
+            f" --metadata-file={YAMLHEADER}"
+            f" -H {MYPACKAGES} -H {MODCMDS}"
+            f" -L {CSTM_BLKS} -L {INCL_FILE}"
+            f" {infile} -o {outfile}"
+        )
+        yield {
+            "name": outfile,
+            "targets": [outfile],
+            "file_dep": [infile, YAMLHEADER, MYPACKAGES, MODCMDS],
+            "actions": [f"mkdir -p $(dirname {outfile})", cmd],
+            "clean": True}
+
+
+def task_pdf_sections():
+    MODSRC_MD = (MODSRCDIR / f.relative_to(SRCDIR) for f in SRC_MD)
+    for infile in MODSRC_MD:
+        outfile = PDFDIR / infile.relative_to(MODSRCDIR).with_suffix(".pdf")
+        cmd = (
+            "pandoc -s -f markdown -t pdf"
+            f" --metadata-file={YAMLHEADER}"
+            f" -H {MYPACKAGES} -H {MODCMDS}"
+            f" -L {CSTM_BLKS} -L {INCL_FILE}"
+            f" {infile} -o {outfile}"
+        )
+        yield {
+            "name": outfile,
+            "targets": [outfile],
+            "file_dep": [infile, YAMLHEADER, MYPACKAGES, MODCMDS],
+            "actions": [f"mkdir -p $(dirname {outfile})", cmd],
             "clean": True}

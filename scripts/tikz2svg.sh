@@ -20,7 +20,7 @@ fi
 
 infile="$1"
 outfile="$2"
-tempdir="$(mktemp -td pdf2svg-XXXXX)"
+tempdir="$(mktemp -td tikz2svg-XXXXX)"
 pdffile="${tempdir}/$(basename ${infile%%.*}).pdf"
 
 pdflatex -interaction=nonstopmode -halt-on-error -output-dir "$tempdir" "$infile"

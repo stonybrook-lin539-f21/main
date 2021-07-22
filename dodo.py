@@ -3,13 +3,14 @@ Doit task definition file.
 """
 
 from pathlib import Path
-from glob import glob
 
 DOIT_CONFIG = {"default_tasks": ["pdf_chaps", "latex_chaps", "html_chaps",
                                  "modsource"]}
 # DOIT_CONFIG = {"action_string_formatting": "new"}
 
-CLEANAUX = "scripts/cleanaux.sh"
+# CLEANAUX = "scripts/cleanaux.sh"
+TIKZ2SVG = "scripts/tikz2svg.sh"
+
 LATEX_PREPROC = "scripts/latex-preprocess.sed"
 CSTM_BLKS = "scripts/custom-blocks.lua"
 INCL_FILE = "scripts/include-file.lua"
@@ -21,20 +22,23 @@ WEBCSS = Path("includes/web-custom.css").resolve()  # must be absolute to load l
 MATHJAXCALL = Path("includes/include-mathjax.html")
 
 SRCDIR = Path("source")
-SRC = SRCDIR.glob("**/*.mdown")
+SRC_MD = SRCDIR.glob("**/*.mdown")
+SRC_TIKZ = SRCDIR.glob("**/*.tikz")
+SRC_FOREST = SRCDIR.glob("**/*.forest")
 
 BUILDDIR = Path("build")
 MODSRCDIR = BUILDDIR / "modsource"
+IMGDIR = BUILDDIR / "images"
 TEXDIR = BUILDDIR / "latex"
 PDFDIR = BUILDDIR / "pdf"
 HTMLDIR = BUILDDIR / "html"
 MODCMDS = BUILDDIR / "mycommands-preproc.mdown"
 # MODCMDS_TEX = BUILDDIR / "mycommands-tex.mdown"
 # MODCMDS_HTML = BUILDDIR / "mycommands-html.mdown"
-# MODSRC = $(patsubst $(SRCDIR)/%.mdown, $(MODSRCDIR)/%.mdown, $(SRC))
-# TEX = $(patsubst $(SRCDIR)/%.mdown, $(TEXDIR)/%.tex, $(SRC))
-# PDF = $(patsubst $(SRCDIR)/%.mdown, $(PDFDIR)/%.pdf, $(SRC))
-# HTML = $(patsubst $(SRCDIR)/%.mdown, $(HTMLDIR)/%.html, $(SRC))
+# MODSRC = $(patsubst $(SRCDIR)/%.mdown, $(MODSRCDIR)/%.mdown, $(SRC_MD))
+# TEX = $(patsubst $(SRCDIR)/%.mdown, $(TEXDIR)/%.tex, $(SRC_MD))
+# PDF = $(patsubst $(SRCDIR)/%.mdown, $(PDFDIR)/%.pdf, $(SRC_MD))
+# HTML = $(patsubst $(SRCDIR)/%.mdown, $(HTMLDIR)/%.html, $(SRC_MD))
 
 BOOK_CHAPS = ["01_intro", "02_n-grams", "03_universals", "04_representations",
               "05_automata"]
@@ -66,7 +70,7 @@ def task_modcommands():
 
 
 def task_modsource():
-    for infile in SRC:
+    for infile in SRC_MD:
         outfile = MODSRCDIR / infile.relative_to(SRCDIR)
         yield {
             "name": outfile,
@@ -139,4 +143,17 @@ def task_html_chaps():
             "targets": [outfile],
             "file_dep": infiles + [YAMLHEADER, MYPACKAGES, MODCMDS],
             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
+            "clean": True}
+
+
+def task_images():
+    for infile in SRC_TIKZ:
+        outfile = IMGDIR / infile.relative_to(SRCDIR).with_suffix(".svg")
+        yield {
+            "name": outfile,
+            "targets": [outfile],
+            "file_dep": [infile],
+            "actions": [
+                f"mkdir -p $(dirname {outfile})",
+                f"{TIKZ2SVG} {infile} {outfile}"],
             "clean": True}

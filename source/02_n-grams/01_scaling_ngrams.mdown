@@ -93,10 +93,10 @@ So we are proving a theorem about the existence of a normal form, hence the term
 
 In order to avoid an overload of notation and terminology, we state the theorem in a slightly inaccurate manner as follows:
 
-::: definition
+\begin{theorem}
     Let $G$ be some collection of sound $n$-grams of different lengths where $k$ is the length of the longest $n$-gram.
     Then there exists an equivalent grammar $G'$ such that every $n$-gram of $G'$ has length $k$.
-:::
+\end{theorem}
 
 ### Proof
 

@@ -75,10 +75,10 @@ If desired, we can convert $G$ from a mixed grammar to a fixed one using the fam
 
 We can express this insight in terms of a formal theorem.
 
-::: definition
+\begin{theorem}
 Let $G_1$ be a negative $m$-gram grammar, $G_2$ a negative $n$-gram grammar ($m$ and $n$ may be the same).
 Then $L(G_1) \cap L(G_2) = L(G_1 \cup G_2)$.
-:::
+\end{theorem}
 
 Let us look in detail at how this theorem uses mathematical notation to express our idea about combining grammars.
 Recall that $L(G)$ is the set of strings that are well-formed with respect to $G$.
@@ -108,10 +108,10 @@ Combining grammars by taking their union only gives the desired result for negat
 For positive grammars, one has to take their intersection instead.
 (And since positive grammars always require a fixed $n$-gram length, one has to make sure first that the $n$-grams have the same length across all grammars.)
 
-::: definition
+\begin{theorem}
 Let $G_1$ and $G_2$ be positive $n$-gram grammars.
 Then $L(G_1) \cap L(G_2) = L(G_1 \cap G_2)$.
-:::
+\end{theorem}
 
 Think about this theorem for a moment to figure out the intuition behind it.
 

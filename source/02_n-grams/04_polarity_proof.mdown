@@ -23,9 +23,9 @@ Every $n$-gram grammar has a **polarity**:
 The **language of $G$**, denoted $L(G)$, contains all strings that are well-formed with respect to $G$, and only those.
 \end{definition}
 
-::: definition
+\begin{theorem}
 For every $n$-gram grammar $G$ there exists a grammar $G'$ of opposite polarity such that $L(G) = L(G')$.
-:::
+\end{theorem}
 
 \begin{proof}
 We assume w.l.o.g. that $G$ is a positive grammar and denote it by $^+G$.

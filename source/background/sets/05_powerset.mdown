@@ -26,9 +26,9 @@ First, we define the *cardinality* of a set $A$ as the number of elements it con
 For example, $\card{\setof{1,2,3}} = 3$.
 Now we can state a universal truth for the cardinality of powersets.
 
-::: definition
+\begin{theorem}
     For every set $A$ with $\card{A} = n$, it holds that $\card{\wp(A)} = \card{2^A} = 2^{\card{A}} = 2^n$.
-:::
+\end{theorem}
 
 This is witnessed by our example set $\setof{1,2,3}$, the powerset of which has $8$ members (see the list above).
 Feel free to compute the powerset of $\setof{1,2}$ and $\setof{1,2,3,4}$, you will see that they have $4$ and $16$ members, respectively.

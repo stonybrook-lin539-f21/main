@@ -27,7 +27,7 @@ MD_EXTS = (".mdown", ".md")
 SRC_MD = (f for f in SRCDIR.glob('**/*') if f.suffix in MD_EXTS)
 
 TIKZ_EXTS = (".tikz", ".forest")
-SRC_TIKZ = sorted(f for f in SRCDIR.glob('**/*') if f.suffix in TIKZ_EXTS)
+SRC_TIKZ = (f for f in SRCDIR.glob('**/*') if f.suffix in TIKZ_EXTS)
 
 SRC_FOREST = SRCDIR.glob("**/*.forest")
 
@@ -89,8 +89,8 @@ def task_modsource():
 
 def task_latex_chaps():
     for ch in BOOK_CHAPS:
-        infiles = sorted(str(MODSRCDIR / f.relative_to(SRCDIR))
-                         for f in Path(f"{SRCDIR}/{ch}").glob("*.mdown"))
+        infiles = [str(MODSRCDIR / f.relative_to(SRCDIR))
+                   for f in sorted(Path(f"{SRCDIR}/{ch}").glob("*.mdown"))]
         outfile = f"{TEXDIR}/{ch}.tex"
         cmd = (
             "pandoc -s -f markdown -t latex"
@@ -112,8 +112,8 @@ def task_pdf_chaps():
     Build PDF chapters directly from source.
     """
     for ch in BOOK_CHAPS:
-        infiles = sorted(str(MODSRCDIR / f.relative_to(SRCDIR))
-                         for f in Path(f"{SRCDIR}/{ch}").glob("*.mdown"))
+        infiles = [str(MODSRCDIR / f.relative_to(SRCDIR))
+                   for f in sorted(Path(f"{SRCDIR}/{ch}").glob("*.mdown"))]
         outfile = f"{PDFDIR}/{ch}.pdf"
         cmd = (
             "pandoc -s -f markdown -t pdf"

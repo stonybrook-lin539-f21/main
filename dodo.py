@@ -22,8 +22,13 @@ WEBCSS = Path("includes/web-custom.css").resolve()  # must be absolute to load l
 MATHJAXCALL = Path("includes/include-mathjax.html")
 
 SRCDIR = Path("source")
-SRC_MD = SRCDIR.glob("**/*.mdown")
-SRC_TIKZ = SRCDIR.glob("**/*.tikz")
+
+MD_EXTS = (".mdown", ".md")
+SRC_MD = (f for f in SRCDIR.glob('**/*') if f.suffix in MD_EXTS)
+
+TIKZ_EXTS = (".tikz", ".forest")
+SRC_TIKZ = sorted(f for f in SRCDIR.glob('**/*') if f.suffix in TIKZ_EXTS)
+
 SRC_FOREST = SRCDIR.glob("**/*.forest")
 
 BUILDDIR = Path("build")

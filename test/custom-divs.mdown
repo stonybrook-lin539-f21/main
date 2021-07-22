@@ -1,0 +1,24 @@
+
+# Custom div blocks
+
+Here is a custom block.
+
+::: theorem {.fancy}
+This is a theorem.
+:::
+
+Here is a theorem with extra attributes.
+
+::: {.theorem .fancy}
+This is a theorem with extra attributes.
+:::
+
+Here is a multi-level custom block.
+
+::: theorem
+This is a theorem.
+
+:::: theorem
+This is a theorem inside a theorem.
+::::
+:::

@@ -1,0 +1,9 @@
+# Images
+
+Here is an inline image: ![inline image](inline-image.png){#id .class style="whatever"}.
+
+Now a block image.
+
+![block image](block-image.png){#id .class style="whatever"}
+
+The end.

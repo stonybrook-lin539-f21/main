@@ -3,7 +3,11 @@
 if FORMAT:match "latex" then
   function Str(elem)
     text = elem.text
-    text = string.gsub(text, "ʃ", "\\textipa{S}")
-    return pandoc.RawInline("latex", text)
+    text, count = string.gsub(text, "ʃ", "\\textipa{S}")
+    if count > 0 then
+      return pandoc.RawInline("latex", text)
+    else
+      return elem
+    end
   end
 end

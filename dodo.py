@@ -128,7 +128,9 @@ def task_html_chaps():
     for ch in BOOK_CHAPS:
         infiles = sorted(str(f)
                          for f in Path(f"{SRCDIR}/{ch}").glob("*.mdown"))
-        outfile = f"{HTMLDIR}/{ch}.html"
+        incl_images = sorted(HTMLDIR / img.relative_to(SRCDIR).with_suffix(".svg")
+                             for img in SRC_TIKZ)
+        outfile = Path(f"{HTMLDIR}/{ch}/index.html")
         cmd = (
             "pandoc -s -f markdown -t html --shift-heading-level-by=1"
             f" --metadata title={ch}"
@@ -140,8 +142,24 @@ def task_html_chaps():
         yield {
             "name": outfile,
             "targets": [outfile],
-            "file_dep": infiles + [YAMLHEADER, MYPACKAGES, MODCMDS],
-            "actions": [f"mkdir -p $(dirname {outfile})", cmd],
+            "file_dep": [*infiles, *incl_images,
+                         YAMLHEADER, MYPACKAGES, MODCMDS],
+            "actions": [f"mkdir -p $(dirname {outfile})",
+                        cmd],
+            "clean": True}
+
+
+def task_html_images():
+    for img in SRC_TIKZ:
+        src = IMGDIR / img.relative_to(SRCDIR).with_suffix(".svg")
+        dest = HTMLDIR / src.relative_to(IMGDIR)
+        yield {
+            "name": dest,
+            "targets": [dest],
+            "file_dep": [src],
+            "actions": [
+                f"mkdir -p $(dirname {dest})",
+                f"cp {src} {dest}"],
             "clean": True}
 
 

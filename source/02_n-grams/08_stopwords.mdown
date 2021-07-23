@@ -79,8 +79,8 @@ The problem of cluttered sets is a very real one.
 This is due to **Zipf's law**, which was formulated by the linguist [George Kingsley Zipf](https://en.wikipedia.org/wiki/George_Kingsley_Zipf).
 
 ::: definition
-    Let $t$ be a text of natural language utterances, and $R$ a linear ranking of words by their frequency in $t$.
-    Then the frequency $f$ of a word in $t$ is inversely proportional to its rank $r$ in $R$ ($f = \frac{1}{r}$).
+Let $t$ be a text of natural language utterances, and $R$ a linear ranking of words by their frequency in $t$.
+Then the frequency $f$ of a word in $t$ is inversely proportional to its rank $r$ in $R$ ($f = \frac{1}{r}$).
 :::
 
 Zipf's law tell us that the most common word in a text occurs
@@ -351,8 +351,8 @@ The notebook after the next one illustrates how a more abstract understanding in
 - Many aspects of language exhibit a Zipfian distribution.
 
 ::: definition
-    Let $t$ be a text of natural language utterances, and $R$ a linear ranking of words by their frequency in $t$.
-    Then the frequency $f$ of a word in $t$ is inversely proportional to its rank $r$ in $R$ ($f = \frac{1}{r}$).
+Let $t$ be a text of natural language utterances, and $R$ a linear ranking of words by their frequency in $t$.
+Then the frequency $f$ of a word in $t$ is inversely proportional to its rank $r$ in $R$ ($f = \frac{1}{r}$).
 :::
 
 - Over 50% of any natural language text are made up from a few very high frequency words like *a*, *the*, *is*, *of*, and so on.

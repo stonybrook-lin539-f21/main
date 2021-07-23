@@ -17,7 +17,7 @@ So the above is the list of all subsets of $\setof{1,2,3}$.
 The set of all these sets is called the *powerset* of $\setof{1,2,3}$.
 
 ::: definition
-    For $A$ a set, the *powerset* of $A$ is $\wp(A) \is \setof{ S \mid S \subseteq A }$.
+For $A$ a set, the *powerset* of $A$ is $\wp(A) \is \setof{ S \mid S \subseteq A }$.
 :::
 
 There are many alternative notations for the powerset.
@@ -27,7 +27,7 @@ For example, $\card{\setof{1,2,3}} = 3$.
 Now we can state a universal truth for the cardinality of powersets.
 
 ::: theorem
-    For every set $A$ with $\card{A} = n$, it holds that $\card{\wp(A)} = \card{2^A} = 2^{\card{A}} = 2^n$.
+For every set $A$ with $\card{A} = n$, it holds that $\card{\wp(A)} = \card{2^A} = 2^{\card{A}} = 2^n$.
 :::
 
 This is witnessed by our example set $\setof{1,2,3}$, the powerset of which has $8$ members (see the list above).

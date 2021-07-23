@@ -59,8 +59,8 @@ Intersection is the opposite of union in that it builds smaller sets rather than
 Given two sets $A$ and $B$, their **intersection** $A \cap B$ is the set that contains only those elements that belong to $A$ as well as $B$.
 
 ::: example
-    The intersection of $\setof{1}$ and $\setof{2,3,4}$ is $\emptyset$, and so is the intersection of $\setof{1,2}$ and $\setof{3,4}$.
-    But the intersection of $\setof{1,2}$ and $\setof{2,3,4}$ is $\setof{2}$.
+The intersection of $\setof{1}$ and $\setof{2,3,4}$ is $\emptyset$, and so is the intersection of $\setof{1,2}$ and $\setof{3,4}$.
+But the intersection of $\setof{1,2}$ and $\setof{2,3,4}$ is $\setof{2}$.
 :::
 
 ::: exercise
@@ -107,8 +107,8 @@ That relative complement is not associative mirrors subtraction for numbers, whe
 Commutativity does not hold for relative complement either, as is shown by $\setof{5} - \setof{5,4} = \emptyset \neq \setof{4} = \setof{5,4} - \setof{4}$.
 
 ::: exercise
-    Give a concrete example where $A - B = B - A$.
-    Then make a single change to $A$ such that $A - B \neq B - A$.
+Give a concrete example where $A - B = B - A$.
+Then make a single change to $A$ such that $A - B \neq B - A$.
 :::
 
 ## Summary

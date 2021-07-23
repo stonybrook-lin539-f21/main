@@ -94,8 +94,8 @@ So we are proving a theorem about the existence of a normal form, hence the term
 In order to avoid an overload of notation and terminology, we state the theorem in a slightly inaccurate manner as follows:
 
 ::: theorem
-    Let $G$ be some collection of sound $n$-grams of different lengths where $k$ is the length of the longest $n$-gram.
-    Then there exists an equivalent grammar $G'$ such that every $n$-gram of $G'$ has length $k$.
+Let $G$ be some collection of sound $n$-grams of different lengths where $k$ is the length of the longest $n$-gram.
+Then there exists an equivalent grammar $G'$ such that every $n$-gram of $G'$ has length $k$.
 :::
 
 ### Proof
@@ -108,7 +108,7 @@ We start with a few key observations.
   We use $\card{\Sigma}$ as the special symbol for this number.
 
 ::: example
-  If a language only has the sounds *a*, *u*, *i*, *b*, *m*, *d*, *g*, and *h*, then $\card{\Sigma}$ for that specific language is $8$.
+If a language only has the sounds *a*, *u*, *i*, *b*, *m*, *d*, *g*, and *h*, then $\card{\Sigma}$ for that specific language is $8$.
 :::
 
 - As stated in the theorem, the longest $n$-gram is assumed to have length $k$.
@@ -348,7 +348,7 @@ The padded out word is *\$\$\$kaz\$\$\$*, and several of the illicit 4-grams we 
 - z\$\$\$
 
 :::
-      
+
 This shows that every string that is deemed illicit by $G$ is also illicit with respect to $G'$.
 We still have to show the opposite, which is much easier.
 Suppose that a string is ruled out by $G'$ because it contains the $n$-gram $g$.

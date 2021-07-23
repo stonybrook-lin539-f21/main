@@ -59,10 +59,10 @@ Examples of bigrams include *ko*, *ob*, or *bn*.
 A given word's **set of bigrams** is the collection of all bigrams that occur in it, without repetitions.
 
 ::: example
-    The bigrams of
-    *kobinal*
-    are *ko*, *ob*, *bi*, *in*, *na*, and *al*.
-    The bigrams of *banana* are *ba*, *an*, and *na*.
+The bigrams of
+*kobinal*
+are *ko*, *ob*, *bi*, *in*, *na*, and *al*.
+The bigrams of *banana* are *ba*, *an*, and *na*.
 :::
 
 ```python
@@ -120,8 +120,8 @@ Then *ababa* will be *\$ababa\$*, and *babab* will be *\$babab\$*.
 Now one can tell clearly which bigrams occurred at the start and the end.
 
 ::: example
-    To calculate the bigrams of *kobinal*, we first expand it to *\$kobinal\$*.
-    Then we extract bigrams as usual, giving us the following list: *\$k*, *ko*, *ob*, *bi*, *in*, *na*, *al*, *l\$*.
+To calculate the bigrams of *kobinal*, we first expand it to *\$kobinal\$*.
+Then we extract bigrams as usual, giving us the following list: *\$k*, *ko*, *ob*, *bi*, *in*, *na*, *al*, *l\$*.
 :::
 
 ```python
@@ -162,17 +162,17 @@ If our hypothesis is correct, then it should be possible to write down a collect
 Every ill-formed word must contain at least one forbidden bigram.
 
 ::: example
-    Contrast the well-formed *kobinal* against the ill-formed *kbin*.
-    If *kb* is a forbidden bigram of English, then *kbin* is ill-formed.
-    In order for *kobinal* to be well-formed, none of the following bigrams may be forbbiden:
-    *\$k*,
-    *ko*,
-    *ob*,
-    *bi*,
-    *in*,
-    *na*,
-    *al*,
-    *l\$*.
+Contrast the well-formed *kobinal* against the ill-formed *kbin*.
+If *kb* is a forbidden bigram of English, then *kbin* is ill-formed.
+In order for *kobinal* to be well-formed, none of the following bigrams may be forbbiden:
+*\$k*,
+*ko*,
+*ob*,
+*bi*,
+*in*,
+*na*,
+*al*,
+*l\$*.
 :::
 
 As the example above shows, forbidding the bigram *kb* rules out *kbin* as an illicit word for English.

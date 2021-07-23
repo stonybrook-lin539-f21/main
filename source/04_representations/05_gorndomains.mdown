@@ -207,9 +207,9 @@ As mentioned before, whenever a node $y$ is the daughter of a node $x$, the Gorn
 In other words, $x$ is the mother of $y$ iff $x$ is the longest proper prefix of $y$.
 
 ::: definition
-    Let $D$ be a Gorn tree domain.
-    Then the **parent-of** relation $P \subset D \times D$ contains $\tuple{x,y}$ iff there exists some $u \in \mathbb{N}$ such that $y = x \tuplecat u$.
-    We call $\inv{P}$ the **child-of** relation.
+Let $D$ be a Gorn tree domain.
+Then the **parent-of** relation $P \subset D \times D$ contains $\tuple{x,y}$ iff there exists some $u \in \mathbb{N}$ such that $y = x \tuplecat u$.
+We call $\inv{P}$ the **child-of** relation.
 :::
 
 ::: example
@@ -239,12 +239,12 @@ Only the root node is not a child, and only the nodes at the very bottom of a tr
 These nodes are also called *leaves*.
 
 ::: definition
-    For any Gorn tree domain $D$, we call
-    
-    - $D_P \is \setof{ x \mid \text{there is a $y$ s.t.} \tuple{x,y} \in P}$ the set of **parents**,
-    - $D_C \is \setof{ y \mid \text{there is an $x$ s.t.} \tuple{x,y} \in P}$ the set of **children**,
-    - $D_L \is D - D_P$ the set of **leaves**
-    
+For any Gorn tree domain $D$, we call
+
+- $D_P \is \setof{ x \mid \text{there is a $y$ s.t.} \tuple{x,y} \in P}$ the set of **parents**,
+- $D_C \is \setof{ y \mid \text{there is an $x$ s.t.} \tuple{x,y} \in P}$ the set of **children**,
+- $D_L \is D - D_P$ the set of **leaves**
+
 :::
 
 ::: example
@@ -260,7 +260,7 @@ The parent-of relation is arguably the closest possible relation, but the **sibl
 Two nodes are siblings iff they have the same parent.
 
 ::: definition
-    Given a Gorn tree domain $D$, the **sibling relation** is $S \is \setof{ \tuple{x,y} \mid \text{$x \neq y$ and there exists a $z$ s.t. $\tuple{z,x} \in P$ and $\tuple{z,y} \in P$}}$ 
+Given a Gorn tree domain $D$, the **sibling relation** is $S \is \setof{ \tuple{x,y} \mid \text{$x \neq y$ and there exists a $z$ s.t. $\tuple{z,x} \in P$ and $\tuple{z,y} \in P$}}$ 
 :::
 
 ::: example

@@ -11,16 +11,16 @@ Bags thus are closer to what mathematicians call **multisets**.
 Like sets, multisets are unordered, but idempotency does not hold; a multiset can contain multiple instances of the same object.
 
 ::: definition
-    A **multiset** is a set where each element has a numerosity.
-    We indicate that a set $S$ is a multiset by prefixing it with a subscripted $M$, as in $S_M$.
-    For all $s \in S_M$, $S_M(s)$ indicates the numerosity or **count** of $s$ in $S_M$.
-    We may write $S_M(s) = 0$ instead of $s \notin S_M$.
+A **multiset** is a set where each element has a numerosity.
+We indicate that a set $S$ is a multiset by prefixing it with a subscripted $M$, as in $S_M$.
+For all $s \in S_M$, $S_M(s)$ indicates the numerosity or **count** of $s$ in $S_M$.
+We may write $S_M(s) = 0$ instead of $s \notin S_M$.
 :::
 
 ::: example
-    The multiset $\setof{a,a,b}_M$ contains two occurrences of $a$ and one occurrence of $b$.
-    Hence $\setof{a,a,b}_M \neq \setof{a,b}_M$ even though $\setof{a,a,b} = \setof{a,b}$.
-    However, it still holds that order does not matter: $\setof{a,a,b}_M = \setof{a,b,a}_M = \setof{b, a, a}_M$, just like $\setof{a,b} = \setof{b,a}$.
+The multiset $\setof{a,a,b}_M$ contains two occurrences of $a$ and one occurrence of $b$.
+Hence $\setof{a,a,b}_M \neq \setof{a,b}_M$ even though $\setof{a,a,b} = \setof{a,b}$.
+However, it still holds that order does not matter: $\setof{a,a,b}_M = \setof{a,b,a}_M = \setof{b, a, a}_M$, just like $\setof{a,b} = \setof{b,a}$.
 :::
 
 ::: exercise
@@ -40,8 +40,8 @@ If an author uses multisets, pay close attention to how they define their notati
 Also, it is often convenient to explicitly list the count of each element rather than listing the element multiple times.
 
 ::: example
-    The multiset $A_M \is \setof{a,a,a,b,b,c}$ can be more conveniently written as $A_M \is \setof{a: 3, b: 2, c: 1}$.
-    Elements with a count of $0$ are usually omitted, but may be included if this is relevant information.
+The multiset $A_M \is \setof{a,a,a,b,b,c}$ can be more conveniently written as $A_M \is \setof{a: 3, b: 2, c: 1}$.
+Elements with a count of $0$ are usually omitted, but may be included if this is relevant information.
 :::
 
 ```python

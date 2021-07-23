@@ -8,9 +8,9 @@
 The (proper) subset and superset relations are readily extended to multisets.
 
 ::: definition
-    Given two multisets $A_M$ and $B_M$, $A_M$ is a subset of $B_M$ ($A_M \subseteq B_M$) iff it holds for all $a \in A_M$ that $A_M(a) \leq B_M(a)$.
-    The subset relation is proper ($A_M \subsetneq B_M$) iff $A_M(a) < B_M(a)$ for all $a \in A_M$.
-    Superset and proper superset are defined in an analogous fashion.
+Given two multisets $A_M$ and $B_M$, $A_M$ is a subset of $B_M$ ($A_M \subseteq B_M$) iff it holds for all $a \in A_M$ that $A_M(a) \leq B_M(a)$.
+The subset relation is proper ($A_M \subsetneq B_M$) iff $A_M(a) < B_M(a)$ for all $a \in A_M$.
+Superset and proper superset are defined in an analogous fashion.
 :::
 
 Note that this definition of subset entails that the powerset of a multiset can be much larger than that of a set.

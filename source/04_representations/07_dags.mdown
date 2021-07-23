@@ -3,8 +3,8 @@
 During the discussion of prefix trees, you might have wondered why we do not merge identical subtrees to reduce storage cost even more.
 For example, the first prefix tree could be represented more parsimoniously as the second one. 
 
-\input_med{prefixtree_dag_before.forest}
-\input_med{prefixtree_dag_after.forest}
+\input_mid{prefixtree_dag_before.forest}
+\input_mid{prefixtree_dag_after.forest}
 
 Relaxing prefix trees in this way is tantamount to removing the condition that every node has an indegree of at most one.
 Doing so generalizes prefix trees to prefix DAGs, where DAG is short for *directed acyclic graph*.
@@ -22,7 +22,7 @@ For prefix trees, DAGs are actually not the best match.
 Suppose we want to add the word *alternate* to the prefix DAG above.
 Then we would have to add *nate* below *alter*.
 
-\input_med{prefixtree_dag_gonewrong.forest}
+\input_mid{prefixtree_dag_gonewrong.forest}
 
 But as you can see, this would also make *betternate* a word, which it clearly is not and likely will never be.
 In order to avoid this, we would have to add a separate branch for *ternate* below *al*.
@@ -41,14 +41,14 @@ And DAGs can be found in linguistics, too.
 Since the mid 90s, various syntacticians have been toying with the idea that sentence structures aren't trees but rather multi-dominance trees.
 For example, the sentence *This boy, John loves* would receive the structure below (this structure is simplified quite a bit and does not do justice to the finely articulated syntactic hierarchy that multidominance proponents tend to work with).
 
-\input_med{multidominance.forest}
+\input_mid{multidominance.forest}
 
 An even more radical proposal are grafts.
 Whereas multidominance trees still must have a single root, this restriction is lifted for grafts.
 They thus often look like two normal trees have been joined at the hip.
 This is useful to account for *syntactic amalgams*, as in the sentence *John went to I believe it was Chicago*.
 
-\input_med{grafts.forest}
+\input_mid{grafts.forest}
 
 From a formal perspective, grafts are simply DAGs, whereas multidominance trees are DAGs with a unique root.
 
@@ -60,8 +60,8 @@ In particular with natural languages, it is very common for a single string to b
 The sentence *I watched a movie with Arnold*, for example, is ambiguous: either me and my friend Arnold watched a movie, or I watched a movie featuring the well-known actor Arnold Schwarzenegger. 
 The contrast in meaning corresponds to a structural difference in what the phrase *with Arnold* is attached to.
 
-\input_med{withArnold2.forest}
-\input_med{withArnold1.forest}
+\input_mid{withArnold2.forest}
+\input_mid{withArnold1.forest}
 
 (Side note: this is a nice illustration of how much world knowledge matters for language --- the analogous sentence *I watched a movie with Peter* cannot mean *I watched a movie featuring the actor Peter Cushing*, because only Arnold has the privilege of being an actor that is uniquely identified by his first name.)
 
@@ -69,7 +69,7 @@ When storing multiple parses, it is highly inefficient to store them as separate
 Since the trees will usually look very similar, it is more efficient to represent them all as part of a single graph so that common parts can be shared between trees.
 The result is what is called a *parse forest*.
 
-\input_med{withArnold.forest}
+\input_mid{withArnold.forest}
 
 Even though parse forests look much more complicated than grafts, both are instances of DAGs.
 

@@ -18,7 +18,7 @@ We call $y$ an **upper bound** iff $x \leq y$.
 ::: example
 Consider the poset below, which consists of all subsets of $\setof{1,2,3}$ ordered by the subset relation $\subseteq$.
 
-\input_med{lattice_123.tikz}
+\input_mid{lattice_123.tikz}
 
 The upper bounds of $\setof{1}$ are $\setof{1}$, $\setof{1,2}$, $\setof{1,3}$, and $\setof{1,2,3}$.
 Its lower bounds are $\setof{1}$ and $\emptyset$.
@@ -29,7 +29,7 @@ Thinking of upper and lower bounds in pictorial terms may strengthen your intuit
 In the figure below, upper bounds are in dashed boxes, and lower bounds in dashed circles.
 We underline $\setof{1}$ to indicate that this is the element for which we are computing upper and lower bounds.
 
-\input_med{lattice_123_bounds1.tikz}
+\input_mid{lattice_123_bounds1.tikz}
 :::
 
 ::: exercise
@@ -77,7 +77,7 @@ Given some arbitrary poset $\tuple{S, \leq}$, what are $\mathrm{lb}(\emptyset)$ 
 ::: example
 Consider once more the poset of all subsets of $\setof{1,2,3}$ ordered by the subset relation $\subseteq$.
 
-\input_med{lattice_123.tikz}
+\input_mid{lattice_123.tikz}
 
 The upper bounds of $\setof{1}$ and $\setof{2}$ are $\setof{1,2}$ and $\setof{1,2,3}$.
 Their only lower bound is $\emptyset$.
@@ -93,7 +93,7 @@ And since they return a set of things that are lower/upper bounds, we get back a
 
 We can also depict this in the graphical format that we used for the lower and upper bounds of individual elements.
 
-\input_med{lattice_123_bounds1-2.tikz}
+\input_mid{lattice_123_bounds1-2.tikz}
 :::
 
 ::: example
@@ -104,7 +104,7 @@ $\mathrm{lb}(\setof{\setof{1}}) = \setof{\emptyset, \setof{1}}$.
 Again the notation is slightly confusing as we are looking at sets of elements of the poset, and these elements just so happen to be sets themselves.
 Relying once more on our graphical format, we see that $\mathrm{ub}(\setof{\setof{1}})$ and $\mathrm{lb}(\setof{\setof{1}})$ yield the same upper and lower bounds that we computed for $\setof{1}$ at the beginning of this unit.
 
-\input_med{lattice_123_bounds1.tikz}
+\input_mid{lattice_123_bounds1.tikz}
 :::
 
 ::: exercise
@@ -119,7 +119,7 @@ $\mathrm{ub}(\setof{\setof{2}, \setof{3}, \setof{2,3}}) = \setof{\setof{2,3} \se
 $\mathrm{lb}(\setof{\setof{2}, \setof{3}, \setof{2,3}}) = \setof{\emptyset}$.
 Once again we can also depict this in the graphical format: 
 
-\input_med{lattice_123_bounds2-3-23.tikz}
+\input_mid{lattice_123_bounds2-3-23.tikz}
 :::
 
 ::: exercise
@@ -178,7 +178,7 @@ For the same reason, they don't have any upper bounds either.
 You might think that the poset in the previous example is somewhow defective or pathological because no element is related to any element except itself.
 But that's not really the issue, as is witnessed by the structure below.
 
-\input_med{poset_nobounds.tikz}
+\input_mid{poset_nobounds.tikz}
 
 Find the smallest subset $S$ such that $\mathrm{ub}(S) = \emptyset$ and $\mathrm{lb}(S) = \emptyset$.
 :::

@@ -87,11 +87,11 @@ The right congruence relation $\equiv_L$ partitions the set $\Sigma^*$ of all st
 
 The automaton for $(ab)^+$ is shown below, with an explicit sink state for ill-formed strings.
 
-\input_med{abplus.tikz}
+\input_mid{abplus.tikz}
 
 We can rename the states to highlight their connection to the equivalence classes above.
 
-\input_med{abplus_quotientclasses.tikz}
+\input_mid{abplus_quotientclasses.tikz}
 :::
 
 ::: exercise

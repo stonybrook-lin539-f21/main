@@ -14,8 +14,8 @@ So if we were to run $A$ and $B$ in parallel, both would have to end up in a fin
 Let's imagine this in an even more visual manner. 
 Suppose our automata $A$ and $B$ are as below.
 
-\input_med{abaa.tikz}
-\input_med{modulo4_ab.tikz}
+\input_mid{abaa.tikz}
+\input_mid{modulo4_ab.tikz}
 
 Here $A$ recognizes strings of the form $\String{a(baa)^*}$ (where $^*$ means 0 or more iteration of the bracketed part).
 And $B$ recognizes any string over $a$ and $b$ whose length is a multiple of $4$ (including the empty string $\emptystring$, whose length of 0 is a multiple of 4).
@@ -58,7 +58,7 @@ Similarly, $(A:i, B:x)$ is final iff both $i$ and $x$ are final in $A$ and $B$, 
 Applying this construction to the two automata above yields the automaton below.
 For simplicity, we write $i, x$ instead of $(A:i, B:x)$.
 
-\input_med{intersection_automaton.tikz}
+\input_mid{intersection_automaton.tikz}
 
 
 ::: definition
@@ -124,7 +124,7 @@ An automaton is **non-deterministic** iff it is not deterministic.
 ::: example
 The familiar automaton below is non-deterministic because there are two distinct arcs out of $0$ that are both labeled $a$.
 
-\input_med{nondet.tikz}
+\input_mid{nondet.tikz}
 
 Formally, $\tuple{0, a, 1} \in \Delta$ and $\tuple{0, a, 2} \in \Delta$, yet $1$ and $2$ are distinct states.
 :::
@@ -191,8 +191,8 @@ Here's a concrete example.
 The language $a^+$ is recognized by the two automata below.
 The first one is deterministic, the second one non-deterministic.
 
-\input_med{aplus_det.tikz}
-\input_med{aplus_nondet.tikz}
+\input_mid{aplus_det.tikz}
+\input_mid{aplus_nondet.tikz}
 
 Let's apply the determinization procedure to the non-deterministic FSA.
 For succinctness, let $N$ be the name of the non-deterministic FSA and $D$ its deterministic counterpart.
@@ -218,16 +218,16 @@ For succinctness, let $N$ be the name of the non-deterministic FSA and $D$ its d
 The determinized FSA is shown below.
 Note that it looks exactly like the deterministic one above, with the only difference being the names of states.
 
-\input_med{aplus_nondet_det.tikz}
+\input_mid{aplus_nondet_det.tikz}
 
 ::: example
 Consider the slightly more complicated FSA below.
 
-\input_med{nondet_complex.tikz}
+\input_mid{nondet_complex.tikz}
 
 Determinization yields the equivalent automaton below:
 
-\input_med{nondet_complex_det.tikz}
+\input_mid{nondet_complex_det.tikz}
 
 You should verify for yourself that you can correctly construct this automaton.
 :::
@@ -243,7 +243,7 @@ A 20-state automaton over a million!
 In practice, the blow-up is not as bad, but it isn't uncommon for automata size to double, triple, or quadruple.
 As a concrete example of this, determinize the automaton below.
 
-\input_med{nondet_blowup.tikz}
+\input_mid{nondet_blowup.tikz}
 :::
 
 ::: exercise
@@ -253,7 +253,7 @@ Only for the brave!
 The automaton above doubles its size after determinization.
 What about the automaton below?
 
-\input_med{nondet_blowup2.tikz}
+\input_mid{nondet_blowup2.tikz}
 :::
 
 ::: exercise
@@ -263,7 +263,7 @@ If the original automaton contains some redundancies, determinization can elimin
 
 The automaton below is a slightly redundant machine for accepting all strings over $a$ and $b$ that contain at least three symbols.
 
-\input_med{nondet_shrinking.tikz}
+\input_mid{nondet_shrinking.tikz}
 
 What does it look like after determinization?
 :::
@@ -275,7 +275,7 @@ There are two reasons why a string $s$ might not be recognized by an automaton $
 ::: example
 Consider once more the automaton for $\String{a(baa)^*}$.
 
-\input_med{abaa.tikz}
+\input_mid{abaa.tikz}
 
 This automaton rejects $\String{ab}$ because the run for this string ends in state $2$, which is not a final state.
 But it also rejects $\String{abb}$ because there is no $b$-transition from $2$.
@@ -292,7 +292,7 @@ Hence the only distinction between recognized and rejected strings is whether th
 ::: example
 Here is the result of adding a sink state $S$ to the automaton above:
 
-\input_med{abaa_sink.tikz}
+\input_mid{abaa_sink.tikz}
 :::
 
 ::: exercise

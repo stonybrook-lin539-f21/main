@@ -12,8 +12,8 @@ DOIT_CONFIG = {"default_tasks": ["pdf_chaps", "latex_chaps", "html_chaps",
 TIKZ2SVG = "scripts/tikz2svg.sh"
 
 LATEX_PREPROC = "scripts/latex-preprocess.sed"
-CSTM_BLKS = "scripts/custom-blocks.lua"
-INCL_FILE = "scripts/include-file.lua"
+CSTM_BLKS = "filters/custom-blocks.lua"
+INCL_FILE = "filters/include-file.lua"
 
 MYCOMMANDS = Path("includes/mycommands.mdown")
 MYPACKAGES = Path("includes/environments.sty")

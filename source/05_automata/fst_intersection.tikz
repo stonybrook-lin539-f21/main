@@ -1,6 +1,6 @@
 \documentclass[tikz]{standalone}
 \usetikzlibrary{arrows, automata, calc, positioning}
-\newcommand{\tuple}[1]{\left \langle #1 \right \rangle}
+\providecommand{\tuple}[1]{\left \langle #1 \right \rangle}
 \begin{document}
 \begin{tikzpicture}
     \node[state, initial, accepting] (0) at (0,0) {$\tuple{0,0}$};

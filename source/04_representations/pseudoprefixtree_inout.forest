@@ -1,6 +1,6 @@
 \documentclass[tikz]{standalone}
 \usepackage[linguistics]{forest}
-\newcommand{\tuple}[1]{\ensuremath{\left \langle #1 \right \rangle}}
+\providecommand{\tuple}[1]{\ensuremath{\left \langle #1 \right \rangle}}
 \begin{document}
 \begin{forest}
     [$\varepsilon$

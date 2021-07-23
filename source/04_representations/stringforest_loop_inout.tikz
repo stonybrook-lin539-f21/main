@@ -1,6 +1,6 @@
 \documentclass[tikz]{standalone}
 \usetikzlibrary{calc, positioning}
-\newcommand{\tuple}[1]{\ensuremath{\left \langle #1 \right \rangle}}
+\providecommand{\tuple}[1]{\ensuremath{\left \langle #1 \right \rangle}}
 \begin{document}
 \begin{tikzpicture}[%
     every node/.style = {circle, fill=blue!25, minimum size=2em}]

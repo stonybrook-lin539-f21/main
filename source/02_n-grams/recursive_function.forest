@@ -1,7 +1,7 @@
 \documentclass[tikz]{standalone}
 \usepackage[linguistics]{forest}
-\newcommand{\emptystring}{\varepsilon}
-\newcommand{\stringcat}{\cdot}
+\providecommand{\emptystring}{\varepsilon}
+\providecommand{\stringcat}{\cdot}
 \begin{document}
 \begin{forest}
 [$\mathit{del}_S(\mathit{abba})$

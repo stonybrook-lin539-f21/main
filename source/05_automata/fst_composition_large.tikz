@@ -1,7 +1,7 @@
 \documentclass[tikz]{standalone}
 \usetikzlibrary{arrows, automata, calc, positioning}
-\newcommand{\emptystring}{\ensuremath{\varepsilon}}
-\newcommand{\tuple}[1]{\ensuremath{\left \langle #1 \right \rangle}}
+\providecommand{\emptystring}{\ensuremath{\varepsilon}}
+\providecommand{\tuple}[1]{\ensuremath{\left \langle #1 \right \rangle}}
 \begin{document}
 \begin{tikzpicture}
     \node[state, initial] (00) at (0,0) {$\tuple{0,0}$};

@@ -1,6 +1,6 @@
 \documentclass[tikz]{standalone}
 \usetikzlibrary{matrix}
-\newcommand{\setof}[1]{\left \{ #1 \right \}}
+\providecommand{\setof}[1]{\left \{ #1 \right \}}
 \begin{document}
 \begin{tikzpicture}
 \matrix (m) at (0,0) [matrix of nodes, column sep = 1em, row sep=3em] {

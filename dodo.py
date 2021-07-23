@@ -4,8 +4,7 @@ Doit task definition file.
 
 from pathlib import Path
 
-DOIT_CONFIG = {"default_tasks": ["pdf_chaps", "latex_chaps", "html_chaps",
-                                 "modsource"]}
+DOIT_CONFIG = {"default_tasks": ["pdf_chaps", "html_chaps"]}
 # DOIT_CONFIG = {"action_string_formatting": "new"}
 
 # CLEANAUX = "scripts/cleanaux.sh"
@@ -14,6 +13,7 @@ TIKZ2SVG = "scripts/tikz2svg.sh"
 LATEX_PREPROC = "scripts/latex-preprocess.sed"
 CSTM_BLKS = "filters/custom-blocks.lua"
 INCL_FILE = "filters/include-file.lua"
+LATEX_TIPA = "filters/latex-tipa.lua"
 
 MYCOMMANDS = Path("includes/mycommands.mdown")
 MYPACKAGES = Path("includes/environments.sty")
@@ -29,21 +29,13 @@ SRC_MD = sorted(f for f in SRCDIR.glob('**/*') if f.suffix in MD_EXTS)
 TIKZ_EXTS = (".tikz", ".forest")
 SRC_TIKZ = sorted(f for f in SRCDIR.glob('**/*') if f.suffix in TIKZ_EXTS)
 
-SRC_FOREST = SRCDIR.glob("**/*.forest")
-
 BUILDDIR = Path("build")
-MODSRCDIR = BUILDDIR / "modsource"
+# MODSRCDIR = BUILDDIR / "modsource"
 IMGDIR = BUILDDIR / "images"
 TEXDIR = BUILDDIR / "latex"
 PDFDIR = BUILDDIR / "pdf"
 HTMLDIR = BUILDDIR / "html"
 MODCMDS = BUILDDIR / "mycommands-preproc.mdown"
-# MODCMDS_TEX = BUILDDIR / "mycommands-tex.mdown"
-# MODCMDS_HTML = BUILDDIR / "mycommands-html.mdown"
-# MODSRC = $(patsubst $(SRCDIR)/%.mdown, $(MODSRCDIR)/%.mdown, $(SRC_MD))
-# TEX = $(patsubst $(SRCDIR)/%.mdown, $(TEXDIR)/%.tex, $(SRC_MD))
-# PDF = $(patsubst $(SRCDIR)/%.mdown, $(PDFDIR)/%.pdf, $(SRC_MD))
-# HTML = $(patsubst $(SRCDIR)/%.mdown, $(HTMLDIR)/%.html, $(SRC_MD))
 
 BOOK_CHAPS = ["01_intro", "02_n-grams", "03_universals", "04_representations",
               "05_automata"]
@@ -53,7 +45,7 @@ BOOK_CHAPS += [f"background/{subch}" for subch in
 
 
 def task_mkdirs():
-    for dirname in (MODSRCDIR, TEXDIR, PDFDIR, HTMLDIR):
+    for dirname in (TEXDIR, PDFDIR, HTMLDIR):
         yield {
             "name": dirname,
             "targets": [dirname],
@@ -74,29 +66,29 @@ def task_modcommands():
             "clean": True}
 
 
-def task_modsource():
-    for infile in SRC_MD:
-        outfile = MODSRCDIR / infile.relative_to(SRCDIR)
-        yield {
-            "name": outfile,
-            "targets": [outfile],
-            "file_dep": [infile],
-            "actions": [
-                f"mkdir -p $(dirname {outfile})",
-                f"sed -f {LATEX_PREPROC} {infile} > {outfile}"],
-            "clean": True}
+# def task_modsource():
+#     for infile in SRC_MD:
+#         outfile = MODSRCDIR / infile.relative_to(SRCDIR)
+#         yield {
+#             "name": outfile,
+#             "targets": [outfile],
+#             "file_dep": [infile],
+#             "actions": [
+#                 f"mkdir -p $(dirname {outfile})",
+#                 f"sed -f {LATEX_PREPROC} {infile} > {outfile}"],
+#             "clean": True}
 
 
 def task_latex_chaps():
     for ch in BOOK_CHAPS:
-        infiles = [str(MODSRCDIR / f.relative_to(SRCDIR))
+        infiles = [str(f)
                    for f in sorted(Path(f"{SRCDIR}/{ch}").glob("*.mdown"))]
         outfile = f"{TEXDIR}/{ch}.tex"
         cmd = (
             "pandoc -s -f markdown -t latex"
             f" --metadata-file={YAMLHEADER}"
             f" -H {MYPACKAGES} -H {MODCMDS}"
-            f" -L {CSTM_BLKS} -L {INCL_FILE}"
+            f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
             f" {' '.join(infiles)} -o {outfile}"
         )
         yield {
@@ -113,7 +105,7 @@ def task_pdf_chaps():
     """
     for ch in BOOK_CHAPS:
         srcsubdir = SRCDIR / ch
-        infiles = [str(MODSRCDIR / f.relative_to(SRCDIR))
+        infiles = [str(f)
                    for f in sorted(Path(f"{SRCDIR}/{ch}").glob("*.mdown"))]
         outfile = f"{PDFDIR}/{ch}.pdf"
         cmd = (
@@ -121,7 +113,7 @@ def task_pdf_chaps():
             " pandoc -s -f markdown -t pdf"
             f" --metadata-file={YAMLHEADER}"
             f" -H {MYPACKAGES} -H {MODCMDS}"
-            f" -L {CSTM_BLKS} -L {INCL_FILE}"
+            f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
             f" {' '.join(infiles)} -o {outfile}"
         )
         yield {
@@ -134,7 +126,7 @@ def task_pdf_chaps():
 
 def task_html_chaps():
     for ch in BOOK_CHAPS:
-        infiles = sorted(str(MODSRCDIR / f.relative_to(SRCDIR))
+        infiles = sorted(str(f)
                          for f in Path(f"{SRCDIR}/{ch}").glob("*.mdown"))
         outfile = f"{HTMLDIR}/{ch}.html"
         cmd = (
@@ -167,14 +159,13 @@ def task_images():
 
 
 def task_latex_sections():
-    MODSRC_MD = (MODSRCDIR / f.relative_to(SRCDIR) for f in SRC_MD)
-    for infile in MODSRC_MD:
-        outfile = TEXDIR / infile.relative_to(MODSRCDIR).with_suffix(".tex")
+    for infile in SRC_MD:
+        outfile = TEXDIR / infile.relative_to(SRCDIR).with_suffix(".tex")
         cmd = (
             "pandoc -s -f markdown -t latex"
             f" --metadata-file={YAMLHEADER}"
             f" -H {MYPACKAGES} -H {MODCMDS}"
-            f" -L {CSTM_BLKS} -L {INCL_FILE}"
+            f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
             f" {infile} -o {outfile}"
         )
         yield {
@@ -186,16 +177,15 @@ def task_latex_sections():
 
 
 def task_pdf_sections():
-    MODSRC_MD = (MODSRCDIR / f.relative_to(SRCDIR) for f in SRC_MD)
-    for infile in MODSRC_MD:
-        srcsubdir = SRCDIR / infile.relative_to(MODSRCDIR).parent
-        outfile = PDFDIR / infile.relative_to(MODSRCDIR).with_suffix(".pdf")
+    for infile in SRC_MD:
+        srcsubdir = infile.parent
+        outfile = PDFDIR / infile.relative_to(SRCDIR).with_suffix(".pdf")
         cmd = (
             f"TEXINPUTS=.:{srcsubdir}:"
             " pandoc -s -f markdown -t pdf"
             f" --metadata-file={YAMLHEADER}"
             f" -H {MYPACKAGES} -H {MODCMDS}"
-            f" -L {CSTM_BLKS} -L {INCL_FILE}"
+            f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
             f" {infile} -o {outfile}"
         )
         yield {

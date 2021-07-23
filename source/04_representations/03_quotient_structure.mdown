@@ -58,7 +58,9 @@ Once again, explain whether this also handles the problematic case of the PCC hi
 ::: exercise
 The first attempt at a person-person hierarchy for the PCC had the shape below.
 
-\input_mid{pcc_hierarchy_wrong_reduced.tikz}
+~~~ {.include-tikz size=mid}
+pcc_hierarchy_wrong_reduced.tikz
+~~~
 
 Would this have been a superior choice given our new understanding of linguistic hierarchies, or would we still run into problems with the PCC?
 Justify your answer.

@@ -86,13 +86,17 @@ The definition above defines formulas in terms of strings.
 However, sometimes it is more insightful to define them as trees.
 The formula $(p \wedge (\neg q))$ corresponds to the tree below.
 
-\input_mid{formula1.forest}
+~~~ {.include-tikz size=mid}
+formula1.forest
+~~~
 
 A longer formula such as
 $(\neg (\neg (\neg ((p \rightarrow q) \rightarrow (\neg ( (\neg p) \vee (\neg q)))))))$
 yields a correspondingly larger tree.
 
-\input_mid{formula2.forest}
+~~~ {.include-tikz size=mid}
+formula2.forest
+~~~
 
 Draw the corresponding tree for each one of the formulas below:
 

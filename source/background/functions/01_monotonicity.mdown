@@ -63,9 +63,15 @@ In this case, one can draw the function as a line or curve in a coordinate syste
 <!-- b.on_click(on_button_clicked) -->
 <!-- ``` -->
 
-\input_mid{monotonicity_f.tikz}
-\input_mid{monotonicity_g.tikz}
-\input_mid{monotonicity_h.tikz}
+~~~ {.include-tikz size=mid}
+monotonicity_f.tikz
+~~~
+~~~ {.include-tikz size=mid}
+monotonicity_g.tikz
+~~~
+~~~ {.include-tikz size=mid}
+monotonicity_h.tikz
+~~~
 
 A function is monotonic iff it does not change direction: once it goes up, it cannot go down, and the other way round.
 However, it may stall, or never move at all.
@@ -75,10 +81,18 @@ Note that $g$ is monotonic even though it rises more steeply at some points than
 ::: exercise
 For each one of the following functions, say whether it is monotonic.
 
-\input_mid{monotonicity_i.tikz}
-\input_mid{monotonicity_j.tikz}
-\input_mid{monotonicity_k.tikz}
-\input_mid{monotonicity_l.tikz}
+~~~ {.include-tikz size=mid}
+monotonicity_i.tikz
+~~~
+~~~ {.include-tikz size=mid}
+monotonicity_j.tikz
+~~~
+~~~ {.include-tikz size=mid}
+monotonicity_k.tikz
+~~~
+~~~ {.include-tikz size=mid}
+monotonicity_l.tikz
+~~~
 :::
 
 ::: exercise

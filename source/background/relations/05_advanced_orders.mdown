@@ -15,7 +15,9 @@ A relation $R \subseteq D \times D$ is a **preorder** iff it is reflexive and tr
 If one takes a preorder and adds antisymmetry, one gets a weak partial order.
 If one adds symmetry instead, one gets an **equivalence relation**.
 
-\input_mid{relation_types.tikz}
+~~~ {.include-tikz size=mid}
+relation_types.tikz
+~~~
 
 ## Equivalence relations
 

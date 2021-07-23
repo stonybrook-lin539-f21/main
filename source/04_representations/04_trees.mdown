@@ -71,16 +71,24 @@ And the same argument also shows that not all substrings of a sentence are alike
 Instead of flat strings, sentences are more like chemical molecules where words are connected by intricate structures.
 Linguists formalize these structures by **trees**, such as the one below.
 
-\input_mid{tree_psg.forest}
+~~~ {.include-tikz size=mid}
+tree_psg.forest
+~~~
 
 As in all sciences, there isn't perfect agreement about how to analyze the facts, and so you might also find other tree structures being proposed.
 Three examples are shown below, some of which are considered obsolete nowadays.
 
-\input_mid{tree_x'.forest}
+~~~ {.include-tikz size=mid}
+tree_x'.forest
+~~~
 
-\input_mid{tree_bps.forest}
+~~~ {.include-tikz size=mid}
+tree_bps.forest
+~~~
 
-\input_mid{tree_dep.forest}
+~~~ {.include-tikz size=mid}
+tree_dep.forest
+~~~
 
 There certainly are many differences between these structures, but the motivation for these differences would be the subject of a syntax class.
 We are only concerned with the mathematical status of these structures.
@@ -118,7 +126,9 @@ The in-degree and out-degree of a graph are the maximum of the in-degrees and ou
 ::: example
 Consider the two weakly connected graphs below.
 
-\input_mid{graph_indegree.tikz}
+~~~ {.include-tikz size=mid}
+graph_indegree.tikz
+~~~
 
 In the left one, the vertices B, C, and D all have an in-degree of 1 and an out-degree 0, making them sinks but not sources.
 The vertex A has an in-degree of 0 and an out-degree of 3, so it's a source but not a sink.
@@ -162,7 +172,9 @@ Explain step-by-step why it is the case that if there is exactly one $v$ such th
 ::: example
 Consider once more the graphs from the previous example, repeated here for your convenience:
 
-\input_mid{graph_indegree.tikz}
+~~~ {.include-tikz size=mid}
+graph_indegree.tikz
+~~~
 
 The left one is rooted, whereas the right one is not.
 :::
@@ -208,7 +220,9 @@ But linguistic trees also have linearity.
 ::: example
 The two trees below are equivalent from a graph-theoretic perspective as they define exactly the same edge relation over the same vertices.
 
-\input_mid{tree_orderdifference.forest}
+~~~ {.include-tikz size=mid}
+tree_orderdifference.forest
+~~~
 
 But the two are not the same.
 One represents the structure of

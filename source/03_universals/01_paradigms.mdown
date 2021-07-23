@@ -67,27 +67,39 @@ If this hierarchy is indeed a substantive universal of natural languages, then a
 But let's start with the basic intuition before we bring in any mathematical machinery.
 Suppose that we line up 1, 2, 3, for person as below, with A, B, C underneath it.
 
-\input_mid{123_lineup.tikz}
+~~~ {.include-tikz size=mid}
+123_lineup.tikz
+~~~
 
 Using this visual format, we can represent an ABC pattern by connecting each person to the form below it.
 
-\input_mid{123_ABC.tikz}
+~~~ {.include-tikz size=mid}
+123_ABC.tikz
+~~~
 
 By contrast, the AAA pattern is the result of linking each person to A.
 
-\input_mid{123_AAA.tikz}
+~~~ {.include-tikz size=mid}
+123_AAA.tikz
+~~~
 
 ::: exercise
 What patterns do the two pictures below represent?
 :::
 
-\input_mid{123_AAB.tikz}
+~~~ {.include-tikz size=mid}
+123_AAB.tikz
+~~~
 
-\input_mid{123_ABB.tikz}
+~~~ {.include-tikz size=mid}
+123_ABB.tikz
+~~~
 
 Now contrast the figures above against the one below, which displays an ABA pattern:
 
-\input_mid{123_ABA.tikz}
+~~~ {.include-tikz size=mid}
+123_ABA.tikz
+~~~
 
 The ABA pattern is different from the others because the lines cross at some point.
 Linguists have noticed over the years that language, quite generally, does not like crossing lines.
@@ -148,16 +160,22 @@ The ABA pattern stands out among the rest because it is not monotonically increa
 We can even visualize that using the Cartesian coordinate system that you're probably familiar.
 Here's what an ABC patterns looks like if we represent it in a 2-dimensional space, with the $x$-axis encoding person and the $y$-axis representing the output form.
 
-\input_mid{123_ABC_diagram.tikz}
+~~~ {.include-tikz size=mid}
+123_ABC_diagram.tikz
+~~~
 
 As you can see, the function always goes upward, which makes it monotonically increasing.
 The function for ABB flattens after second person, but it is still monotonically increasing as it never dips down to a lower value.
 
-\input_mid{123_ABB_diagram.tikz}
+~~~ {.include-tikz size=mid}
+123_ABB_diagram.tikz
+~~~
 
 But the diagram for ABA shows exactly such a dip from second person to third person, and that's why the function is not monotonically increasing.
 
-\input_mid{123_ABA_diagram.tikz}
+~~~ {.include-tikz size=mid}
+123_ABA_diagram.tikz
+~~~
 
 But if there's the notion of monotonically increasing, perhaps there's also **monotonically decreasing** and ABA fits that pattern?
 Well, you're right to assume that this mirror image exists.

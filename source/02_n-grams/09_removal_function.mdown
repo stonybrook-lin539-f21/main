@@ -63,7 +63,9 @@ the value of $\mathit{del}_S(\mathit{abba})$ is inferred from the value of $\mat
 This is called a **recursive** definition.
 We can visualize the computation of this recursive function as below:
 
-\input_mid{recursive_function.tikz}
+~~~ {.include-tikz size=mid}
+recursive_function.tikz
+~~~
 
 Every recursive function has one or more **base cases** and a **recursion step**.
 The base cases are those where the value of the function can be determined without recursion.

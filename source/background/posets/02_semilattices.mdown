@@ -17,7 +17,9 @@ We return once more to the poset of subsets of $\setof{1,2,3}$ ordered by the su
 We have already seen that the upper bounds of $\setof{1}$ are $\setof{1}$, $\setof{1,2}$, $\setof{1,3}$, and $\setof{1,2,3}$.
 And the lower bounds of $\setof{1}$ are the empty set and $\setof{1}$ itself.
 
-\input_mid{lattice_123_bounds1.tikz}
+~~~ {.include-tikz size=mid}
+lattice_123_bounds1.tikz
+~~~
 
 Among those lower bounds, the greatest lower bound is $\setof{1}$ because it is closest to $\setof{1}$.
 And the leasat upper bound is also $\setof{1}$.
@@ -28,7 +30,9 @@ We also know already that given the poset above,
 $\mathrm{ub}(\setof{\setof{2}, \setof{3}, \setof{2,3}}) = \setof{\setof{2,3}, \setof{1,2,3}}$ and 
 $\mathrm{lb}(\setof{\setof{2}, \setof{3}, \setof{2,3}}) = \setof{\emptyset}$.
 
-\input_mid{lattice_123_bounds2-3-23.tikz}
+~~~ {.include-tikz size=mid}
+lattice_123_bounds2-3-23.tikz
+~~~
 
 In this case, the least upper bound is $\setof{2,3}$ because $\setof{2,3}$ is less than $\setof{1,2,3}$ (we have $\setof{2,3} \subseteq \setof{1,2,3}$).
 The greatest lower bound is $\emptyset$ because there was only one lower bound to begin with.
@@ -74,7 +78,9 @@ But this isn't always the case with posets.
 ::: example
 We have already seen in the previous units that some posets many not have any lower bounds or upper bounds for at least some subsets of the carrier.
 
-\input_mid{poset_nobounds.tikz}
+~~~ {.include-tikz size=mid}
+poset_nobounds.tikz
+~~~
 
 If there's no lower bounds or upper bounds, then there can't be any greatest lower bounds or least upper bounds either.
 :::
@@ -83,7 +89,9 @@ If there's no lower bounds or upper bounds, then there can't be any greatest low
 With the poset below, $\mathrm{ub}(S)$ and $\mathrm{lb}(S)$ are non-empty for any non-empty subset $S$ of the carrier.
 That is to say, any collection of one or more elements has at least one upper bound and at least one lower bound.
 
-\input_mid{poset_nouniquemeet.tikz}
+~~~ {.include-tikz size=mid}
+poset_nouniquemeet.tikz
+~~~
 
 However, $\mathrm{lub}(\setof{c,d})$ is actually empty.
 To see this, we first compute $\mathrm{ub}(\setof{c,d}) = \setof{a,b,e}$.
@@ -161,7 +169,9 @@ It is not a meet semilattice because $\setof{1}$ and $\setof{2}$ have no meet.
 However, we can just replace $\subseteq$ with $\supseteq$.
 Now the poset is no longer a join semilattice, but it is a meet semilattice.
 
-\input_mid{semilattice_switch.tikz}
+~~~ {.include-tikz size=mid}
+semilattice_switch.tikz
+~~~
 :::
 
 
@@ -201,7 +211,9 @@ Once again we get a unique solution for join and meet that is guaranteed to exis
 ::: example
 The poset $\mathbf{2}$ of truth values is also a lattice.
 
-\input_mid{lattice_2.tikz}
+~~~ {.include-tikz size=mid}
+lattice_2.tikz
+~~~
 
 In this case, the lattice is small enough to verify by hand that meet and join exist in all relevant cases, which are $T \wedge T$, $T \wedge F$, and $F \wedge F$ (and similarly for $\vee$).
 :::
@@ -214,7 +226,9 @@ Why don't we need to check $F \wedge T$ (or $F \vee T$)?
 Consider the poset depicted below.
 Say whether it is a join semilattice, a meet semilattice, or both (and hence a lattice).
 
-\input_mid{lattice_pentagon.tikz}
+~~~ {.include-tikz size=mid}
+lattice_pentagon.tikz
+~~~
 :::
 
 ::: exercise

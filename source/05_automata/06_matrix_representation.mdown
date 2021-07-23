@@ -210,7 +210,9 @@ We will start with a concrete example as the translation procedure is a little a
 Consider once more the familiar automaton for the language $a(\String{baa})^*$.
 To avoid confusion, the states have been renamed X, Y, and Z.
 
-\input_mid{abaa_relabeled.tikz}
+~~~ {.include-tikz size=mid}
+abaa_relabeled.tikz
+~~~
 
 This automataon uses an alphabet with only two symbols, $a$ and $b$.
 For each one of these symbols, we create a matrix that records how we can transition from one state into another via this symbol.
@@ -466,7 +468,9 @@ With non-deterministic automata, the matrix may contain multiple 1s as there are
 ::: exercise
 Consider the non-deterministic FSA below for $a^+b^*$.
 
-\input_mid{aplusb_nondet.tikz}
+~~~ {.include-tikz size=mid}
+aplusb_nondet.tikz
+~~~
 
 Construct the corresponding matrices for this automaton.
 Then use matrix multiplication to determine for each one of the following strings whether it is recognized by the automaton.

@@ -11,7 +11,9 @@ The prototypical example of an order is the "equal or less than" relation $\leq$
 While the set of natural numbers is unordered, we can use $\leq$ to define the usual order over it with $0$ at the beginning, followed by $1$, which is followed by $2$, and so on.
 :::
 
-\input_mid{natnum_lessthan.tikz}
+~~~ {.include-tikz size=mid}
+natnum_lessthan.tikz
+~~~
 
 ::: example
 We could have defined a very different kind of order over $\mathbb{N}$.
@@ -30,7 +32,9 @@ Now we define an order $R$ such that $x \mathrel{R} y$ iff $f(x) < f(y)$.
 That's a very different way of ordering the natural numbers, but it's still an order.
 :::
 
-\input_mid{natnum_digitsum.tikz}
+~~~ {.include-tikz size=mid}
+natnum_digitsum.tikz
+~~~
 
 ::: example
 The standard way of reciting the alphabet in English can be regarded as an order on the set $\setof{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z}$.

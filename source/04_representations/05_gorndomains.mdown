@@ -84,11 +84,15 @@ This is a simple system that assigns each node in a tree a unique identifier tha
 ::: example
 Let's look once more at the very frist tree we encountered in the previous unit.
 
-\input_mid{tree_psg.forest}
+~~~ {.include-tikz size=mid}
+tree_psg.forest
+~~~
 
 If instead of the labels we write down the Gorn addresses of each node, the tree looks as follows.
 
-\input_mid{tree_psg_gorn.forest}
+~~~ {.include-tikz size=mid}
+tree_psg_gorn.forest
+~~~
 
 :::
 
@@ -128,7 +132,9 @@ then so is every string that can be obtained from $a$ by replacing the last symb
 ::: example
 Consider once more our example tree, repeated here for your convenience:
 
-\input_mid{tree_psg_gorn.forest}
+~~~ {.include-tikz size=mid}
+tree_psg_gorn.forest
+~~~
 
 You can pick any arbitrary node, say, $111$.
 The prefixes of $111$ are, in decreasing length: $111$, $11$, $1$, and $\emptystring$.
@@ -140,7 +146,9 @@ That's the address to the left of $111$.
 ::: exercise
 Annotate each node in the tree below with its Gorn address.
 
-\input_mid{tree_exercise.forest}
+~~~ {.include-tikz size=mid}
+tree_exercise.forest
+~~~
 :::
 
 With Gorn addresses, is it very easy to define trees.
@@ -178,11 +186,15 @@ So the daughter-of relation is the inverse of the mother-of relation.
 ::: example
 Here is the by now familiar example tree:
 
-\input_mid{tree_psg.forest}
+~~~ {.include-tikz size=mid}
+tree_psg.forest
+~~~
 
 And here is its counterpart with Gorn addresses:
 
-\input_mid{tree_psg_gorn.forest}
+~~~ {.include-tikz size=mid}
+tree_psg_gorn.forest
+~~~
 
 The node at address $10$ labeled VP is the parent of V and NP at address $100$ and $101$, respectively.
 This VP node is the daughter of the node at address $1$, which is also labeled VP.
@@ -238,7 +250,9 @@ These nodes are also called *leaves*.
 ::: example
 In our example tree, the leaves are $000$, $010$, $020$, $1000$, $10100$, $10110$, $1100$, $11100$, and $11110$.
 
-\input_mid{tree_psg_gorn.forest}
+~~~ {.include-tikz size=mid}
+tree_psg_gorn.forest
+~~~
 :::
 
 Linguists are often interested in nodes that are closely related.
@@ -331,7 +345,9 @@ This relation only holds between siblings.
 ::: example
 We return once more to our example tree.
 
-\input_mid{tree_psg_gorn.forest}
+~~~ {.include-tikz size=mid}
+tree_psg_gorn.forest
+~~~
 
 Here $00$ is left-of $01$ and $02$, and $01$ is left-of $02$.
 Even though the nodes appear to the left of many other nodes, e.g. $10$ and $11$, they do not stand in the left-of relation to them.
@@ -429,7 +445,9 @@ If a node has no sisters, then it c-commands whatever its mother c-commands.
 ::: example
 You know the deal, let's look at the example tree for the gazillionth time:
 
-\input_mid{tree_psg_gorn.forest}
+~~~ {.include-tikz size=mid}
+tree_psg_gorn.forest
+~~~
 
 Here $01$ c-commands everything its siblings $00$ and $02$ reflexively dominate.
 That's $00$, $000$, $02$, and $020$.
@@ -469,7 +487,9 @@ $\Rcomp{R}{S} \is \{ \tuple{x,z} \mid \text{there is a $y$ s.t.} \tuple{x,y} \in
 ::: example
 Guess what, it's your favorite tree:
 
-\input_mid{tree_psg_gorn.forest}
+~~~ {.include-tikz size=mid}
+tree_psg_gorn.forest
+~~~
 
 In this tree, 01 c-commands 000 and 020.
 We can see this by computing the composition of $S$ and $\rdom$.

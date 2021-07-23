@@ -42,16 +42,22 @@ Often it is very useful to visualize posets.
 In this case, elements of the set are represented as nodes in a figure, and arrows between the nodes indicate that they are related via the order relation.
 Here is what this looks like for the natural numbers ordered by $\leq$.
 
-\input_mid{natnum_lessthan_redundant.tikz}
+~~~ {.include-tikz size=mid}
+natnum_lessthan_redundant.tikz
+~~~
 
 Since that is very convoluted, it is customary to omit arrows that can be inferred from the properties of the order.
 First, one omits all arrows that can be inferred from transitivity.
 
-\input_mid{natnum_lessthan_loops.tikz}
+~~~ {.include-tikz size=mid}
+natnum_lessthan_loops.tikz
+~~~
 
 And for weak partial orders, we don't need loops from a node back to itself because the order must be reflexive anyways.
 
-\input_mid{natnum_lessthan_simplified.tikz}
+~~~ {.include-tikz size=mid}
+natnum_lessthan_simplified.tikz
+~~~
 
 **Caution:** due to these conventions, a depiction of $\tuple{\mathbb{N}, \leq}$ will look the same as one for $\tuple{\mathbb{N}, <}$, but those are different posets.
 

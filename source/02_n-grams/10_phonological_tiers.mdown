@@ -77,8 +77,12 @@ The sibilant tier of *hasxintilawas* is *ss*, which is allowed by the negative g
 The illicit *hasxintilawaʃ*, on the other hand, has the sibilant tier *sʃ*, which is not allowed.
 :::
 
-\input_mid{tier_good.tikz}
-\input_mid{tier_bad.tikz}
+~~~ {.include-tikz size=mid}
+tier_good.tikz
+~~~
+~~~ {.include-tikz size=mid}
+tier_bad.tikz
+~~~
 
 ::: exercise
 Carry out the same calculations for

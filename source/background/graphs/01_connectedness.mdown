@@ -28,17 +28,23 @@ A directed graph is
 The undirected graph we saw at the beginning of the unit is disconnected, and the same goes for any directed version of it.
 For example, there is no edge between $1$ and $3$, one simply cannot be reached from the other.
 
-\input_big{modulo3_undirected_notransitive.tikz}
+~~~ {.include-tikz size=big}
+modulo3_undirected_notransitive.tikz
+~~~
 
 However, we can identify parts of the graph that are connected.
 
-\input_small{modulo3_undirected_component.tikz}
+~~~ {.include-tikz size=small}
+modulo3_undirected_component.tikz
+~~~
 
 Even though there is no edge between $0$ and $6$, the transitive closure of the edge relation does connect the two.
 
 Now let us look at a directed graph, where multiple degrees of connectedness need to be distinguished.
 
-\input_small{modulo3_directed_strong.tikz}
+~~~ {.include-tikz size=small}
+modulo3_directed_strong.tikz
+~~~
 
 The directed graph above is strongly connected.
 When we take the reflexive, transitive closure of the edge relation, every node is reachable from every node.
@@ -46,7 +52,9 @@ This is exactly what it means to be strongly connected.
 
 But a slight change in the edge relation suffices to reduce strong connectedness to connectedness.
 
-\input_small{modulo3_directed_connected.tikz}
+~~~ {.include-tikz size=small}
+modulo3_directed_connected.tikz
+~~~
 
 Even if we look at the reflexive, transitive closure of the edge relation, there is no path from $3$ to $0$, from $6$ to $0$, or from $9$ to $0$.
 So we can no longer reach every node from every node.
@@ -55,7 +63,9 @@ Hence the reflexive, transitive closure of the edge relation is still total, and
 
 Finally, consider what happens if we remove one edge from the graph above.
 
-\input_small{modulo3_directed_weak.tikz}
+~~~ {.include-tikz size=small}
+modulo3_directed_weak.tikz
+~~~
 
 Now even the reflexive, transitive closure of the edge relation does not connect $6$ and $9$, so the graph cannot be connected.
 However, $6$ and $9$ are still reachable from each other if we consider the reflexive, symmetric, transitive closure of the edge relation.

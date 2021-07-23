@@ -3,10 +3,18 @@
 We have encountered a variety of hierarchies in the previous unit.
 They're shown below to jog your memory.
 
-\input_mid{123.tikz}
-\input_mid{adjectival_gradation.tikz}
-\input_mid{blake_partialorder.tikz}
-\input_mid{pcc_hierarchy_right_reduced.tikz}
+~~~ {.include-tikz size=mid}
+123.tikz
+~~~
+~~~ {.include-tikz size=mid}
+adjectival_gradation.tikz
+~~~
+~~~ {.include-tikz size=mid}
+blake_partialorder.tikz
+~~~
+~~~ {.include-tikz size=mid}
+pcc_hierarchy_right_reduced.tikz
+~~~
 
 They are all weak partial orders, and some of them are linear orders.
 But weak partial orders can take a lot more general shapes than what we see above.
@@ -73,7 +81,9 @@ $\downarrow$S/O$\rightarrow$ | 1 | 2 | 3 | 4 |
 This looks very similar to the U-PCC, generalized from 3 values to 4.
 So it isn't too surprising that the GCC is a monotonic map given a gender hierarchy that, once again, forms a lattice.
 
-\input_mid{gcc_hierarchy.tikz}
+~~~ {.include-tikz size=mid}
+gcc_hierarchy.tikz
+~~~
 
 ::: exercise
 Show that the Zapotec GCC is monotonic over this hierarchy.
@@ -119,7 +129,9 @@ Each one of the two hierarchies is a lattice, but we need a hierarchy that can a
 No linear order can do this.
 Instead, we need a partial order.
 
-\input_mid{tense_hierarchy.forest}
+~~~ {.include-tikz size=mid}
+tense_hierarchy.forest
+~~~
 
 ::: exercise
 For each one of the three data paradigms above, show that it is monotonic over this tense hierarchy.
@@ -158,13 +170,17 @@ Either all cases use the same stem, or only nominative gets to use a different s
 So in a system with nominative, accusative, genitive, and dative, the only possible stem patterns are AAAA and ABBB.
 This is monotonic over the case hierarchy, repeated here for your convenience.
 
-\input_mid{blake_partialorder.tikz}
+~~~ {.include-tikz size=mid}
+blake_partialorder.tikz
+~~~
 
 But the case hierarchy allows for many other monotonic maps, none of which seem to occur with noun stem allomorphy.
 Rather than stipulating them away, one would prefer a mechanism that modifies the hierarchy for case and thereby yields a suitable hierarchy for noun stem allomorphy.
 The only possible solution that limits the set of monotonic maps is the following:
 
-\input_mid{stem_allomorphy.tikz}
+~~~ {.include-tikz size=mid}
+stem_allomorphy.tikz
+~~~
 
 This figure looks quite a bit different from what we have encountered so far.
 An arrow from $x$ to $y$ represents $x \leq y$.

@@ -35,7 +35,9 @@ The graph depicted below has $\setof{0,1,2,\ldots,11}$ as its set of vertices, a
 - and so on
 
 
-\input_mid{modulo3_directed.tikz}
+~~~ {.include-tikz size=mid}
+modulo3_directed.tikz
+~~~
 :::
 
 
@@ -47,12 +49,16 @@ In the special case where $E$ is symmetric, we call the graph **undirected**.
 It is customary to draw undirected graphs with undirected edges rather than separate arrows in both directions.
 Since the edge relation in our example graph is symmetric, we can draw it in a much simpler fashion using undirected edges.
 
-\input_mid{modulo3_undirected.tikz}
+~~~ {.include-tikz size=mid}
+modulo3_undirected.tikz
+~~~
 
 If the edge relation is transitive, it is also customary not to draw any edges that can be inferred by transitivity.
 This convention further simplifies how we depict our example graph.
 
-\input_big{modulo3_undirected_notransitive.tikz}
+~~~ {.include-tikz size=big}
+modulo3_undirected_notransitive.tikz
+~~~
 
 But keep in mind that these three pictures all define the same graph, we are merely using various notational conventions to remove clutter from our pictures.
 Mathematically, how we draw graphs has nothing to do with their definition.
@@ -88,7 +94,9 @@ This sequence is called a **path**.
 ::: example
 Consider one more the following graph, and assume that the edge relation contains a pair $\tuple{a,b}$ iff there is a line from $a$ to $b$ in the picture:
 
-\input_big{modulo3_undirected_notransitive.tikz}
+~~~ {.include-tikz size=big}
+modulo3_undirected_notransitive.tikz
+~~~
 
 Here $3$ is reachable from $0$ because there is an edge taking us from $0$ to $3$.
 But $6$ is also reachable from $0$ as we can first move to $3$ and from there $6$.
@@ -110,7 +118,9 @@ The transitive closure of $E$ is the smallest $E'$ with $E \subseteq E' \subsete
 ::: example
 Consider the graph below.
 
-\input_small{modulo3_directed_weak.tikz}
+~~~ {.include-tikz size=small}
+modulo3_directed_weak.tikz
+~~~
 
 Its edge relation $E$ consists of the pairs $\tuple{0,3}$, $\tuple{0,9}$, $\tuple{3,6}$.
 The transitive closure $E'$ of $E$ also contains $\tuple{0,6}$.

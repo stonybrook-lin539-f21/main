@@ -162,11 +162,15 @@ If none of the three fit, leave the gap empty.
 
 Extending $1 < 2 < 3$ in this pointwise fashion yields the hierarchy below.
 
-\input_mid{pcc_hierarchy_wrong.tikz}
+~~~ {.include-tikz size=mid}
+pcc_hierarchy_wrong.tikz
+~~~
 
 For clarity, let's remove all elements where IO and DO are the same, as we have already excluded them from the PCC.
 
-\input_mid{pcc_hierarchy_wrong_reduced.tikz}
+~~~ {.include-tikz size=mid}
+pcc_hierarchy_wrong_reduced.tikz
+~~~
 
 Now that we have a hierarchy, we can formulate the following hypothesis: every PCC is a monotonically increasing map from the person-person hierarchy.
 But a map to what?
@@ -186,13 +190,17 @@ The set $\setof{\text{T}, \text{F}}$ is ordered such that $\text{F} < \text{T}$.
 The opposite ordering would work just as well, but it is rarely seen because F is usually identified with 0 and T with 1.
 As a picture:
 
-\input_mid{pcc_2.tikz}
+~~~ {.include-tikz size=mid}
+pcc_2.tikz
+~~~
 
 This structure is commonly referred to as **2** (it has only two values, after all).
 So now we can ask whether PCCs are monotonically increasing maps from the person-person hierarchy to **2**.
 At least for the W-PCC, this is indeed the case.
 
-\input_mid{pcc_hierarchy_wrong_wpcc.tikz}
+~~~ {.include-tikz size=mid}
+pcc_hierarchy_wrong_wpcc.tikz
+~~~
 
 For the W-PCC, there are no two pairs $x$ and $y$ such that $x \leq y$ without $f(x) \leq f(y)$.
 So it is indeed a monotonically increasing mapping from person combinations to True/False.
@@ -200,7 +208,9 @@ So it is indeed a monotonically increasing mapping from person combinations to T
 But things don't quite work the way they should.
 The U-PCC, for instance, is not monotonically increasing.
 
-\input_mid{pcc_hierarchy_wrong_upcc.tikz}
+~~~ {.include-tikz size=mid}
+pcc_hierarchy_wrong_upcc.tikz
+~~~
 
 ::: exercise
 Pick two pairs $x$ and $y$ and use them to show that the U-PCC is not a monotonically increasing map.
@@ -272,19 +282,27 @@ Explain why $\triangleleft$ is a weak partial order.
 
 The full person-person hierarchy now looks a bit different, although the overall geometry stays the same.
 
-\input_mid{pcc_hierarchy_right.tikz}
+~~~ {.include-tikz size=mid}
+pcc_hierarchy_right.tikz
+~~~
 
 And after removal of the irrelevant pairs, we get the following:
 
-\input_mid{pcc_hierarchy_right_reduced.tikz}
+~~~ {.include-tikz size=mid}
+pcc_hierarchy_right_reduced.tikz
+~~~
 
 Over this hierarchy, both the W-PCC and the U-PCC are monotonically increasing maps.
 This is illustrated in the figures below.
 For simplicity, boxes are used to indicate that a combination is mapped to T.
 Nodes without boxes around them are mapped to F.
 
-\input_mid{pcc_hierarchy_right_wpcc.tikz}
-\input_mid{pcc_hierarchy_right_upcc.tikz}
+~~~ {.include-tikz size=mid}
+pcc_hierarchy_right_wpcc.tikz
+~~~
+~~~ {.include-tikz size=mid}
+pcc_hierarchy_right_upcc.tikz
+~~~
 
 ::: exercise
 Redraw the figures above with arrows pointing towards T and F as we did earlier on in this unit.

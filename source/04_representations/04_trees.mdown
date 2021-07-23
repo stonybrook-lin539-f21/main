@@ -79,7 +79,7 @@ As in all sciences, there isn't perfect agreement about how to analyze the facts
 Three examples are shown below, some of which are considered obsolete nowadays.
 
 ~~~ {.include-tikz size=mid}
-tree_x'.forest
+tree_xbar.forest
 ~~~
 
 ~~~ {.include-tikz size=mid}

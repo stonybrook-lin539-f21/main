@@ -64,7 +64,7 @@ This is called a **recursive** definition.
 We can visualize the computation of this recursive function as below:
 
 ~~~ {.include-tikz size=mid}
-recursive_function.tikz
+recursive_function.forest
 ~~~
 
 Every recursive function has one or more **base cases** and a **recursion step**.

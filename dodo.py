@@ -112,11 +112,13 @@ def task_pdf_chaps():
     Build PDF chapters directly from source.
     """
     for ch in BOOK_CHAPS:
+        srcsubdir = SRCDIR / ch
         infiles = [str(MODSRCDIR / f.relative_to(SRCDIR))
                    for f in sorted(Path(f"{SRCDIR}/{ch}").glob("*.mdown"))]
         outfile = f"{PDFDIR}/{ch}.pdf"
         cmd = (
-            "pandoc -s -f markdown -t pdf"
+            f"TEXINPUTS=.:{srcsubdir}:"
+            " pandoc -s -f markdown -t pdf"
             f" --metadata-file={YAMLHEADER}"
             f" -H {MYPACKAGES} -H {MODCMDS}"
             f" -L {CSTM_BLKS} -L {INCL_FILE}"
@@ -186,9 +188,11 @@ def task_latex_sections():
 def task_pdf_sections():
     MODSRC_MD = (MODSRCDIR / f.relative_to(SRCDIR) for f in SRC_MD)
     for infile in MODSRC_MD:
+        srcsubdir = SRCDIR / infile.relative_to(MODSRCDIR).parent
         outfile = PDFDIR / infile.relative_to(MODSRCDIR).with_suffix(".pdf")
         cmd = (
-            "pandoc -s -f markdown -t pdf"
+            f"TEXINPUTS=.:{srcsubdir}:"
+            " pandoc -s -f markdown -t pdf"
             f" --metadata-file={YAMLHEADER}"
             f" -H {MYPACKAGES} -H {MODCMDS}"
             f" -L {CSTM_BLKS} -L {INCL_FILE}"

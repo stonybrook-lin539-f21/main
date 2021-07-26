@@ -7,3 +7,4 @@
 	- 05_automata/voicing.tikz
 - [] CSS and navigation for web version
 - [] Update formatting for PDF version
+- [] Fix Doit image dependency info

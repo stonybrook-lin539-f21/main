@@ -1,5 +1,5 @@
 """
-Doit task definition file.
+Doit task definition file for LIN 539 course notes.
 """
 
 from pathlib import Path
@@ -41,17 +41,13 @@ BOOK_CHAPS += [f"background/{subch}" for subch in
                 "posets", "relations", "sets", "strings", "tuples"]]
 
 
-def task_mkdirs():
-    for dirname in (TEXDIR, PDFDIR, HTMLDIR):
-        yield {
-            "name": dirname,
-            "targets": [dirname],
-            "actions": [f"mkdir -p {dirname}"]}
-
-
 def task_modcommands():
     """
-    Remove surrounding $ signs.
+    Preprocess custom command file for PDF (LaTeX) and HTML conversion.
+
+    At present, simply removes surrounding $ signs, which are needed
+    for Jupyter only, and commented lines, which interfere with non-LaTeX
+    build paths.
     """
     return {
         "targets": [MODCMDS],
@@ -64,6 +60,9 @@ def task_modcommands():
 
 
 def task_latex_chaps():
+    """
+    Build LaTeX standalone chapters, which can be subsequently compiled to PDF.
+    """
     for ch in BOOK_CHAPS:
         infiles = [str(f)
                    for f in sorted(Path(f"{SRCDIR}/{ch}").glob("*.mdown"))]
@@ -85,7 +84,9 @@ def task_latex_chaps():
 
 def task_pdf_chaps():
     """
-    Build PDF chapters directly from source.
+    Build PDF chapters directly from source using Pandoc.
+
+    If intermediate LaTeX is needed, use "latex_chaps" instead.
     """
     for ch in BOOK_CHAPS:
         srcsubdir = SRCDIR / ch
@@ -109,6 +110,9 @@ def task_pdf_chaps():
 
 
 def task_html_chaps():
+    """
+    Build HTML chapters using Pandoc.
+    """
     for ch in BOOK_CHAPS:
         infiles = sorted(str(f)
                          for f in Path(f"{SRCDIR}/{ch}").glob("*.mdown"))
@@ -134,6 +138,9 @@ def task_html_chaps():
 
 
 def task_html_images():
+    """
+    Copy pre-converted SVG images to proper directory.
+    """
     for img in SRC_TIKZ:
         src = IMGDIR / img.relative_to(SRCDIR).with_suffix(".svg")
         dest = HTMLDIR / src.relative_to(IMGDIR)
@@ -148,6 +155,9 @@ def task_html_images():
 
 
 def task_images():
+    """
+    Convert TikZ diagrams to SVG for HTML inclusion.
+    """
     for infile in SRC_TIKZ:
         outfile = IMGDIR / infile.relative_to(SRCDIR).with_suffix(".svg")
         yield {

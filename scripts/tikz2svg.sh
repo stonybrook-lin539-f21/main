@@ -43,4 +43,4 @@ then
     exit $S
 fi
 
-rm "$tmpdir" -rf
+rm "$tempdir" -rf

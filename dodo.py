@@ -14,7 +14,7 @@ INCL_FILE = "filters/include-file.lua"
 LATEX_TIPA = "filters/latex-tipa.lua"
 
 MYCOMMANDS = Path("includes/mycommands.mdown")
-MYPACKAGES = Path("includes/environments.sty")
+LATEX_PREAMBLE = Path("includes/preamble.tex")
 YAMLHEADER = Path("includes/format.yaml")
 WEBCSS = Path("includes/web-custom.css").resolve()  # must be absolute to load locally
 MATHJAXCALL = Path("includes/include-mathjax.html")
@@ -70,14 +70,14 @@ def task_latex_chaps():
         cmd = (
             "pandoc -s -f markdown -t latex"
             f" --metadata-file={YAMLHEADER}"
-            f" -H {MYPACKAGES} -H {MODCMDS}"
+            f" -H {LATEX_PREAMBLE} -H {MODCMDS}"
             f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
             f" {' '.join(infiles)} -o {outfile}"
         )
         yield {
             "name": outfile,
             "targets": [outfile],
-            "file_dep": infiles + [YAMLHEADER, MYPACKAGES, MODCMDS],
+            "file_dep": infiles + [YAMLHEADER, LATEX_PREAMBLE, MODCMDS],
             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
             "clean": True}
 
@@ -97,14 +97,14 @@ def task_pdf_chaps():
             f"TEXINPUTS=.:{srcsubdir}:"
             " pandoc -s -f markdown -t pdf"
             f" --metadata-file={YAMLHEADER}"
-            f" -H {MYPACKAGES} -H {MODCMDS}"
+            f" -H {LATEX_PREAMBLE} -H {MODCMDS}"
             f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
             f" {' '.join(infiles)} -o {outfile}"
         )
         yield {
             "name": outfile,
             "targets": [outfile],
-            "file_dep": infiles + [YAMLHEADER, MYPACKAGES, MODCMDS],
+            "file_dep": infiles + [YAMLHEADER, LATEX_PREAMBLE, MODCMDS],
             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
             "clean": True}
 
@@ -131,7 +131,7 @@ def task_html_chaps():
             "name": outfile,
             "targets": [outfile],
             "file_dep": [*infiles, *incl_images,
-                         YAMLHEADER, MYPACKAGES, MODCMDS],
+                         YAMLHEADER, LATEX_PREAMBLE, MODCMDS],
             "actions": [f"mkdir -p $(dirname {outfile})",
                         cmd],
             "clean": True}
@@ -176,14 +176,14 @@ def task_images():
 #         cmd = (
 #             "pandoc -s -f markdown -t latex"
 #             f" --metadata-file={YAMLHEADER}"
-#             f" -H {MYPACKAGES} -H {MODCMDS}"
+#             f" -H {LATEX_PREAMBLE} -H {MODCMDS}"
 #             f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
 #             f" {infile} -o {outfile}"
 #         )
 #         yield {
 #             "name": outfile,
 #             "targets": [outfile],
-#             "file_dep": [infile, YAMLHEADER, MYPACKAGES, MODCMDS],
+#             "file_dep": [infile, YAMLHEADER, LATEX_PREAMBLE, MODCMDS],
 #             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
 #             "clean": True}
 
@@ -196,13 +196,13 @@ def task_images():
 #             f"TEXINPUTS=.:{srcsubdir}:"
 #             " pandoc -s -f markdown -t pdf"
 #             f" --metadata-file={YAMLHEADER}"
-#             f" -H {MYPACKAGES} -H {MODCMDS}"
+#             f" -H {LATEX_PREAMBLE} -H {MODCMDS}"
 #             f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
 #             f" {infile} -o {outfile}"
 #         )
 #         yield {
 #             "name": outfile,
 #             "targets": [outfile],
-#             "file_dep": [infile, YAMLHEADER, MYPACKAGES, MODCMDS],
+#             "file_dep": [infile, YAMLHEADER, LATEX_PREAMBLE, MODCMDS],
 #             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
 #             "clean": True}

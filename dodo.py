@@ -7,10 +7,8 @@ from pathlib import Path
 DOIT_CONFIG = {"default_tasks": ["pdf_chaps", "html_chaps"]}
 # DOIT_CONFIG = {"action_string_formatting": "new"}
 
-# CLEANAUX = "scripts/cleanaux.sh"
 TIKZ2SVG = "scripts/tikz2svg.sh"
 
-LATEX_PREPROC = "scripts/latex-preprocess.sed"
 CSTM_BLKS = "filters/custom-blocks.lua"
 INCL_FILE = "filters/include-file.lua"
 LATEX_TIPA = "filters/latex-tipa.lua"
@@ -30,7 +28,6 @@ TIKZ_EXTS = (".tikz", ".forest")
 SRC_TIKZ = sorted(f for f in SRCDIR.glob('**/*') if f.suffix in TIKZ_EXTS)
 
 BUILDDIR = Path("build")
-# MODSRCDIR = BUILDDIR / "modsource"
 IMGDIR = BUILDDIR / "images"
 TEXDIR = BUILDDIR / "latex"
 PDFDIR = BUILDDIR / "pdf"
@@ -64,19 +61,6 @@ def task_modcommands():
             ("sed -e 's/\\(^\\$\\|\\$$\\)//g' -e '/^%%/d'"
              f" {MYCOMMANDS} > {MODCMDS}")],
             "clean": True}
-
-
-# def task_modsource():
-#     for infile in SRC_MD:
-#         outfile = MODSRCDIR / infile.relative_to(SRCDIR)
-#         yield {
-#             "name": outfile,
-#             "targets": [outfile],
-#             "file_dep": [infile],
-#             "actions": [
-#                 f"mkdir -p $(dirname {outfile})",
-#                 f"sed -f {LATEX_PREPROC} {infile} > {outfile}"],
-#             "clean": True}
 
 
 def task_latex_chaps():

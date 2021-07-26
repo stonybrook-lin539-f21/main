@@ -170,39 +170,39 @@ def task_images():
             "clean": True}
 
 
-def task_latex_sections():
-    for infile in SRC_MD:
-        outfile = TEXDIR / infile.relative_to(SRCDIR).with_suffix(".tex")
-        cmd = (
-            "pandoc -s -f markdown -t latex"
-            f" --metadata-file={YAMLHEADER}"
-            f" -H {MYPACKAGES} -H {MODCMDS}"
-            f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
-            f" {infile} -o {outfile}"
-        )
-        yield {
-            "name": outfile,
-            "targets": [outfile],
-            "file_dep": [infile, YAMLHEADER, MYPACKAGES, MODCMDS],
-            "actions": [f"mkdir -p $(dirname {outfile})", cmd],
-            "clean": True}
+# def task_latex_sections():
+#     for infile in SRC_MD:
+#         outfile = TEXDIR / infile.relative_to(SRCDIR).with_suffix(".tex")
+#         cmd = (
+#             "pandoc -s -f markdown -t latex"
+#             f" --metadata-file={YAMLHEADER}"
+#             f" -H {MYPACKAGES} -H {MODCMDS}"
+#             f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
+#             f" {infile} -o {outfile}"
+#         )
+#         yield {
+#             "name": outfile,
+#             "targets": [outfile],
+#             "file_dep": [infile, YAMLHEADER, MYPACKAGES, MODCMDS],
+#             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
+#             "clean": True}
 
 
-def task_pdf_sections():
-    for infile in SRC_MD:
-        srcsubdir = infile.parent
-        outfile = PDFDIR / infile.relative_to(SRCDIR).with_suffix(".pdf")
-        cmd = (
-            f"TEXINPUTS=.:{srcsubdir}:"
-            " pandoc -s -f markdown -t pdf"
-            f" --metadata-file={YAMLHEADER}"
-            f" -H {MYPACKAGES} -H {MODCMDS}"
-            f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
-            f" {infile} -o {outfile}"
-        )
-        yield {
-            "name": outfile,
-            "targets": [outfile],
-            "file_dep": [infile, YAMLHEADER, MYPACKAGES, MODCMDS],
-            "actions": [f"mkdir -p $(dirname {outfile})", cmd],
-            "clean": True}
+# def task_pdf_sections():
+#     for infile in SRC_MD:
+#         srcsubdir = infile.parent
+#         outfile = PDFDIR / infile.relative_to(SRCDIR).with_suffix(".pdf")
+#         cmd = (
+#             f"TEXINPUTS=.:{srcsubdir}:"
+#             " pandoc -s -f markdown -t pdf"
+#             f" --metadata-file={YAMLHEADER}"
+#             f" -H {MYPACKAGES} -H {MODCMDS}"
+#             f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
+#             f" {infile} -o {outfile}"
+#         )
+#         yield {
+#             "name": outfile,
+#             "targets": [outfile],
+#             "file_dep": [infile, YAMLHEADER, MYPACKAGES, MODCMDS],
+#             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
+#             "clean": True}

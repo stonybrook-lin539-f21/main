@@ -117,6 +117,14 @@ def task_html_chaps():
 
     MODCMDS is inserted in the HTML body so that Pandoc will correctly add
     MATHJAX delimiters (it will not change included headers).
+
+    There is a problem with the --mathjax command, which performs
+    preprocessing, then inserts the Mathjax script *only if* LaTeX math is
+    detected. This means that in a file with no math, the custom commands that
+    we insert will appear as raw text. The author of Pandoc has refused to
+    change this. As a workaround, we use -Vmath='' to manually clear the
+    internal variable where Pandoc records whether math was detected, and
+    insert the script ourselves.
     """
     for ch in BOOK_CHAPS:
         infiles = sorted(str(f)

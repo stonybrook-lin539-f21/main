@@ -12,6 +12,7 @@
 !*.ipynb
 !*.latexmain
 !*.lua
+!*.md
 !*.mdown
 !*.py
 !*.sed
@@ -20,6 +21,7 @@
 !*.sty
 !*.tex
 !*.tikz
+!doc/
 !filters/
 !jupyter/
 !jupyter/**/

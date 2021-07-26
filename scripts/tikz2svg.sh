@@ -2,6 +2,7 @@
 # Convert tikz to standalone file to SVG
 # Based on the "tikztosvg" utility in TeXLive, but does not attempt
 #   to modify source file
+set -u
 
 if [ $# -lt 2 ]; then
 	echo "USAGE: $0 INFILE OUTFILE"

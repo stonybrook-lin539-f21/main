@@ -77,7 +77,8 @@ def task_latex_chaps():
         yield {
             "name": outfile,
             "targets": [outfile],
-            "file_dep": infiles + [YAMLHEADER, LATEX_PREAMBLE, MODCMDS],
+            "file_dep": [*infiles, YAMLHEADER, LATEX_PREAMBLE, MODCMDS,
+                         CSTM_BLKS, INCL_FILE, LATEX_TIPA],
             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
             "clean": True}
 
@@ -104,7 +105,8 @@ def task_pdf_chaps():
         yield {
             "name": outfile,
             "targets": [outfile],
-            "file_dep": infiles + [YAMLHEADER, LATEX_PREAMBLE, MODCMDS],
+            "file_dep": [*infiles, YAMLHEADER, LATEX_PREAMBLE, MODCMDS,
+                         CSTM_BLKS, INCL_FILE, LATEX_TIPA],
             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
             "clean": True}
 
@@ -112,6 +114,9 @@ def task_pdf_chaps():
 def task_html_chaps():
     """
     Build HTML chapters using Pandoc.
+
+    MODCMDS is inserted in the HTML body so that Pandoc will correctly add
+    MATHJAX delimiters (it will not change included headers).
     """
     for ch in BOOK_CHAPS:
         infiles = sorted(str(f)
@@ -130,8 +135,8 @@ def task_html_chaps():
         yield {
             "name": outfile,
             "targets": [outfile],
-            "file_dep": [*infiles, *incl_images,
-                         YAMLHEADER, LATEX_PREAMBLE, MODCMDS],
+            "file_dep": [*infiles, *incl_images, MODCMDS, WEBCSS, MATHJAXCALL,
+                         INCL_FILE],
             "actions": [f"mkdir -p $(dirname {outfile})",
                         cmd],
             "clean": True}

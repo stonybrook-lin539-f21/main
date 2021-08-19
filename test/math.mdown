@@ -4,7 +4,7 @@ Here is some math.
 
 $y = mx + b$
 
-Now for a math using custom macros.
+Now for some math using custom macros.
 
 $\tuple{a, b, c}$
 

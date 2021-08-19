@@ -1,0 +1,13 @@
+.theorem {
+	border: solid;
+	border-color: darkblue;
+	background-color: lightblue;
+	margin: 3pt;
+	padding: 3pt;
+}
+
+.fancy {
+	border-style: dotted;
+	font-weight: bold;
+	font-variant: small-caps;
+}

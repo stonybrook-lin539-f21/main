@@ -81,6 +81,10 @@ Image with custom size.
 
 # Custom blocks
 
+::: advice
+This is some advice.
+:::
+
 ::: theorem
 This is a theorem.
 :::
@@ -118,7 +122,7 @@ Simple included .tikz file.
 images/abaa.tikz
 ~~~
 
-Custom size.
+Custom size. (Not yet implemented.)
 
 ~~~ {.include-tikz width=2in}
 images/abaa.tikz

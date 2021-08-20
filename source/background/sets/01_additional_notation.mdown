@@ -80,9 +80,9 @@ This is a set that contains all initial intervals of the natural numbers: $\seto
 However, such nested definitions are often cumbersome to read, so try to avoid this.
 Quite generally, definitions should not intimidate or dazzle the reader.
 
-\begin{advice}
+::: advice
 A good definition is as complex as necessary and as simple as possible.
-\end{advice}
+:::
 
 ::: example
 The following definition is more complex because it uses multiple variables and uses the expression to define two values at the same time.

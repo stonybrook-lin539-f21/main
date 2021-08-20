@@ -59,12 +59,10 @@ Once the RR-system is better understood, one extends the results to the Roman nu
 The example above is slightly silly because mathematicians have more abstract ways of talking about numbers, ways where it no longer matters how numbers are actually written.
 But the general principle is very close to mathematical practice and will be with us for the entirety of this course:
 
-\begin{advice}
-
+::: advice
 - Study simple systems.
 - Reduce complex systems to simple systems.
-
-\end{advice}
+:::
 
 ::: example
 Suppose we are studying the set $\mathbb{Z}$ of **integers**, which contains $0$, $1$, $-1$, $2$, $-2$, and so on.

@@ -1,5 +1,5 @@
 ---
-title: Style Test
+title: Style and Feature Test
 ---
 
 This document is for testing styling in web (HTML/CSS) and PDF (LaTeX) output.
@@ -99,6 +99,14 @@ This is a theorem.
 
 ::: exercise
 This is an exercise.
+:::
+
+::: exercise
+This is an exercise with an answer. The answer will appear at the bottom of the document.
+
+::: exranswer
+This is the answer to an exercise.
+:::
 :::
 
 

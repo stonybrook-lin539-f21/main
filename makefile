@@ -7,6 +7,8 @@ CSTM_BLKS = filters/custom-blocks.lua
 INCL_FILE = filters/include-file.lua
 LATEX_TIPA = filters/latex-tipa.lua
 
+LATEX_TEMPLATE = templates/custom.tex
+
 MYCOMMANDS = includes/mycommands.mdown
 LATEX_PREAMBLE = includes/preamble.tex
 YAMLHEADER = includes/format.yaml
@@ -21,7 +23,7 @@ HTMLDIR = $(BUILDDIR)/html
 
 SRC = $(shell find ${SRCDIR} -name *.mdown)
 MODCMDS = $(BUILDDIR)/mycommands-preproc.mdown
-MODCMDS_MATHJAX = $(BUILDDIR)/mycommands-mathjax.mdown
+# MODCMDS_MATHJAX = $(BUILDDIR)/mycommands-mathjax.mdown
 TEX = $(patsubst $(SRCDIR)/%.mdown, $(TEXDIR)/%.tex, $(SRC))
 PDF = $(patsubst $(SRCDIR)/%.mdown, $(PDFDIR)/%.pdf, $(SRC))
 HTML = $(patsubst $(SRCDIR)/%.mdown, $(HTMLDIR)/%.html, $(SRC))
@@ -47,9 +49,9 @@ $(MODCMDS): $(MYCOMMANDS)
 	mkdir -p $(shell dirname "$@")
 	sed -e 's/\(^\$$\|\$$$$\)//g' -e '/^%/d' $< > $@
 
-$(MODCMDS_MATHJAX): $(MYCOMMANDS)
-	mkdir -p $(shell dirname "$@")
-	sed -e 's/^\$$/\\(/g' -e 's/\$$$$/\\)/g' -e '/^%/d' $< > $@
+# $(MODCMDS_MATHJAX): $(MYCOMMANDS)
+# 	mkdir -p $(shell dirname "$@")
+# 	sed -e 's/^\$$/\\(/g' -e 's/\$$$$/\\)/g' -e '/^%/d' $< > $@
 
 # $(TEX): $(TEXDIR)/%.tex: $(MODSRCDIR)/%.mdown $(MODCMDS)
 # 	mkdir -p $(shell dirname $@)
@@ -78,9 +80,9 @@ $(MODCMDS_MATHJAX): $(MYCOMMANDS)
 # 		-c $(WEBCSS) \
 # 		$< -o $@
 
-TEXDEPS = $(YAMLHEADER) $(LATEX_PREAMBLE) $(MODCMDS) \
+TEXDEPS = $(LATEX_TEMPLATE) $(YAMLHEADER) $(LATEX_PREAMBLE) $(MODCMDS) \
 		  $(CSTM_BLKS) $(INCL_FILE) $(LATEX_TIPA)
-HTMLDEPS = $(MATHJAXCALL) $(INCL_FILE) $(WEBCSS) $(MODCMDS_MATHJAX)
+HTMLDEPS = $(MATHJAXCALL) $(INCL_FILE) $(WEBCSS) $(MODCMDS)
 
 $(TESTTEX): %.tex: %.mdown $(TEXDEPS)
 	TEXINPUTS=".:$(TESTDIR):" \
@@ -88,6 +90,7 @@ $(TESTTEX): %.tex: %.mdown $(TEXDEPS)
 		--number-sections \
 		--resource-path=.:$(TESTDIR) \
 		--metadata-file=$(YAMLHEADER) \
+		--template $(LATEX_TEMPLATE) -V showanswers \
 		-H $(LATEX_PREAMBLE) -H $(MODCMDS) \
 		-L $(CSTM_BLKS) -L $(INCL_FILE) -L $(LATEX_TIPA) \
 		$< -o $@
@@ -98,17 +101,19 @@ $(TESTPDF): %.pdf: %.mdown $(TEXDEPS)
 		--number-sections \
 		--resource-path=.:$(TESTDIR) \
 		--metadata-file=$(YAMLHEADER) \
+		--template $(LATEX_TEMPLATE) -V showanswers \
 		-H $(LATEX_PREAMBLE) -H $(MODCMDS) \
 		-L $(CSTM_BLKS) -L $(INCL_FILE) -L $(LATEX_TIPA) \
 		$< -o $@
 
 $(TESTHTML): %.html: %.mdown $(HTMLDEPS)
-	pandoc --verbose -s -f markdown-implicit_figures -t html \
+	pandoc -s -f markdown-implicit_figures -t html \
 		--shift-heading-level-by=1 \
 		--mathjax -Vmath="" -H $(MATHJAXCALL) \
-		-L $(INCL_FILE) \
+		-V showanswers \
+		-L $(CSTM_BLKS) -L $(INCL_FILE) \
 		-c $(WEBCSS) \
-		-H $(MODCMDS_MATHJAX) $< -o $@
+		$(MODCMDS) $< -o $@
 
 .PHONY: clean
 clean:

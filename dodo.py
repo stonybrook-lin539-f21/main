@@ -9,6 +9,8 @@ DOIT_CONFIG = {"default_tasks": ["pdf_chaps", "html_chaps"]}
 
 TIKZ2SVG = "scripts/tikz2svg.sh"
 
+LATEX_TEMPLATE = "templates/custom.tex"
+
 CSTM_BLKS = "filters/custom-blocks.lua"
 INCL_FILE = "filters/include-file.lua"
 LATEX_TIPA = "filters/latex-tipa.lua"
@@ -20,10 +22,8 @@ WEBCSS = Path("includes/web-custom.css").resolve()  # must be absolute to load l
 MATHJAXCALL = Path("includes/include-mathjax.html")
 
 SRCDIR = Path("source")
-
 MD_EXTS = (".mdown", ".md")
 SRC_MD = sorted(f for f in SRCDIR.glob('**/*') if f.suffix in MD_EXTS)
-
 TIKZ_EXTS = (".tikz", ".forest")
 SRC_TIKZ = sorted(f for f in SRCDIR.glob('**/*') if f.suffix in TIKZ_EXTS)
 
@@ -34,6 +34,31 @@ PDFDIR = BUILDDIR / "pdf"
 HTMLDIR = BUILDDIR / "html"
 MODCMDS = BUILDDIR / "mycommands-preproc.mdown"
 
+LATEX_DEPS = [CSTM_BLKS, INCL_FILE, LATEX_TIPA,
+              LATEX_TEMPLATE, YAMLHEADER, LATEX_PREAMBLE, MODCMDS]
+HTML_DEPS = [CSTM_BLKS, INCL_FILE,
+             WEBCSS, MATHJAXCALL, MODCMDS]
+
+# options shared by all Pandoc commands
+PANDOC_OPTS = (
+    "-s -f markdown-implicit_figures"
+    " -V showanswers"
+    f" -L {CSTM_BLKS} -L {INCL_FILE}")
+
+# options for LaTeX/PDF only
+LATEX_OPTS = (
+    f"--template {LATEX_TEMPLATE}"
+    f" --metadata-file={YAMLHEADER}"
+    f" -H {LATEX_PREAMBLE} -H {MODCMDS}"
+    f" -L {LATEX_TIPA}")
+
+# options for HTML only
+HTML_OPTS = (
+    f"--shift-heading-level-by=1 -c {WEBCSS}"
+    f" --mathjax -Vmath='' -H {MATHJAXCALL}"
+    f" {MODCMDS}")
+
+# source directories
 BOOK_CHAPS = ["01_intro", "02_n-grams", "03_universals", "04_representations",
               "05_automata"]
 BOOK_CHAPS += [f"background/{subch}" for subch in
@@ -68,17 +93,13 @@ def task_latex_chaps():
                    for f in sorted(Path(f"{SRCDIR}/{ch}").glob("*.mdown"))]
         outfile = f"{TEXDIR}/{ch}.tex"
         cmd = (
-            "pandoc -s -f markdown -t latex"
-            f" --metadata-file={YAMLHEADER}"
-            f" -H {LATEX_PREAMBLE} -H {MODCMDS}"
-            f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
+            f"pandoc -t latex {PANDOC_OPTS} {LATEX_OPTS}"
             f" {' '.join(infiles)} -o {outfile}"
         )
         yield {
             "name": outfile,
             "targets": [outfile],
-            "file_dep": [*infiles, YAMLHEADER, LATEX_PREAMBLE, MODCMDS,
-                         CSTM_BLKS, INCL_FILE, LATEX_TIPA],
+            "file_dep": [*infiles, *LATEX_DEPS],
             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
             "clean": True}
 
@@ -96,17 +117,13 @@ def task_pdf_chaps():
         outfile = f"{PDFDIR}/{ch}.pdf"
         cmd = (
             f"TEXINPUTS=.:{srcsubdir}:"
-            " pandoc -s -f markdown -t pdf"
-            f" --metadata-file={YAMLHEADER}"
-            f" -H {LATEX_PREAMBLE} -H {MODCMDS}"
-            f" -L {CSTM_BLKS} -L {INCL_FILE} -L {LATEX_TIPA}"
+            f" pandoc -s -t pdf {PANDOC_OPTS} {LATEX_OPTS}"
             f" {' '.join(infiles)} -o {outfile}"
         )
         yield {
             "name": outfile,
             "targets": [outfile],
-            "file_dep": [*infiles, YAMLHEADER, LATEX_PREAMBLE, MODCMDS,
-                         CSTM_BLKS, INCL_FILE, LATEX_TIPA],
+            "file_dep": [*infiles, *LATEX_DEPS],
             "actions": [f"mkdir -p $(dirname {outfile})", cmd],
             "clean": True}
 
@@ -133,18 +150,14 @@ def task_html_chaps():
                              for img in SRC_TIKZ)
         outfile = Path(f"{HTMLDIR}/{ch}/index.html")
         cmd = (
-            "pandoc -s -f markdown -t html --shift-heading-level-by=1"
+            f"pandoc -t html {PANDOC_OPTS} {HTML_OPTS}"
             f" --metadata title={ch}"
-            f" --mathjax -Vmath='' -H {MATHJAXCALL}"
-            f" -L {INCL_FILE}"
-            f" -c {WEBCSS}"
-            f" {MODCMDS} {' '.join(infiles)} -o {outfile}"
+            f" {' '.join(infiles)} -o {outfile}"
         )
         yield {
             "name": outfile,
             "targets": [outfile],
-            "file_dep": [*infiles, *incl_images, MODCMDS, WEBCSS, MATHJAXCALL,
-                         INCL_FILE],
+            "file_dep": [*infiles, *incl_images, *HTML_DEPS],
             "actions": [f"mkdir -p $(dirname {outfile})",
                         cmd],
             "clean": True}

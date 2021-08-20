@@ -7,6 +7,8 @@
 \usepackage[skins,breakable]{tcolorbox} 
 \usepackage{tikz}
 \usepackage[linguistics]{forest}
+\usepackage{etoolbox}
+\usepackage{environ}
 \usepackage{fancyhdr}
 \fancyhead[L]{Thomas Graf, Spring 2020}
 \fancyhead[R]{\leftmark}
@@ -45,6 +47,11 @@
     \end{tcolorbox}%
     % \smallskip\noindent%
 }
+
+\providebool{showanswers}
+\newcommand{\exranswerlist}{}
+\NewEnviron{exranswer}{\ifbool{showanswers}{%
+  \xappto\exranswerlist{\theexercise . \BODY}}{}}
 
 \newcounter{example}
 \def\theexample{\arabic{example}}

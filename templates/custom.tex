@@ -466,9 +466,11 @@ $body$
 % ---------------
 % custom additions
 $if(showanswers)$
-\pagebreak
-\section*{Answers to Exercises}
-\exranswerlist
+\ifdefvoid{\exranswerlist}{}{
+  \pagebreak
+  \section*{Answers to Exercises}
+  \exranswerlist
+}
 $else$
 $endif$
 % end custom additions

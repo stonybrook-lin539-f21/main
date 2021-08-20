@@ -3,6 +3,7 @@ Doit task definition file for LIN 539 course notes.
 """
 
 from pathlib import Path
+from itertools import chain
 
 DOIT_CONFIG = {"default_tasks": ["pdf_chaps", "html_chaps"]}
 # DOIT_CONFIG = {"action_string_formatting": "new"}
@@ -84,9 +85,53 @@ def task_modcommands():
             "clean": True}
 
 
+def task_latex_book():
+    """
+    Build entire book as LaTeX. Intended mainly for debugging.
+    """
+    srcsubdirs = [SRCDIR / ch for ch in BOOK_CHAPS]
+    infiles = sorted(str(f)
+                     for f in chain.from_iterable(subdir.glob("*.mdown")
+                                                  for subdir in srcsubdirs))
+    outfile = f"{PDFDIR}/full-book.tex"
+    cmd = (
+        f"TEXINPUTS=.:{':'.join(str(sd) for sd in srcsubdirs)}:"
+        f" pandoc -s -t latex --toc {PANDOC_OPTS} {LATEX_OPTS}"
+        f" {' '.join(infiles)} -o {outfile}"
+    )
+    return {
+        "targets": [outfile],
+        "file_dep": [*infiles, *LATEX_DEPS],
+        "actions": [f"mkdir -p $(dirname {outfile})", cmd],
+        "clean": True}
+
+
+def task_pdf_book():
+    """
+    Build entire book as PDF.
+
+    If intermediate LaTeX is needed, use "latex_all" instead.
+    """
+    srcsubdirs = [SRCDIR / ch for ch in BOOK_CHAPS]
+    infiles = sorted(str(f)
+                     for f in chain.from_iterable(subdir.glob("*.mdown")
+                                                  for subdir in srcsubdirs))
+    outfile = f"{PDFDIR}/full-book.pdf"
+    cmd = (
+        f"TEXINPUTS=.:{':'.join(str(sd) for sd in srcsubdirs)}:"
+        f" pandoc -s -t pdf --toc {PANDOC_OPTS} {LATEX_OPTS}"
+        f" {' '.join(infiles)} -o {outfile}"
+    )
+    return {
+        "targets": [outfile],
+        "file_dep": [*infiles, *LATEX_DEPS],
+        "actions": [f"mkdir -p $(dirname {outfile})", cmd],
+        "clean": True}
+
+
 def task_latex_chaps():
     """
-    Build LaTeX standalone chapters, which can be subsequently compiled to PDF.
+    Build LaTeX standalone chapters. Intended mainly for debugging.
     """
     for ch in BOOK_CHAPS:
         infiles = [str(f)

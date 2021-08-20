@@ -1,6 +1,7 @@
 ---
-geometry: margin=1in, letterpaper
-fontsize: 12pt
+geometry: hmargin=1.5in, vmargin=1in, letterpaper
+fontfamily: charter
+fontsize: 11pt
 indent: true
-numbersections: false
+numbersections: true
 ---

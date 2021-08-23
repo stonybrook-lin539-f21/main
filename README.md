@@ -19,22 +19,10 @@ For more information about the content, see the [syllabus].
 Using the Lecture Notes
 -----------------------
 
-The lecture notes are made available as [Jupyter notebooks](http://jupyter.org/) in the [notebooks folder](./tree/master/notebooks) of the [main github repository](https://github.com/StonyBrook-Lin539-F17/main). 
-A Jupyter notebook is a mixture of text and Python code, which allows for a more interactive learning environment.
-You can view the notebooks directly on github, but this does not work perfectly as github ignores some layout instructions and does not allow you to execute any of the Python code --- you'd be looking at a static, impoverished snapshot of the interactive notebook.
+The lecture notes are made available in the `pdf` folder.
 
-If you are a Stony Brook student, you should instead use the [preconfigured Jupyter server for this course](https://dev.tlt.stonybrook.edu:8000).
-The server can only be accessed from a campus network.
-Right now you have to use Stony Brook's [VirtualSINC](https://it.stonybrook.edu/services/virtual-sinc-site) to connect, but hopefully the server will soon be accessible online without jumping through this extra hoop.
-
-Everybody else should consult the [instructions on how to get the Jupyter notebooks to work on your computer][instructions].
-
-
-Assigned Units per Week
---------------------------
-
-- will be announced each week per email
-
+Ignore the rest for now.
+It's script for generating the pdfs from markdown via pdf, and a lot of currently broken legacy stuff for converting the markdown sources to [Jupyter notebooks](http://jupyter.org/). 
 
 Link List
 ---------

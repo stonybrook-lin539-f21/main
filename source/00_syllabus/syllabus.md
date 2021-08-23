@@ -15,7 +15,7 @@ date: Fall 2021
 | Office hours  | MF 11:30am -- 1:00pm            |
 | Office        | SBS N-249/SBS frontyard         |
 
-**A friendly plug:** If you are interested in this class, also consider attending the department's [Mathematical Linguistics Reading Group](https://mlrg.thomasgraf.net) (<https://mlrg.thomasgraf.net>).
+**A friendly plug:** If you are interested in this class, also consider attending the department's [Mathematical Linguistics Reading Group](http://mlrg.thomasgraf.net) (<http://mlrg.thomasgraf.net>).
 Due to COVID, we don't quite know yet how we'll run it this year, I'll keep you posted.
 
 

@@ -1,5 +1,6 @@
 *
 !.gitignore
+!*.yaml
 !*.bib
 !*.bst
 !*.css

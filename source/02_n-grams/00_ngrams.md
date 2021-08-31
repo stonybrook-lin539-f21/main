@@ -25,7 +25,7 @@ As far as phonotactics is concerned, *knight* and *night* are the same word.
 Phonotactics is one of the most basic aspects of natural language.
 By natural language I mean languages like English, Chinese, Tongan, Inuktitut, various dialects of Italian, or the specific language that you grew up with.
 This is in contrast to formal languages, which were designed by humans, e.g. Esperanto, Klingon, or the programming language Python.
-Linguists we want to precisely formulate the laws of natural language phonotactics.
+Linguists want, among other things, to precisely formulate the laws of natural language phonotactics.
 They want to do this at both the language-specific level and across languages:
 
 - **Language specific**: What are the phonotactics of English? German? Language X?
@@ -65,7 +65,7 @@ are *ko*, *ob*, *bi*, *in*, *na*, and *al*.
 The bigrams of *banana* are *ba*, *an*, and *na*.
 :::
 
-```python
+::: jupyterpython
 def bigrams(word):
     return sorted(list(set(''.join(bigram)
                            for bigram in zip(word,word[1:]))))
@@ -79,7 +79,7 @@ bigram_print("banana")
 # try some words of your own
 bigram_print("wordone")
 bigram_print("wordtwo")
-```
+:::
 
 ::: exercise
 Consider the word
@@ -91,6 +91,7 @@ For each one of the following, say whether it is a bigram of the word.
 - doci
 - pail
 - sit
+- co
 - super
 
 :::
@@ -100,7 +101,7 @@ For each one of the following, say whether it is a bigram of the word.
 One shortcoming of this simple notion of bigrams is that one cannot tell which bigrams occurred at the beginning and the end of the word.
 For example, *ababa* and *babab* have the same bigrams, *ab* and *ba*.
 
-```python
+::: jupyterpython
 def bigrams(word):
     return sorted(list(set(''.join(bigram)
                            for bigram in zip(word,word[1:]))))
@@ -111,20 +112,24 @@ def bigram_print(word):
 
 bigram_print("ababa")
 bigram_print("babab")
-```
+:::
 
 But for phonotactics it is actually important to know how a word starts and how it ends.
 We have to make some changes to capture this information with bigrams.
-Concretely, we will add an edge marker \$.
-Then *ababa* will be *\$ababa\$*, and *babab* will be *\$babab\$*.
+Concretely, we will add edge markers. 
+One could use a single edge marker like *\$*.
+In that case, *ababa* would be *\$ababa\$*, and *babab* would be *\$babab\$*.
+But once we dive deeper into the mathematics, it will be more convenient to have separate markers: {{{L}}} for the left edge and {{{R}}} for the right edge.
+This means that *ababa* will be *{{{L}}}ababa{{{R}}}*, and *babab* will be *{{{L}}}babab{{{R}}}*.
+
 Now one can tell clearly which bigrams occurred at the start and the end.
 
 ::: example
-To calculate the bigrams of *kobinal*, we first expand it to *\$kobinal\$*.
-Then we extract bigrams as usual, giving us the following list: *\$k*, *ko*, *ob*, *bi*, *in*, *na*, *al*, *l\$*.
+To calculate the bigrams of *kobinal*, we first expand it to *{{{L}}}kobinal{{{R}}}*.
+Then we extract bigrams as usual, giving us the following list: *{{{L}}}k*, *ko*, *ob*, *bi*, *in*, *na*, *al*, *l{{{R}}}*.
 :::
 
-```python
+::: jupyterpython
 def bigrams(word):
     word = "$" + word + "$"
     return sorted(list(set(''.join(bigram)
@@ -136,7 +141,7 @@ def bigram_print(word):
 
 bigram_print("ababa")
 bigram_print("babab")
-```
+:::
 
 ::: exercise
 Consider once more the word
@@ -146,9 +151,9 @@ Which one of the following is among its bigrams (with edge markers):
 
 - fr
 - z
-- \$\$
-- \$s
-- s\$\$
+- {{{L}}}{{{R}}}
+- {{{L}}}s
+- s{{{R}}}{{{R}}}
 
 :::
 
@@ -164,15 +169,15 @@ Every ill-formed word must contain at least one forbidden bigram.
 ::: example
 Contrast the well-formed *kobinal* against the ill-formed *kbin*.
 If *kb* is a forbidden bigram of English, then *kbin* is ill-formed.
-In order for *kobinal* to be well-formed, none of the following bigrams may be forbbiden:
-*\$k*,
+In order for *kobinal* to be well-formed, none of the following bigrams may be forbidden:
+*{{{L}}}k*,
 *ko*,
 *ob*,
 *bi*,
 *in*,
 *na*,
 *al*,
-*l\$*.
+*l{{{R}}}*.
 :::
 
 As the example above shows, forbidding the bigram *kb* rules out *kbin* as an illicit word for English.
@@ -180,7 +185,7 @@ But there is a problem: *kb* does occur in some well-formed words, such as *cook
 Linguists might object that each one of them is a compound and thus, as far as phonotactics is concerned, might be two words rather than one.
 However, that does not solve the problem of Star Wars's Admiral Ackbar, pronounced *akbar*.
 The problem with *kbin* is not *kb*, it's *kb* at the start of the word.
-The forbidden sequence is not *kb*, but rather *\$kb*.
+The forbidden sequence is not *kb*, but rather *{{{L}}}kb*.
 This is a **trigram**, not a bigram.
 
 ## n-gram grammars
@@ -189,19 +194,18 @@ We can generalize the notion of bigram to sequences of arbitrary length.
 A trigram is a sequence of three elements, a 4-gram contains four elements, and quite generally, an **n-gram** consists of **n** elements.
 
 ::: example
-Let us first look at the bigrams, trigrams, and 4-grams of *kobinal*.
+Let us first look at the bigrams, trigrams, and 4-grams of *kobinal* (without edge markers).
 The bigrams of *kobinal* are
 *ko*, *ob*, *bi*, *in*, *na*, and *al*.
 The trigrams are *kob*, *obi*, *bin*, *ina*, and *nal*.
 The 4-grams are *kobi*, *obin*, *bina*, and *inal*.
-
 
 For *banana*, the only bigrams are *ba*, *an*, and *na*.
 The trigrams are *ban*, *ana*, and *nan*.
 The 4-grams are *bana*, *anan*, and *nana*.
 :::
 
-```python
+::: jupyterpython
 def ngrams(word, n):
     return sorted(list(set(''.join(ngram)
                            for ngram in zip(*[word[i:]
@@ -215,26 +219,72 @@ for n in [2, 3, 4]:
     ngram_print("ababa", n)
     ngram_print("babab", n)
     print()
-```
-
-One problem with large $n$-grams is that some words may be shorter than $n$ even after edge markers have been added.
-Just what are the 4-grams of *\$a\$*?
-To avoid this, we pad out the word with n-1 edge markers.
-
-::: example
-Now consider the  bigrams, trigrams, and 4-grams of *kobinal* with edge markers.
-For bigrams, we have to look at *\$kobinal\$*, which has the bigrams 
-*\$k*, *ko*, *ob*, *bi*, *in*, *na*, *al*, and *l\$*.
-The trigrams are computed over *\$\$kobinal\$\$*, so they're *\$\$k*, *\$ko*, *kob*, *obi*, *bin*, *nal*, *al\$*, and *l\$\$*.
-The 4-grams are *\$\$\$k*, *\$\$ko*, *\$kob*, *kobi*, *obin*, *bina*, *inal*, *nal\$*, *al\$\$*, and *l\$\$*.
-
-
-For *banana*, the bigrams are now *\$b*, *ba*, *an*, *na*, and *a\$*.
-The trigrams are *\$\$b*, *\$ba*, *ban*, *ana*, *nan*, *na\$*, and *a\$\$*.
-The 4-grams are *\$\$\$b*, *\$\$ba*, *\$ban*, *bana*, *anan*, *nana*, *ana\$*, *na\$\$*, and *a\$\$\$*.
 :::
 
-```python
+One problem with large $n$-grams is that some words may be shorter than $n$ even after edge markers have been added.
+Just what are the 4-grams of *{{{L}}}a{{{R}}}*?
+To avoid this, we pad out the word with $n-1$ edge markers.
+
+::: example
+Consider now the bigrams, trigrams, and 4-grams of *kobinal* with edge markers {{{L}}} and {{{R}}}.
+For bigrams, we have to look at *{{{L}}}kobinal{{{R}}}*, which has the bigrams 
+*{{{L}}}k*,
+*ko*,
+*ob*,
+*bi*,
+*in*,
+*na*,
+*al*, and
+*l{{{R}}}*.
+The trigrams are computed over *{{{L}}}{{{L}}}kobinal{{{R}}}{{{R}}}*, so they're
+*{{{L}}}{{{L}}}k*,
+*{{{L}}}ko*,
+*kob*,
+*obi*,
+*bin*,
+*nal*,
+*al{{{R}}}*,
+and *l{{{R}}}{{{R}}}*.
+The 4-grams are computed over *{{{L}}}{{{L}}}{{{L}}}kobinal{{{R}}}{{{R}}}{{{R}}}* and thus they are
+*{{{L}}}{{{L}}}{{{L}}}k*,
+*{{{L}}}{{{L}}}ko*,
+*{{{L}}}kob*,
+*kobi*,
+*obin*,
+*bina*,
+*inal*,
+*nal{{{R}}}*,
+*al{{{R}}}{{{R}}}*,
+and *l{{{R}}}{{{R}}}{{{R}}}*.
+
+For *banana*,
+the bigrams are now
+*{{{L}}}b*,
+*ba*,
+*an*,
+*na*,
+and *a{{{R}}}*.
+Its trigrams are
+*{{{L}}}{{{L}}}b*,
+*{{{L}}}ba*,
+*ban*,
+*ana*,
+*nan*,
+*na{{{R}}}*,
+and *a{{{R}}}{{{R}}}{{{R}}}*.
+The 4-grams are
+*{{{L}}}{{{L}}}{{{L}}}b*,
+*{{{L}}}{{{L}}}ba*,
+*{{{L}}}{{{L}}}ban*,
+*bana*,
+*anan*,
+*nana*,
+*ana{{{R}}},
+*na{{{R}}}{{{R}}}*,
+and *a{{{R}}}{{{R}}}{{{R}}}*.
+:::
+
+::: jupyterpython
 def ngrams(word, n):
     word = "$" * (n-1) + word + "$" * (n-1)
     return sorted(list(set(''.join(ngram)
@@ -249,9 +299,9 @@ for n in [2, 3, 4]:
     ngram_print("ababa", n)
     ngram_print("babab", n)
     print()
-```
+:::
 
-Now we can finally state clearly why *kobinal*, *workbench* and *akbar* are all phonotactically well-formed, whereas *kbin* is not: the latter contains the illicit trigram *\$kb*.
+Now we can finally state clearly why *kobinal*, *workbench* and *akbar* are all phonotactically well-formed, whereas *kbin* is not: the latter contains the illicit trigram *{{{L}}}kb*.
 
 We also refine our original hypothesis about the phonotactics of natural languages: every phonotactic system is described by a set of forbidden $n$-grams.
 
@@ -260,13 +310,13 @@ Consider once more the word
 *supercalifragilisticexpialidocious*.
 For each one of the following, say whether it is a bigram of the word (with edge markers), a trigram, a 4-gram, or none of those choices.
 
-- \$fr
+- {{{L}}}fr
 - z
-- do\$c
-- s\$\$\$
+- do{{{R}}}c
+- s{{{R}}}{{{R}}}{{{R}}}
 - sit
-- \$sup
-
+- cious
+- {{{L}}}sup
 :::
 
 ::: exercise
@@ -279,13 +329,13 @@ Write an $n$-gram grammar that expresses this fact.
 
 Unlike English, German is perfectly fine with words that starts with *kn*.
 But just like English, it does not like words that start with *rb*.
-We can capture this by writing a trigram grammar for German that contains the forbidden trigram *\$rb*.
+We can capture this by writing a trigram grammar for German that contains the forbidden trigram *{{{L}}}rb*.
 But German also has a process known as word-final devoicing: voiced sounds become voiceless at the end of a word.
 So whereas an English speaker will happily pronounce *woods* with a *z* at the end, a German speaker turns the *z* into an *s* like in *trinkets*.
-Alright, no big deal, we just forbid *z\$* too.
+Alright, no big deal, we just forbid *z{{{R}}}* too.
 Or do we?
 
-We now have a forbidden trigram *\$rb* and a forbidden bigram *z\$*.
+We now have a forbidden trigram *{{{L}}}rb* and a forbidden bigram *z{{{R}}}*.
 Are we allowed to mix bigrams and trigrams this way?
 More generally, can every negative $n$-gram grammar also contain $k$-grams, where $k < n$?
 Could this create inconsistencies, or make negative $n$-gram grammars more powerful?
@@ -294,9 +344,9 @@ We'll see in the next section.
 ::: exercise
 Consider the formal language where all strings are sequences of *a*, *b*, and *c* such that
 
-- every string starts with $a$
-- no string ends with $c$
-- $a$ and $c$ are always separated by at least two symbols.
+- every string starts with *a*
+- no string ends with *c*
+- *a* and *c* are always separated by at least two symbols.
 
 Write a negative $n$-gram grammar for this language such that all $n$-grams have the same length.
 :::

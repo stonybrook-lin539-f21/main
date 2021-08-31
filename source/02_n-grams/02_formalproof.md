@@ -23,11 +23,11 @@ We will continue at a leisurely pace, with optional formal sections sprinkled in
 An **alphabet** is a finite set of symbols.
 
 ::: definition
-Let $\Sigma$ be some alphabet, and $\Sigma_\$$ its extension with a distinguished edge marker symbol $\$ \notin \Sigma$.
-An $n$-gram over $\Sigma_\$$ is an element of $\Sigma_\$^n$ ($n \geq 1$).
-A **negative $n$-gram grammar** $G$ over alphabet $\Sigma$ is a finite set of $n$-grams over $\Sigma_\$$.
-A string $s$ over $\Sigma$ is well-formed with respect to $G$ iff there are no $u, v$ over $\Sigma_\$$ and no $g \in G$ such that
-$\$^{n-1} \stringcat s \stringcat \$^{n-1} = u \stringcat g \stringcat v$.
+Let $\Sigma$ be some alphabet, and $\Sigma_E$ its extension with a edge marker symbols ${{{L}}}, {{{R}}} \notin \Sigma$.
+An $n$-gram over $\Sigma_E$ is an element of $\Sigma_E^n$ ($n \geq 1$).
+A **negative $n$-gram grammar** $G$ over alphabet $\Sigma$ is a finite set of $n$-grams over $\Sigma_E$.
+A string $s$ over $\Sigma$ is well-formed with respect to $G$ iff there are no $u, v$ over $\Sigma_E$ and no $g \in G$ such that
+${{{L}}}^{n-1} \stringcat s \stringcat {{{R}}}^{n-1} = u \stringcat g \stringcat v$.
 The **language of $G$**, denoted $L(G)$, contains all strings that are well-formed with respect to $G$, and only those.
 :::
 
@@ -35,8 +35,8 @@ The **language of $G$**, denoted $L(G)$, contains all strings that are well-form
 Suppose $\Sigma \is \setof{C, V}$, where C represents consonants and V vowels.
 One string over $\Sigma$ is $\mathit{CVCVCV}$, an instance of a very simple CV-syllable template.
 Assume $G$ contains $\mathit{CC}$ and $\mathit{VC}$ and let's see if the string $\mathit{CVCVCV}$ is well-formed with respect to $G$.
-The bigram $\mathit{CC}$ is not a problem since there are no strings $u$ and $v$ such that $\$\mathit{CVCV}\$ = u \stringcat \mathit{CC} \stringcat v$, which means that $\mathit{CVCVCV}$ does not contain the forbidden bigram $\mathit{CC}$.
-But clearly $\$\mathit{CVCV}\$ = \$\mathit{C} \stringcat \mathit{VC} \stringcat \mathit{V}\$$.
+The bigram $\mathit{CC}$ is not a problem since there are no strings $u$ and $v$ such that ${{{L}}}\mathit{CVCV}{{{R}}} = u \stringcat \mathit{CC} \stringcat v$, which means that $\mathit{CVCVCV}$ does not contain the forbidden bigram $\mathit{CC}$.
+But clearly ${{{L}}}\mathit{CVCV}{{{R}}} = {{{L}}}\mathit{C} \stringcat \mathit{VC} \stringcat \mathit{V}{{{R}}}$.
 So $\mathit{VC}$ is a component of $\mathit{CVCV}$, and as a result the string is ruled out by $G$.
 :::
 
@@ -54,13 +54,13 @@ For every mixed negative $n$-gram grammar $G$, there is a strict negative $n$-gr
 \begin{proof}
 Let $G' \is \setof{ u \stringcat g \stringcat v \mid g \in G, u,v \in \Sigma^*, \text{ and the length of } u \stringcat g \stringcat v \text{ is } n}$.
 Suppose $s \notin L(G)$.
-Then there must be some $g \in G$ and $u = u_1 \stringcat u_2$ and $v = v_1 \stringcat v_2$ over $\Sigma$ such that $\$^{n-1} \stringcat s \stringcat \$^{n-1} = u \stringcat g \stringcat v$.
-But then $\$^{n-1} \stringcat s \stringcat \$^{n-1} = u_1 \stringcat u_2 \stringcat g \stringcat v_1 \stringcat v_2$.
-As the length of $\$^{n-1} \stringcat s \stringcat \$^{n-1}$ exceeds $n$, it holds that $u_2 \stringcat g \stringcat v_1 \in G'$ for some choice of $u_2$ and $v_1$.
+Then there must be some $g \in G$ and $u = u_1 \stringcat u_2$ and $v = v_1 \stringcat v_2$ over $\Sigma$ such that ${{{L}}}^{n-1} \stringcat s \stringcat {{{R}}}^{n-1} = u \stringcat g \stringcat v$.
+But then ${{{L}}}^{n-1} \stringcat s \stringcat {{{R}}}^{n-1} = u_1 \stringcat u_2 \stringcat g \stringcat v_1 \stringcat v_2$.
+As the length of ${{{L}}}^{n-1} \stringcat s \stringcat {{{R}}}^{n-1}$ exceeds $n$, it holds that $u_2 \stringcat g \stringcat v_1 \in G'$ for some choice of $u_2$ and $v_1$.
 But then $s \notin L(G')$.
 
 In the other direction, suppose $s \notin L(G')$.
-Then there is some $g \in G'$ such that $ \$^{n-1} \stringcat s \stringcat \$^{n-1} = u \stringcat g \stringcat v$.
+Then there is some $g \in G'$ such that $ {{{L}}}^{n-1} \stringcat s \stringcat {{{R}}}^{n-1} = u \stringcat g \stringcat v$.
 But then there must $u'$, $g'$ and $v'$ over $\Sigma$ such that $g = u' \stringcat g' \stringcat v'$ and $g' \in G$.
 It follows that $s \notin L(G)$.
 \end{proof}

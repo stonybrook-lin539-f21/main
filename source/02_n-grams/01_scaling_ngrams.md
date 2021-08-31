@@ -3,10 +3,10 @@
 In the previous unit, we entertained the idea that natural language phonotactics can be described in terms of a collection of forbidden sound sequences.
 Such a collection is called a forbidden $n$-gram grammar, and each $n$-gram represents one forbidden sound sequence of length $n$.
 But this idea ran into a problem.
-In German, words cannot start with *rb*, which is captured by adding the trigram *\$rb* to the list of illicit $n$-grams (*\$* is a special symbol that indicates the edge of a word).
+In German, words cannot start with *rb*, which is captured by adding the trigram *{{{L}}}rb* to the list of illicit $n$-grams (remember that {{{L}}} is a special symbol that indicates the left edge of a word).
 But German also has word-final devoicing, which means that no word can end in a voiced *s*-sound, which corresponds to *z* in English orthography.
-Using this notational convention, we can represent the illicit sequence as *z\$*.
-This is a bigram, whereas *\$rb* is a trigram.
+Using this notational convention, we can represent the illicit sequence as *z{{{R}}}* (with {{{R}}} as the right edge counterpart of {{{L}}}).
+This is a bigram, whereas *{{{L}}}rb* is a trigram.
 What are the consequences of mixing bigrams and trigrams in a single $n$-gram grammar?
 Does this introduce inconsistencies such that a word is both forbidden and allowed? 
 Let's try to answer this question.
@@ -66,7 +66,7 @@ We will see a concrete example in a moment, but let's first focus on the specifi
   Since a proof holds as long as its initial assumptions are satisfied, it can be extended to any object that satisfies these assumptions.
 
 This may all sound awfully abstract to you.
-So let's finally turn to our first proof, because the proof of the pudding is in the eating (no, I couldn't resist this terrible pun).
+So let's finally turn to our first proof, because the proof of the pudding is in the eating (sorry, I couldn't resist).
 We will show that a negative $n$-gram grammar that also contains, say, bigrams and trigrams can be converted to an equivalent $n$-gram grammar that only contains $n$-grams.
 While reading through the proof, keep in mind the three properties above (laziness, guarantees, scalability), and think about how they're instantiated in the proof.
 
@@ -89,7 +89,7 @@ This converted grammar is equivalent to the original in the sense that they make
 The second grammar thus behaves exactly like the first, but has a normalized form without any $n$-grams of different length.
 That's why the second grammar is called a **normal form** of the first one.
 **Theorem** is just a fancy term for a statement that follows from a fixed set of assumptions.
-So we are proving a theorem about the existence of a normal form, hence the term normal form theorem.
+So we are proving a theorem about the existence of a normal form, hence the term **normal form theorem**.
 
 In order to avoid an overload of notation and terminology, we state the theorem in a slightly inaccurate manner as follows:
 
@@ -112,48 +112,47 @@ If a language only has the sounds *a*, *u*, *i*, *b*, *m*, *d*, *g*, and *h*, th
 :::
 
 - As stated in the theorem, the longest $n$-gram is assumed to have length $k$.
-  Since each position is filled by either a sound or the edge marker *\$*, there are $\card{\Sigma} + 1$ choices for each position.
-  Consequently, there are at most $(\card{\Sigma}+1)^k$ different $n$-grams of length $k$.
-  This implies that $G$ contains at most $(\card{\Sigma}+1)^k$ $n$-grams and thus contains only finitely many.
+  Since each position is filled by either a sound or one of two edge markers ({{{L}}} or {{{R}}}), there are $\card{\Sigma} + 2$ choices for each position.
+  Consequently, there are at most $(\card{\Sigma}+2)^k$ different $n$-grams of length $k$.
+  This implies that $G$ contains at most $(\card{\Sigma}+2)^k$ $n$-grams and thus contains only finitely many.
 
 ::: example
 Suppose that the language only has the sounds *a* and *d*, barely enough for *dada*.
 It's $\card{\Sigma}^k$ is $2$.
-There are $(2+1)^3 = 3^3 = 27$ different trigrams:
-
-
-- aaa
-- aad
-- aa\$
-- ada
-- add
-- ad\$
-- a\$a
-- a\$d
-- a\$\$
-- daa
-- dad
-- da\$
-- dda
-- ddd
-- dd\$
-- d\$a
-- d\$d
-- d\$\$
-- \$aa
-- \$ad
-- \$a\$
-- \$da
-- \$dd
-- \$d\$
-- \$\$a
-- \$\$d
-- \$\$\$
-
-
+There are $(2+2)^3 = 4^3 = 64$ different trigrams.
 Not all of them are ever useful.
-For example, no word ever contains an edge marker in the middle, so *a\$a* serves no purpose.
-But this does not change the fact that there are only finitely many trigrams over *a*, *d*, and *\$*.
+In particular, no word ever contains an edge marker in the middle, so *a{{{L}}}a* and *a{{{R}}}a* serve no purpose.
+It is also impossible for {{{R}}} to occur to the left of {{{L}}}, which rules out trigrams like *{{{R}}}a{{{L}}}* and *{{{R}}}{{{L}}}a*.
+Filtering out those useless trigrams leaves us with the following list:
+
+1. aaa
+1. aad
+1. aa{{{R}}}
+1. ada
+1. add
+1. ad{{{R}}}
+1. a{{{R}}}{{{R}}}
+1. daa
+1. dad
+1. da{{{R}}}
+1. dda
+1. ddd
+1. dd{{{R}}}
+1. d{{{R}}}{{{R}}}
+1. {{{L}}}aa
+1. {{{L}}}ad
+1. {{{L}}}a{{{R}}}
+1. {{{L}}}da
+1. {{{L}}}dd
+1. {{{L}}}d{{{R}}}
+1. {{{L}}}{{{L}}}a
+1. {{{L}}}{{{L}}}d
+1. {{{L}}}{{{L}}}{{{L}}}
+1. {{{L}}}{{{L}}}{{{R}}}
+1. {{{L}}}{{{R}}}{{{R}}}
+1. {{{R}}}{{{R}}}{{{R}}}
+
+But even if we had included all useless trigrams, that would not change the fact that there are only finitely many trigrams over *a*, *d*, and the edge markers.
 :::
 
 Now suppose that we pick one of the finitely many $n$-grams of $G$.
@@ -163,111 +162,113 @@ But if its length $i$ is strictly less than $k$, we need to replace $g$ by somet
 We remove the $n$-gram $g$ from the grammar $G$, and instead add in a number of "padded" variants of $g$: 
 
 - Construct every possible $n$-gram of length $k - i$.
-  For each such $n$-gram, put it in front of $g$ and add the result back to $G$.
+  For each such $n$-gram, put it **in front of** $g$ and add the result back to $G$.
 
 ::: example
-Suppose *G* contains the bigram *z\$*, the trigram *\$kn*, and the 4-gram *akzn*.
+Suppose *G* contains the bigram *z{{{R}}}*, the trigram *{{{L}}}kn*, and the 4-gram *akzn*.
 Assume furthermore that the only possible sounds are *a*, *k*, *z*, and *n*.
 
-We have to pad out *z\$* from a bigram to a 4-gram.
-The length difference between a bigram and a 4-gram is 2, so we have to put bigrams in front of *z\$*.
-The list of possible bigrams is as follows:
+We have to pad out *z{{{R}}}* from a bigram to a 4-gram.
+The length difference between a bigram and a 4-gram is 2, so we have to put bigrams in front of *z{{{R}}}*.
+The list of possible (and useful) bigrams is as follows:
 
-
-- \$\$
-- \$a
-- \$k
-- \$z
-- \$n
-- a\$
+- {{{L}}}{{{L}}}
+- {{{L}}}{{{R}}}
+- {{{R}}}{{{R}}}
+- {{{L}}}a
+- {{{L}}}k
+- {{{L}}}z
+- {{{L}}}n
+- a{{{R}}}
 - aa
 - ak
 - az
 - an
-- k\$
+- k{{{R}}}
 - ka
 - kk
 - kz
 - kn
-- z\$
+- z{{{R}}}
 - za
 - zk
 - zz
 - zn
-- n\$
+- n{{{R}}}
 - na
 - nk
 - nz
 - nn
 
+So we remove *z{{{R}}}* from $G$ and instead add all of the following.
+Note that not all of those 4-grams are useful, but that doesn't matter here.
 
-So we remove *z\$* from $G$ and instead add all of the following:
-
-
-- \$\$z\$
-- \$az\$
-- \$kz\$
-- \$zz\$
-- \$nz\$
-- a\$z\$
-- aaz\$
-- akz\$
-- azz\$
-- anz\$
-- k\$z\$
-- kaz\$
-- kkz\$
-- kzz\$
-- knz\$
-- z\$z\$
-- zaz\$
-- zkz\$
-- zzz\$
-- znz\$
-- n\$z\$
-- naz\$
-- nkz\$
-- nzz\$
-- nnz\$
+- {{{L}}}{{{L}}}z{{{R}}}
+- {{{L}}}{{{R}}}z{{{R}}}
+- {{{R}}}{{{R}}}z{{{R}}}
+- {{{L}}}az{{{R}}}
+- {{{L}}}kz{{{R}}}
+- {{{L}}}zz{{{R}}}
+- {{{L}}}nz{{{R}}}
+- a{{{R}}}z{{{R}}}
+- aaz{{{R}}}
+- akz{{{R}}}
+- azz{{{R}}}
+- anz{{{R}}}
+- k{{{R}}}z{{{R}}}
+- kaz{{{R}}}
+- kkz{{{R}}}
+- kzz{{{R}}}
+- knz{{{R}}}
+- z{{{R}}}z{{{R}}}
+- zaz{{{R}}}
+- zkz{{{R}}}
+- zzz{{{R}}}
+- znz{{{R}}}
+- n{{{R}}}z{{{R}}}
+- naz{{{R}}}
+- nkz{{{R}}}
+- nzz{{{R}}}
+- nnz{{{R}}}
 
 :::
 
 - Construct every possible $n$-gram of length $k - i$.
-  For each such $n$-gram, put it after $g$ and add the result back to $G$.
+  For each such $n$-gram, put it **after** $g$ and add the result back to $G$.
 
 ::: example
 We also add the following 4-grams to $G$:
 
 
-- z\$\$\$
-- z\$\$a
-- z\$\$k
-- z\$\$z
-- z\$\$n
-- z\$\$
-- z\$aa
-- z\$ak
-- z\$az
-- z\$an
-- z\$a\$
-- z\$ka
-- z\$kk
-- z\$kz
-- z\$kn
-- z\$k\$
-- z\$za
-- z\$zk
-- z\$zz
-- z\$zn
-- z\$z\$
-- z\$na
-- z\$nk
-- z\$nz
-- z\$nn
-- z\$n\$
+1. z{{{R}}}{{{L}}}{{{L}}}
+1. z{{{R}}}{{{L}}}{{{R}}}
+1. z{{{R}}}{{{R}}}{{{R}}}
+1. z{{{R}}}{{{L}}}a
+1. z{{{R}}}{{{L}}}k
+1. z{{{R}}}{{{L}}}z
+1. z{{{R}}}{{{L}}}n
+1. z{{{R}}}aa
+1. z{{{R}}}ak
+1. z{{{R}}}az
+1. z{{{R}}}an
+1. z{{{R}}}a{{{R}}}
+1. z{{{R}}}ka
+1. z{{{R}}}kk
+1. z{{{R}}}kz
+1. z{{{R}}}kn
+1. z{{{R}}}k{{{R}}}
+1. z{{{R}}}za
+1. z{{{R}}}zk
+1. z{{{R}}}zz
+1. z{{{R}}}zn
+1. z{{{R}}}z{{{R}}}
+1. z{{{R}}}na
+1. z{{{R}}}nk
+1. z{{{R}}}nz
+1. z{{{R}}}nn
+1. z{{{R}}}n{{{R}}}
 
-
-As before, these are all useless because \$ does not occur inside words.
+Except for *z{{{R}}}{{{R}}}{{{R}}}* these are all useless because {{{R}}} cannot occur between two symbols that aren't edge markers.
 But we add them anyways to stick with the procedure.
 :::
 
@@ -279,32 +280,36 @@ Since the difference between a 4-gram and a bigram is $2$, each one of the two "
 So we add the following:
 
 
-- \$z\$\$
-- \$z\$a
-- \$z\$k
-- \$z\$z
-- \$z\$n
-- az\$a
-- az\$k
-- az\$z
-- az\$n
-- az\$\$
-- kz\$a
-- kz\$k
-- kz\$z
-- kz\$n
-- kz\$\$
-- zz\$a
-- zz\$k
-- zz\$z
-- zz\$n
-- zz\$\$
-- nz\$a
-- nz\$k
-- nz\$z
-- nz\$n
-- nz\$\$
-
+1. {{{L}}}z{{{R}}}{{{L}}}
+1. {{{L}}}z{{{R}}}{{{R}}}
+1. {{{L}}}z{{{R}}}a
+1. {{{L}}}z{{{R}}}k
+1. {{{L}}}z{{{R}}}z
+1. {{{L}}}z{{{R}}}n
+1. az{{{R}}}a
+1. az{{{R}}}k
+1. az{{{R}}}z
+1. az{{{R}}}n
+1. az{{{R}}}{{{L}}}
+1. az{{{R}}}{{{R}}}
+1. kz{{{R}}}a
+1. kz{{{R}}}k
+1. kz{{{R}}}z
+1. kz{{{R}}}n
+1. kz{{{R}}}{{{L}}}
+1. kz{{{R}}}{{{R}}}
+1. zz{{{R}}}a
+1. zz{{{R}}}k
+1. zz{{{R}}}z
+1. zz{{{R}}}n
+1. zz{{{R}}}{{{L}}}
+1. zz{{{R}}}{{{R}}}
+1. nz{{{R}}}a
+1. nz{{{R}}}k
+1. nz{{{R}}}z
+1. nz{{{R}}}n
+1. nz{{{R}}}{{{L}}}
+1. nz{{{R}}}{{{R}}}
 
 Again there are many useless $n$-grams, but we do not care.
 :::
@@ -317,8 +322,8 @@ Then some $n$-gram $g$ of $G$ must occur in the string, otherwise it would not b
   If $g$ has length $k$, then it is also an $n$-gram of $G'$, so $G'$ would consider the string illicit, too.
 
 ::: example
-Remember that our example grammar $G$ disallows *z\$*, *\$kn*, and *akzn*.
-The construction above constructs $G'$ by padding out *z\$* and *\$kn* to 4-grams, but it keeps *akzn* the same.
+Remember that our example grammar $G$ disallows *z{{{R}}}*, *{{{L}}}kn*, and *akzn*.
+The construction above constructs $G'$ by padding out *z{{{R}}}* and *{{{L}}}kn* to 4-grams, but it keeps *akzn* the same.
 So if some word is forbidden by $G$ because it contains *akzn*, it will also be forbidden $G'$.
 :::
 
@@ -331,21 +336,21 @@ So if some word is forbidden by $G$ because it contains *akzn*, it will also be 
     So with respect to $G'$, whose longest $n$-gram has length $k$, every string has $k-1$ edge markers to its left and $k-1$ edge markers to its right.
     This means every string has at least length $2 \mult (k - 1) = 2k - 2$, which is greater than $k$.
 
-  - Consider once more the illicit string.
+  - Consider once more the illicit string, whatever it may be.
     Somewhere inside the string is an offending instance of the illicit $n$-gram $g$.
     There must be symbols to its left and right, at the very least some edge markers.
+    We know this because $n \leq k < 2k - 2$.
     But $G'$ contains every padded version of $g$, i.e. $g$ with 0 or more symbols to its left and right.
     So if a string contains $g$, it also contains some illicit padding of $g$.
 
 ::: example
-Consider the word *kaz*, which is illicit because it contains *z\$* (remember, we always add a sufficient number of edge markers).
+Consider the word *kaz*, which is illicit because it contains *z{{{R}}}* (remember, we always add a sufficient number of edge markers).
 This string is still considered illicit by $G'$.
-The padded out word is *\$\$\$kaz\$\$\$*, and several of the illicit 4-grams we constructed from *z\$* are contained in this string:
+The padded out word is *{{{L}}}{{{L}}}{{{L}}}kaz{{{R}}}{{{R}}}{{{R}}}*, and several of the illicit 4-grams we constructed from *z{{{R}}}* are contained in this string:
 
-
-- kaz\$
-- az\$\$
-- z\$\$\$
+- kaz{{{R}}}
+- az{{{R}}}{{{R}}}
+- z{{{R}}}{{{R}}}{{{R}}}
 
 :::
 
@@ -359,7 +364,7 @@ Suppose that a string is ruled out by $G'$ because it contains the $n$-gram $g$.
 
 - **Case 2**  
   $G$ does not contain $g$.
-  Then $g$ was obtained by padding out some smaller $n$-gram $f$.
+  Then $g$ was obtained by padding out some smaller $n$-gram $f$ of $G$.
   But every string that contains an instance of $g$ must also contain an instance of $f$.
   So $G$ still considers the string illicit.
 

@@ -24,7 +24,7 @@ For some of them, you have to rephrase the phenomenon as a phonotactic constrain
 
 - **intervocalic voicing**: voiceless fricatives (assume *s* and *f*) may not occur between vowels (assume *a*, *i*, *u*)
 - **local assimilation**: *n* must be *m* before *b* or *p*
-- **local disimilation**: *rVr* becomes *lVr*, where *V* is *a*, *i*, or *u*
+- **local dissimilation**: *rVr* becomes *lVr*, where *V* is *a*, *i*, or *u*
 - **penultimate stress**: in words with at least two syllables, stress falls on the last but one syllable (assume that words are strings of stress syllables ($\acute{\sigma}$) and unstressed syllables ($\sigma$))
 
 :::
@@ -36,7 +36,7 @@ But as we will see next, this reveals certain shortcomings of the negative gramm
 ## Morphotactics
 
 Just like phonotactics regulates the linear order of sounds in a word, **morphotactics** regulates the linear order of **morphemes**.
-Morphemes consist of multiple sounds and are the building blocks of words.
+Morphemes consist of multiple sounds and are the building blocks of words (linguists, please keep in mind that once again we won't distinguish between morphemes, morphs, and allomorphs).
 For example, *denaturalization* is built from the morphemes *de-*, *nature*, *-al*, *-ize*, and *-ation*.
 Morphemes cannot be combined willy-nilly, they have to follow a specific order.
 In the case of *denaturalization*, no other order is possible.
@@ -49,18 +49,17 @@ For phonotactics, we used $n$-grams where each symbol is a sound, but this is to
 Instead, we will use $n$-grams where each symbol is a morpheme.
 So *-ize -ation* is a bigram, not an 11-gram that consists of 8 letters, 2 hyphens, and 1 space.
 
-```python
+::: jupyterpython
 chunk = "-ize -ation"
 print("{} with characters as symbols: {}-gram".format(chunk, len(chunk)))
 print("{} with sounds as symbols: {}-gram".format(chunk, len("izaSon")))
 print("{} with morphemes as symbols: {}-gram".format(chunk, len(("-ize", "-ation"))))
-```
+:::
 
 ::: exercise
 For each one of the following $n$-grams, say how large it is depending on what one chooses as the basic symbols that $n$-grams are built from.
 Possible choices for building blocks are typed characters, morphemes, or words.
 Not all choice may be appropriate in each case.
-
 
 - *de-*
 - *mpi*
@@ -78,16 +77,15 @@ Let's first write down the conditions in plain English:
 1. *-ize* is followed by *-ation*,
 1. end with *-ation*.
 
-
 Easy peasy, so let's write it down as a negative grammar.
 Here's the list of the forbidden $n$-grams that correspond to each one of the conditions.
 
 1. start with *de-*
-    1. *\$ \$*
-    1. *\$ nature*
-    1. *\$ -al*
-    1. *\$ -ize*
-    1. *\$ -ation*
+    1. *{{{L}}} \$*
+    1. *{{{L}}} nature*
+    1. *{{{L}}} -al*
+    1. *{{{L}}} -ize*
+    1. *{{{L}}} -ation*
 1. *de-* is followed by *nature*
     1. *de- \$*
     1. *de- de-*
@@ -95,19 +93,19 @@ Here's the list of the forbidden $n$-grams that correspond to each one of the co
     1. *de- ize*
     1. *de -ation*
 1. *nature* is followed by *-al*
-    1. *nature \$*
+    1. *nature {{{R}}}*
     1. *nature de-*
     1. *nature nature*
     1. *nature -ize*
     1. *nature -ation*
 1. *-al* is followed by *-ize*
-    1. *-al \$*
+    1. *-al {{{R}}}*
     1. *-al de-*
     1. *-al nature*
     1. *-al -al*
     1. *-al -ation*
 1. *-ize* is followed by *-ation*
-    1. *-ize \$*
+    1. *-ize {{{R}}}*
     1. *-ize de-*
     1. *-ize nature*
     1. *-ize -al*
@@ -128,7 +126,7 @@ Perhaps even more problematically, it does not clearly express the relevant gene
 Intuitively, it would be much more appealing to list what combinations are allowed, rather than forbidden:
 
 1. start with *de-*
-    1. *\$ de-*
+    1. *{{{L}}} de-*
 1. *de-* is followed by *nature*
     1. *de- nature*
 1. *nature* is followed by *-al*
@@ -138,15 +136,15 @@ Intuitively, it would be much more appealing to list what combinations are allow
 1. *-ize* is followed by *-ation*
     1. *-ize -ation*
 1. end with *-ation*
-    1. *-ation \$*
+    1. *-ation {{{R}}}*
 
 This is a **positive $n$-gram grammar**, where the $n$-grams list what sequences are allowed, rather than forbidden.
 
 ::: example
-The list of bigrams above is *\$ de-*, *de- nature*, *nature -al*, *-al -ize*, *-ize -ation*, *-ation \$*.
+The list of bigrams above is *{{{L}}} de-*, *de- nature*, *nature -al*, *-al -ize*, *-ize -ation*, *-ation {{{R}}}*.
 If this is interpreted as positive bigram grammar, then only *denaturalization* is well-formed.
 A string like *nature -al -ize -ation -de* is illicit because it contains the bigram *-ation de-*, which is not part of the positive grammar and thus forbidden.
-If one adds *nature \$* to the grammar, then *nature* can also be generated.
+If one adds *nature {{{R}}}* to the grammar, then *nature* can also be generated.
 :::
 
 In positive $n$-gram grammars, all $n$-grams must be of the same length to avoid inconsistencies.
@@ -154,21 +152,19 @@ That's because with a positive $n$-gram grammar, a word is well-formed iff each 
 
 ::: example
 Suppose we want to allow both *natural* and *denaturalization*, but not *denatural*.
-In order to allow the former, the grammar has to contain the bigrams *\$ nature*, *nature -al*, and *-al \$*.
+In order to allow the former, the grammar has to contain the bigrams *{{{L}}} nature*, *nature -al*, and *-al {{{R}}}*.
 But in combination with the bigrams from the previous example, this would also allow for *denatural*.
-Instead, then, one might try replacing *\$ de-* with the 5-gram *\$ de- nature -al -ize*, so that the grammar looks as follows:
+Instead, then, one might try replacing *{{{L}}} de-* with the 5-gram *{{{L}}} de- nature -al -ize*, so that the grammar looks as follows:
 
-
-- *\$ de- nature -al -ize*
+- *{{{L}}} de- nature -al -ize*
 - *de- nature*
 - *nature -al*
 - *-al -ize*
 - *-ize -ation*
 
-
 But then it is unclear how the grammar should be evaluated.
-If we look at all the 5-grams of *\$ de- nature -al -ize -ation*, then only *\$ de -nature -al -ize* is part of the grammar and the string is incorrectly ruled out.
-If we instead look at all the bigrams, then the word is ruled out because *\$ de-* is no longer part of the grammar.
+If we look at all the 5-grams of *{{{L}}} de- nature -al -ize -ation*, then only *{{{L}}} de -nature -al -ize* is part of the grammar and the string is incorrectly ruled out.
+If we instead look at all the bigrams, then the word is ruled out because *{{{L}}} de-* is no longer part of the grammar.
 Either way the mixing of bigrams and 5-grams causes inconsistencies.
 :::
 
@@ -186,14 +182,12 @@ What if the set of symbols is larger, e.g. *a*, *b*, *c*, and *d*?
 For each one of the following phenomena, write a positive $n$-gram grammar that handles it correctly.
 For some of them, you have to rephrase the phenomenon as a phonotactic constraint first.
 
-
 - **intervocalic voicing**: voiceless fricatives (assume *s* and *f*) may not occur between vowels (assume *a*, *i*, *u*)
 - **local assimilation**: *n* must be *m* before *b* or *p*
 - **local disimilation**: *rVr* becomes *lVr*, where *V* is *a*, *i*, or *u*
 - **penultimate stress**: in words with at least two syllables, stress falls on the last but one syllable (assume that words are strings of stress syllables ($\acute{\sigma}$) and unstressed syllables ($\sigma$))
 
-
-Once you're done, contrast the positive grammars against the negative ones.
+Once you're done, contrast the positive grammars against the negative ones from an earlier exercise.
 Can you identify some general guidelines for when a positive grammar is preferable to a negative one?
 :::
 
@@ -208,28 +202,28 @@ Suppose that your alphabet (i.e. the set of symbols from which strings are built
 Then consider the language $(\mathit{aba})^+$, which contains *aba*, *ababa*, *abababa*, and so on.
 The negative grammar generating this language consists of
 
-1. *\$\$* (no string without any symbols),
-1. *\$b* (don't start with *b*),
+1. *{{{L}}}{{{R}}}* (no string without any symbols),
+1. *{{{L}}}b* (don't start with *b*),
 1. *aa* (don't have *a* followed by *a*),
 1. *bb* (don't have *b* followed by *b*),
-1. *b\$* (don't end with *b*).
+1. *b{{{R}}}* (don't end with *b*).
 
 The positive grammar, on the other hand, contains
 
-1. *\$a* (you may start with *a*),
+1. *{{{L}}}a* (you may start with *a*),
 1. *ab* (*a* may be followed by *b*),
 1. *ba* (*b* may be followed by *a*),
-1. *a\$* (you may end with *a*).
+1. *a{{{R}}}* (you may end with *a*).
 
 Now compare this to the list of all possible bigrams over *a*, *b*, and *\$*:
 
-1. *\$\$*,
-1. *\$a*,
-1. *\$b*,
-1. *a\$*,
+1. *{{{L}}}{{{R}}}*,
+1. *{{{L}}}a*,
+1. *{{{L}}}b*,
+1. *a{{{R}}}*,
 1. *aa*,
 1. *ab*,
-1. *b\$*,
+1. *b{{{R}}}*,
 1. *ba*,
 1. *bb*.
 
@@ -241,39 +235,37 @@ So in order to convert a positive grammar to a negative one, or the other way ro
 Suppose our alphabet contains only *a* and that the only well-formed string is *aa*.
 This would be the case if we have a positive trigram grammar containing:
 
+- *{{{L}}}{{{L}}}a*
+- *{{{L}}}aa*
+- *aa{{{R}}}*
+- *a{{{R}}}{{{R}}}*
 
-- *\$\$a*
-- *\$aa*
-- *aa\$*
-- *a\$\$*
+The set of all possible (and useful) trigrams over the alphabet is as follows:
 
-
-The set of all possible trigrams over the alphabet is as follows:
-
-
-- *\$\$a*
-- *\$aa*
-- *aa\$*
-- *a\$\$*
-- *\$\$\$*
-- *\$a\$*
-- *aaa*
-- *a\$a*
-
-
-The last one can be removed as no string can ever contain the edge marker *\$* anywhere between two symbols that aren't edge markers.
-Furthermore removing all trigrams of the positive trigram grammar leaves us with the following list:
-
-
-- *\$\$\$*
-- *\$a\$*
+- *{{{L}}}{{{L}}}a*
+- *{{{L}}}aa*
+- *aa{{{R}}}*
+- *a{{{R}}}{{{R}}}*
+- *{{{L}}}{{{L}}}{{{L}}}*
+- *{{{L}}}{{{L}}}{{{R}}}*
+- *{{{L}}}{{{R}}}{{{R}}}*
+- *{{{R}}}{{{R}}}{{{R}}}*
+- *{{{L}}}a{{{R}}}*
 - *aaa*
 
+Removing all trigrams of the positive trigram grammar leaves us with the following list:
+
+- *{{{L}}}{{{L}}}{{{L}}}*
+- *{{{L}}}{{{L}}}{{{R}}}*
+- *{{{L}}}{{{R}}}{{{R}}}*
+- *{{{R}}}{{{R}}}{{{R}}}*
+- *{{{L}}}a{{{R}}}*
+- *aaa*
 
 You can verify for yourself that a negative trigram grammar that contains those three trigrams (and no other $n$-grams) can only generate *aa* over the alphabet $\setof{a}$.
 :::
 
-```python
+::: jupyterpython
 from itertools import product
 
 def all_ngrams(alphabet, n):
@@ -307,7 +299,7 @@ print("The original grammar is:")
 print(neg_gram)
 print("The opposite polarity version is:")
 print(pos_gram)
-```
+:::
 
 ::: exercise
 English allows for *nature*, *natural*, *naturalize*, *denaturalize*, *naturalization*, and *denaturalization*, but not *denature* or any of misordered forms like *naturizalation*.
@@ -341,4 +333,4 @@ True understanding comes from the ability to describe one and the same thing in 
 
 - A positive $n$-gram grammar is a finite list of allowed $n$-grams.
 - Positive grammars can be converted to negative grammars, and the other way round.
-- Having multiple descriptions of the same thing is a boon, not a detriment.
+- Having multiple descriptions of the same thing is a boon, not a bane.

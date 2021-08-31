@@ -15,6 +15,8 @@ LATEX_TEMPLATE = "templates/custom.tex"
 CSTM_BLKS = "filters/custom-blocks.lua"
 INCL_FILE = "filters/include-file.lua"
 LATEX_TIPA = "filters/latex-tipa.lua"
+STRIP_CODE = "filters/remove_code.lua"
+EDGEMARKERS = "filters/edgemarkers.lua"
 
 MYCOMMANDS = Path("includes/mycommands.mdown")
 LATEX_PREAMBLE = Path("includes/preamble.tex")
@@ -35,7 +37,7 @@ PDFDIR = BUILDDIR / "pdf"
 HTMLDIR = BUILDDIR / "html"
 MODCMDS = BUILDDIR / "mycommands-preproc.mdown"
 
-LATEX_DEPS = [CSTM_BLKS, INCL_FILE, LATEX_TIPA,
+LATEX_DEPS = [CSTM_BLKS, INCL_FILE, LATEX_TIPA, EDGEMARKERS,
               LATEX_TEMPLATE, YAMLHEADER, LATEX_PREAMBLE, MODCMDS]
 HTML_DEPS = [CSTM_BLKS, INCL_FILE,
              WEBCSS, MATHJAXCALL, MODCMDS]
@@ -51,7 +53,8 @@ LATEX_OPTS = (
     f"--template {LATEX_TEMPLATE}"
     f" --metadata-file={YAMLHEADER}"
     f" -H {LATEX_PREAMBLE} -H {MODCMDS}"
-    f" -L {LATEX_TIPA}")
+    f" -L {LATEX_TIPA}"
+    f" -L {EDGEMARKERS}")
 
 # options for HTML only
 HTML_OPTS = (
@@ -149,7 +152,7 @@ def task_latex_chaps():
             "clean": True}
 
 
-def task_pdf_chaps():
+def task_pdf_chaps(single_chapter=False):
     """
     Build PDF chapters directly from source using Pandoc.
 
@@ -159,18 +162,25 @@ def task_pdf_chaps():
         srcsubdir = SRCDIR / ch
         infiles = [str(f)
                    for f in sorted(Path(f"{SRCDIR}/{ch}").glob("*.mdown"))]
-        outfile = f"{PDFDIR}/{ch}.pdf"
-        cmd = (
-            f"TEXINPUTS=.:{srcsubdir}:"
-            f" pandoc -s -t pdf {PANDOC_OPTS} {LATEX_OPTS}"
-            f" {' '.join(infiles)} -o {outfile}"
-        )
-        yield {
-            "name": outfile,
-            "targets": [outfile],
-            "file_dep": [*infiles, *LATEX_DEPS],
-            "actions": [f"mkdir -p $(dirname {outfile})", cmd],
-            "clean": True}
+        if single_chapter:
+            infiles = [' '.join(infiles)]
+        for infile in infiles:
+            if single_chapter:
+                outfile = f"{PDFDIR}/{ch}.pdf"
+            else:
+                infile_name = Path(infile).stem
+                outfile = f"{PDFDIR}/{ch}/{infile_name}.pdf"
+            cmd = (
+                f"TEXINPUTS=.:{srcsubdir}:"
+                f" pandoc -s -t pdf {PANDOC_OPTS} {LATEX_OPTS}"
+                f" {infile} -o {outfile}"
+            )
+            yield {
+                "name": outfile,
+                "targets": [outfile],
+                "file_dep": [*infiles, *LATEX_DEPS],
+                "actions": [f"mkdir -p $(dirname {outfile})", cmd],
+                "clean": True}
 
 
 def task_html_chaps():

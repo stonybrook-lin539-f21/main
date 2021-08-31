@@ -46,4 +46,4 @@ The factorial function grows very fast, even faster than an exponential function
 | 5   | 32    | 120  |
 | 6   | 64    | 720  |
 
-Even a very fast growing exponential like $10,000^n$ will eventually grow more slowly than the factorial, even though it grows more rapidly for small values of $n$ (e.g. $10,000^10 = 10^{4^10} = 10^{40}$ is much larger than $10! = 3,628,800$).
+Even a very fast growing exponential like $10,000^n$ will eventually grow more slowly than the factorial, even though it grows more rapidly for small values of $n$ (e.g. $10,000^{10} = 10^{4^{10}} = 10^{40}$ is much larger than $10! = 3,628,800$).

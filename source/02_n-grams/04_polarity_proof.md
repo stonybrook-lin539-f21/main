@@ -34,7 +34,7 @@ We define a negative counterpart $N$ as $\Sigma_E^n - P$ and show that $L(P) = L
 First, every $s \in L(P)$ is necessarily a member of $L(N)$.
 Assume towards a contradiction that $s \notin L(N)$.
 Then there must be some $g \in N$ such that ${{{L}}}^{n-1} s {{{R}}}^{n-1} = u \stringcat g \stringcat v$ ($u,v, \in \Sigma_E^*$).
-But since $N \is \Sigma_E^n - P$, it must hold that $g \notin P$, wherefore $s \notin L(P)$.
+But since $N \is \Sigma_E^n - P$, $g \in N$ implies $g \notin P$, wherefore $s \notin L(P)$.
 As this contradicts our initial assumption that $s \in L(P)$, it cannot be the case that $s \notin L(N)$.
 So $s \in L(N)$ after all.
 

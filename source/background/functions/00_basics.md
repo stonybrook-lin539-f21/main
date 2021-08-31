@@ -10,18 +10,17 @@ Crucially, the output is not allowed to vary while the input is kept the same.
 
 ::: example
 A car wash can be regarded as a function that takes as input a car and returns as its output a clean car (in an ideal world, at least).
-A dirty Dodge Viper comes out as a clean Dode Viper, and a clean Audi A4 still comes out as a clean Audi A4.
+A dirty Dodge Viper comes out as a clean Dodge Viper, and a clean Audi A4 still comes out as a clean Audi A4.
 The output is always perfectly predictable from the input.
 :::
 
 ::: example
-Suppse $f(x)$ can be randomly chosen between $x+1$ and $2 \mult x$.
+Suppose $f(x)$ can be randomly chosen between $x+1$ and $2 \mult x$.
 This is not a function because one and the same input can produce different outputs.
 :::
 
 ::: exercise
-Let $f$ be a function that takes as its input a number $n$ and returns $n+1$ on a weekday and $n + 2$ on the weekend.
-
+Let $f$ be a function that takes as its input a number $n$ and returns $n+1$ on a weekday and $n+2$ on the weekend.
 
 - Is $f$ a function?
 - What if $f$ instead takes two arguments: a number $n$, and the name of the day of the week.
@@ -33,7 +32,7 @@ Right uniqueness guarantees that functions are deterministic in the sense that o
 
 **Caution**: The functions used in programming languages are not necessarily functions in the mathematical sense because their output can vary even if the input stays the same.
 
-```python
+::: jupyterpython
 import random
 import re
 
@@ -48,7 +47,7 @@ def random_output(number):
 # let's see what happens when we run the function multiple times
 for _ in range(10):
     print("The output of random_output({}) is {}".format(5, random_output(5)))
-```
+:::
 
 <!-- ```python -->
 <!-- import random -->
@@ -77,35 +76,3 @@ for _ in range(10):
 <!-- b.on_click(on_button_clicked) -->
 <!-- ``` -->
 
-## Domains and co-domains
-
-Every function has a **domain** and a **co-domain**.
-The domain is the set of objects from which its arguments can be drawn, and the **co-domain** is the set of objects from which outputs can be drawn.
-A function is undefined on any arguments that do not belong to its domain.
-
-::: example
-When a car wash is viewed as a function, its domain is the set of all cars (both dirty and clean), whereas the co-domain only contains clean cars.
-:::
-
-::: exercise
-What would be the domain and co-domain of a broken car wash that fails to remove even the tiniest speck of dirt?
-:::
-
-When defining a function for the first time, it is standard to use the format $\text{function-name: domain} \rightarrow \text{co-domain}$.
-The actual mapping is specified after that.
-
-::: example
-Let $E$ be the set of English first names.
-Then the function $f: E \rightarrow \setof{0,1}$ maps $n$ to $1$ iff $n$ contains at least three syllables.
-:::
-
-The mapping from arguments to outputs can be defined in various ways, e.g. in plain English, or as a formula like $f(x) = \frac{(x + x^2 + 5)^{x+1}}{1000^x}$.
-For very simple functions whose name was already mentioned, one often writes $x \mapsto y$ instead of $f(x) = y$.
-
-::: example
-Instead of $f(x) = 5 \mult x - 3$, we may simple write $x \mapsto 5 \mult x - 3$.
-:::
-
-**Caution:**
-Notice the difference between $\rightarrow$ and $\mapsto$.
-The first is used when specifying the domain and co-domain, whereas the latter indicates the concrete mapping from an argument to an output.

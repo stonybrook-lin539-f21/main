@@ -8,12 +8,12 @@ Intuitively, a set is a collection of objects, but with two important twists:
 
 ::: example
 Suppose you want to keep a record of which words occur in a text.
-You aren't interested in how often a given word occured, just whether it occurs at all.
+You aren't interested in how often a given word occurred, just whether it occurs at all.
 Nor do you care in which order the words occurred in the text.
 So you are actually interested in the *set* of words that occur in the text.
 :::
 
-```python
+::: jupyterpython
 # Converting a text to the set of words
 import re
 
@@ -26,7 +26,7 @@ print("The original text is:")
 print(text)
 print("The set of words is:")
 print(text_to_set(text))
-```
+:::
 
 Each property is explained in detail below, but let's first put some helpful notation in place.
 
@@ -53,7 +53,6 @@ $\setof{
 
 ::: exercise
 Write the following as a set:
-
 
 - the first names of your three favorite actors/actresses,
 - the colors of the rainbow,
@@ -111,7 +110,7 @@ Consider the strings
 While they are clearly distinct sentences, their sets of words are identical.
 :::
 
-```python
+::: jupyterpython
 import re
 
 def text_to_set(text):
@@ -123,7 +122,7 @@ text2 = "If Mary left, then John slept."
 set1, set2 = text_to_set(text1), text_to_set(text2)
 print("Are the sets identical?")
 print("Yes") if set1 == set2 else print("No")
-```
+:::
 
 ::: exercise
 For each one of the following, fill the gap with $=$ or $\neq$ as appropriate:
@@ -140,7 +139,7 @@ Sets are **idempotent**, which means that duplicates are ignored.
 So $\setof{a,b} = \setof{a,a,b} = \setof{a,b,b,a,b,a,b,a,a}$.
 It also holds that $\setof{a} = \setof{a,a} = \setof{a,a,a}$, and so on.
 
-```python
+::: jupyterpython
 import re
 
 def text_to_set(text):
@@ -152,7 +151,7 @@ text2 = "If Mary left, then John slept."
 set1, set2 = text_to_set(text1), text_to_set(text2)
 print("Are the sets identical?")
 print(set1 == set2)
-```
+:::
 
 ::: example
 Linguists distinguish between **word types** and **word tokens**.
@@ -185,7 +184,7 @@ For each one of the following, fill the gap with $=$ or $\neq$ as appropriate:
 The sentence *If police police police, then police police police* actually uses two different word types.
 It just just so happens that both are pronounced and spelled *police*.
 But one is the noun *police*, the other one the verb *police*.
-So we might want to annote the string as follows:
+So we might want to annotate the string as follows:
 *If police[N] police[V] police[N], then police[N] police[V] police[N]*.
 Assume that words are annotated with their part of speech in this fashion.
 Then what would be the corresponding set of words?

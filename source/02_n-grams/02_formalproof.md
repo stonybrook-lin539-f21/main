@@ -51,7 +51,7 @@ A negative $n$-gram grammar that is not mixed is called **strict**.
 For every mixed negative $n$-gram grammar $G$, there is a strict negative $n$-gram grammar $G'$ such that $L(G) = L(G')$.
 :::
 
-\begin{proof}
+::: proof
 Let $G' \is \setof{ u \stringcat g \stringcat v \mid g \in G, u,v \in \Sigma^*, \text{ and the length of } u \stringcat g \stringcat v \text{ is } n}$.
 Suppose $s \notin L(G)$.
 Then there must be some $g \in G$ and $u = u_1 \stringcat u_2$ and $v = v_1 \stringcat v_2$ over $\Sigma$ such that ${{{L}}}^{n-1} \stringcat s \stringcat {{{R}}}^{n-1} = u \stringcat g \stringcat v$.
@@ -60,10 +60,10 @@ As the length of ${{{L}}}^{n-1} \stringcat s \stringcat {{{R}}}^{n-1}$ exceeds $
 But then $s \notin L(G')$.
 
 In the other direction, suppose $s \notin L(G')$.
-Then there is some $g \in G'$ such that $ {{{L}}}^{n-1} \stringcat s \stringcat {{{R}}}^{n-1} = u \stringcat g \stringcat v$.
+Then there is some $g \in G'$ such that ${{{L}}}^{n-1} \stringcat s \stringcat {{{R}}}^{n-1} = u \stringcat g \stringcat v$.
 But then there must $u'$, $g'$ and $v'$ over $\Sigma$ such that $g = u' \stringcat g' \stringcat v'$ and $g' \in G$.
 It follows that $s \notin L(G)$.
-\end{proof}
+:::
 
 And there you have it.
 All the ground we've covered in dozens of pages so far, condensed into less than one page.

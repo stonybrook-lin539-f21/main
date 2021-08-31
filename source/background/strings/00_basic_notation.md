@@ -5,7 +5,7 @@
 # Strings: Basic notation
 
 Strings play a very prominent role in computational linguistics.
-A string is a sequence of symbols, like $\mathit{nfm}$, *wendigo*, or *105§/*.
+A string is a sequence of symbols, like *nfm*, *wendigo*, or *105§/*.
 In contrast to sets, strings are ordered and can contain duplicates.
 
 ::: example
@@ -18,7 +18,6 @@ Fill in $=$ or $\neq$ as appropriate for each pair of strings below.
 - $\mathit{abba}$ \_ $\mathit{ABBA}$
 - $10$ \_ $5 + 5$
 - $\setof{m,a,d} \_ \setof{d,a,m}$
-
 
 Caution: $\{$ and $\}$ can be symbols just like $m$, $a$, or $d$.
 :::
@@ -56,7 +55,6 @@ The set $\mathbb{N}$ of all natural numbers is not a valid alphabet because it i
 ::: exercise
 For each one of the following, say whether it is a valid alphabet.
 Justify your answer.
-
 
 - $\setof{a}$
 - $\setof{0,1}$
@@ -106,6 +104,7 @@ Which one of the following are members of $\setof{a,b}^4$, i.e. $\Sigma^4$ where
 - $\mathit{aba}$
 - $\mathit{aaaaa}$
 - $\mathit{b}$
+- $\mathit{abca}$
 
 :::
 
@@ -121,7 +120,6 @@ The expression $\mathit{b a^5 c^3 d}$ is a shorthand for $\mathit{baaaaacccd}$.
 
 ::: exercise
 Write each one of the following in a more compact fashion using exponents.
-
 
 - ABBA
 - loool
@@ -151,7 +149,6 @@ In fact, $\emptystring$ is the only string whose length is 0.
 Let $\Sigma = \setof{a,b}$.
 Then $\Sigma^*$ contains
 
-
 - $\emptystring$,
 - $\mathit{a}$,
 - $\mathit{b}$,
@@ -164,7 +161,6 @@ Then $\Sigma^*$ contains
 - $\mathit{aba}$,
 - $\mathit{abb}$,
 - and so on.
-
 
 All these strings are also members of $\Sigma^+$, except $\emptystring$.
 :::
@@ -186,8 +182,7 @@ Enumerate the five shortest members of $\setof{a}^*$.
 Given two $\Sigma$-strings $u$ and $v$, their **concatenation** $u \stringcat v$ is the result of "glueing" the left end of $v$ to the right end of $u$.
 
 ::: example
-Here are a few examples:
-
+Here are a few examples of concatenation:
 
 - $\mathit{math} \stringcat \mathit{ematics} = \mathit{mathematics}$,
 - $2000 \stringcat 18 = 200018$,
@@ -200,7 +195,6 @@ This means that if we carry out multiple concatenations, it does not matter whic
 
 ::: example
 It does not matter in which order we combine *is* with *concatenation* and *associative* below:
-
 
 - $(\emph{concatenation} \stringcat \emph{is}) \stringcat \emph{associative} = \emph{concatenation is associvative}$
 - $\emph{concatenation} \stringcat (\emph{is} \stringcat \emph{associative}) = \emph{concatenation is associvative}$
@@ -225,6 +219,10 @@ Sometimes concatenation is not explicitly indicated, so that instead of $u \stri
 Given an example of distinct $u$ and $v$ such that $u \stringcat v = v \stringcat u$ and neither $u$ nor $v$ is the empty string.
 :::
 
+::: exercise
+Is the following true or false?
+If $u \neq v$, then $u \stringcat v \neq v \stringcat u$?
+:::
 
 ## Recap
 

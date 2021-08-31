@@ -1,6 +1,6 @@
 **Prerequisites**
 
-- general(function growth)
+- functions(basics, function growth)
 
 # Succinctness and choosing between grammars
 

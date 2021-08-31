@@ -38,7 +38,6 @@ This is because the empty set contains no elements at all, so it trivially holds
 
 ::: exercise
 Complete the table below.
-You can use the Python code to help you with this.
 :::
 
 | A             | B                 | $A \subseteq B$? | $A \supseteq B$? | 
@@ -49,7 +48,7 @@ You can use the Python code to help you with this.
 | $\setof{a,b}$ | $\setof{a,a,b,b}$ |                  |                  | 
 
 
-```python
+::: jupyterpython
 def set_print(some_set):
     return '{' + ', '.join(sorted(list(some_set))) + '}'
 
@@ -61,7 +60,7 @@ if set1.issubset(set2):
     print(set_print(set1), "is a subset of", set_print(set2))
 else:
     print(set_print(set1), "is not a subset of", set_print(set2))
-```
+:::
 
 ::: exercise
 Say whether the following statement is true or false and justify your answer:

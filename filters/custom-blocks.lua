@@ -4,10 +4,14 @@
 if FORMAT:match "latex" then
   function Div(elem)
     cls = elem.classes[1]
-    table.insert(elem.content, 1,
-      pandoc.RawBlock("latex", "\\begin{" .. cls .. "}"))
-    table.insert(elem.content,
-      pandoc.RawBlock("latex", "\\end{" .. cls .. "}"))
+    if cls == "jupyterpython" then
+        elem.content = {}
+    else
+        table.insert(elem.content, 1,
+          pandoc.RawBlock("latex", "\\begin{" .. cls .. "}"))
+        table.insert(elem.content,
+          pandoc.RawBlock("latex", "\\end{" .. cls .. "}"))
+    end
     return elem
   end
 end

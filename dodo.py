@@ -94,7 +94,7 @@ def task_latex_book():
     """
     srcsubdirs = [SRCDIR / ch for ch in BOOK_CHAPS]
     infiles = sorted(str(f)
-                     for f in chain.from_iterable(subdir.glob("*.mdown")
+                     for f in chain.from_iterable(subdir.glob("*.md")
                                                   for subdir in srcsubdirs))
     outfile = f"{PDFDIR}/full-book.tex"
     cmd = (
@@ -117,7 +117,7 @@ def task_pdf_book():
     """
     srcsubdirs = [SRCDIR / ch for ch in BOOK_CHAPS]
     infiles = sorted(str(f)
-                     for f in chain.from_iterable(subdir.glob("*.mdown")
+                     for f in chain.from_iterable(subdir.glob("*.md")
                                                   for subdir in srcsubdirs))
     outfile = f"{PDFDIR}/full-book.pdf"
     cmd = (
@@ -138,7 +138,7 @@ def task_latex_chaps():
     """
     for ch in BOOK_CHAPS:
         infiles = [str(f)
-                   for f in sorted(Path(f"{SRCDIR}/{ch}").glob("*.mdown"))]
+                   for f in sorted(Path(f"{SRCDIR}/{ch}").glob("*.md"))]
         outfile = f"{TEXDIR}/{ch}.tex"
         cmd = (
             f"pandoc -t latex {PANDOC_OPTS} {LATEX_OPTS}"
@@ -161,7 +161,7 @@ def task_pdf_chaps(single_chapter=False):
     for ch in BOOK_CHAPS:
         srcsubdir = SRCDIR / ch
         infiles = [str(f)
-                   for f in sorted(Path(f"{SRCDIR}/{ch}").glob("*.mdown"))]
+                   for f in sorted(Path(f"{SRCDIR}/{ch}").glob("*.md"))]
         if single_chapter:
             infiles = [' '.join(infiles)]
         for infile in infiles:
@@ -200,7 +200,7 @@ def task_html_chaps():
     """
     for ch in BOOK_CHAPS:
         infiles = sorted(str(f)
-                         for f in Path(f"{SRCDIR}/{ch}").glob("*.mdown"))
+                         for f in Path(f"{SRCDIR}/{ch}").glob("*.md"))
         incl_images = sorted(HTMLDIR / img.relative_to(SRCDIR).with_suffix(".svg")
                              for img in SRC_TIKZ)
         outfile = Path(f"{HTMLDIR}/{ch}/index.html")

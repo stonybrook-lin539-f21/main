@@ -97,6 +97,10 @@ This is a lemma.
 This is a definition.
 :::
 
+::: proof
+This is a proof.
+:::
+
 ::: example
 This is a theorem.
 :::

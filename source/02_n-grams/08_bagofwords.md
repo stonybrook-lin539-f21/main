@@ -14,7 +14,7 @@ Mathematically, this step from a record of the words in a website to a record of
 ## Keeping track of counts
 
 A multiset is like a set, except that it can contain one and the same element multiple times.
-The count is usually written write after the element, separated by a colon.
+The count is usually written right after the element, separated by a colon.
 For instance, $\setof{a: 5, b:0}$ denotes a multiset that contains 5 instances of $a$ and 0 instances of $b$.
 Sometimes, we only refer to a multiset by its name without listing any specific counts.
 In this case, I will prefix multisets with a subscripted $M$ to distinguish them from normal sets.
@@ -61,9 +61,11 @@ A few hints:
 
 Just like sets, multisets aren't limited to unigrams.
 One can just as well count bigrams, trigrams, and so on.
+Again we can illustrate this using the programming language Python.
 
 ```python
 from collections import Counter
+from pprint import pprint
 
 def ngram_list(text, n):
     return zip(*[text[pos:] for pos in range(n)])
@@ -78,11 +80,42 @@ sentence1 = ["only", "john", "could", "like", "john"]
 sentence2 = ["if", "police", "police", "police", "police", "police",
              "then", "police", "police", "police", "police", "police"]
 
-print("Set for\n{}\n is\n{}".format(" ".join(sentence1), ngram_set(sentence1, 2)))
-print("Multiset for\n {}\n is\n{}".format(" ".join(sentence1), ngram_multiset(sentence1, 2)))
-print()
-print("Set for\n{}\n is\n{}".format(" ".join(sentence2), ngram_set(sentence2, 2)))
-print("Multiset for\n{} is\n{}".format(" ".join(sentence2), ngram_multiset(sentence2, 2)))
+def show_result(sentence, settype, n=2):
+    output = {
+        "set": {"text": "Set",
+               {"function": ngram_set},
+        "multiset": {"text": "Multiset",
+                     "function": ngram_multiset},
+    }
+    print(f"output[settype]['text'] for\n{sentence}\n is")
+    pprint(output[settype['function'](sentence, n))
+
+>>> show_result(sentence1, "set")
+Set for
+['only', 'john', 'could', 'like', 'john']
+is
+{('only', 'john'), ('could', 'like'), ('john', 'could'), ('like', 'john')}
+>>> show_result(sentence1, "multiset")
+Multiset for
+['only', 'john', 'could', 'like', 'john']
+is
+Counter({('only', 'john'): 1,
+         ('john', 'could'): 1,
+         ('could', 'like'): 1,
+         ('like', 'john'): 1})
+>>> show_result(sentence2, "set")
+Set for
+['if', 'police', 'police', 'police', 'police', 'police', 'then', 'police', 'police', 'police', 'police', 'police']
+is
+{('then', 'police'), ('police', 'police'), ('police', 'then'), ('if', 'police')}
+>>> show_result(sentence2, "multiset")
+Multiset for
+['if', 'police', 'police', 'police', 'police', 'police', 'then', 'police', 'police', 'police', 'police', 'police']
+is
+Counter({('police', 'police'): 8,
+         ('if', 'police'): 1,
+         ('police', 'then'): 1,
+         ('then', 'police'): 1})
 ```
 
 ::: example
@@ -141,7 +174,7 @@ The total number of counts is $11$.
 So after we replace counts by frequencies, $_MS$ becomes $\setof{\text{if police}: \frac{1}{11}, \text{police police}: \frac{8}{11}, \text{police then}: \frac{1}{11}, \text{then police}: \frac{1}{11}}$ (which is no longer a multiset).
 :::
 
-```python
+::: jupyterpython
 import matplotlib.pyplot as plt
 
 print("N-gram frequencies for \"{}\"".format(" ".join(sentence2)))
@@ -167,17 +200,15 @@ for ngrams in [unigrams, bigrams, trigrams]:
     plt.tick_params(axis='both', which='major', labelsize=12)
     # plt.text(str(label)+"-gram")
     plt.show()
-```
+:::
 
 ::: exercise
 Construct a bag of words from the following text of four sentences, then compute the relative frequency of each word:
-
 
 - John misses Mary
 - Mary misses Misses Chives
 - I hate chives with a passion
 - I love passion fruit
-
 
 It is up to you to decide what should be treated as different words.
 You do not have to ignore capitalization in every case if you think that keeping capitalization gives a better result.
@@ -187,6 +218,7 @@ But take the opportunity to reflect on whether a computer program could easily m
 
 Counts and frequency information can be used in various ways, for example for search engines.
 One can measure the relevance of a text for a given search query based on how much of the text consists of the words in the search query.
+In other words, by adding up the frequencies of the search words in the text.
 
 ::: example
 The sentence
@@ -196,6 +228,7 @@ $$_MS \is \setof{\text{only}: 1, \text{john}: 4, \text{thinks}: 2, \text{likes}:
 With frequencies instead of counts this is
 $$_MS \is \setof{\text{only}: 0.125, \text{john}: 0.5, \text{thinks}: 0.25, \text{likes}: 0.5}.$$
 So the relevance score to the query *john* would be $0.5$.
+If the query were *only john*, the score would be $0.625$.
 :::
 
 ::: exercise

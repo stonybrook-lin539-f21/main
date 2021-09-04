@@ -1,7 +1,7 @@
 **Prerequisites**
 
 - sets (notation, operations)
-- functions (basic notation)
+- functions (basic notation, domain terminology)
 
 # Cardinality
 
@@ -24,7 +24,6 @@ $a \mapsto f$,
 $b \mapsto d$,
 $c \mapsto g$.
 
-
 In the other direction, $\card{D} \not\leq \card{A}$.
 No matter how one maps the elements of $D$ to members of $A$, at least two members of $D$ will have to be mapped to the same element in $A$.
 :::
@@ -42,6 +41,25 @@ $b \mapsto y$,
 $c \mapsto z$.
 :::
 
+::: example
+The sets $A \is \setof{0,1,2}$ and $B \is \setof{2,3}$ obviously have distinct cardinality.
+The set $A$ contains 3 elements, the set $B$ only 2.
+But let us see how we get the same result via our mathematical definition.
+
+Suppose we have some arbitrary function $f: A \rightarrow B$.
+If $f$ is a bijection, then it must map every element of $A$ to some element of $B$.
+But since there are three elements in $A$ and only two in $B$, some element of $B$ must be the output for at least two elements of $A$.
+But then $f$ is not a bijection.
+
+In the other direction, consider some arbitrary function $g: B \rightarrow A$.
+Since a function maps each input to at most one output, the two elements of $B$ are mapped to at most two elements of $A$.
+But $A$ has three elements, so one element of $A$ cannot be an output for any element of $B$.
+Again we find that $g$ cannot be bijection.
+
+This exhausts all cases we need to consider, and we may conclude that no function from $A$ to $B$, or the other way round, can be a bijection.
+Hence $A$ and $B$ must have distinct cardinality.
+:::
+
 ::: exercise
 Show that
 $\card{\setof{ 0 \leq n < 10 \mid n \text{ is odd}} = \card{\setof{ 0 \leq n < 10 \mid n \text{ is even}}}}$.
@@ -54,9 +72,11 @@ However, size and cardinality diverge once we look at infinite sets.
 Consider the set $\mathbb{N} \is \setof{0,1,2,\ldots}$ of all natural numbers and the set $\mathbb{N}_+ \is \setof{1,2,\ldots}$ of all positive natural numbers.
 Intuitively, $\mathbb{N}$ is larger than $\mathbb{N}_+$ because it contains all members of $\mathbb{N}_+$ as well as 0, which is not in $\mathbb{N}_+$.
 But the function $f: \mathbb{N} \rightarrow \mathbb{N}_+$ with $n \mapsto n+1$ is a bijection.
-Hence $\card{\mathbb{N}} = \card{\mathbb{N}_+}$ even though intuitvely the two sets have distinct size.
+Hence $\card{\mathbb{N}} = \card{\mathbb{N}_+}$ even though intuitively the two sets have distinct size.
 :::
 
 ::: exercise
 Show that the set of natural numbers has the same cardinality as the set of all even natural numbers.
 :::
+
+In a later unit, we will see that our definition of cardinality entails that there are different "sizes" of infinity, and that we want one specific infinity size to talk about language.

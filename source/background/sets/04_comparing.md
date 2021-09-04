@@ -1,6 +1,6 @@
 **Prerequisites**
 
-- sets (notation, operations)
+- sets (notation, operations, cardinality)
 
 # Comparing sets
 
@@ -88,7 +88,7 @@ In other words, every element of $A$ is a member of $B$, but not every element o
 We also say that $B$ is a **proper superset** of $A$ ($B \supsetneq A$).
 
 ::: example
-Given our previous discussion, the set $T$ of transitive verbs is proper subset of the set $V$ of verbs because it is a subset but not every verb is a transitivie verb.
+Given our previous discussion, the set $T$ of transitive verbs is proper subset of the set $V$ of verbs because it is a subset but not every verb is a transitive verb.
 In other words, $T \subseteq V$ yet $T \neq V$.
 Hence $T \subsetneq V$.
 :::

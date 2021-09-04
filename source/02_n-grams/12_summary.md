@@ -6,7 +6,8 @@ This unit introduced $n$-grams as a fundamental concepts of computational and th
     - A string is well-formed iff it does not contain any forbidden $n$-grams.
     - An $n$-gram grammar is fixed if all $n$-grams have the same length, and mixed otherwise.
 - Every negative $n$-gram grammar has an equivalent positive $n$-gram grammar, and the other way round.
-- Positive grammars must be fixed.
+- Positive grammars must be fixed, the length of $n$-grams cannot vary.
+- The maximum size of an $n$-gram grammar grows polynomially with the size of the alphabet, and exponentially with the value of $n$.
 - Multiple grammars can be combined into a single grammar.
     - Negative grammars: union of sets
     - Positive grammars: intersection of sets
@@ -14,6 +15,7 @@ This unit introduced $n$-grams as a fundamental concepts of computational and th
     - The multiset counts for each word type its number of word tokens.
     - Multiset sum and scalar multiplication can be used to combine and modify counts.
 - Due to Zipf's law, a small number of words make up the majority of each text.
+  Very frequent words that contribute little information are called stop words.
 - The function $\mathrm{del}_S$ removes all stop words.
 - Mathematically, this is the same as constructing phonological tiers.
 - Tiers make it possible to handle long-distance dependencies in an elegant fashion with much smaller grammars.

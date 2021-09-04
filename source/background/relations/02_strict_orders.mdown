@@ -190,9 +190,11 @@ The are repeated below (excluding connections that can be inferred via transitiv
 ~~~ {.include-tikz size=mid}
 transitivity1.tikz
 ~~~
+
 ~~~ {.include-tikz size=large}
 irreflexivity_violated.tikz
 ~~~
+
 ~~~ {.include-tikz size=large}
 asymmetry_violated.tikz
 ~~~
@@ -225,17 +227,13 @@ Indicate in the table below which properties hold of the respective relations.
 
 :::
 
-| **Relation**                  | **transitive** | **irreflexive** | **asymmetric** | **semiconnex** | **strict partial order** | **strict total order** |
-| --:                           | :--            | :--             | :--            | :--            | :--                      | :--                    |
-| substring                     |                |                 |                |                |                          |                        |
-|                               |                |                 |                |                |                          |                        |
-| $\subsetneq$                  |                |                 |                |                |                          |                        |
-|                               |                |                 |                |                |                          |                        |
-| $\subseteq$                   |                |                 |                |                |                          |                        |
-|                               |                |                 |                |                |                          |                        |
-| lexicographic order           |                |                 |                |                |                          |                        |
-|                               |                |                 |                |                |                          |                        |
-| ordering all humans by height |                |                 |                |                |                          |                        |
+<!-- | **Relation**                  | **transitive** | **irreflexive** | **asymmetric** | **semiconnex** | **strict partial order** | **strict total order** | -->
+<!-- | --:                           | :--            | :--             | :--            | :--            | :--                      | :--                    | -->
+<!-- | substring                     |                |                 |                |                |                          |                        | -->
+<!-- | $\subsetneq$                  |                |                 |                |                |                          |                        | -->
+<!-- | $\subseteq$                   |                |                 |                |                |                          |                        | -->
+<!-- | lexicographic order           |                |                 |                |                |                          |                        | -->
+<!-- | ordering all humans by height |                |                 |                |                |                          |                        | -->
 
 ::: exercise
 Give a real-world example of a strict partial order that is not a strict total order.

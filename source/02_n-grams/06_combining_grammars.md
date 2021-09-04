@@ -59,15 +59,15 @@ Such a combined grammar is actually very easy to build: construct a new negative
 In set-theoretic terms, this amounts to taking the **union** of the two negative grammars.
 
 ::: example
-Suppose that we have a negative bigram grammar $G_1$ for word-final devoicing that contains only the bigram *s\$*.
-In set notation, $G_1 \is \setof{\text{s\$}}$.
+Suppose that we have a negative bigram grammar $G_1$ for word-final devoicing that contains only the bigram *s{{{R}}}*.
+In set notation, $G_1 \is \setof{\text{s}{{{R}}}}$.
 This grammar rules out every string that ends in an *s*.
 Furthermore, let $G_2$ be a negative trigram grammar for intervocalic voicing.
 It contains the trigrams *asa*, *asi*, *isa*, and *isi* (a realistic grammar would of course require more than just those four trigrams as the language would have more than just those two vowels).
 So $G_2$ forbids every string where *s* occurs between the vowels *a* and *i*.
 
 
-In order to obtain a grammar that enforces both constraints, one simply constructs a new grammar $G$ that contains all these $n$-grams: *s\$*, *asa*, *asi*, *isa*, *isi*.
+In order to obtain a grammar that enforces both constraints, one simply constructs a new grammar $G$ that contains all these $n$-grams: *s{{{R}}}*, *asa*, *asi*, *isa*, *isi*.
 Every string that is ruled out by $G_1$ or $G_2$ is also ruled out by $G$.
 And every string that is allowed by $G$ is allowed by both $G_1$ and $G_2$.
 If desired, we can convert $G$ from a mixed grammar to a fixed one using the familiar padding procedure from an earlier unit.
@@ -153,15 +153,15 @@ It can also greatly simplify proofs.
 But how does De Morgan help us understand that $L(G_1) \cap L(G_2) = L(G_1 \cap G_2)$ when $G_1$ and $G_2$ are positive grammars?
 
 Well, it's because positive and negative grammars are connected by relative complement, as we already know.
-Given a $n$-gram grammar $G$ of some polarity, $\Sigma_\$^n - G$ is the equivalent grammar of opposite polarity.
+Given a $n$-gram grammar $G$ of some polarity, $\Sigma_E^n - G$ is the equivalent grammar of opposite polarity.
 This is all we need to derive the theorem for positive grammars from the one for negative ones.
-Suppose $^+G_1$ and $^+G_2$ are positive grammars, and $^-G_1 = \Sigma_\$^n - ^+G_1 = ^-\overline{G_1}$ and $^-G_2 = \Sigma_\$^n - ^+G_2 = ^-\overline{G_2}$ the equivalent negative grammars.
+Suppose $^+G_1$ and $^+G_2$ are positive grammars, and $^-G_1 = \Sigma_E^n - ^+G_1 = ^-\overline{G_1}$ and $^-G_2 = \Sigma_E^n - ^+G_2 = ^-\overline{G_2}$ the equivalent negative grammars.
 The notation is, to put it politely, a teeny-weeny confusing here: we first take a positive grammar $^+G_1$, then construct its set-theoretic complement $\overline{G_1}$, and then interpret that as a negative grammar $^-\overline{G_1}$.
 
 ::: exercise
-Suppose $^+G$ is a positive grammar containing the bigrams *\$a*, *aa*, and *a\$*.
-Assume furhtermore that all symbols must be *a*.
-Compute $\overline{^+G}$, then verify for yourself that $^-\overline{G}$ is the negative grammar that accepts the same strings as $^+G$. 
+Suppose $^+G$ is a positive grammar containing the bigrams *{{{L}}}a*, *aa*, and *a{{{R}}}*.
+Assume furthermore that all symbols must be *a*.
+Compute $\overline{G}$, then verify for yourself that $^-\overline{G}$ is the negative grammar that accepts the same strings as $^+G$. 
 :::
 
 So given some grammar $^+G$, we can always do polarity conversion to get the equivalent $^-\overline{G}$.
@@ -176,15 +176,36 @@ The same is true if we replace $+$ with $-$, or $\cap$ with $\cup$.
 
 Given all these equivalences, plus De Morgan's law, we have
 
-
-- $L(^+G_1) \cap L(^+G_2)$ [starting point]
-- $= L(^-\overline{G_1}) \cap L(^-\overline{G_2})$ [polarity conversion]
-- $= L(^-\overline{G_1} \cup ^-\overline{G_2})$ [Theorem 1]
-- $= L(^-(\overline{G_1} \cup \overline{G_2}))$ [distributivity of polarity]
-- $= L(^+\overline{\overline{G_1} \cup \overline{G_2}})$ [polarity conversion]
-- $= L(^+(G_1 \cap G_2))$ [De Morgan's Law]
-- $= L(^+G_1 \cap ^+G_2))$ [distributivity of polarity]
-
+\begin{align*}
+&
+L(^+G_1) \cap L(^+G_2)
+&
+\emph{\hfill starting point}\\
+=&
+L(^-\overline{G_1}) \cap L(^-\overline{G_2})
+&
+\emph{\hfill polarity conversion}\\
+=&
+L(^-\overline{G_1} \cup ^-\overline{G_2})
+&
+\emph{\hfill Theorem 1}\\
+=&
+L(^-(\overline{G_1} \cup \overline{G_2}))
+&
+\emph{\hfill distributivity of polarity}\\
+=&
+L(^+\overline{(\overline{G_1} \cup \overline{G_2}}))
+&
+\emph{\hfill polarity conversion}\\
+=&
+L(^+(G_1 \cap G_2))
+&
+\emph{\hfill De Morgan's Law}\\
+=&
+L(^+G_1 \cap ^+G_2))
+&
+\emph{\hfill distributivity of polarity}\\
+\end{align*}
 
 Whew, that's quite some symbol salad.
 You might have to read it several times before it even vaguely starts making sense to you.
@@ -198,4 +219,4 @@ And if you still can't work your way through it after half an hour, just put it 
   If each component of a system can be described by an $n$-gram grammar, the whole system can be described by an $n$-gram grammar.
 - Negative grammars are combined via union.
 - Positive grammars are combined via intersection.
-- The duality between negative grammars and union on the one hand and positive grammars and intersection on the other follows from De Morgan's law: $A \cap B = \overline{\overline{A} \cup \overline{B}}$
+- The duality between negative grammars and union on the one hand and positive grammars and intersection on the other follows from **De Morgan's law**: $A \cap B = \overline{\overline{A} \cup \overline{B}}$

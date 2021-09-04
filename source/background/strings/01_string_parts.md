@@ -7,7 +7,6 @@ A **substring** is a continuous part of a string.
 ::: example
 The string $\String{abcd}$ has 11 substrings:
 
-
 - $\emptystring$
 - $\String{a}$
 - $\String{b}$

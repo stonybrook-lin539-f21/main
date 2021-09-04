@@ -55,7 +55,7 @@ Such large $n$-grams simply aren't feasible in practice.
 Suppose for the sake of argument that Samala has only three sounds: a vowel, *s*, and *ʃ*.
 Then there are $3^{13} = 1,594,323$ distinct $n$-grams.
 Only the $n$-grams that do not mix *s* and *ʃ* are well-formed, of which there are $2 \mult 2^{13} = 2^{14} = 16,384$.
-So a positive 13-gram grammar for Samala's sibilant harmony would contain $16,384$ distinct 13-grams (plus a few with \$), and a negative one $1,594,323 - 16,384 = 1,586,131$.
+So a positive 13-gram grammar for Samala's sibilant harmony would contain $16,384$ distinct 13-grams (plus a few with {{{L}}} or {{{R}}}), and a negative one $1,594,323 - 16,384 = 1,586,131$.
 That's a lot.
 :::
 
@@ -145,12 +145,14 @@ In later units, we will see many more examples of this unifying power of math.
 ::: exercise
 The term **culminativity** refers to the property that every word has exactly one primary stress.
 Suppose that our alphabet is $\setof{\sigma, \acute{\sigma}}$, where $\sigma$ denotes an unstressed syllable and $\acute{\sigma}$ one with primary stress.
-Specify a set $^+T$ of tier symbols and a bigram grammar $G$ to capture culminativity (*hint*: \$ can be used with tiers, too).
+Specify a set $^+T$ of tier symbols and a bigram grammar $G$ to capture culminativity (*hint*: {{{L}}} and {{{R}}} can be used with tiers, too).
 :::
 
 ## Recap
 
-- $n$-gram grammars provide no elegant account of long-distance phenomena
+- No $n$-gram grammar provides an elegant account of long-distance phenomena.
 - The larger the $n$-grams, the larger the grammar; large grammars are unwieldy and computationally inefficient.
 - Phonological tiers allow for more compact grammars by filtering out irrelevant material.
 - The stop word removal function $\mathit{del}$ is also the function for constructing phonological tiers.
+- Math allows us to unify things that look very different at the surface.
+  In particular, linguistic theory and language technology seem like very different beasts, but they actually share a lot of math.

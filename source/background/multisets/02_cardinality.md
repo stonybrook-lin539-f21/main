@@ -43,7 +43,7 @@ Consider once more the multisets $A_M \is \setof{a:3, b:2, c:1}$ and $B_M \is \s
 \end{align*}
 :::
 
-```python
+::: jupyterpython
 def card(multiset):
     return sum(multiset.values())
 
@@ -52,7 +52,7 @@ print("|{}| = {}".format(B, card(B)))
 print("Union of {} and {} is {}".format(A, B, multiset_union(A, B)))
 print("Intersection of {} and {} is {}".format(A, B, multiset_intersection(A, B)))
 print("Relative complement of {} and {} is {}".format(A, B, A-B))
-```
+:::
 
 ::: exercise
 Calculate the cardinality of the following multisets:
@@ -63,4 +63,3 @@ Calculate the cardinality of the following multisets:
 - $\setof{a: 0, b: 0, c:0}$
 
 :::
-

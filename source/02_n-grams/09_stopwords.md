@@ -78,9 +78,9 @@ At the best, they add unnecessary clutter to the set, at worst, they make the mo
 The problem of cluttered sets is a very real one.
 This is due to **Zipf's law**, which was formulated by the linguist [George Kingsley Zipf](https://en.wikipedia.org/wiki/George_Kingsley_Zipf).
 
-::: definition
+::: {.definition name="Zipf's law"}
 Let $t$ be a text of natural language utterances, and $R$ a linear ranking of words by their frequency in $t$.
-Then the frequency $f$ of a word in $t$ is inversely proportional to its rank $r$ in $R$ ($f = \frac{1}{r}$).
+Then the frequency $f$ of a word in $t$ is inversely proportional to its rank $r$ in $R$ ($f = \dfrac{1}{r}$).
 :::
 
 Zipf's law tell us that the most common word in a text occurs
@@ -101,7 +101,7 @@ A few word types make up the majority of word tokens in a text while many other 
 
 If we draw a plot with the word types in a text in descending frequency along the $x$-axis and their number of tokens as the $y$-axis, this produces a curve that starts out high, drops off quickly, and then has a very long tail that approaches 0 but never reaches it.
 
-```python
+::: jupyterpython
 # import plotting library as plt
 import matplotlib.pyplot as plt
 import numpy as np
@@ -118,7 +118,7 @@ plt.plot(x, f(x))
 
 # show the plotted diagram
 plt.show()
-```
+:::
 
 ::: exercise
 Suppose you have a text with 20,000 words where the most frequent word occurs 1068 times.
@@ -137,27 +137,33 @@ import urllib.request
 import re
 from collections import Counter
 
-urllib.request.urlretrieve("http://www.gutenberg.org/files/2701/2701.txt", "mobydick.txt")
-with open("mobydick.txt", "r") as text:
-    # tokenize string into list of lowercase words
-    text = re.split("[^\w]", text.read().lower())
-    # compute most frequent word types
-    most_frequent = [count[0] for count in Counter(text).most_common(250)]
-    # find the beginning of Chapter 1 in the file
-    for n in range(len(text)):
-        if text[n] == "call" and\
-        text[n+1] == "me" and\
-        text[n+2] == "ishmael":
-            start = n
-            break
-    try:
-        # and now take the first 250 words and remove all infrequent ones
-        filtered = [word for word in text[n:n+250]
-                    if word in most_frequent]
-        # and put the tokenized list back into a string
-        print(" ".join(filtered))
-    except:
-        print("Couldn't find start")
+def analyze_mobydick():
+    urllib.request.urlretrieve("https://www.gutenberg.org/files/2701/2701-0.txt",
+                               "mobydick.txt")
+    with open("mobydick.txt", "r") as text:
+        # tokenize string into list of lowercase words
+        text = re.split("\W", text.read().lower())
+        # compute most frequent word types
+        most_frequent = [count[0] for count in Counter(text).most_common(250)
+                         if count[0]]
+        # find the beginning of Chapter 1 in the file
+        for n in range(len(text)):
+            if text[n] == "call" and\
+            text[n+1] == "me" and\
+            text[n+2] == "ishmael":
+                start = n
+                break
+        try:
+            # and now take the first 250 words and remove all infrequent ones
+            filtered = [word for word in text[n:n+250]
+                        if word in most_frequent]
+            # and put the tokenized list back into a string
+            print(" ".join(filtered))
+        except:
+            print("Couldn't find start")
+
+>>> analyze_mobydick()
+me some years never how long little or no in my and nothing to me on i thought i would sail about a little and see the part of the world it is a way i have of off the and the i about the it is a in my i before and up the of every i and my such an hand of me that it a to me from into the and s off then i it high time to to sea as soon as i can this is my for and with a himself upon his i take to the ship there is nothing in this if they but it almost all men in their some time or other very the same towards the with me there now is your of the round by as by it with her
 ```
 
 Not too illuminating, is it?
@@ -253,7 +259,7 @@ The mathematical perspective can abstract away from these details to define func
 
 Mathematics has specialized notation to talk about functions, but let's put that aside for now.
 The most important fact about functions is that they can be so much more than what you've seen in your high school class.
-Yes $f(x) = 2 \mult x$ is a function that takes a number as its only argument and doubles it.
+Yes, $f(x) = 2 \mult x$ is a function that takes a number as its only argument and doubles it.
 But so many more things are functions.
 A function is any kind of system that takes a fixed number of inputs and always returns the same output for the same input.
 
@@ -299,8 +305,8 @@ Explain why.
 :::
 
 ::: example
-Consider a program that takes as input a collection of words and return a randomly generated sentence using those words.
-For instance, if you give it the works *Mary*, *ate*, and *sushi*, it may return
+Consider a program that takes as input a collection of words and returns a randomly generated sentence using those words.
+For instance, if you give it the words *Mary*, *ate*, and *sushi*, it may return
 
 
 - *Mary ate sushi*, or

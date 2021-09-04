@@ -25,22 +25,30 @@ Virtually all of them build on $n$-grams, the core idea being that the meaning o
 Let us look at a particularly simple way of formalizing this idea, one where we ignore how often certain words occur.
 We will also ignore capitalization, as is commonly done in this model. 
 For example, converting the mini-text *Only John could like John* to a set of unigrams (i.e. $1$-grams) only preserves the information that the text contains the words *only*, *john*, *could*, and *like*.
-A few more examples are shown below.
+A few more examples are shown below using the programming language Python.
 
 ```python
 import re
 from pprint import pprint
 
 def set_of_words(string):
-    """convert a string to a set of words"""
-    tokens = [word for word in re.split("[^\w]", string.lower()) if word]
+    """Convert a string to a set of words."""
+    tokens = [word for word in re.split("\W", string.lower()) if word]
     print("Input:", string)
     pprint(set(tokens))
     print("\n")
 
-set_of_words("John is John, that much is obvious!")
-set_of_words("The man and the woman are husband and wife.")
-set_of_words("Police police police police police.")
+>>> set_of_words("John is John, that much is obvious!")
+Input: John is John, that much is obvious!
+{'is', 'obvious', 'john', 'much', 'that'}
+
+>>> set_of_words("The man and the woman are husband and wife.")
+Input: The man and the woman are husband and wife.
+{'wife', 'the', 'and', 'husband', 'woman', 'are', 'man'}
+
+>>> set_of_words("Police police police police police.")
+Input: Police police police police police.
+{'police'}
 ```
 
 A search engine, for instance, could use this model to convert any given website to a set of words.
@@ -101,7 +109,7 @@ There are at least three problems:
 
 The first one can be improved by moving from unigrams to $n$-grams.
 With bigrams, a headline like *man bites dogs* is represented as the set $\setof{\text{man bites}, \text{bites dogs}}$, whereas the much less startling *dog bites man* becomes $\setof{\text{dog bites}, \text{bites man}}$.
-Note that we could also include explicit markers \$ to clearly identify the first and last word of a sentence.
+Note that we could also include our edge markers {{{L}}} and {{{R}}} to clearly identify the first and last word of a sentence.
 None of this is an adequate representation of context, but it nonetheless works fairly well in practice - though that might just be because the practical problems language technology is asked to solve nowadays are still fairly simple.
 
 Be that as it may, there are still problems 2 and 3 to take care of.

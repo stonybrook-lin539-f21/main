@@ -46,10 +46,14 @@ Rather than rely on human intuition about what would be a natural interpretation
 
 ### Format
 
-Set-builder notation uses the general template $\setof{ \text{expression using variable} \mid \text{definition of variable} }$.
+Set-builder notation uses the general template
+
+$$
+\setof{ \text{expression using variable} \mid \text{definition of variable} }
+$$
 
 ::: example
-Instead of $\setof{2, \ldots}$ for the set of natural numbers that are both positive and even, one can write the following:
+Instead of $\setof{2, 4, 6, \ldots}$ for the set of natural numbers that are both positive and even, one can write the following:
 $$
 \setof{ 2n \mid \text{$n$ a natural number and $n \geq 1$}}
 $$
@@ -94,14 +98,14 @@ $$
 The table below shows all the values for the variables and the resulting elements of the set.
 :::
 
-| $x$ | $y$ | $x + y \geq 5$? | added $x^y$ | added  $y^10$ | 
-| :-  | :-  | :-              | :-          | :-            |
-| 1   | 2   | no              | -           | -             | 
-| 1   | 7   | yes             | 1           | 282,475,249   | 
-| 2   | 2   | no              | -           | -             | 
-| 2   | 7   | yes             | 128         | 282,475,249   | 
-| 3   | 2   | yes             | 9           | 1024          | 
-| 3   | 7   | yes             | 2187        | 282,475,249   | 
+| $x$ | $y$ | $x + y \geq 5$? | added $x^y$ | added  $y^{10}$ | 
+| :-  | :-  | :-              | :-          | :-              |
+| 1   | 2   | no              | -           | -               | 
+| 1   | 7   | yes             | 1           | 282,475,249     | 
+| 2   | 2   | no              | -           | -               | 
+| 2   | 7   | yes             | 128         | 282,475,249     | 
+| 3   | 2   | yes             | 9           | 1024            | 
+| 3   | 7   | yes             | 2187        | 282,475,249     | 
 
 ::: exercise
 For each one of the following, put $=$ or $\neq$ in the gap as appropriate:

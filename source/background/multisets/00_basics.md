@@ -44,7 +44,7 @@ The multiset $A_M \is \setof{a,a,a,b,b,c}$ can be more conveniently written as $
 Elements with a count of $0$ are usually omitted, but may be included if this is relevant information.
 :::
 
-```python
+::: jupyterpython
 from collections import Counter
 
 def set_equals(A, B):
@@ -56,7 +56,8 @@ def multiset_equals(A, B):
 multiset_equals(["a", "a", "b", "b", "c"], ["a", "b", "c", "c", "d"])
 set_equals(["a", "a", "b", "b", "c"], ["a", "b", "c", "c", "d"])
 multiset_equals(["a", "a", "b", "b", "c"], ["a", "b", "c", "a", "b"])
-```
+
+:::
 
 ::: exercise
 Represent all the multisets in the exercise above with explicit counts.
@@ -65,15 +66,14 @@ Represent all the multisets in the exercise above with explicit counts.
 With this kind of notation, it also becomes possible to define multisets with set-builder notation.
 For example, $\setof{n: 2n \mid n \in \mathbb{N}}$ is the set that contains $2n$ occurrences of every natural number $n$: $\setof{0:0, 1:2, 2:4, 3:6, \ldots}$.
 
-```python
+::: jupyterpython
 multiset = Counter({n: 2*n for n in range(10)})
 print(multiset)
-```
+:::
 
 ::: exercise
 Write down the multiset defined by each set-builder expression.
 These are not entirely straight-forward, and you'll have to make some educated guesses as to how to handle special cases.
-
 
 - $\setof{n: 10 - n \mid 0 \leq n \leq 10}$
 - $\setof{a: b, b: a \mid a,b \geq 0, a + b = 10}$

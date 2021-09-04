@@ -13,9 +13,9 @@ The set operations union, intersection and relative complement can be generalize
 Given two natural numbers $m$ and $n$ with $m \leq n$, let $\max(m,n) = n$ and $\min(m,n) = m$.
 Then for any two multisets $A_M$ and $B_M$
 
-    - the union $A_M \cup B_M$ maps every $a$ to $\max(A_M(a), B_M(a))$,
-    - the intersection $A_M \cap B_M$ maps every $a$ to $\min(A_M(a), B_M(a))$
-    - the relative complement $A_M - B_M$ maps every $a$ to $A_M(a) - B_M(a)$ (or $0$ if the value would be negative)
+- the union $A_M \cup B_M$ maps every $a$ to $\max(A_M(a), B_M(a))$,
+- the intersection $A_M \cap B_M$ maps every $a$ to $\min(A_M(a), B_M(a))$
+- the relative complement $A_M - B_M$ maps every $a$ to $A_M(a) - B_M(a)$ (or $0$ if the value would be negative)
 
 :::
 
@@ -23,14 +23,14 @@ Then for any two multisets $A_M$ and $B_M$
 Let $A_M \is \setof{a:3, b:2, c:1}$ and $B_M \is \setof{a:1, b:1, c:2, d:1}$.
 Then
 
-    - $A_M \cup B_M = B_M \cup A_M = \setof{a:3, b:2, c:2, d:1}$
-    - $A_M \cap B_M = B_M \cap A_M = \setof{a:1, b:1, c:1}$
-    - $A_M - B_M = \setof{a:2, b:1, c:0}$
-    - $B_M - A_M = \setof{c:1, d:1}$
+- $A_M \cup B_M = B_M \cup A_M = \setof{a:3, b:2, c:2, d:1}$
+- $A_M \cap B_M = B_M \cap A_M = \setof{a:1, b:1, c:1}$
+- $A_M - B_M = \setof{a:2, b:1, c:0}$
+- $B_M - A_M = \setof{c:1, d:1}$
     
 :::
 
-```python
+::: jupyterpython
 from collections import Counter
 
 A = Counter({"a": 3, "b": 2, "c": 1})
@@ -50,7 +50,7 @@ print("Union of\n{} and\n{} is\n{}\n".format(A, B, multiset_union(A, B)))
 print("Intersection of\n{} and\n{} is\n{}\n".format(A, B, multiset_intersection(A, B)))
 print("Relative complement of\n{} and\n{} is\n{}\n".format(A, B, A-B))
 print("Relative complement of\n{} and\n{} is\n{}\n".format(B, A, B-A))
-```
+:::
 
 ::: exercise
 Fill each gap with a matching multiset or operator.
@@ -72,8 +72,8 @@ These are *multiset sum* ($\multisum$) and *scalar multiplication * ($\multimult
 Let $A_M$ and $B_M$ be two multisets and $n$ a natural number.
 Then
 
-    - the multiset sum $A_M \multisum B_M$ maps every $a$ to $A_M(a) + B_M(a)$,
-    - the scalar multiplication $n \multimult A_M$ maps every $a$ to $n \mult A_M(a)$ (where $\mult$ denotes multiplication over natural numbers).
+- the multiset sum $A_M \multisum B_M$ maps every $a$ to $A_M(a) + B_M(a)$,
+- the scalar multiplication $n \multimult A_M$ maps every $a$ to $n \mult A_M(a)$ (where $\mult$ denotes multiplication over natural numbers).
     
 :::
 
@@ -83,14 +83,14 @@ For those two sets, $A_M \multisum B_M \is \setof{a:4, b:3, c:3, d:1}$, which is
 Furthermore, $3 \multimult A_M = \setof{a:9, b:6, c:3}$ whereas $3 \multimult B_M = \setof{a:3, b:3, c:6, d:3}$.
 :::
 
-```python
+::: jupyterpython
 def scalar_multiplication(A, n):
     return Counter({key: n * val for key, val in A.items()})
 
 print("{} + {} = {}".format(A, B, A+B))
 print("{} * {} = {}".format(3, A, scalar_multiplication(A, 3)))
 print("{} * {} = {}".format(3, B, scalar_multiplication(B, 3)))
-```
+:::
 
 ::: exercise
 Calculate the final result of the equations below.

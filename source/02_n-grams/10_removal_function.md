@@ -1,6 +1,6 @@
 **Prerequisites**
 
-- functions (basic notation)
+- functions (domain terminology)
 
 # Stop word removal as a function
 

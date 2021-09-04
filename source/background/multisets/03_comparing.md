@@ -23,30 +23,30 @@ In the other direction, $B_M \not\subseteq A_M$ because $B_M(d) = 1 \not\leq 0 =
 The powerset of $B_M$ contains every multiset that is a subset of $B_M$.
 These are
 
-    - $\setof{a:1, b:1, c:2, d:1}$
-    - $\setof{a:1, b:1, c:2, d:0}$
-    - $\setof{a:1, b:1, c:1, d:1}$
-    - $\setof{a:1, b:1, c:1, d:0}$
-    - $\setof{a:1, b:1, c:0, d:1}$
-    - $\setof{a:1, b:1, c:0, d:0}$
-    - $\setof{a:1, b:0, c:2, d:1}$
-    - $\setof{a:1, b:0, c:2, d:0}$
-    - $\setof{a:1, b:0, c:1, d:1}$
-    - $\setof{a:1, b:0, c:1, d:0}$
-    - $\setof{a:1, b:0, c:0, d:1}$
-    - $\setof{a:1, b:0, c:0, d:0}$
-    - $\setof{a:0, b:1, c:2, d:1}$
-    - $\setof{a:0, b:1, c:2, d:0}$
-    - $\setof{a:0, b:1, c:1, d:1}$
-    - $\setof{a:0, b:1, c:1, d:0}$
-    - $\setof{a:0, b:1, c:0, d:1}$
-    - $\setof{a:0, b:1, c:0, d:0}$
-    - $\setof{a:0, b:0, c:2, d:1}$
-    - $\setof{a:0, b:0, c:2, d:0}$
-    - $\setof{a:0, b:0, c:1, d:1}$
-    - $\setof{a:0, b:0, c:1, d:0}$
-    - $\setof{a:0, b:0, c:0, d:1}$
-    - $\setof{a:0, b:0, c:0, d:0}$
+- $\setof{a:1, b:1, c:2, d:1}$
+- $\setof{a:1, b:1, c:2, d:0}$
+- $\setof{a:1, b:1, c:1, d:1}$
+- $\setof{a:1, b:1, c:1, d:0}$
+- $\setof{a:1, b:1, c:0, d:1}$
+- $\setof{a:1, b:1, c:0, d:0}$
+- $\setof{a:1, b:0, c:2, d:1}$
+- $\setof{a:1, b:0, c:2, d:0}$
+- $\setof{a:1, b:0, c:1, d:1}$
+- $\setof{a:1, b:0, c:1, d:0}$
+- $\setof{a:1, b:0, c:0, d:1}$
+- $\setof{a:1, b:0, c:0, d:0}$
+- $\setof{a:0, b:1, c:2, d:1}$
+- $\setof{a:0, b:1, c:2, d:0}$
+- $\setof{a:0, b:1, c:1, d:1}$
+- $\setof{a:0, b:1, c:1, d:0}$
+- $\setof{a:0, b:1, c:0, d:1}$
+- $\setof{a:0, b:1, c:0, d:0}$
+- $\setof{a:0, b:0, c:2, d:1}$
+- $\setof{a:0, b:0, c:2, d:0}$
+- $\setof{a:0, b:0, c:1, d:1}$
+- $\setof{a:0, b:0, c:1, d:0}$
+- $\setof{a:0, b:0, c:0, d:1}$
+- $\setof{a:0, b:0, c:0, d:0}$
 
 The powerset of $B \is \setof{a,b,c,d}$, on the other hand, has only $2^{\card{B}} = 2^4 = 16$ members.
 
@@ -54,7 +54,7 @@ The contrast is even more pronounced when we consider a multiset like $\setof{a:
 While $\wp(\setof{a})$ only consists of $\emptyset$ and $\setof{a}$, $\wp(\setof{a:9})$ has $10$ members.
 :::
 
-```python
+::: jupyterpython
 def is_subset(A, B):
     for a in A.elements():
         if A[a] > A[b]:
@@ -86,13 +86,13 @@ pprint(powerset(B))
 print()
 print("Powerset of {} is:".format(A))
 pprint(powerset(Counter(A)))
-```
+:::
 
 The cardinality of the powerset of a multiset is computed by adding 1 to each count and then multiplying all counts.
 Again we can express this more precisely and succinctly with a formula:
 
 $$
-    \card{\wp(S_M)} \is \prod_{s \in S_M} \left ( S_M(s) + 1 \right )
+\card{\wp(S_M)} \is \prod_{s \in S_M} \left ( S_M(s) + 1 \right )
 $$
 
 The operator $\prod$ behaves exactly like $\sum$, except that it is a shorthand for multiplication rather than addition.

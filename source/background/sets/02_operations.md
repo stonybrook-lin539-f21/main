@@ -6,7 +6,7 @@
 
 Sets can be combined with each other in various ways.
 Sometimes this is used as yet another way to define sets, and sometimes it is an actual construction process where multiple sets serve as the input to some mechanism that returns a single set as the output.
-You'll see many examples of both throughout the course.
+You'll see many examples of both usages throughout the course.
 
 ## Union
 
@@ -28,7 +28,6 @@ The union of $\setof{1,2}$ and $\setof{3,4}$ is also $\setof{1,2,3,4}$.
 ::: exercise
 Compute the union of the following:
 
-
 - $\setof{0,1} \cup \setof{2,3}$
 - $\setof{0,1} \cup \setof{1,2,3}$
 - $\setof{0,1} \cup \setof{0,1}$
@@ -47,7 +46,6 @@ Also note that $A \cup \emptyset = \emptyset$ for any set $A$, just like $n + 0 
 ::: exercise
 Compute the union of the following in a step-wise fashion:
 
-
 - $\setof{0,1} \cup \setof{2,3} \cup \emptyset$
 - $\setof{0,1} \cup \emptyset \cup \setof{2,3}$
 
@@ -65,7 +63,6 @@ But the intersection of $\setof{1,2}$ and $\setof{2,3,4}$ is $\setof{2}$.
 
 ::: exercise
 Compute the intersection of the following:
-
 
 - $\setof{0,1} \cap \setof{2,3}$
 - $\setof{0,1} \cap \setof{1,2,3}$
@@ -100,7 +97,7 @@ The complement of $\setof{3,4,5}$ relative to $\setof{2,3}$ is $\setof{2,3} - \s
 
 Relative complement is **not** associative in the general case.
 For example, $(\setof{0,1} - \setof{0}) - \setof{1} = \emptyset$, whereas $\setof{0,1} - (\setof{0} - \setof{1}) = \setof{1}$.
-Since associativity requires that the order of evaluation may never matter, this example where it does matter is sufficient to show that associativity does not hold.
+Since associativity requires that the order of evaluation may never matter, this one example where it does matter is sufficient to show that associativity does not hold.
 That doesn't mean that there are never cases where one can't change the order of evaluation at all.
 For instance, $(\setof{0,1} - \setof{0}) - \setof{2} = \setof{1} = \setof{0,1} - (\setof{0} - \setof{2})$ --- but that is merely a coincidence.
 That relative complement is not associative mirrors subtraction for numbers, where $(5 - 2) - 3 = 0 \neq 6 = 5 - (2 -3)$.

@@ -1,6 +1,7 @@
 *
 !.gitignore
 !makefile
+!*.yaml
 !*.bib
 !*.bst
 !*.css

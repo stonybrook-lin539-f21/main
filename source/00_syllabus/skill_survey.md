@@ -63,7 +63,7 @@ Even skipping all questions is perfectly fine, this is **not** a test of your ab
 
 1.  Calculate the meaning vector of *when* based on the sentence *When buffalo buffalo buffalo, then buffalo buffalo buffalo, obviously.*
 
-1.  Draw the smallest strongly connected digraph with 5 vertices.
+1.  Draw the smallest strongly connected digraph with 5 vertices (where smallest means the digraph with the fewest number of edges).
 
 1.  Give a finite-state transducer that maps every $1^n$ to $a^n b^*$.
     Give a second transducer that maps every $1^n$ to $a^* b^n$.

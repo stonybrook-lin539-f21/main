@@ -25,7 +25,7 @@ Alternatively, one also says in this case that $B$ is a **superset** of $A$ (wri
 ::: example
 A transitive verb is a verb that occurs with a subject and an object: *devour*, *contradict*, *wager*, *flummox*, and many more.
 Not all verbs are transitive, e.g. *sleep* or *give*. 
-Suppse $T$ is the set of all English transitive verbs, whereas $V$ is the set of all English verbs.
+Suppose $T$ is the set of all English transitive verbs, whereas $V$ is the set of all English verbs.
 Since every transitive verb is a verb, but no the other way round, we have $T \subseteq V$.
 :::
 
@@ -38,7 +38,6 @@ This is because the empty set contains no elements at all, so it trivially holds
 
 ::: exercise
 Complete the table below.
-:::
 
 | A             | B                 | $A \subseteq B$? | $A \supseteq B$? | 
 | :--           | :--               | :--              | :--              | 
@@ -46,6 +45,8 @@ Complete the table below.
 | $\setof{a}$   | $\setof{b}$       |                  |                  | 
 | $\setof{}$    | $\setof{a}$       |                  |                  | 
 | $\setof{a,b}$ | $\setof{a,a,b,b}$ |                  |                  | 
+
+:::
 
 
 ::: jupyterpython
@@ -124,7 +125,6 @@ But there can be no $A$ and $B$ such that $A \subsetneq B$ and $B \subsetneq A$.
 
 ::: exercise
 For each line in the table, say whether the sets are disjoint, incomparable, identical, or stand in a proper subset/superset relation.
-:::
 
 | A               | B                                                 | 
 | :--             | :--                                               | 
@@ -132,6 +132,8 @@ For each line in the table, say whether the sets are disjoint, incomparable, ide
 | $\setof{a,b,c}$ | $\setof{a,b} \cup (\setof{a,c} - \setof{b,d})$    | 
 | $\emptyset$     | $\setof{a,b} \cap (\setof{a,c} - \setof{b,d})$    | 
 | $\emptyset$     | $\setof{a,b} \cap (\setof{a,c} \cap \setof{b,d})$ | 
+   
+:::
 
 ## Remarks on notation
 

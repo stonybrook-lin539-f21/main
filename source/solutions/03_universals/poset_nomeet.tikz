@@ -1,0 +1,16 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{matrix}
+\begin{document}
+\begin{tikzpicture}
+    \matrix (m) at (0,0) [matrix of nodes,
+                          row sep=2em, column sep=2em] {%
+            & $e$ &    \\
+        $a$ &     & $b$\\
+    };
+    \foreach \Source/\Target in {%
+        2-1/1-2,
+        2-3/1-2%
+        }
+        \draw (m-\Source) to (m-\Target);
+\end{tikzpicture}
+\end{document}

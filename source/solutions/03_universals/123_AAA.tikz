@@ -1,0 +1,16 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{matrix,positioning}
+\begin{document}
+\begin{tikzpicture}
+\matrix (m) at (0,0) [matrix of nodes, column sep = 1em, row sep=3em] {
+    1 & $\leq$ & 2 & $\leq$ & 3\\
+    A &        & B &        & C\\
+};
+\foreach \Source/\Target in {
+    1/1,
+    3/1,
+    5/1%
+    }
+    \draw[->] (m-1-\Source) to (m-2-\Target);
+\end{tikzpicture}
+\end{document}

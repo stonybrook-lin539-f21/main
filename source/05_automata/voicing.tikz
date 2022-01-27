@@ -5,10 +5,9 @@
     \node[state, initial,accepting] (0) at (0,0) {0};
     \node[state ] (1) [right=of 0] {1};
 
-%    \path[->]
-%        (0) edge [loop above] node [above] {$\neg Z$}
-%            edge [bend left] node [above] {$Z$} (1)
-%        (1) edge [bend left] node [below] {$\neg Z$} (0)
-%        (1) edge [loop above] node [above] {$Z$};
+    \draw[->] (0) [loop above] to node [above] {$\neg Z$} (0);
+    \draw[->] (0) [bend left] to node [above] {$Z$} (1);
+    \draw[->] (1) [bend left] to node [below] {$\neg Z$} (0);
+    \draw[->] (1) [loop above] to node [above] {$Z$} (1);
 \end{tikzpicture}
 \end{document}

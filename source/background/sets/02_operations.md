@@ -2,7 +2,7 @@
 
 - sets (notation)
 
-## Union, intersection, and complement of sets
+# Union, intersection, and complement of sets
 
 Sets can be combined with each other in various ways.
 Sometimes this is used as yet another way to define sets, and sometimes it is an actual construction process where multiple sets serve as the input to some mechanism that returns a single set as the output.

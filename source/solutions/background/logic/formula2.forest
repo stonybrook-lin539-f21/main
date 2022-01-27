@@ -1,0 +1,28 @@
+\documentclass[tikz]{standalone}
+\usepackage[linguistics]{forest}
+\begin{document}
+\begin{forest}
+    [$\neg$
+        [$\neg$
+            [$\neg$
+                [$\rightarrow$
+                    [$\rightarrow$
+                        [$p$]
+                        [$q$]
+                    ]
+                    [$\neg$
+                        [$\vee$
+                            [$\neg$
+                                [$p$]
+                            ]
+                            [$\neg$
+                                [$q$]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{forest}
+\end{document}

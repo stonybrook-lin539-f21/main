@@ -1,0 +1,15 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{matrix,positioning}
+\begin{document}
+\begin{tikzpicture}
+    \matrix (m) at (0,0) [matrix of nodes, nodes in empty cells,
+                          row sep=1em, column sep=1em] {
+    |[fill=blue,circle]| & |[fill=purple,circle]| & |[fill=blue,inner sep=.5em]| & |[fill=purple, inner sep=.5em]|\\ 
+    \emph{blip} & not \emph{blip} & \emph{blip} & not \emph{blip} & \phantom{not blip} & \phantom{not blip} & \phantom{not blip}\\
+    not \emph{gnok} & not \emph{gnok} & \emph{gnok} & \emph{gnok}\\
+    not \emph{bnik} & not \emph{bnik} & \emph{bnik} & not \emph{bnik}\\
+    \emph{glop} & \emph{glop} & not \emph{glop} & \emph{glop}\\
+    \emph{blok} & \emph{blok} & \emph{blok}& \emph{blok}\\
+    };
+\end{tikzpicture}
+\end{document}

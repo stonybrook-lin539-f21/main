@@ -1,0 +1,15 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{arrows,arrows.meta,positioning}
+\begin{document}
+\begin{tikzpicture}[%
+    every node/.style = {circle, fill=blue!25, minimum size = 2em}]
+
+    \node (a) at (0,0) {$a$};
+    \node (b) [right=4em of a] {$b$};
+    \node (c) [below=4em of b] {$c$};
+    \node (d) [left=4em of c] {$d$};
+
+    \foreach \Source/\Target in {a/b, b/c, c/d, d/a}
+        \draw[-Latex] (\Source) to (\Target);
+\end{tikzpicture}
+\end{document}

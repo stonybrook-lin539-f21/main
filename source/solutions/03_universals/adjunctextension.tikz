@@ -1,0 +1,24 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{positioning}
+\begin{document}
+\begin{tikzpicture}
+    \node (0) at (0,0) {John snored};
+    \node (10) [above left=2.5em and .25em of 0, anchor=south east] {John snored yesterday};
+    \node (11) [above right=2.5em and .25em of 0, anchor=south west] {John really snored};
+    \node (20) [above=5em of 0, anchor=south] {John really snored yesterday};
+    \node (30) [above left=2.5em and .25em of 20, anchor=south east, align=center] {Allegedly, John really\\ snored yesterday};
+    \node (31) [above right=2.5em and .25em of 20, anchor=south west, align=center] {John really, really\\ snored yesterday};
+    \node (40) [above=2.5em of 31, anchor=south, align=center] {John really, really, really\\ snored yesterday};
+
+    \foreach \Source/\Target in {%
+        0/10,
+        0/11,
+        10/20,
+        11/20,
+        20/30,
+        20/31,
+        31/40%
+        }
+        \draw (\Source) to (\Target);
+\end{tikzpicture}
+\end{document}

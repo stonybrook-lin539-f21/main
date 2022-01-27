@@ -1,0 +1,20 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+      axis lines=middle,
+      axis line style={very thick},
+      axis equal,
+      xmin=-10,xmax=10,ymin=-10,ymax=10,
+      xtick distance=5,
+      ytick distance=5,
+      title={$h(x) = \frac{x^2}{4} - 10$},
+      grid=both,
+      grid style={thin,densely dotted,black!20}]
+      \addplot[domain=-10:10,samples=250,blue,thick] {x^2/4 - 10};
+    \end{axis}
+\end{tikzpicture}
+\end{document}

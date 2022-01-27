@@ -1,7 +1,11 @@
 \documentclass[tikz]{standalone}
+\usepackage[charter]{mathdesign}
 \usetikzlibrary{positioning}
-\providecommand{\emptystring}{\varepsilon}
-\providecommand{\setof}[1]{\left \{ #1 \right \}}
+\providecommand{\emptystring}{\ensuremath{\varepsilon}}
+\providecommand{\setof}[1]{\ensuremath{\left \{ #1 \right \}}}
+\providecommand{\LE}{\ensuremath{\rtimes}}
+\providecommand{\RE}{\ensuremath{\ltimes}}
+
 \begin{document}
 \begin{tikzpicture}
     % level 0
@@ -10,48 +14,48 @@
 
     % level 1
     \node (ee) [above left=3.5em and 9em of null.center, anchor=center,
-                draw=blue!74, dashdotted, thick]  {$\setof{\$\$}$};
+                draw=blue!74, dashdotted, thick]  {$\setof{\LE\RE}$};
     \node (ea) [above left=3.5em and 3em of null.center, anchor=center,
-                draw=red!75, dotted]  {$\setof{\$a}$};
+                draw=red!75, dotted]  {$\setof{\LE a}$};
     \node (ae) [above right=3.5em and 3em of null.center, anchor=center,
-                draw=red!75, dotted]  {$\setof{a\$}$};
+                draw=red!75, dotted]  {$\setof{a\RE}$};
     \node (aa) [above right=3.5em and 9em of null.center, anchor=center,
                 draw=red!75, dotted]  {$\setof{aa}$};
 
     % level 2
     \node (ee-ea) [above left=3.5em and 6em of ee.center, anchor=center,
-                   draw=blue!74, dashdotted, thick]  {$\setof{\$\$, \$a}$};
+                   draw=blue!74, dashdotted, thick]  {$\setof{\LE\RE, \LE a}$};
     \node (ee-ae) [above=3.5em of ee.center, anchor=center,
-                   draw=blue!74, dashdotted, thick]  {$\setof{\$\$, a\$}$};
+                   draw=blue!74, dashdotted, thick]  {$\setof{\LE\RE, a\RE}$};
     \node (ee-aa) [above=3.5em of ea.center, anchor=center,
-                   draw=blue!74, dashdotted, thick]  {$\setof{\$\$, aa}$};
+                   draw=blue!74, dashdotted, thick]  {$\setof{\LE\RE, aa}$};
     \node (ea-ae) [above=3.5em of ae.center, anchor=center,
-                   draw=gray!75, dashed, thick, rounded corners]  {$\setof{\$a, \$a}$};
+                   draw=gray!75, dashed, thick, rounded corners]  {$\setof{\LE a, a\RE}$};
     \node (ea-aa) [above=3.5em of aa.center, anchor=center,
-                   draw=red!75, dotted]  {$\setof{\$a, aa}$};
+                   draw=red!75, dotted]  {$\setof{\LE a, aa}$};
     \node (ae-aa) [above right=3.5em and 6em of aa.center, anchor=center,
-                   draw=red!75, dotted]  {$\setof{a\$, aa}$};
+                   draw=red!75, dotted]  {$\setof{a\RE, aa}$};
 
     % level 3
     \node (ee-ea-ae) [above=3.5em of ee-ae.center, anchor=center,
-                      draw=purple!75, thick]  {$\setof{\$\$, \$a, a\$}$};
+                      draw=purple!75, thick]  {$\setof{\LE\RE, \LE a, a \RE}$};
     \node (ee-ea-aa) [above=3.5em of ee-aa.center, anchor=center,
-                      draw=blue!74, dashdotted, thick]  {$\setof{\$\$, \$a, aa}$};
+                      draw=blue!74, dashdotted, thick]  {$\setof{\LE\RE, \LE a, aa}$};
     \node (ee-ae-aa) [above=3.5em of ea-ae.center, anchor=center,
-                      draw=blue!74, dashdotted, thick]  {$\setof{\$\$, a\$, aa}$};
+                      draw=blue!74, dashdotted, thick]  {$\setof{\LE\RE, a\RE, aa}$};
     \node (ea-ae-aa) [above=3.5em of ea-aa.center, anchor=center,
-                      draw=green!75, fill=green!25, thick, rounded corners]  {$\setof{\$a, a\$, aa}$};
+                      draw=green!75, fill=green!25, thick, rounded corners]  {$\setof{\LE a, a\RE, aa}$};
 
     % level 4
     \node (full) [above right=3.5em and 3em of ee-ea-aa.center, anchor=center,
-                  draw=orange!75, fill=orange!25, thick]  {$\setof{\$\$, \$a, a\$, aa}$};
+                  draw=orange!75, fill=orange!25, thick]  {$\setof{\LE\RE, \LE a, a\RE, aa}$};
 
     % languages
     \node (astar) [right=22em of full.center, anchor=center,
                    draw=orange!75, fill=orange!25, thick] {$a^*$};
-    \node (aplus) [below=3.5em of astar.center, anchor=center,
+    \node (aplus) [below right=3.5em and 3em of astar.center, anchor=center,
                    draw=green!75, fill=green!25, thick, rounded corners] {$a^+$};
-    \node (e-a) [below=3.5em of aplus.center, anchor=center,
+    \node (e-a) [below left=3.5em and 3em of astar.center, anchor=center,
                draw=purple!75, thick] {$\setof{\emptystring, a}$};
     \node (e) [below left=3.5em and 3em of e-a.center, anchor=center,
                draw=blue!74, dashdotted, thick] {$\setof{\emptystring}$};
@@ -97,7 +101,8 @@
         empty/a,
         e/e-a,
         a/e-a,
-        e-a/aplus,
+        a/aplus,
+        e-a/astar,
         aplus/astar%
         }
         \draw (\Source.north) to (\Target.south);

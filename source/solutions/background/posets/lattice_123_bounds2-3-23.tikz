@@ -1,0 +1,28 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{matrix}
+\providecommand{\setof}[1]{\left \{ #1 \right \}}
+\begin{document}
+\begin{tikzpicture}
+\matrix (m) at (0,0) [matrix of nodes, column sep = 1em, row sep=3em] {
+    & |[draw,dashed]| $\setof{1,2,3}$ & \\
+    $\setof{1,2}$ & $\setof{1,3}$ & |[draw,dashed]| \underline{$\setof{2,3}$}\\
+    $\setof{1}$ & \underline{$\setof{2}$} & \underline{$\setof{3}$}\\
+    & |[draw,dashed,circle]| $\emptyset$ & \\
+};
+\foreach \Source/\Target in {
+    1-2/2-1,
+    1-2/2-2,
+    1-2/2-3,
+    2-1/3-1,
+    2-1/3-2,
+    2-2/3-1,
+    2-2/3-3,
+    2-3/3-2,
+    2-3/3-3,
+    3-1/4-2,
+    3-2/4-2,
+    3-3/4-2%
+    }
+    \draw (m-\Source) to (m-\Target);
+\end{tikzpicture}
+\end{document}

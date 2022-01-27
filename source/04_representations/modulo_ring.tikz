@@ -1,0 +1,14 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{arrows,arrows.meta,positioning}
+\tikzset{arrow/.style = {-{Latex[length=.5em]}}}
+
+\begin{document}
+\begin{tikzpicture}
+\node (0) at (0,0) {[0]};
+\node (1) [below right=of 0] {[1]};
+\node (2) [below left=of 0] {[2]};
+
+\foreach \x [remember=\x as \lastx (initially 2)] in {0,1,2}
+    \draw[arrow] (\lastx) to (\x);
+\end{tikzpicture}
+\end{document}

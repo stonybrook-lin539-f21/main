@@ -1,0 +1,19 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{calc, positioning}
+\begin{document}
+\begin{tikzpicture}[%
+    every node/.style = {circle, fill=blue!25, minimum size=2em}]
+
+    \node (0) at (0,0) {0};
+    \node (3) [right=4em of 0] {3};
+    \node (6) [below=4em of 3] {6};
+    \node (9) [left=4em of 6] {9};
+
+    \foreach \Source/\Target in {
+        0/3,
+        0/9,
+        3/6,
+        6/9}
+        \draw (\Source) to (\Target);
+\end{tikzpicture}
+\end{document}

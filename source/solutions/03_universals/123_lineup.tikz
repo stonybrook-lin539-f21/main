@@ -1,0 +1,10 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{matrix,positioning}
+\begin{document}
+\begin{tikzpicture}
+\matrix (m) at (0,0) [matrix of nodes, column sep = 1em, row sep=3em] {
+    1 & $\leq$ & 2 & $\leq$ & 3\\
+    A &        & B &        & C\\
+};
+\end{tikzpicture}
+\end{document}

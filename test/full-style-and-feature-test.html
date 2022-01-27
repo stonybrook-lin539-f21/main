@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Style and Feature Test</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/home/zuw1/Latex/School/lin539_kennethfork/includes/web-custom.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Style and Feature Test</h1>
+</header>
+<p>This document is for testing styling in web (HTML/CSS) and PDF (LaTeX) output.</p>
+<h2 id="sections">Sections</h2>
+<p>Text in section.</p>
+<h3 id="subsection">Subsection</h3>
+<p>Text in subsection.</p>
+<h2 id="text-formatting">Text formatting</h2>
+<p>Start of section.</p>
+<p>New paragraph.</p>
+<ul>
+<li>List item</li>
+<li>List item</li>
+<li>List item
+<ul>
+<li>List subitem</li>
+<li>List subitem</li>
+</ul></li>
+</ul>
+<p>Paragraph after list.</p>
+<ol type="1">
+<li>Numbered list item</li>
+<li>Numbered list item</li>
+<li>Numbered list item</li>
+</ol>
+<p>Here is a quote block.</p>
+<blockquote>
+<p>This is a quote block.</p>
+</blockquote>
+<p>Here is a code block.</p>
+<p><code>This is a code block.</code></p>
+<p>Here is a table.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Right</th>
+<th style="text-align: left;">Left</th>
+<th>Default</th>
+<th style="text-align: center;">Center</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">12</td>
+<td>12</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">123</td>
+<td style="text-align: left;">123</td>
+<td>123</td>
+<td style="text-align: center;">123</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1</td>
+<td>1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Before horizontal rule</p>
+<hr />
+<p>After horizontal rule</p>
+<h2 id="math">Math</h2>
+<p>Here is some inline math: <span class="math inline">\(y = mx + b\)</span>.</p>
+<p>And some display math:</p>
+<p><span class="math display">\[y = mx + b\]</span></p>
+<p>Now for some math using custom macros.</p>
+<p><span class="math inline">\(\left \langle a, b, c \right \rangle\)</span></p>
+<p><span class="math inline">\(\left \{ a, b, c \right \}\)</span></p>
+<h2 id="images">Images</h2>
+<p>PNG image at natural size.</p>
+<p><img src="images/sbuling-logo.png" alt="test image" /></p>
+<p>Image with custom size.</p>
+<p><img src="images/sbuling-logo.png" style="width:1in" alt="small image" /></p>
+<h2 id="custom-blocks">Custom blocks</h2>
+<div class="advice">
+<p>This is some advice.</p>
+</div>
+<div class="theorem">
+<p>This is a theorem.</p>
+</div>
+<div class="lemma">
+<p>This is a lemma.</p>
+</div>
+<div class="definition">
+<p>This is a definition.</p>
+</div>
+<div class="example">
+<p>This is a theorem.</p>
+</div>
+<div class="exercise">
+<p>This is an exercise.</p>
+</div>
+<div class="exercise">
+<p>This is an exercise with an answer. The answer will appear at the bottom of the document.</p>
+<details class="exr-answer">
+<summary>Show Answer</summary>
+<p>This is the answer to an exercise.</p>
+</details>
+</div>
+<h2 id="custom-includes">Custom includes</h2>
+<p>Simple included .tikz file.</p>
+<p><img src="images/abaa.svg" alt="images/abaa.svg" /></p>
+<p>Custom size. (Not yet implemented.)</p>
+<p><img src="images/abaa.svg" alt="images/abaa.svg" /></p>
+</body>
+</html>

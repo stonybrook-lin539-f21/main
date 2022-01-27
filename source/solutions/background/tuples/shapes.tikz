@@ -1,0 +1,14 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{positioning}
+\begin{document}
+\begin{tikzpicture}
+    \node (sb) at (0,0)
+        [draw=blue!75, fill=blue!75, minimum size=1em] {};
+    \node (cb) [right=2em of sb,
+                draw=blue!75, fill=blue!75, minimum size=1em, circle] {};
+    \node (sr) [below=2em of sb,
+                draw=red!75, fill=red!75, minimum size=1em] {};
+    \node (cr) [right=2em of sr,
+                draw=red!75, fill=red!75, minimum size=1em, circle] {};
+\end{tikzpicture}
+\end{document}

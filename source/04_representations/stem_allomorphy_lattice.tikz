@@ -4,7 +4,7 @@
 \begin{document}
 \begin{tikzpicture}
 \node (nom) at (0,0) {Nom};
-\node (acc) [below=of nom] {\{Acc,Gen,Dat,others\}};
+\node (acc) [below=of nom] {Acc,Gen,Dat,Others};
 
 \foreach \Source/\Target in {%
     nom/acc}

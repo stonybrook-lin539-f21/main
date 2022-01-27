@@ -1,0 +1,17 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{arrows,arrows.meta,positioning}
+\begin{document}
+\begin{tikzpicture}[%
+    every node/.style = {circle, fill=blue!25, minimum size = 2em}]
+
+    \node (0) at (0,0) {0};
+    \draw[-Latex] (0) to [out=55, in=125] (0);
+    \foreach \n [remember=\n as \lastn (initially 0)] in {1,...,4}
+        {
+        \node (\n) [right=2em of \lastn] {\n};
+        \draw[-Latex] (\n) to [out=55, in=125] (\n);
+        \draw[-Latex] (\lastn) to (\n);
+        }
+    \draw[-Latex,dotted] (4.east) -- +(2em,0);
+\end{tikzpicture}
+\end{document}

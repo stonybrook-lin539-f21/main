@@ -68,6 +68,11 @@ BOOK_CHAPS = ["01_intro", "02_n-grams", "03_universals", "04_representations",
 BOOK_CHAPS += [f"background/{subch}" for subch in
                ["algebra", "functions", "general", "graphs", "logic", "multisets",
                 "posets", "relations", "sets", "strings", "tuples"]]
+# BOOK_CHAPS += ["solutions/01_intro", "solutions/02_n-grams", "solutions/03_universals", "solutions/04_representations",
+#               "solutions/05_automata"]
+# BOOK_CHAPS += [f"solutions/background/{subch}" for subch in
+#                ["functions", "general", "graphs", "logic", "multisets",
+#                 "posets", "relations", "sets", "strings", "tuples"]]
 
 
 def task_modcommands():

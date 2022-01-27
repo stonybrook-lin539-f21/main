@@ -1,0 +1,29 @@
+\documentclass[tikz]{standalone}
+\usepackage[linguistics]{forest}
+\begin{document}
+\begin{forest}
+    [$\varepsilon$
+        [0
+            [0-0 [0-0-0]]
+            [0-1 [0-1-0]]
+            [0-2 [0-2-0]]
+        ]
+        [1
+            [1-0
+                [1-0-0 [1-0-0-0]]
+                [1-0-1
+                    [1-0-1-0 [1-0-1-0-0]]
+                    [1-0-1-1 [1-0-1-1-0]]
+                ]
+            ]
+            [1-1
+                [1-1-0 [1-1-0-0]]
+                [1-1-1
+                    [1-1-1-0 [1-1-1-0-0]]
+                    [1-1-1-1 [1-1-1-1-0]]
+                ]
+            ]
+        ]
+    ]
+\end{forest}
+\end{document}

@@ -1,0 +1,18 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{positioning}
+\begin{document}
+\begin{tikzpicture}[%
+    every node/.style = {circle, fill=blue!25, minimum size = 2em}]
+
+    \node (t1) at (0,0) {a$_1$};
+    \node (b1) [below=4em of t1] {a$_2$};
+    \draw[->] (t1) to (b1);
+
+    \foreach \Node/\Label [remember=\Node as \LastNode (initially 1)] in {2/b,3/c,4/d}
+    {
+        \node (t\Node) [right=4em of t\LastNode] {\Label$_1$};
+        \node (b\Node) [below=4em of t\Node] {\Label$_2$};
+        \draw[->] (t\Node) to (b\Node);
+    }
+\end{tikzpicture}
+\end{document}

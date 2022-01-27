@@ -1,0 +1,15 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{arrows,arrows.meta,positioning}
+\tikzset{arrow/.style = {-{Latex[length=.5em]}}}
+\begin{document}
+\begin{tikzpicture}[
+    every node/.style = {circle, fill=blue!25, minimum size = 2em}]
+\node (1) at (0,0) {1};
+\node (2) [right=of 1] {2};
+\node (3) [right=of 2] {3};
+\node (4) [right=of 3] {4};
+
+\foreach \Source in {1,2,3,4}
+    \draw[arrow] (\Source) .. controls +(120:3em) and +(60:3em) .. (\Source);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{positioning}
+\begin{document}
+\begin{tikzpicture}
+    % sentence 1
+    \node (j) at (0,0) {John snored};
+    \node (jr) [above left=2em and 2em of j] {John really snored};
+    \node (jrr) [above left=2em and 0em of jr] {John really really snored};
+    \node (jl) [right=1em of jr] {John snored loudly};
+    \node (jy) [right=1em of jl] {John snored yesterday};
+
+    % sentence 2
+    \node (m) [below left=10em and 8em of j] {Mary slept};
+    \node (mr) [above left=2em and 2em of m] {Mary really slept};
+    \node (mrr) [above left=2em and 0em of mr] {Mary really really slept};
+    \node (ml) [right=1em of mr] {Mary slept loudly};
+    \node (my) [right=1em of ml] {Mary slept yesterday};
+
+    % sentence 3
+    \node (s) [below right=10em and 24em of j] {Sue likes Mary};
+    \node (sr) [above left=2em and 2em of s] {Sue really likes Mary};
+    \node (srr) [above left=2em and 0em of sr] {Sue really really likes Mary};
+    \node (sl) [right=1em of sr] {Sue likes Mary loudly};
+    \node (sy) [right=1em of sl] {Sue likes Mary yesterday};
+
+    \foreach \Source/\Target in {%
+        j/jr,
+        j/jl,
+        j/jy,
+        jr/jrr,
+        m/mr,
+        m/ml,
+        m/my,
+        mr/mrr,
+        s/sr,
+        s/sl,
+        s/sy,
+        sr/srr%
+        }
+        \draw (\Source.north) to (\Target.south);
+
+    \foreach \Lattice in {j,m,s}
+        \foreach \String in {r,l,y,rr}
+            {
+            \draw[dotted] (\Lattice\String) -- +(-2em,3em);
+            \draw[dotted] (\Lattice\String) -- +(0em,3em);
+            \draw[dotted] (\Lattice\String) -- +(2em,3em);
+            }
+\end{tikzpicture}
+\end{document}

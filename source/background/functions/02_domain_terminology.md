@@ -1,4 +1,4 @@
-## Domains and co-domains
+# Domains and co-domains
 
 Every function has a **domain** and a **co-domain**.
 The domain is the set of objects from which its arguments can be drawn, and the **co-domain** is the set of objects from which outputs can be drawn.

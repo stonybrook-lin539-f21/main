@@ -1,0 +1,19 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{positioning}
+\begin{document}
+\begin{tikzpicture}
+\node (nom) at (0,0) {Nom};
+\node (acc) [below left=of nom] {Acc};
+\node (gen) [below right=of nom] {Gen};
+\node (dat) [below right=of acc] {Dat};
+\node (other) [below=of dat] {Others};
+
+\foreach \Source/\Target in {%
+    nom/acc,
+    nom/gen,
+    acc/dat,
+    gen/dat,
+    dat/other}
+    \draw (\Source) to (\Target);
+\end{tikzpicture}
+\end{document}

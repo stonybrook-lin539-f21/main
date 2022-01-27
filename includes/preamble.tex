@@ -48,6 +48,31 @@
     % \smallskip\noindent%
 }
 
+\newenvironment{solution}[1][\unskip]{%
+    \bigskip%
+    \noindent\ignorespaces%
+    \begin{tcolorbox}[
+      blanker,
+      width=0.85\textwidth,enlarge left by=0.15\textwidth,
+      before skip=6pt,
+      breakable,
+      overlay unbroken and first={%
+        \node[inner sep=0pt,outer sep=0pt,text width=0.15\textwidth,
+          align=left,
+          below right]
+          at ([xshift=-0.15\textwidth]frame.north west)
+      {%
+        \noindent%
+        \bfseries\color[HTML]{8A2194}
+        #1%
+        Solution\\
+      };}]%
+}%
+{%
+    \end{tcolorbox}%
+    % \smallskip\noindent%
+}
+
 \providebool{showanswers}
 \newcommand{\exranswerlist}{}
 \NewEnviron{exranswer}{\ifbool{showanswers}{%

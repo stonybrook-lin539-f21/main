@@ -1,0 +1,49 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{calc, positioning}
+\begin{document}
+\begin{tikzpicture}[%
+    every node/.style = {circle, fill=blue!25, minimum size=2em}]
+
+    \node (0) at (0,0) {0};
+    \node (3) [right=4em of 0] {3};
+    \node (6) [below=4em of 3] {6};
+    \node (9) [left=4em of 6] {9};
+
+    \foreach \Source/\Target in {
+        0/3,
+        0/6,
+        0/9,
+        3/6,
+        3/9,
+        6/9}
+        \draw (\Source) to (\Target);
+
+    \node (1) at (10em,0) {1};
+    \node (4) [right=4em of 1] {4};
+    \node (7) [below=4em of 4] {7};
+    \node (10) [left=4em of 7] {10};
+
+    \foreach \Source/\Target in {
+        1/4,
+        1/7,
+        1/10,
+        4/7,
+        4/10,
+        7/10}
+        \draw (\Source) to (\Target);
+
+    \node (2) at (20em,0) {2};
+    \node (5) [right=4em of 2] {5};
+    \node (8) [below=4em of 5] {8};
+    \node (11) [left=4em of 8] {11};
+
+    \foreach \Source/\Target in {
+        2/5,
+        2/8,
+        2/11,
+        5/8,
+        5/11,
+        8/11}
+        \draw (\Source) to (\Target);
+\end{tikzpicture}
+\end{document}

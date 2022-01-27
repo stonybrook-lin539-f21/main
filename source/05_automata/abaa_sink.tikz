@@ -7,13 +7,12 @@
     \node[state] (2) [right=of 1] {2};
     \node[state] (3) [above=of 1] {S};
 
-%    \path[->]
-%        (0) edge node [above] {a} (1)
-%            edge node [above] {b} (3)
-%        (1) edge node [above] {b} (2)
-%            edge node [left]  {a} (3)
-%        (2) edge [bend left] node [below] {a} (0)
-%            edge node [above] {b} (3)
-%        (3) edge [loop above] node {a,b};
+    \draw[->] (0) to node [above] {a} (1);
+    \draw[->] (0) to node [above] {b} (3);
+    \draw[->] (1) to node [above] {b} (2);
+    \draw[->] (1) to node [left]  {a} (3);
+    \draw[->] (2) [bend left] to node [below] {a} (0);
+    \draw[->] (2) to node [above] {b} (3);
+    \draw[->] (3) [loop above] to node {a,b} (3);
 \end{tikzpicture}
 \end{document}

@@ -1,0 +1,12 @@
+\documentclass[tikz]{standalone}
+\usepackage[linguistics]{forest}
+\begin{document}
+\begin{forest}
+    [$\wedge$
+        [$p$]
+        [$\neg$
+            [$q$]
+        ]
+    ]
+\end{forest}
+\end{document}

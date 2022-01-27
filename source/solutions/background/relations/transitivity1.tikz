@@ -1,0 +1,14 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{positioning}
+\begin{document}
+\begin{tikzpicture}[%
+    every node/.style = {circle, fill=blue!25, minimum size = 2em}]
+
+    \node (1) at (0,0) {a};
+    \foreach \Node/\Label [remember=\Node as \LastNode (initially 1)] in {2/b,3/c,4/d}
+    {
+        \node (\Node) [right=4em of \LastNode] {\Label};
+        \draw[->] (\LastNode) to (\Node);
+    }
+\end{tikzpicture}
+\end{document}

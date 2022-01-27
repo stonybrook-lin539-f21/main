@@ -6,11 +6,10 @@
     \node[state, accepting ] (1) [right=of 0] {1};
     \node[state, accepting ] (2) [right=of 1] {2};
 
-%    \path[->]
-%        (0) edge [loop above] node [above] {L}
-%            edge node [above] {H} (1)
-%        (1) edge [loop above] node [above] {H} (1)
-%        (1) edge node [above] {L} (2)
-%        (2) edge [loop above] node [above] {L} (2);
+   \draw[->] (0) [loop above] to node [above] {L} (0);
+   \draw[->] (0) to node [above] {H} (1);
+   \draw[->] (1) [loop above] to node [above] {H} (1);
+   \draw[->] (1) to node [above] {L} (2);
+   \draw[->] (2) [loop above] to node [above] {L} (2);
 \end{tikzpicture}
 \end{document}

@@ -1,0 +1,22 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+      axis line style={white},
+      xmin=0,xmax=2,ymin=0,ymax=2,
+      xtick distance=1,
+      ytick distance=1,
+      xlabel=Person,
+      ylabel=Form,
+      xticklabels={,1,2,3},
+      yticklabels={,A,B,C},
+      title={ABA},
+      grid=major,
+      grid style={thin,densely dotted,black!20}]
+      \addplot coordinates {(0,0) (1,1) (2,0)};
+    \end{axis}
+\end{tikzpicture}
+\end{document}

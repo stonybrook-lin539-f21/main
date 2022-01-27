@@ -1,0 +1,12 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{arrows,arrows.meta,positioning}
+\begin{document}
+\begin{tikzpicture}[%
+    every node/.style = {circle, fill=blue!25, minimum size = 2em}]
+
+    \node (t1) at (0,0) {$a$};
+    \node (b1) [right=4em of t1] {$b$};
+    \draw[-Latex, bend left] (t1) to (b1);
+    \draw[-Latex, bend left] (b1) to (t1);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,129 @@
+\documentclass[tikz]{standalone}
+\usepackage[charter]{mathdesign}
+\usetikzlibrary{positioning}
+\providecommand{\emptystring}{\ensuremath{\varepsilon}}
+\providecommand{\setof}[1]{\ensuremath{\left \{ #1 \right \}}}
+\providecommand{\LE}{\ensuremath{\rtimes}}
+\providecommand{\RE}{\ensuremath{\ltimes}}
+
+\begin{document}
+\begin{tikzpicture}
+    % level 0
+    \node (null) at (0,0) [
+        draw=red!75, dotted] {$\emptyset$};
+
+    % level 1
+    \node (ee) [above left=3.5em and 9em of null.center, anchor=center,
+                draw=blue!74, dashdotted, thick]  {$\setof{\LE\RE}$};
+    \node (ea) [above left=3.5em and 3em of null.center, anchor=center,
+                draw=red!75, dotted]  {$\setof{\LE a}$};
+    \node (ae) [above right=3.5em and 3em of null.center, anchor=center,
+                draw=red!75, dotted]  {$\setof{a\RE}$};
+    \node (aa) [above right=3.5em and 9em of null.center, anchor=center,
+                draw=red!75, dotted]  {$\setof{aa}$};
+
+    % level 2
+    \node (ee-ea) [above left=3.5em and 6em of ee.center, anchor=center,
+                   draw=blue!74, dashdotted, thick]  {$\setof{\LE\RE, \LE a}$};
+    \node (ee-ae) [above=3.5em of ee.center, anchor=center,
+                   draw=blue!74, dashdotted, thick]  {$\setof{\LE\RE, a\RE}$};
+    \node (ee-aa) [above=3.5em of ea.center, anchor=center,
+                   draw=blue!74, dashdotted, thick]  {$\setof{\LE\RE, aa}$};
+    \node (ea-ae) [above=3.5em of ae.center, anchor=center,
+                   draw=gray!75, dashed, thick, rounded corners]  {$\setof{\LE a, a\RE}$};
+    \node (ea-aa) [above=3.5em of aa.center, anchor=center,
+                   draw=red!75, dotted]  {$\setof{\LE a, aa}$};
+    \node (ae-aa) [above right=3.5em and 6em of aa.center, anchor=center,
+                   draw=red!75, dotted]  {$\setof{a\RE, aa}$};
+
+    % level 3
+    \node (ee-ea-ae) [above=3.5em of ee-ae.center, anchor=center,
+                      draw=purple!75, thick]  {$\setof{\LE\RE, \LE a, a \RE}$};
+    \node (ee-ea-aa) [above=3.5em of ee-aa.center, anchor=center,
+                      draw=blue!74, dashdotted, thick]  {$\setof{\LE\RE, \LE a, aa}$};
+    \node (ee-ae-aa) [above=3.5em of ea-ae.center, anchor=center,
+                      draw=blue!74, dashdotted, thick]  {$\setof{\LE\RE, a\RE, aa}$};
+    \node (ea-ae-aa) [above=3.5em of ea-aa.center, anchor=center,
+                      draw=green!75, fill=green!25, thick, rounded corners]  {$\setof{\LE a, a\RE, aa}$};
+
+    % level 4
+    \node (full) [above right=3.5em and 3em of ee-ea-aa.center, anchor=center,
+                  draw=orange!75, fill=orange!25, thick]  {$\setof{\LE\RE, \LE a, a\RE, aa}$};
+
+    % languages
+    \node (astar) [right=22em of full.center, anchor=center,
+                   draw=orange!75, fill=orange!25, thick] {$a^*$};
+    \node (aplus) [below=3.5em of astar.center, anchor=center,
+                   draw=green!75, fill=green!25, thick, rounded corners] {$a^+$};
+    \node (e-a) [below=3.5em of aplus.center, anchor=center,
+               draw=purple!75, thick] {$\setof{\emptystring, a}$};
+    \node (e) [below left=3.5em and 3em of e-a.center, anchor=center,
+               draw=blue!74, dashdotted, thick] {$\setof{\emptystring}$};
+    \node (a) [below right=3.5em and 3em of e-a.center, anchor=center,
+               draw=gray!75, dashed, thick, rounded corners] {$\setof{a}$};
+    \node (empty) [below right=3.5em and 3em of e.center, anchor=center,
+                   draw=red!75, dotted] {$\emptyset$};
+
+    \foreach \Source/\Target in {%
+        null/ee,
+        null/ea,
+        null/ae,
+        null/aa,
+        ee/ee-ea,
+        ee/ee-ae,
+        ee/ee-aa,
+        ea/ee-ea,
+        ea/ea-ae,
+        ea/ea-aa,
+        ae/ee-ae,
+        ae/ea-ae,
+        ae/ae-aa,
+        aa/ee-aa,
+        aa/ea-aa,
+        aa/ae-aa,
+        ee-ea/ee-ea-ae,
+        ee-ea/ee-ea-aa,
+        ee-ae/ee-ea-ae,
+        ee-ae/ee-ae-aa,
+        ee-aa/ee-ea-aa,
+        ee-aa/ee-ae-aa,
+        ea-ae/ee-ea-ae,
+        ea-ae/ea-ae-aa,
+        ea-aa/ee-ea-aa,
+        ea-aa/ea-ae-aa,
+        ae-aa/ee-ae-aa,
+        ae-aa/ea-ae-aa,
+        ee-ea-ae/full,
+        ee-ea-aa/full,
+        ee-ae-aa/full,
+        ea-ae-aa/full,
+        empty/e,
+        empty/a,
+        e/e-a,
+        a/e-a,
+        e-a/aplus,
+        aplus/astar%
+        }
+        \draw (\Source.north) to (\Target.south);
+
+    % \foreach \Source/\Target/\Color in {%
+    %     null/empty/red!75,
+    %     ee/e/blue!75,
+    %     ea/empty/red!75,
+    %     ae/empty/red!75,
+    %     aa/empty/red!75,
+    %     ee-ea/e/blue!75,
+    %     ee-ae/e/blue!75,
+    %     ee-aa/e/blue!75,
+    %     ea-ae/a/brown!75,
+    %     ea-aa/empty/red!75,
+    %     ae-aa/empty/red!75,
+    %     ee-ea-ae/e-a/purple!75,
+    %     ee-ea-aa/e/blue!75,
+    %     ee-ae-aa/e/blue!75,
+    %     ea-ae-aa/aplus/orange!75,
+    %     full/astar/green!75%
+    %     }
+    %     \draw[\Color, bend left=30,dashed, thick] (\Source) to (\Target);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,14 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{matrix}
+\begin{document}
+\begin{tikzpicture}
+\matrix (m) at (0,0) [matrix of nodes, column sep = 1em, row sep=3em] {%
+    T\\
+    F\\
+};
+\foreach \Source/\Target in {%
+    1-1/2-1%
+    }
+    \draw (m-\Source) to (m-\Target);
+\end{tikzpicture}
+\end{document}

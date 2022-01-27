@@ -1,0 +1,17 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{matrix,positioning}
+\begin{document}
+\begin{tikzpicture}
+    \matrix (m) at (0,0) [matrix of nodes, nodes in empty cells,
+                          row sep=1em, column sep=1em] {
+    |[fill=blue,circle]| & |[fill=purple,circle]| & |[fill=blue,inner sep=.5em]| & |[fill=purple, inner sep=.5em]| & |[fill=brown,circle]| & |[fill=brown,inner sep=.5em]| & \\
+    \emph{blip} & not \emph{blip} & \emph{blip} & not \emph{blip} & \emph{blip} & \emph{blip} & \emph{blip}\\
+    not \emph{gnok} & not \emph{gnok} & \emph{gnok} & \emph{gnok} & \emph{gnok} & \emph{gnok} & \emph{gnok}\\
+    not \emph{bnik} & not \emph{bnik} & \emph{bnik} & not \emph{bnik} & \emph{bnik} & \emph{bnik} & \emph{bnik}\\
+    \emph{glop} & \emph{glop} & not \emph{glop} & \emph{glop} & \emph{glop} & \emph{glop} & \emph{glop}\\
+    \emph{blok} & \emph{blok} & \emph{blok}& \emph{blok} & not \emph{blok} & not \emph{blok} & not \emph{blok}\\
+    };
+
+    \fill[brown] (m-1-7.north) -- +(.75em,-1em) -- +(-.75em, -1em) -- cycle;
+\end{tikzpicture}
+\end{document}

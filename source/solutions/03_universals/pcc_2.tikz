@@ -1,0 +1,9 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{positioning}
+\begin{document}
+\begin{tikzpicture}
+    \node (T) at (0,0) {T};
+    \node (F) [below of=T] {F};
+    \draw (T) to (F);
+\end{tikzpicture}
+\end{document}

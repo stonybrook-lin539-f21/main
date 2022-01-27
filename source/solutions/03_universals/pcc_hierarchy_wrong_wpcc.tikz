@@ -1,0 +1,41 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{positioning}
+\begin{document}
+\begin{tikzpicture}
+    \node (fake) at (0,0) {\phantom{1,1}};
+    \node (12) [above left=of fake]  {1,2};
+    \node (13) [below left=of 12] {1,3};
+    \node (21) [above right=of fake] {2,1};
+    \node (23) [below right=of 13] {2,3};
+    \node (31) [below right=of 21] {3,1};
+    \node (32) [below left=of 31] {3,2};
+
+    \node (T) [above right=of 31] {T};
+    \node (F) [below right=of 31] {F};
+
+    \foreach \Source/\Target in {%
+        12/13,
+        12/32,
+        21/23,
+        21/31,
+        13/23,
+        31/32,
+        T/F%
+        }
+        \draw (\Source) to (\Target);
+
+    \foreach \Source/\Target in {%
+        12/T,
+        13/T,
+        21/T,
+        23/T%
+        }
+        \draw[->,blue!75,dashed,thick,bend left=20] (\Source) to (\Target);
+
+    \foreach \Source/\Target in {%
+        31/F,
+        32/F%
+        }
+        \draw[->,red!75,dotted,thick,bend right=20] (\Source) to (\Target);
+\end{tikzpicture}
+\end{document}
